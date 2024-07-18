@@ -7,6 +7,6 @@ public class BaseCenter : MonoBehaviour
     public static BaseCenter Instance;
     private void Start()
     {
-        BaseCenter instance = Instance;
+        Instance = this;
     }
 }
