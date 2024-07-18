@@ -13,7 +13,7 @@ public class Pathfinder : MonoBehaviour
         body=GetComponent<Rigidbody>();
         agent=GetComponent<NavMeshAgent>();
     }
-    void getMousePos()
+    void goToMousePos()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
@@ -25,13 +25,20 @@ public class Pathfinder : MonoBehaviour
             agent.SetDestination(intersectionPoint);
         }
     }
+    void goToBaseCenter()
+    {
+        if (BaseCenter.Instance != null)
+        {
+            agent.SetDestination(BaseCenter.Instance.transform.position);
+        }
+    }
     void Update()
     {
         body.isKinematic = agent.isOnNavMesh;
 
-        if (Input.GetMouseButtonDown(0)&&agent.enabled)
+        if(agent.enabled)
         {
-            getMousePos();
+            goToBaseCenter();
         }
     }
 }
