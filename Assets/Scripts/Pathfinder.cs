@@ -6,8 +6,14 @@ using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshAgent))]
 public class Pathfinder : MonoBehaviour
 {
+    public enum PathType {DebugChargeBase,FollowPaths };
+    public PathType MoveType;
+
     private Rigidbody body;
     private NavMeshAgent agent;
+
+
+    private PathNode currentNode;
     void Start()
     {
         body=GetComponent<Rigidbody>();
@@ -33,13 +39,45 @@ public class Pathfinder : MonoBehaviour
             
         }
     }
+    bool goToNextNode()
+    {
+        if(currentNode == null)
+        {
+            currentNode = PathManager.Instance.EntryNode;
+        }
+
+        agent.SetDestination(currentNode.transform.position);
+        if (Vector3.Distance(transform.position, currentNode.transform.position) < 2f)
+        {
+            return true;
+        }
+        else
+            return false;
+    }
     void Update()
     {
         body.isKinematic = agent.isOnNavMesh;
 
         if(agent.enabled)
         {
-            goToBaseCenter();
+            if (MoveType == PathType.DebugChargeBase)
+            {
+                goToBaseCenter();
+            }
+            else
+            {
+
+                if (goToNextNode())
+                {
+                    //Just reached the nextNode
+                    PathNode nextNode = currentNode.getNext();
+                    if (nextNode != null)
+                    {
+                        currentNode = nextNode;
+                    }
+
+                }
+            }
         }
     }
 }
