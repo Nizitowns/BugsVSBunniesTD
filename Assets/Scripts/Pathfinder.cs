@@ -30,6 +30,7 @@ public class Pathfinder : MonoBehaviour
         if (BaseCenter.Instance != null)
         {
             agent.SetDestination(BaseCenter.Instance.transform.position);
+            
         }
     }
     void Update()
