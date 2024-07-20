@@ -49,6 +49,9 @@ public class EnemySpawner : MonoBehaviour
             {
                 Instantiate(current.Prefab, transform.position, transform.rotation, transform);
                 yield return new WaitForSeconds(current.SpawnDelayTime);
+                
+
+
             }
 
 
