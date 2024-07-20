@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 
-public class towerBehavior : MonoBehaviour
+public class TowerBehavior : MonoBehaviour
 {
 
     SphereCollider myCollider;
@@ -11,31 +11,29 @@ public class towerBehavior : MonoBehaviour
     //per second
     public float fireRate;
     // Start is called before the first frame update
-    List<int> list = new List<int>();
+    List<GameObject> targetList = new List<GameObject>(); //We can switch GameObject to instances of the Enemy class
     void Start()
     {
         myCollider=GetComponent<SphereCollider>();
         myCollider.radius=AttackRadius;
-        Debug.Log("hello");
 
 
+        StartCoroutine(FireLoop());
     }
 
 
     private void OnTriggerEnter(Collider other)
     {
         //Debug.Log(other+" "+other.GetInstanceID()+" entered");
-        list.Add(other.GetInstanceID());
+        targetList.Add(other.gameObject);
         //printList(list);
-        StartCoroutine(startFire(other.gameObject));
 
     }
     private void OnTriggerExit(Collider other)
     {
         //Debug.Log(other + " " + other.GetInstanceID()+ " exited");
-        list.Remove(other.GetInstanceID());
+        targetList.Remove(other.gameObject);
         //printList(list);
-        StopCoroutine(startFire(other.gameObject));
 
     }
     //for testing
@@ -50,23 +48,24 @@ public class towerBehavior : MonoBehaviour
         Debug.Log(numbs);
 
     }
-    //pick a random enemy to attack
-    int enemyID;
 
-    private IEnumerator startFire(GameObject unit)
+    private IEnumerator FireLoop()
     {
-        enemyID = Random.Range(0, list.Count-1);
         while (true)
         {
-            Debug.Log("PEW! hit enemy "+ enemyID+ " with id "+ unit.GetComponent<Collider>().GetInstanceID()+ " at location "+ unit.transform.position);
-            yield return new WaitForSeconds(fireRate);
+            if (targetList.Count > 0)
+            {
+
+                //pick a random enemy to attack
+                int enemyID= Random.Range(0, targetList.Count - 1);
+                GameObject unit = targetList[enemyID];
+                Debug.Log("PEW! hit enemy " + unit + " at location " + unit.transform.position);
+                yield return new WaitForSeconds(fireRate);
+            }
+
+            yield return new WaitForEndOfFrame();
         }
 
-        
-    }
-    // Update is called once per frame
-    void Update()
-    {
         
     }
 }

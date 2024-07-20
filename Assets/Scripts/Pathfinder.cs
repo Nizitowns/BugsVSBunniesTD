@@ -48,7 +48,7 @@ public class Pathfinder : MonoBehaviour
         }
 
         agent.SetDestination(currentNode.transform.position);
-        if (Vector3.Distance(transform.position, currentNode.transform.position) < 2f)
+        if (Vector3.Distance(transform.position, currentNode.transform.position) < currentNode.NodeRadius)
         {
             return true;
         }

@@ -6,6 +6,8 @@ public class PathNode : MonoBehaviour
 {
     public PathNode nextNode;
     public PathNode altNextNode;
+    [Tooltip("How close enemies must get to this node before it is counted as reached.")]
+    public float NodeRadius=0.5f;
 
     public PathNode getNext()
     {
