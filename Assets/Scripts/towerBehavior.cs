@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
+using static UnityEngine.GraphicsBuffer;
 
 public class TowerBehavior : MonoBehaviour
 {
@@ -16,8 +18,6 @@ public class TowerBehavior : MonoBehaviour
     {
         myCollider=GetComponent<SphereCollider>();
         myCollider.radius=AttackRadius;
-
-
         StartCoroutine(FireLoop());
     }
 
@@ -51,6 +51,7 @@ public class TowerBehavior : MonoBehaviour
 
     private IEnumerator FireLoop()
     {
+        GameObject prefab = GameObject.Find("Bullet");
         while (true)
         {
             if (targetList.Count > 0)
@@ -60,6 +61,10 @@ public class TowerBehavior : MonoBehaviour
                 int enemyID= Random.Range(0, targetList.Count - 1);
                 GameObject unit = targetList[enemyID];
                 Debug.Log("PEW! hit enemy " + unit + " at location " + unit.transform.position);
+                prefab.GetComponent<bulletBehavior>().enemy = unit;
+                //prefab.GetComponent<bulletBehavior>().setTargetPosition(unit);
+                //the weird y position is so the bullet shoots from the top instaed of the middle. adjust as needed
+                Instantiate(prefab, (this.transform.localPosition+new Vector3 (0,1,0)), Quaternion.identity);
                 yield return new WaitForSeconds(fireRate);
             }
 

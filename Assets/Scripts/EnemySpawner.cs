@@ -31,6 +31,7 @@ public class EnemySpawner : MonoBehaviour
 
     public void Start()
     {
+
         StartCoroutine(EnemySpawnerLoop());
     }
 

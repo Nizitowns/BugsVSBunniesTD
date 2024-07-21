@@ -14,6 +14,8 @@ public class Pathfinder : MonoBehaviour
 
 
     private PathNode currentNode;
+
+    
     
     void Start()
     {
