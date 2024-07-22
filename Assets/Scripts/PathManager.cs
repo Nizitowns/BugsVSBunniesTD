@@ -15,6 +15,7 @@ public class PathManager : MonoBehaviour
     {
         Gizmos.color = Color.yellow;
         PathNode node =transform.GetChild(0).GetComponent<PathNode>();
+        List<PathNode> visited = new List<PathNode>();
         Queue<PathNode> queue = new Queue<PathNode>();
         queue.Enqueue(node);
         if (EntryNode == null)
@@ -23,17 +24,20 @@ public class PathManager : MonoBehaviour
         while(queue.Count > 0)
         {
             PathNode cur= queue.Dequeue();
+            visited.Add(cur);
             if (cur != null)
             {
                 if (cur.nextNode != null)
                 {
                     Gizmos.DrawLine(cur.transform.position, cur.nextNode.transform.position);
-                    queue.Enqueue(cur.nextNode);
+                    if(!visited.Contains(cur.nextNode))
+                        queue.Enqueue(cur.nextNode);
                 }
                 if (cur.altNextNode != null)
                 {
                     Gizmos.DrawLine(cur.transform.position, cur.altNextNode.transform.position);
-                    queue.Enqueue(cur.altNextNode);
+                    if (!visited.Contains(cur.altNextNode))
+                        queue.Enqueue(cur.altNextNode);
                 }
 
             }
