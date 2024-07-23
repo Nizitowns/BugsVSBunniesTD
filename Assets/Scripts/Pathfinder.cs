@@ -9,11 +9,12 @@ public class Pathfinder : MonoBehaviour
     public enum PathType {DebugChargeBase,FollowPaths };
     public PathType MoveType;
 
+
     private Rigidbody body;
     private NavMeshAgent agent;
 
-
-    private PathNode currentNode;
+    [HideInInspector]
+    public PathNode currentNode;
 
     
     
@@ -46,7 +47,7 @@ public class Pathfinder : MonoBehaviour
     {
         if(currentNode == null)
         {
-            currentNode = PathManager.Instance.EntryNode;
+            currentNode = PathManager.Instance.getEntryNode();
         }
 
         agent.SetDestination(currentNode.transform.position);

@@ -5,23 +5,37 @@ using UnityEngine;
 public class PathManager : MonoBehaviour
 {
     public static PathManager Instance;
-    public PathNode EntryNode;
+    [Tooltip("The start pathnodes that enemies can choose to spawn from.")]
+    public List<PathNode> EntryNodes;
 
     void Start()
     {
         Instance = this;
     }
+    public PathNode getEntryNode()
+    {
+        return EntryNodes[Random.Range(0, EntryNodes.Count)];
+    }
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.yellow;
+
         PathNode node =transform.GetChild(0).GetComponent<PathNode>();
         List<PathNode> visited = new List<PathNode>();
         Queue<PathNode> queue = new Queue<PathNode>();
-        queue.Enqueue(node);
-        if (EntryNode == null)
-            EntryNode = node;
-        Gizmos.DrawLine(transform.position, node.transform.position);
-        while(queue.Count > 0)
+        if (EntryNodes==null|| EntryNodes.Count <= 0)
+        {
+            EntryNodes = new List<PathNode>() { node };
+            queue.Enqueue(node);
+        }
+
+        Gizmos.color = Color.gray;
+        foreach (PathNode n in EntryNodes)
+        {
+            queue.Enqueue(n);
+            Gizmos.DrawLine(transform.position, n.transform.position);
+        }
+        Gizmos.color = Color.yellow;
+        while (queue.Count > 0)
         {
             PathNode cur= queue.Dequeue();
             visited.Add(cur);

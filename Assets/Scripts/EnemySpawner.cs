@@ -26,6 +26,10 @@ public class EnemySpawner : MonoBehaviour
 
         [Tooltip("True if the next wave must wait before this one is finished to start.")]
         public bool WaitUntilCompletion;
+
+
+        [Tooltip("Should this enemy snap to its entry node when it spawns?")]
+        public bool snapSpawning = true;
     }
 
 
@@ -48,7 +52,15 @@ public class EnemySpawner : MonoBehaviour
             SpawnRequest current = spawnRequests[0];
             for(int i=0;i<current.SpawnAmount;i++)
             {
-                Instantiate(current.Prefab, transform.position, transform.rotation, transform);
+                GameObject g= Instantiate(current.Prefab, transform.position, transform.rotation, transform);
+
+
+                if (current.snapSpawning)
+                {
+                    Pathfinder p = g.GetComponent<Pathfinder>();
+                    p.currentNode = PathManager.Instance.getEntryNode();
+                    p.transform.position = p.currentNode.transform.position;
+                }
                 yield return new WaitForSeconds(current.SpawnDelayTime);
                 
 
