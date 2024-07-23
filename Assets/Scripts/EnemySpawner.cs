@@ -57,9 +57,14 @@ public class EnemySpawner : MonoBehaviour
 
                 if (current.snapSpawning)
                 {
+                    
                     Pathfinder p = g.GetComponent<Pathfinder>();
-                    p.currentNode = PathManager.Instance.getEntryNode();
-                    p.transform.position = p.currentNode.transform.position;
+                    if (p.currentNode != null)
+                    {
+                        p.currentNode = PathManager.Instance.getEntryNode();
+                        p.transform.position = p.currentNode.transform.position;
+                    }
+                    
                 }
                 yield return new WaitForSeconds(current.SpawnDelayTime);
                 

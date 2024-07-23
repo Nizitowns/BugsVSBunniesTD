@@ -14,6 +14,7 @@ public class bulletBehavior : MonoBehaviour
     void Start()
     {
         //Debug.Log(enemy);
+        
     }
     
     // Update is called once per frame
@@ -27,11 +28,11 @@ public class bulletBehavior : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.tag);
         if (other.CompareTag("enemies"))
         {
-            Debug.Log("health is now " +damage+" lower whenever we get around to that.");
-            //Destroy(this);
+            //Debug.Log("health is now " +damage+" lower whenever we get around to that.");
+            Destroy(this.gameObject);
+            //Debug.Log("detroyed");
         }
     }
 }
