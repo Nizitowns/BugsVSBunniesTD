@@ -59,9 +59,9 @@ public class EnemySpawner : MonoBehaviour
                 {
                     
                     Pathfinder p = g.GetComponent<Pathfinder>();
+                    p.currentNode = PathManager.Instance.getEntryNode();
                     if (p.currentNode != null)
                     {
-                        p.currentNode = PathManager.Instance.getEntryNode();
                         p.transform.position = p.currentNode.transform.position;
                     }
                     
