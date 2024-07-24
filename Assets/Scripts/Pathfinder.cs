@@ -62,7 +62,7 @@ public class Pathfinder : MonoBehaviour
     {
         body.isKinematic = agent.isOnNavMesh;
 
-        if(agent.enabled)
+        if(agent.enabled&&agent.isOnNavMesh)
         {
             if (MoveType == PathType.DebugChargeBase)
             {

@@ -50,21 +50,28 @@ public class EnemySpawner : MonoBehaviour
 
             WaveStarted?.Invoke();
             SpawnRequest current = spawnRequests[0];
-            for(int i=0;i<current.SpawnAmount;i++)
+            for (int i = 0; i < current.SpawnAmount; i++)
             {
-                GameObject g= Instantiate(current.Prefab, transform.position, transform.rotation, transform);
+
+                Vector3 spawnPos = transform.position;
+                PathNode initTarget = null;
 
 
                 if (current.snapSpawning)
                 {
-                    
+                    initTarget = PathManager.Instance.getEntryNode();
+
+                }
+                if(initTarget!= null)
+                {
+                    spawnPos = initTarget.transform.position;
+                }
+                GameObject g = Instantiate(current.Prefab, spawnPos, transform.rotation, transform);
+
+                if (initTarget != null)
+                {
                     Pathfinder p = g.GetComponent<Pathfinder>();
-                    p.currentNode = PathManager.Instance.getEntryNode();
-                    if (p.currentNode != null)
-                    {
-                        p.transform.position = p.currentNode.transform.position;
-                    }
-                    
+                    p.currentNode = initTarget;
                 }
                 yield return new WaitForSeconds(current.SpawnDelayTime);
                 
