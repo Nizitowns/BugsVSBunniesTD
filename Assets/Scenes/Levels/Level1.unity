@@ -827,7 +827,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 3ce9f8a83352dc34fb52a9acccc8a120, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: f390484772d4c4a4589055517ef1c3b4, type: 2}
   m_BuildHeightMesh: 0
 --- !u!4 &164078996
 Transform:
@@ -3005,7 +3005,7 @@ Transform:
   m_GameObject: {fileID: 871291104}
   serializedVersion: 2
   m_LocalRotation: {x: 0.13714148, y: 0.86251587, z: -0.3310888, w: 0.35726574}
-  m_LocalPosition: {x: -86.22, y: 101.91, z: 31.2}
+  m_LocalPosition: {x: -82.5, y: 93.99, z: 26.47}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3704,8 +3704,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnRequests:
-  - Prefab: {fileID: 2252309171295711182, guid: 5d4e5b8faf7b935498ed2a223d948e3c,
-      type: 3}
+  - Prefab: {fileID: 702849666780757656, guid: 3484a2e4d9ea570409a144b1132f2b53, type: 3}
     SpawnAmount: 10
     SpawnDelayTime: 1
     PostWaveDelay: 0.1
