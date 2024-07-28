@@ -25,13 +25,37 @@ public class bulletBehavior : MonoBehaviour
         transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
 
     }
-
+    int checkHealth;
     private void OnTriggerEnter(Collider other)
     {
+        checkHealth = other.GetComponent<Pathfinder>().health;
         if (other.CompareTag("enemies"))
         {
             //Debug.Log("health is now " +damage+" lower whenever we get around to that.");
             Destroy(this.gameObject);
+            if ((checkHealth - damage) <= 0)
+            {
+                Destroy(other.gameObject);
+                
+                Debug.Log(other.GetInstanceID() + " is now dead");
+
+
+                //prevent any tower from targeting an enemy that no longer exists
+                GameObject[] towers = GameObject.FindGameObjectsWithTag("tower");
+                foreach(GameObject t in towers)
+                {
+                    t.GetComponent<TowerBehavior>().targetList.Remove(other.gameObject);
+                }
+                
+                
+
+
+            }
+            else
+            {
+                other.GetComponent<Pathfinder>().health-=damage;
+                Debug.Log("health is now " + other.GetComponent<Pathfinder>().health + " on " + other.GetInstanceID());
+            }
             //Debug.Log("detroyed");
         }
     }

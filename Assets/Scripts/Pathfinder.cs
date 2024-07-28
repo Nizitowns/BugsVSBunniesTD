@@ -15,6 +15,7 @@ public class Pathfinder : MonoBehaviour
 
     [HideInInspector]
     public PathNode currentNode;
+    public int health;
 
     
     

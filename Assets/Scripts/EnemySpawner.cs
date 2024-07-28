@@ -59,6 +59,7 @@ public class EnemySpawner : MonoBehaviour
 
                 if (current.snapSpawning)
                 {
+
                     initTarget = PathManager.Instance.getEntryNode();
 
                 }

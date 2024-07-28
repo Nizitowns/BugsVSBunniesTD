@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 8516294860346601770}
   m_Layer: 0
   m_Name: enemy1
-  m_TagString: Untagged
+  m_TagString: enemies
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -146,6 +146,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MoveType: 0
   currentNode: {fileID: 0}
+  health: 30
 --- !u!54 &8516294860346601770
 Rigidbody:
   m_ObjectHideFlags: 0

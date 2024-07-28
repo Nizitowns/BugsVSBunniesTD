@@ -14,7 +14,7 @@ public class TowerBehavior : MonoBehaviour
     public float fireRate;
     public GameObject BulletPrefab;
     // Start is called before the first frame update
-    List<GameObject> targetList = new List<GameObject>(); //We can switch GameObject to instances of the Enemy class
+    public List<GameObject> targetList = new List<GameObject>(); //We can switch GameObject to instances of the Enemy class
     void Start()
     {
 
