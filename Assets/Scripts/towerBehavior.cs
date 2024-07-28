@@ -61,13 +61,22 @@ public class TowerBehavior : MonoBehaviour
 
                 //pick a random enemy to attack
                 int enemyID= Random.Range(0, targetList.Count - 1);
-                GameObject unit = targetList[enemyID];
-                //Debug.Log("PEW! hit enemy " + unit + " at location " + unit.transform.position);
-                BulletPrefab.GetComponent<bulletBehavior>().enemy = unit;
-                //prefab.GetComponent<bulletBehavior>().setTargetPosition(unit);
-                //the weird y position is so the bullet shoots from the top instaed of the middle. adjust as needed
-                Instantiate(BulletPrefab, (this.transform.localPosition+new Vector3 (0,1,0)), Quaternion.identity);
-                yield return new WaitForSeconds(fireRate);
+             //   Debug.Log(targetList[enemyID]);
+                //Make sure the enemy is not already dead (is null)
+                if (targetList[enemyID] != null)
+                {
+                    GameObject unit = targetList[enemyID];
+                   // Debug.Log("PEW! hit enemy " + unit + " at location " + unit.transform.position);
+                    BulletPrefab.GetComponent<bulletBehavior>().enemy = unit;
+                    //prefab.GetComponent<bulletBehavior>().setTargetPosition(unit);
+                    //the weird y position is so the bullet shoots from the top instaed of the middle. adjust as needed
+                    Instantiate(BulletPrefab, (this.transform.localPosition + new Vector3(0, 1, 0)), Quaternion.identity);
+                    yield return new WaitForSeconds(fireRate);
+                }
+                else
+                {//Lets remove the null instance and try again next loop interation.
+                    targetList.RemoveAt(enemyID);
+                }
             }
 
             yield return new WaitForEndOfFrame();

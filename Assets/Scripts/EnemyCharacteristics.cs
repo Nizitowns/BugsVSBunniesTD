@@ -4,22 +4,39 @@ using UnityEngine;
 
 public class EnemyCharacteristics : MonoBehaviour
 {
-    // Start is called before the first frame update
-    public int StandardHealth;
+    public float MaxHealth=30;
+    [HideInInspector]
+    private float health;
     void Start()
     {
         gameObject.tag = "enemies";
-        foreach (Transform t in this.transform)
-        {
-            t.gameObject.tag = "enemies";
-            GetComponentInChildren<Pathfinder>().health = StandardHealth;
-        }
-        
+        health = MaxHealth;
     }
+    public void Damage(float amount)
+    {
+        health = Mathf.Max(0, health - amount);
+        if(health <= 0)
+        {
+            Die();
+        }
+        else
+        {
+        //    Debug.Log("health is now " + health + " on " + GetInstanceID());
+        }
+    }
+    public void Die()
+    {
 
-    // Update is called once per frame
+        Destroy(gameObject);
+    //    Debug.Log(GetInstanceID() + " is now dead");
+
+
+    }
     void Update()
     {
-        
+        if(health <= 0)
+        {
+            Die();
+        }
     }
 }
