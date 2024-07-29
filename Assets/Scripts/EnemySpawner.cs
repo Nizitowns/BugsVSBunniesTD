@@ -9,10 +9,10 @@ public class EnemySpawner : MonoBehaviour
 {
     public List<SpawnRequest> spawnRequests=new List<SpawnRequest>();
 
-    public bool LoadSceneWhenWavesEnd;
 
     public Action WaveStarted;
     public Action WaveEnded;
+    public Action WavesCompleted;
 
     [System.Serializable]
     public class SpawnRequest
@@ -97,10 +97,12 @@ public class EnemySpawner : MonoBehaviour
             spawnRequests.RemoveAt(0);
         }
 
-        if(LoadSceneWhenWavesEnd)
+        while(transform.childCount>0)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            yield return new WaitForEndOfFrame();
         }
+        WavesCompleted?.Invoke();
+
     }
 
 }

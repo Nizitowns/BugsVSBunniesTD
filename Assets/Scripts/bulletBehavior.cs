@@ -27,7 +27,7 @@ public class bulletBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (enemy != null)
+        if (enemy != null&&enemy.activeInHierarchy)
         {
             target = enemy.transform.position;
             moveDir = (target - transform.position).normalized;

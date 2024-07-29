@@ -63,8 +63,8 @@ public class TowerBehavior : MonoBehaviour
                 //pick a random enemy to attack
                 int enemyID= Random.Range(0, targetList.Count - 1);
              //   Debug.Log(targetList[enemyID]);
-                //Make sure the enemy is not already dead (is null)
-                if (targetList[enemyID] != null)
+                //Make sure the enemy is not already dead (is null) and is enabled.
+                if (targetList[enemyID] != null&& targetList[enemyID].activeInHierarchy)
                 {
                     GameObject unit = targetList[enemyID];
                    // Debug.Log("PEW! hit enemy " + unit + " at location " + unit.transform.position);
