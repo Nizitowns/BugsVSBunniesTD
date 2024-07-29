@@ -54,7 +54,7 @@ public class TowerPlacer : MonoBehaviour
         bool isClear = !IsPointOnNavMesh(curPos, 2) && !IsTowerInRange(curPos, 7f);
 
         RaycastHit hit;
-        bool hasColliderBelow = Physics.Raycast(curPos, Vector3.down, out hit,10, LayerMask.GetMask("Placeable"));
+        bool hasColliderBelow = Physics.Raycast(curPos, Vector3.down, out hit,Mathf.Infinity, LayerMask.GetMask("Placeable"));
         
         return isClear && hasColliderBelow;
     }
@@ -82,6 +82,13 @@ public class TowerPlacer : MonoBehaviour
 
     public Vector3 SnapToGrid(Vector3 curPos)
     {
+        //TODO: Replace with actually good grid snapping system.
+        RaycastHit hit;
+        if(Physics.Raycast(curPos, Vector3.down, out hit, Mathf.Infinity, LayerMask.GetMask("Placeable")))
+        {
+            return hit.collider.transform.position + new Vector3(0, 5.1f, 0);
+        }
+
         return curPos;
     }
     public void BuyTower(PurchaseButton selectedTower)
