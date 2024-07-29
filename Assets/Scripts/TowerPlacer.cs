@@ -34,7 +34,7 @@ public class TowerPlacer : MonoBehaviour
 
         if (SelectedTower != null)
         {
-            if (isClearToPlace(previewPlacer.transform.position))
+            if (isClearToPlace(SnapToGrid(previewPlacer.transform.position)))
             {
                 previewPlacerMeshFilter.GetComponent<MeshRenderer>().material = canPlace;
             }
