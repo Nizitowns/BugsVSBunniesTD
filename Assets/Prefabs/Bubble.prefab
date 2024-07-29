@@ -118,8 +118,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 728a279d5799abf46bc0d9e4a22980fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 30
   target: {x: 0, y: 0, z: 0}
   damage: 5
   enemy: {fileID: 0}
   despawnTime: 20
+  DestroyIfEnemyDies: 0

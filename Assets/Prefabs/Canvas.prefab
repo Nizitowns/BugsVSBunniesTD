@@ -401,7 +401,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TowerPrefab: {fileID: 436036310960128359, guid: 34ea5ca972f2a524c892f6f69b3514f1,
     type: 3}
-  PurchaseCost: 1
+  PurchaseCost: 10
 --- !u!1 &5004441510390391584
 GameObject:
   m_ObjectHideFlags: 0
@@ -725,7 +725,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 66.48032, y: 14.0004225, z: 87.68783, w: 6.0002193}
+  m_margin: {x: 38.69591, y: 14.0004225, z: 87.68783, w: 6.0002193}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0

@@ -4046,11 +4046,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnRequests:
   - Prefab: {fileID: 702849666780757656, guid: 3484a2e4d9ea570409a144b1132f2b53, type: 3}
+    SpawnAmount: 5
+    SpawnDelayTime: 1
+    PostWaveDelay: 6
+    WaitUntilCompletion: 0
+    snapSpawning: 1
+  - Prefab: {fileID: 702849666780757656, guid: 3484a2e4d9ea570409a144b1132f2b53, type: 3}
     SpawnAmount: 10
+    SpawnDelayTime: 1
+    PostWaveDelay: 6
+    WaitUntilCompletion: 1
+    snapSpawning: 1
+  - Prefab: {fileID: 702849666780757656, guid: 5924704617c3798459ff3d5c0b9cf823, type: 3}
+    SpawnAmount: 2
     SpawnDelayTime: 1
     PostWaveDelay: 0.1
     WaitUntilCompletion: 0
     snapSpawning: 1
+  - Prefab: {fileID: 702849666780757656, guid: 3484a2e4d9ea570409a144b1132f2b53, type: 3}
+    SpawnAmount: 15
+    SpawnDelayTime: 0.5
+    PostWaveDelay: 6
+    WaitUntilCompletion: 0
+    snapSpawning: 1
+  - Prefab: {fileID: 702849666780757656, guid: 5924704617c3798459ff3d5c0b9cf823, type: 3}
+    SpawnAmount: 15
+    SpawnDelayTime: 0.25
+    PostWaveDelay: 0.1
+    WaitUntilCompletion: 0
+    snapSpawning: 1
+  LoadSceneWhenWavesEnd: 0
 --- !u!4 &1049860678
 Transform:
   m_ObjectHideFlags: 0

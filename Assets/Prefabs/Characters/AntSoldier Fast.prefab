@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6836889902409418344}
   - component: {fileID: 4630065298274985913}
   m_Layer: 7
-  m_Name: AntSoldier
+  m_Name: AntSoldier Fast
   m_TagString: enemies
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -71,8 +71,8 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 6
-  m_Acceleration: 16
+  m_Speed: 13
+  m_Acceleration: 120
   avoidancePriority: 50
   m_AngularSpeed: 120
   m_StoppingDistance: 0
@@ -160,8 +160,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2b74adc2000f2444b4798c7e52e350c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoneyReward: 2
-  MaxHealth: 30
+  MoneyReward: 3
+  MaxHealth: 60
 --- !u!1 &7616697932301062906
 GameObject:
   m_ObjectHideFlags: 0
@@ -223,7 +223,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: bc7843c2f3ace1748a9c2623f6bcc473, type: 2}
+  - {fileID: 2100000, guid: 02b916e78990b9649bed5af9a2fd3a59, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

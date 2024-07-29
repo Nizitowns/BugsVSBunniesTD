@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AttackRadius: 30
-  fireRate: 1
+  fireRate: 0.5
   BulletPrefab: {fileID: 8319209496153684854, guid: 68b314a7ecf1ae24eb02eff684eda338,
     type: 3}
   BulletSource: {fileID: 5366131814185150888}

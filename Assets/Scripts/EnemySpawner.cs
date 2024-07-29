@@ -3,10 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Transactions;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemySpawner : MonoBehaviour
 {
     public List<SpawnRequest> spawnRequests=new List<SpawnRequest>();
+
+    public bool LoadSceneWhenWavesEnd;
 
     public Action WaveStarted;
     public Action WaveEnded;
@@ -92,6 +95,11 @@ public class EnemySpawner : MonoBehaviour
 
             yield return new WaitForEndOfFrame();
             spawnRequests.RemoveAt(0);
+        }
+
+        if(LoadSceneWhenWavesEnd)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
 
