@@ -160,7 +160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2b74adc2000f2444b4798c7e52e350c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoneyReward: 30
+  MoneyReward: 35
   MaxHealth: 150
 --- !u!1 &7616697932301062906
 GameObject:
