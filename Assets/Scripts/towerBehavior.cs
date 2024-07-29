@@ -13,6 +13,7 @@ public class TowerBehavior : MonoBehaviour
     //per second
     public float fireRate;
     public GameObject BulletPrefab;
+    public GameObject BulletSource;
     // Start is called before the first frame update
     public List<GameObject> targetList = new List<GameObject>(); //We can switch GameObject to instances of the Enemy class
     void Start()
@@ -70,7 +71,29 @@ public class TowerBehavior : MonoBehaviour
                     BulletPrefab.GetComponent<bulletBehavior>().enemy = unit;
                     //prefab.GetComponent<bulletBehavior>().setTargetPosition(unit);
                     //the weird y position is so the bullet shoots from the top instaed of the middle. adjust as needed
-                    Instantiate(BulletPrefab, (this.transform.localPosition + new Vector3(0, 1, 0)), Quaternion.identity);
+                    Vector3 spawnPos = transform.position + new Vector3(0, 1, 0);
+                    if(BulletSource!=null)
+                    {
+                        spawnPos = BulletSource.transform.position;
+                    }
+                    Instantiate(BulletPrefab, spawnPos, transform.rotation);
+
+
+                    //LookAt Code From Internet
+                    if (unit != null)
+                    {
+                        // Get the direction to the enemy
+                        Vector3 direction = unit.transform.position - transform.position;
+                        direction.y = 0; // Keep the direction strictly on the Y-axis
+
+                        // Create the rotation towards the enemy
+                        Quaternion rotation = Quaternion.LookRotation(direction);
+
+                        // Apply the rotation to the tower
+                        transform.rotation = Quaternion.Euler(0, rotation.eulerAngles.y+90, 0);
+                    }
+
+
                     yield return new WaitForSeconds(fireRate);
                 }
                 else

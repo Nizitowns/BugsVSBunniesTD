@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 2014913126831125165}
   - component: {fileID: 5184355109765034944}
   - component: {fileID: 801341223639481164}
-  m_Layer: 0
-  m_Name: Tower
+  m_Layer: 8
+  m_Name: BubbleTower
   m_TagString: tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,9 +30,10 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.14, y: 65, z: 18.27}
-  m_LocalScale: {x: 1, y: 2, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 6194688649486748033}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1206304009161290771
@@ -42,7 +43,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 436036310960128359}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: -4182195949832582125, guid: cf62aea6e3c20b64f998a1844b3f882c, type: 3}
 --- !u!23 &2014913126831125165
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -63,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: a577005a4dfa456408aa3f48b3cd94ba, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -104,7 +105,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 3
+  m_Radius: 30
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &801341223639481164
 MonoBehaviour:
@@ -118,8 +119,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00211cb2a8f861f41b307d23f22ed697, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AttackRadius: 3
+  AttackRadius: 30
   fireRate: 1
-  BulletPrefab: {fileID: 8319209496153684854, guid: c672720e3adc8de4e8b9628a18d5f4d5,
+  BulletPrefab: {fileID: 8319209496153684854, guid: 68b314a7ecf1ae24eb02eff684eda338,
     type: 3}
+  BulletSource: {fileID: 5366131814185150888}
   targetList: []
+--- !u!1 &5366131814185150888
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6194688649486748033}
+  m_Layer: 8
+  m_Name: BulletSource
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6194688649486748033
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5366131814185150888}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.8, y: 5.78, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4231290308408376519}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

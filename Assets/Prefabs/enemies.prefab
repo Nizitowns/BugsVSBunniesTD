@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6974826922606342481}
   - component: {fileID: 5865829064268444302}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: enemies
   m_TagString: enemies
   m_Icon: {fileID: 0}
@@ -45,7 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2b74adc2000f2444b4798c7e52e350c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StandardHealth: 30
+  MoneyReward: 1
+  MaxHealth: 30
 --- !u!1001 &2968322951319909771
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -58,6 +59,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: enemy1
+      objectReference: {fileID: 0}
+    - target: {fileID: 83458216233052875, guid: 83d7c7fa97e4e2e4ba68d94216f724d2,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1726566823490232835, guid: 83d7c7fa97e4e2e4ba68d94216f724d2,
         type: 3}

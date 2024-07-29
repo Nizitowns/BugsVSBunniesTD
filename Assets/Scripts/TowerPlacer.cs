@@ -19,8 +19,9 @@ public class TowerPlacer : MonoBehaviour
     {
         Vector3 mouseScreenPosition = Input.mousePosition;
         Ray ray = Camera.main.ScreenPointToRay(mouseScreenPosition);
+        int layerMask = ~((1 << LayerMask.NameToLayer("Enemy")) | (1 << LayerMask.NameToLayer("Tower")));
 
-        if (Physics.Raycast(ray, out RaycastHit hit))
+        if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, layerMask))
         {
             previewPlacer.transform.position = hit.point+new Vector3(0,1,0);
         }
@@ -29,6 +30,10 @@ public class TowerPlacer : MonoBehaviour
         if (SelectedTower != null)
         {
             previewPlacerMeshFilter.mesh = SelectedTower.TowerPrefab.GetComponent<MeshFilter>().sharedMesh;
+        }
+        else
+        {
+            previewPlacerMeshFilter.mesh = null;
         }
     }
 

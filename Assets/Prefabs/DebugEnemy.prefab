@@ -15,9 +15,11 @@ GameObject:
   - component: {fileID: 6446434964540571940}
   - component: {fileID: 6590208510537481072}
   - component: {fileID: 4141537656954868964}
-  m_Layer: 0
+  - component: {fileID: 2921839446086877150}
+  - component: {fileID: -6930110220756594852}
+  m_Layer: 7
   m_Name: DebugEnemy
-  m_TagString: Untagged
+  m_TagString: enemies
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -146,6 +148,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MoveType: 1
   currentNode: {fileID: 0}
+  health: 0
 --- !u!54 &4141537656954868964
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -173,3 +176,40 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
+--- !u!136 &2921839446086877150
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2252309171295711182}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-6930110220756594852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2252309171295711182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2b74adc2000f2444b4798c7e52e350c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MoneyReward: 1
+  MaxHealth: 30
