@@ -14,6 +14,8 @@ public class bulletBehavior : MonoBehaviour
     public float despawnTime = 20;
 
     private float destroyAfter;
+    Vector3 moveDir;
+    public bool DestroyIfEnemyDies;
     void Start()
     {
 
@@ -28,7 +30,15 @@ public class bulletBehavior : MonoBehaviour
         if (enemy != null)
         {
             target = enemy.transform.position;
+            moveDir = (target - transform.position).normalized;
             transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
+        }
+        else
+        {
+            if (DestroyIfEnemyDies)
+                Destroy(gameObject);
+            else
+                transform.position=Vector3.MoveTowards(transform.position,transform.position+ moveDir*10,speed * Time.deltaTime);
         }
         if(Time.timeSinceLevelLoad> destroyAfter)
         {//If the bullet has missed and its been destroyAfter seconds we should kill the bullet so we dont accumulate hundreds of missed bullets.
@@ -43,7 +53,7 @@ public class bulletBehavior : MonoBehaviour
         {
             //Debug.Log("health is now " +damage+" lower whenever we get around to that.");
             Destroy(this.gameObject);
-            other.GetComponent<EnemyCharacteristics>().Damage(damage);
+            other?.GetComponent<EnemyCharacteristics>().Damage(damage);
 
             //Debug.Log("detroyed");
         }

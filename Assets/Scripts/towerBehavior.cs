@@ -71,12 +71,6 @@ public class TowerBehavior : MonoBehaviour
                     BulletPrefab.GetComponent<bulletBehavior>().enemy = unit;
                     //prefab.GetComponent<bulletBehavior>().setTargetPosition(unit);
                     //the weird y position is so the bullet shoots from the top instaed of the middle. adjust as needed
-                    Vector3 spawnPos = transform.position + new Vector3(0, 1, 0);
-                    if(BulletSource!=null)
-                    {
-                        spawnPos = BulletSource.transform.position;
-                    }
-                    Instantiate(BulletPrefab, spawnPos, transform.rotation);
 
 
                     //LookAt Code From Internet
@@ -93,6 +87,13 @@ public class TowerBehavior : MonoBehaviour
                         transform.rotation = Quaternion.Euler(0, rotation.eulerAngles.y+90, 0);
                     }
 
+
+                    Vector3 spawnPos = transform.position + new Vector3(0, 1, 0);
+                    if (BulletSource != null)
+                    {
+                        spawnPos = BulletSource.transform.position;
+                    }
+                    Instantiate(BulletPrefab, spawnPos, transform.rotation);
 
                     yield return new WaitForSeconds(fireRate);
                 }

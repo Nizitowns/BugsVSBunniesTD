@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.AI;
 public class TowerPlacer : MonoBehaviour
 {
     public static PurchaseButton SelectedTower;
@@ -10,6 +10,11 @@ public class TowerPlacer : MonoBehaviour
 
     GameObject previewPlacer;
     MeshFilter previewPlacerMeshFilter;
+
+    [SerializeField]
+    private Material canPlace;
+    [SerializeField]
+    private Material cannotPlace;
     void Start()
     {
         previewPlacer=Instantiate(PreviewPlacerPrefab).gameObject;
@@ -20,21 +25,59 @@ public class TowerPlacer : MonoBehaviour
         Vector3 mouseScreenPosition = Input.mousePosition;
         Ray ray = Camera.main.ScreenPointToRay(mouseScreenPosition);
         int layerMask = ~((1 << LayerMask.NameToLayer("Enemy")) | (1 << LayerMask.NameToLayer("Tower")));
-
         if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, layerMask))
         {
             previewPlacer.transform.position = hit.point+new Vector3(0,1,0);
+            previewPlacerMeshFilter.transform.position = SnapToGrid(previewPlacer.transform.position);
+
         }
 
-        previewPlacerMeshFilter.transform.position = SnapToGrid(previewPlacer.transform.position);
         if (SelectedTower != null)
         {
+            if (isClearToPlace(previewPlacer.transform.position))
+            {
+                previewPlacerMeshFilter.GetComponent<MeshRenderer>().material = canPlace;
+            }
+            else
+            {
+                previewPlacerMeshFilter.GetComponent<MeshRenderer>().material = cannotPlace;
+            }
             previewPlacerMeshFilter.mesh = SelectedTower.TowerPrefab.GetComponent<MeshFilter>().sharedMesh;
         }
         else
         {
             previewPlacerMeshFilter.mesh = null;
         }
+    }
+    public bool isClearToPlace(Vector3 curPos)
+    {
+        bool isClear = !IsPointOnNavMesh(curPos, 2) && !IsTowerInRange(curPos, 7f);
+
+        RaycastHit hit;
+        bool hasColliderBelow = Physics.Raycast(curPos, Vector3.down, out hit,10, LayerMask.GetMask("Placeable"));
+        
+        return isClear && hasColliderBelow;
+    }
+    bool IsTowerInRange(Vector3 point, float radius)
+    {
+        Collider[] hitColliders = Physics.OverlapSphere(point, radius, LayerMask.GetMask("Tower"));
+        foreach(Collider collider in hitColliders)
+        {
+            if(Vector3.Distance(collider.transform.position,point)< radius)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+    bool IsPointOnNavMesh(Vector3 point, float distance)
+    {
+        NavMeshHit hit;
+        if (NavMesh.SamplePosition(point, out hit, distance, NavMesh.AllAreas))
+        {
+            return true;
+        }
+        return false;
     }
 
     public Vector3 SnapToGrid(Vector3 curPos)
@@ -43,9 +86,12 @@ public class TowerPlacer : MonoBehaviour
     }
     public void BuyTower(PurchaseButton selectedTower)
     {
-        if (MoneyManager.instance.RemoveMoney(selectedTower.PurchaseCost))
+        if (isClearToPlace(SnapToGrid(previewPlacer.transform.position)))
         {
-            Instantiate(selectedTower.TowerPrefab, SnapToGrid(previewPlacer.transform.position), Quaternion.identity);
+            if (MoneyManager.instance.RemoveMoney(selectedTower.PurchaseCost))
+            {
+                Instantiate(selectedTower.TowerPrefab, SnapToGrid(previewPlacer.transform.position), Quaternion.identity);
+            }
         }
     }
     private void Update()
