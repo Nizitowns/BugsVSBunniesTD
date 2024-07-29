@@ -7150,6 +7150,7 @@ MonoBehaviour:
   ListenTarget: {fileID: 1049860677}
   FadeInOnComplete: {fileID: 1741976015}
   ToggleOnComplete: {fileID: 436792206}
+  SetPivotTarget: {fileID: 1736327885}
 --- !u!4 &983552379
 Transform:
   m_ObjectHideFlags: 0
@@ -9768,6 +9769,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb4e0e145799b0242a056b0cbd3ad008, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PivotTargetLocation: {fileID: 0}
   OrbitSpeed: 1
   VerticalSpeed: 1
   MaxPitch: 47
@@ -11818,6 +11820,37 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 571522690}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1736327885
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1736327886}
+  m_Layer: 0
+  m_Name: PivotLocation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1736327886
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1736327885}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 16.7, y: 0, z: 15.6}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1741976016}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1739993278 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1141066122218086622, guid: 21cb8dc96e5f1b34493e76e4e84b76bb,
@@ -11857,6 +11890,7 @@ Transform:
   - {fileID: 484717932}
   - {fileID: 1284944728}
   - {fileID: 164002075}
+  - {fileID: 1736327886}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1750314970

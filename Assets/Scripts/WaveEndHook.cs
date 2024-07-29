@@ -10,6 +10,8 @@ public class WaveEndHook : MonoBehaviour
     public GameObject FadeInOnComplete;
     [Tooltip("Set if you want this gameobjects active status to toggle when the wave completes.")]
     public GameObject ToggleOnComplete;
+
+    public GameObject SetPivotTarget;
     void Start()
     {
         if(ListenTarget != null)
@@ -19,12 +21,18 @@ public class WaveEndHook : MonoBehaviour
 
             if (ToggleOnComplete != null)
                 ListenTarget.WavesCompleted += ToggleActive;
+            if (SetPivotTarget != null)
+                ListenTarget.WavesCompleted += SetPivot;
         }
     }
 
     public void FadeIn()
     { 
         StartCoroutine(DelayFadeIn());
+    }
+    public void SetPivot()
+    {
+        CameraMover.instance.PivotTargetLocation = SetPivotTarget;
     }
     public IEnumerator DelayFadeIn()
     {
