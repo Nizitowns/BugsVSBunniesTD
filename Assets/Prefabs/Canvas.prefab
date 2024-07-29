@@ -356,7 +356,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.7987421, g: 0.7987421, b: 0.7987421, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 0.4528302, g: 0.22926305, b: 0.22926305, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -829,6 +829,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 594ecaebff7a3854ca20650023a24252, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PreviewPlacerPrefab: {fileID: 6585742645026775089, guid: 542ae935afee0ff4a92bd771d2a024ec,
+    type: 3}
 --- !u!1 &7605879947358382816
 GameObject:
   m_ObjectHideFlags: 0

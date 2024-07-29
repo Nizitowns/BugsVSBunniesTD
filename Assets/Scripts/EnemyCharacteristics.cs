@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyCharacteristics : MonoBehaviour
 {
+    public int MoneyReward=1;
     public float MaxHealth=30;
     [HideInInspector]
     private float health;
@@ -28,6 +29,7 @@ public class EnemyCharacteristics : MonoBehaviour
     {
 
         Destroy(gameObject);
+        MoneyManager.instance.AddMoney(MoneyReward);
     //    Debug.Log(GetInstanceID() + " is now dead");
 
 

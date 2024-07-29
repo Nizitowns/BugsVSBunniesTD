@@ -7,7 +7,7 @@ using UnityEngine.EventSystems;
 public class PurchaseButton : MonoBehaviour
 {
     public GameObject TowerPrefab;
-    public float PurchaseCost=1;
+    public int PurchaseCost=1;
 
     private Button button;
     private TextMeshProUGUI cost;
@@ -23,6 +23,13 @@ public class PurchaseButton : MonoBehaviour
     }
     public void UpdateIcon()
     {
+        
+        button.interactable = MoneyManager.instance.Balance >= PurchaseCost;
+        if(!button.interactable&& (TowerPlacer.SelectedTower == this))
+        {
+            TowerPlacer.SelectedTower = null;
+            EventSystem.current.SetSelectedGameObject(null);
+        }
         cost.text = PurchaseCost + "$";
         icon.color = button.targetGraphic.canvasRenderer.GetColor();
         if (TowerPlacer.SelectedTower == this)

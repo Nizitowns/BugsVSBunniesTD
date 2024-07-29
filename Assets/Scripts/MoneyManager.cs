@@ -6,9 +6,27 @@ using UnityEngine;
 public class MoneyManager : MonoBehaviour
 {
     public static MoneyManager instance;
-    public float Balance= 0;
+    public int Balance= 0;
 
     public TextMeshProUGUI balanceUI;
+
+    public void AddMoney(int amount)
+    {
+        Balance += amount;
+    }
+    //Only removes if we are good for the money
+    public bool RemoveMoney(int amount)
+    {
+        if (Balance >= amount)
+        {
+            Balance -= amount;
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
     private void Start()
     {
         instance = this;
