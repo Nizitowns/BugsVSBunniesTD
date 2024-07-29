@@ -9,13 +9,14 @@ public class bulletBehavior : MonoBehaviour
     // Start is called before the first frame update
     public float speed;
     public Vector3 target;
-    public int damage;
+    public float damage;
     public GameObject enemy;
     public float despawnTime = 20;
 
     private float destroyAfter;
     Vector3 moveDir;
     public bool DestroyIfEnemyDies;
+    public bool SeenEnemy;
     void Start()
     {
 
@@ -29,13 +30,14 @@ public class bulletBehavior : MonoBehaviour
     {
         if (enemy != null&&enemy.activeInHierarchy)
         {
+            SeenEnemy = true;
             target = enemy.transform.position;
             moveDir = (target - transform.position).normalized;
             transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
         }
         else
         {
-            if (DestroyIfEnemyDies)
+            if (DestroyIfEnemyDies||!SeenEnemy)
                 Destroy(gameObject);
             else
                 transform.position=Vector3.MoveTowards(transform.position,transform.position+ moveDir*10,speed * Time.deltaTime);

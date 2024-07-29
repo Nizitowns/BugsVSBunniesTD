@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6836889902409418344}
   - component: {fileID: 4630065298274985913}
   m_Layer: 7
-  m_Name: AntSoldier Fast
+  m_Name: AntKnight
   m_TagString: enemies
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,7 +32,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7645803085292105494}
@@ -160,8 +160,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2b74adc2000f2444b4798c7e52e350c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoneyReward: 6
-  MaxHealth: 70
+  MoneyReward: 30
+  MaxHealth: 150
 --- !u!1 &7616697932301062906
 GameObject:
   m_ObjectHideFlags: 0
@@ -223,7 +223,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 02b916e78990b9649bed5af9a2fd3a59, type: 2}
+  - {fileID: 2100000, guid: 6f179d40165c9ec4681913d8465fabc6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

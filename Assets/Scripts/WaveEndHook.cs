@@ -12,6 +12,8 @@ public class WaveEndHook : MonoBehaviour
     public GameObject ToggleOnComplete;
 
     public GameObject SetPivotTarget;
+
+    
     void Start()
     {
         if(ListenTarget != null)

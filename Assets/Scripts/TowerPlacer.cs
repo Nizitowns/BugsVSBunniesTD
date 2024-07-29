@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.EventSystems;
 public class TowerPlacer : MonoBehaviour
 {
     public static PurchaseButton SelectedTower;
@@ -110,6 +111,12 @@ public class TowerPlacer : MonoBehaviour
             {
                 BuyTower(SelectedTower);
                 Debug.Log("Placing " + SelectedTower.TowerPrefab.name);
+            }
+
+            if (Input.GetMouseButtonDown(1))
+            {
+                EventSystem.current.SetSelectedGameObject(null);
+                SelectedTower = null;
             }
         }
     }

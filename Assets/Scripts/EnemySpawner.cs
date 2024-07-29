@@ -13,6 +13,8 @@ public class EnemySpawner : MonoBehaviour
     public Action WaveStarted;
     public Action WaveEnded;
     public Action WavesCompleted;
+    [Tooltip("The delay before declaring all waves completed."),Min(0)]
+    public float PostWaveDelay;
 
     [System.Serializable]
     public class SpawnRequest
@@ -100,6 +102,10 @@ public class EnemySpawner : MonoBehaviour
         while(transform.childCount>0)
         {
             yield return new WaitForEndOfFrame();
+        }
+        if(PostWaveDelay>=0)
+        {
+            yield return new WaitForSeconds(PostWaveDelay);
         }
         WavesCompleted?.Invoke();
 
