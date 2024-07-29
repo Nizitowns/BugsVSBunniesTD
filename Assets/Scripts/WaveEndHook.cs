@@ -38,6 +38,7 @@ public class WaveEndHook : MonoBehaviour
     }
     public IEnumerator DelayFadeIn()
     {
+        TowerPlacer.PlacementDisabled = true;
         Vector3 pos = FadeInOnComplete.transform.position;
         float negativeOffset = -7;
         FadeInOnComplete.transform.position = pos + new Vector3(0, negativeOffset, 0);
@@ -47,6 +48,7 @@ public class WaveEndHook : MonoBehaviour
             FadeInOnComplete.transform.position = pos + new Vector3(0, dy, 0);
             yield return new WaitForFixedUpdate();
         }
+        TowerPlacer.PlacementDisabled = false;
         FadeInOnComplete.transform.position = pos;
     }
 

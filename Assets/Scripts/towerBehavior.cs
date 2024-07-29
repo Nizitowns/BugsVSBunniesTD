@@ -16,6 +16,10 @@ public class TowerBehavior : MonoBehaviour
     public GameObject BulletSource;
     // Start is called before the first frame update
     public List<GameObject> targetList = new List<GameObject>(); //We can switch GameObject to instances of the Enemy class
+
+    //How the tower targets enemies
+    public TargetType MyTargetingType;
+    public enum TargetType {RandomSelect,FocusOnTarget };
     void Start()
     {
 
@@ -35,6 +39,10 @@ public class TowerBehavior : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         //Debug.Log(other + " " + other.GetInstanceID()+ " exited");
+        if(other.gameObject== lastTargeted)
+        {
+            enemyID = -1;
+        }
         targetList.Remove(other.gameObject);
         //printList(list);
 
@@ -51,7 +59,8 @@ public class TowerBehavior : MonoBehaviour
         Debug.Log(numbs);
 
     }
-
+    int enemyID=0;
+    GameObject lastTargeted;
     private IEnumerator FireLoop()
     {
         
@@ -59,14 +68,21 @@ public class TowerBehavior : MonoBehaviour
         {
             if (targetList.Count > 0)
             {
-
-                //pick a random enemy to attack
-                int enemyID= Random.Range(0, targetList.Count - 1);
-             //   Debug.Log(targetList[enemyID]);
+                if(MyTargetingType == TargetType.FocusOnTarget)
+                {
+                    enemyID = targetList.IndexOf(lastTargeted);
+                }
+                if (MyTargetingType == TargetType.RandomSelect||enemyID<=-1)
+                {
+                    //pick a random enemy to attack
+                    enemyID = Random.Range(0, targetList.Count - 1);
+                }
+                //   Debug.Log(targetList[enemyID]);
                 //Make sure the enemy is not already dead (is null) and is enabled.
                 if (targetList[enemyID] != null&& targetList[enemyID].activeInHierarchy)
                 {
                     GameObject unit = targetList[enemyID];
+                    lastTargeted = unit;
                    // Debug.Log("PEW! hit enemy " + unit + " at location " + unit.transform.position);
                     BulletPrefab.GetComponent<bulletBehavior>().enemy = unit;
                     //prefab.GetComponent<bulletBehavior>().setTargetPosition(unit);

@@ -5,6 +5,7 @@ using UnityEngine.AI;
 using UnityEngine.EventSystems;
 public class TowerPlacer : MonoBehaviour
 {
+    public static bool PlacementDisabled;
     public static PurchaseButton SelectedTower;
 
     public GameObject PreviewPlacerPrefab;
@@ -18,7 +19,8 @@ public class TowerPlacer : MonoBehaviour
     private Material cannotPlace;
     void Start()
     {
-        previewPlacer=Instantiate(PreviewPlacerPrefab).gameObject;
+        PlacementDisabled = false;
+        previewPlacer =Instantiate(PreviewPlacerPrefab).gameObject;
         previewPlacerMeshFilter=previewPlacer.GetComponentInChildren<MeshFilter>();
     }
     public void UpdatePreview()
@@ -33,7 +35,7 @@ public class TowerPlacer : MonoBehaviour
 
         }
 
-        if (SelectedTower != null)
+        if (SelectedTower != null&&!PlacementDisabled)
         {
             if (isClearToPlace(SnapToGrid(previewPlacer.transform.position)))
             {
@@ -57,7 +59,7 @@ public class TowerPlacer : MonoBehaviour
         RaycastHit hit;
         bool hasColliderBelow = Physics.Raycast(curPos, Vector3.down, out hit,Mathf.Infinity, LayerMask.GetMask("Placeable"));
         
-        return isClear && hasColliderBelow;
+        return isClear && hasColliderBelow&&!PlacementDisabled;
     }
     bool IsTowerInRange(Vector3 point, float radius)
     {
@@ -98,6 +100,7 @@ public class TowerPlacer : MonoBehaviour
         {
             if (MoneyManager.instance.RemoveMoney(selectedTower.PurchaseCost))
             {
+
                 Instantiate(selectedTower.TowerPrefab, SnapToGrid(previewPlacer.transform.position), Quaternion.identity);
             }
         }
