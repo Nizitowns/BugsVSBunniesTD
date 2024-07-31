@@ -14,7 +14,6 @@ public class MenuManager : MonoBehaviour
     CanvasGroup lastActive;
     public Volume volume;
 
-
     void Start()
     {
         if(volume != null)
