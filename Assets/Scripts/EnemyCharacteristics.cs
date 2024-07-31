@@ -25,11 +25,12 @@ public class EnemyCharacteristics : MonoBehaviour
         //    Debug.Log("health is now " + health + " on " + GetInstanceID());
         }
     }
-    public void Die()
+    public void Die(bool givesMoney = true)
     {
 
         Destroy(gameObject);
-        MoneyManager.instance.AddMoney(MoneyReward);
+        if(givesMoney)
+            MoneyManager.instance.AddMoney(MoneyReward);
     //    Debug.Log(GetInstanceID() + " is now dead");
 
 

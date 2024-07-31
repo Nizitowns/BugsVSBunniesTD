@@ -10,6 +10,8 @@ public class WaveEndHook : MonoBehaviour
     public GameObject FadeInOnComplete;
     [Tooltip("Set if you want this gameobjects active status to toggle when the wave completes.")]
     public GameObject ToggleOnComplete;
+    [Tooltip("Set if you want this gameobjects parent to be set to the root when the wave completes.")]
+    public GameObject FreeOnComplete;
 
     public GameObject SetPivotTarget;
 
@@ -25,9 +27,14 @@ public class WaveEndHook : MonoBehaviour
                 ListenTarget.WavesCompleted += ToggleActive;
             if (SetPivotTarget != null)
                 ListenTarget.WavesCompleted += SetPivot;
+            if (FreeOnComplete != null)
+                ListenTarget.WavesCompleted += FreeParent;
         }
     }
-
+    public void FreeParent()
+    {
+        FreeOnComplete.transform.parent = null;
+    }
     public void FadeIn()
     { 
         StartCoroutine(DelayFadeIn());
