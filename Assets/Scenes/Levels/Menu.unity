@@ -6825,10 +6825,9 @@ MonoBehaviour:
   m_text: "Created by Team Kronos of the Colossus Forge Division  for the P1 july
     game sprint.\r\n\r\nBugBunny was created by:\r\n\r\nCoding:\r\nEric Patrick\r\nMiranda
     Henning\r\n\r\nArtists:\r\nDaisy Velasquez\r\nThu Nguyen\r\nEric Leafton\r\nMrinmoyee
-    Nandi\r\n\r\nMusic:\r\nJo\xE3o Santos\r\n\r\nSound Effects:\r\nPeiran Zhao\r\n\r\nDesign:\r\nBrick
-    a Brac Games\r\n\r\nLevel Design:\r\nNathan Barnett\r\n\r\nLeader:\r\nAntony
-    Nizamoglou\r\n\r\nSecond in Command:\r\nDaisy Velasquez\n\n\n\n\nThank you for
-    playing!"
+    Nandi\r\n\r\nMusic:\r\nJo\xE3o Santos\r\n\r\nSound Effects:\r\nPeiran Zhao\r\n\r\nDesign:\r\nAlex
+    Esten, (Brick a Brac Games)\r\n\r\nLevel Design:\r\nNathan Barnett\r\n\r\nLeader:\r\nAntony
+    Nizamoglou\r\n\r\nSecond in Command:\r\nDaisy Velasquez"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e5046259be6dda24eb776b4141f34ff7, type: 2}
   m_sharedMaterial: {fileID: 2759571985489830099, guid: e5046259be6dda24eb776b4141f34ff7,
@@ -11160,7 +11159,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1686106739
 RectTransform:
   m_ObjectHideFlags: 0
