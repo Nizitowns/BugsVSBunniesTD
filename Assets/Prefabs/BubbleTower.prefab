@@ -126,6 +126,7 @@ MonoBehaviour:
     type: 3}
   BulletSource: {fileID: 5366131814185150888}
   targetList: []
+  MyTargetingType: 0
 --- !u!1 &5366131814185150888
 GameObject:
   m_ObjectHideFlags: 0

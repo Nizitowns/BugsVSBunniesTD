@@ -58,6 +58,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -4819223349682164798, guid: 1c8929c1ae2893e4896b59565f6ab783,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -3591886281852097759, guid: 1c8929c1ae2893e4896b59565f6ab783,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -3540272279435206582, guid: 1c8929c1ae2893e4896b59565f6ab783,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: -1206874426333947015, guid: 1c8929c1ae2893e4896b59565f6ab783,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -67,6 +82,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: AntSoldier1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1c8929c1ae2893e4896b59565f6ab783,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1c8929c1ae2893e4896b59565f6ab783,
+        type: 3}
+      propertyPath: m_TagString
+      value: enemies
+      objectReference: {fileID: 0}
+    - target: {fileID: 984288346049153740, guid: 1c8929c1ae2893e4896b59565f6ab783,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6905609870639353253, guid: 1c8929c1ae2893e4896b59565f6ab783,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7036213049465896255, guid: 1c8929c1ae2893e4896b59565f6ab783,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8879528566716807029, guid: 1c8929c1ae2893e4896b59565f6ab783,
         type: 3}
@@ -131,6 +171,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 8973452038276207754}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1c8929c1ae2893e4896b59565f6ab783,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7823361502280023569}
   m_SourcePrefab: {fileID: 100100000, guid: 1c8929c1ae2893e4896b59565f6ab783, type: 3}
 --- !u!1 &452661431563245470 stripped
 GameObject:
@@ -260,3 +304,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MoneyReward: 6
   MaxHealth: 40
+--- !u!136 &7823361502280023569
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 452661431563245470}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
