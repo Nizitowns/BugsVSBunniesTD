@@ -19,11 +19,19 @@ public class TowerBehavior : MonoBehaviour
 
     //How the tower targets enemies
     public TargetType MyTargetingType;
+
+    //The gameobject that should rotate to look at enemy target; (If null assumed to be this gameobject)
+    public GameObject RotationAxis;
+    //The mesh to show when trying to place.
+    public Mesh PreviewMesh;
+    //The particle system to play when shooting
+    public ParticleSystem playOnShoot;
     public enum TargetType {RandomSelect,FocusOnTarget };
     void Start()
     {
-
-        myCollider=GetComponent<SphereCollider>();
+        if (RotationAxis == null)
+            RotationAxis = gameObject;
+        myCollider =GetComponent<SphereCollider>();
         myCollider.radius=AttackRadius;
         StartCoroutine(FireLoop());
     }
@@ -93,14 +101,14 @@ public class TowerBehavior : MonoBehaviour
                     if (unit != null)
                     {
                         // Get the direction to the enemy
-                        Vector3 direction = unit.transform.position - transform.position;
+                        Vector3 direction = unit.transform.position - RotationAxis.transform.position;
                         direction.y = 0; // Keep the direction strictly on the Y-axis
 
                         // Create the rotation towards the enemy
                         Quaternion rotation = Quaternion.LookRotation(direction);
 
                         // Apply the rotation to the tower
-                        transform.rotation = Quaternion.Euler(0, rotation.eulerAngles.y+90, 0);
+                        RotationAxis.transform.rotation = Quaternion.Euler(0, rotation.eulerAngles.y+90, 0);
                     }
 
 
@@ -110,7 +118,10 @@ public class TowerBehavior : MonoBehaviour
                         spawnPos = BulletSource.transform.position;
                     }
                     Instantiate(BulletPrefab, spawnPos, transform.rotation);
-
+                    if(playOnShoot!=null)
+                    {
+                        playOnShoot.Play();
+                    }
                     yield return new WaitForSeconds(fireRate);
                 }
                 else

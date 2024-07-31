@@ -45,7 +45,14 @@ public class TowerPlacer : MonoBehaviour
             {
                 previewPlacerMeshFilter.GetComponent<MeshRenderer>().material = cannotPlace;
             }
-            previewPlacerMeshFilter.mesh = SelectedTower.TowerPrefab.GetComponent<MeshFilter>().sharedMesh;
+            if (SelectedTower.TowerPrefab.GetComponent<MeshFilter>() != null)
+            {
+                previewPlacerMeshFilter.mesh = SelectedTower.TowerPrefab.GetComponent<MeshFilter>().sharedMesh;
+            }
+            else
+            {
+                previewPlacerMeshFilter.mesh = SelectedTower.TowerPrefab.GetComponent<TowerBehavior>().PreviewMesh;
+            }
         }
         else
         {
