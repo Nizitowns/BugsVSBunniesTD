@@ -7522,6 +7522,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07db9212026a72e429fb04a597602dcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  FadeInOnStart: 1
   audioSourceType: 1
 --- !u!82 &871291110
 AudioSource:

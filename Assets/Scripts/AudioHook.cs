@@ -7,20 +7,26 @@ public class AudioHook : MonoBehaviour
 {
     float initialVolume;
     AudioSource source;
+    public bool FadeInOnStart;
     private void Start()
     {
         source=GetComponent<AudioSource>(); 
         initialVolume =source.volume;
+
+        if(FadeInOnStart)
+        {
+            source.volume = 0;
+        }
     }
     private void Update()
     {
         if(audioSourceType==AudioSourceType.SFX)
         {
-            source.volume = initialVolume * AudioManager.SFXVolume;
+            source.volume = (source.volume*19 +initialVolume * AudioManager.SFXVolume)/20f;
         }
         else if (audioSourceType == AudioSourceType.Music)
         {
-            source.volume = initialVolume * AudioManager.MusicVolume;
+            source.volume = (source.volume * 19 + initialVolume * AudioManager.MusicVolume) / 20f;
         }
     }
     public AudioSourceType audioSourceType;
