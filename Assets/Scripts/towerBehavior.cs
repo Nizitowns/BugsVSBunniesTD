@@ -26,13 +26,25 @@ public class TowerBehavior : MonoBehaviour
     public Mesh PreviewMesh;
     //The particle system to play when shooting
     public ParticleSystem playOnShoot;
+    //The audio source from which to fire from
+    public AudioSource audioSource;
+
+    public List<AudioClip> firingSFX;
     public enum TargetType {RandomSelect,FocusOnTarget };
+    public AudioType audioPlayType = AudioType.Multisource;
+    public enum AudioType {SingleSource,Multisource };
     void Start()
     {
         if (RotationAxis == null)
             RotationAxis = gameObject;
         myCollider =GetComponent<SphereCollider>();
         myCollider.radius=AttackRadius;
+
+        if(audioSource!=null)
+        {
+            initial_volume = audioSource.volume;
+        }
+
         StartCoroutine(FireLoop());
     }
 
@@ -69,6 +81,10 @@ public class TowerBehavior : MonoBehaviour
     }
     int enemyID=0;
     GameObject lastTargeted;
+
+    float allowAudioSourceAfter;
+    public float AudioCoolDown=0.15f;
+    float initial_volume = 0.02f;
     private IEnumerator FireLoop()
     {
         
@@ -121,6 +137,38 @@ public class TowerBehavior : MonoBehaviour
                     if(playOnShoot!=null)
                     {
                         playOnShoot.Play();
+                    }
+                    if(audioSource!=null&& firingSFX.Count>0&&!audioSource.isPlaying)
+                    {
+                        AudioClip randomClip = firingSFX[Random.Range(0, firingSFX.Count)];
+                        audioSource.volume = initial_volume * AudioManager.SFXVolume;
+
+                        if (audioPlayType == AudioType.Multisource)
+                        {
+                            if (Time.timeSinceLevelLoadAsDouble >= allowAudioSourceAfter)
+                            {
+                                GameObject newSource = Instantiate(audioSource.gameObject, audioSource.transform.position, audioSource.transform.rotation, audioSource.transform.parent);
+
+                                newSource.GetComponent<AudioSource>().clip = randomClip;
+
+                                newSource.GetComponent<AudioSource>().Play();
+
+                                Destroy(newSource, randomClip.length + 1);
+
+                                allowAudioSourceAfter = Time.timeSinceLevelLoad + AudioCoolDown;
+
+                            }
+                            
+                        }
+                        else
+                        {
+                            audioSource.GetComponent<AudioSource>().clip = randomClip;
+
+                            audioSource.GetComponent<AudioSource>().Play();
+
+                        }
+
+
                     }
                     yield return new WaitForSeconds(fireRate);
                 }
