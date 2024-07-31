@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.SceneManagement;
+using UnityEngine.Rendering;
 public class MenuManager : MonoBehaviour
 {
     public CanvasGroup CurrentActive;
@@ -10,10 +11,14 @@ public class MenuManager : MonoBehaviour
 
     public float fadeDuration = 0.25f;
 
+    CanvasGroup lastActive;
+    public Volume volume;
 
 
     void Start()
     {
+        if(volume != null)
+            targetWeight = volume.weight;
         DisableAll();
     }
     private void DisableAll()
@@ -44,8 +49,13 @@ public class MenuManager : MonoBehaviour
         fadeTween.onComplete += FadeIn;
         fadeTween.Play();
 
-
+        lastActive = CurrentActive;
         CurrentActive = group;
+    }
+    public void FadeVinnete(float amount)
+    {
+
+        targetWeight = amount;
     }
     public void FadeOutAndLoad(int sceneID)
     {
@@ -67,10 +77,11 @@ public class MenuManager : MonoBehaviour
     {
         SceneManager.LoadScene(targetSceneID);
     }
-
+    float targetWeight;
     private void FadeIn()
     {
         DisableAll();
+        lastActive.gameObject.SetActive(false);
         CurrentActive.gameObject.SetActive(true);
         fadeTween?.Kill();
         fadeTween = CurrentActive.DOFade(1, fadeDuration);
@@ -79,5 +90,13 @@ public class MenuManager : MonoBehaviour
     private void OnDestroy()
     {
         fadeTween?.Kill();
+    }
+
+    private void Update()
+    {
+        if(volume!=null)
+        {
+            volume.weight= (volume.weight*20+ targetWeight)/21f;
+        }
     }
 }
