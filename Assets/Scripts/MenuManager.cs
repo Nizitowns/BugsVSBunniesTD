@@ -13,7 +13,6 @@ public class MenuManager : MonoBehaviour
 
     CanvasGroup lastActive;
     public Volume volume;
-
     void Start()
     {
         if(volume != null)
@@ -41,8 +40,20 @@ public class MenuManager : MonoBehaviour
     }
 
     Tween fadeTween;
+    public void EnableImmediate(CanvasGroup group)
+    {
+
+        fadeTween?.Kill();
+        fadeTween = CurrentActive.DOFade(0, 0.01f);
+        fadeTween.onComplete += FadeInImmediate;
+        fadeTween.Play();
+
+        lastActive = CurrentActive;
+        CurrentActive = group;
+    }
     public void TweenEnable(CanvasGroup group)
     {
+
         fadeTween?.Kill();
         fadeTween = CurrentActive.DOFade(0,fadeDuration);
         fadeTween.onComplete += FadeIn;
@@ -63,6 +74,14 @@ public class MenuManager : MonoBehaviour
         fadeTween.onComplete += LoadScene;
         fadeTween.Play();
         targetSceneID = sceneID;
+    }
+    public void FadeOutAndReload()
+    {
+        fadeTween?.Kill();
+        fadeTween = CurrentActive.DOFade(0, fadeDuration);
+        fadeTween.onComplete += LoadScene;
+        fadeTween.Play();
+        targetSceneID = SceneManager.GetActiveScene().buildIndex;
     }
 
     public void FadeOutAndQuit()
@@ -86,6 +105,15 @@ public class MenuManager : MonoBehaviour
         fadeTween = CurrentActive.DOFade(1, fadeDuration);
         fadeTween.Play();
     }
+    private void FadeInImmediate()
+    {
+        DisableAll();
+        lastActive.gameObject.SetActive(false);
+        CurrentActive.gameObject.SetActive(true);
+        fadeTween?.Kill();
+        fadeTween = CurrentActive.DOFade(1, 0.01f);
+        fadeTween.Play();
+    }
     private void OnDestroy()
     {
         fadeTween?.Kill();
@@ -93,9 +121,13 @@ public class MenuManager : MonoBehaviour
 
     private void Update()
     {
-        if(volume!=null)
+        if (volume != null)
         {
-            volume.weight= (volume.weight*20+ targetWeight)/21f;
+            volume.weight = (volume.weight * 20 + targetWeight) / 21f;
+        }
+        if (fadeTween != null)
+        {
+            fadeTween.SetUpdate(true);
         }
     }
 }
