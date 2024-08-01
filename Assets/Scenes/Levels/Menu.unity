@@ -1606,8 +1606,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4280766074
-  m_fontColor: {r: 0.47843137, g: 0.30588236, b: 0.15294118, a: 1}
+    rgba: 4280898176
+  m_fontColor: {r: 0.5019608, g: 0.32156864, b: 0.16078432, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -5121,8 +5121,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4280766074
-  m_fontColor: {r: 0.47843137, g: 0.30588236, b: 0.15294118, a: 1}
+    rgba: 4280898174
+  m_fontColor: {r: 0.49411768, g: 0.32156864, b: 0.16078432, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -5667,8 +5667,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4280766074
-  m_fontColor: {r: 0.47843137, g: 0.30588236, b: 0.15294118, a: 1}
+    rgba: 4280898176
+  m_fontColor: {r: 0.5019608, g: 0.32156864, b: 0.16078432, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -6997,7 +6997,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Created by Team Kronos of the Colossus Forge Division  for the P1 july
+  m_text: "Created by Team Kronos of the Colossus Forge Division for the P1 july
     game sprint.\r\n\r\nBugBunny was created by:\r\n\r\nCoding:\r\nEric Patrick\r\nMiranda
     Henning\r\n\r\nArtists:\r\nDaisy Velasquez\r\nThu Nguyen\r\nEric Leafton\r\nMrinmoyee
     Nandi\r\n\r\nMusic:\r\nJo\xE3o Santos\r\n\r\nSound Effects:\r\nPeiran Zhao\r\n\r\nDesign:\r\nAlex
@@ -11804,15 +11804,15 @@ RectTransform:
   m_GameObject: {fileID: 1734009816}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.6989899, y: 0.6989899, z: 0.6989899}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 21277293}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 118.12637}
-  m_SizeDelta: {x: 737, y: 118}
+  m_AnchoredPosition: {x: 0, y: 126}
+  m_SizeDelta: {x: 2048, y: 1024}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1734009818
 MonoBehaviour:
@@ -11834,7 +11834,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a79fa05100871954aa6e6788c00e8019, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 48533fbadd094264ca751e2765da8279, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -14126,8 +14126,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4280765816
-  m_fontColor: {r: 0.47058827, g: 0.3019608, b: 0.15294118, a: 1}
+    rgba: 4281161864
+  m_fontColor: {r: 0.53333336, g: 0.34509805, b: 0.1764706, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
