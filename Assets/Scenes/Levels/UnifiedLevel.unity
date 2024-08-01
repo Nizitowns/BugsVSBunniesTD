@@ -7649,7 +7649,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 30
+  field of view: 35
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -7675,13 +7675,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 871291104}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.13714148, y: 0.86251587, z: -0.3310888, w: 0.35726574}
-  m_LocalPosition: {x: -80.399994, y: 115.8, z: 116.9}
+  m_LocalRotation: {x: 0.1464466, y: 0.8535535, z: -0.35355338, w: 0.35355338}
+  m_LocalPosition: {x: -50, y: 70.710686, z: 50.00003}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1418079461}
-  m_LocalEulerAnglesHint: {x: 42, y: 135, z: 0}
+  m_LocalEulerAnglesHint: {x: 45, y: 135, z: 0}
 --- !u!114 &871291108
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11054,14 +11054,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1418079460}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0.6693252, z: 0, w: 0.7429696}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 18.3, y: 0, z: -56.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 871291107}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: -84.03, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1418079462
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11077,8 +11077,15 @@ MonoBehaviour:
   PivotTargetLocation: {fileID: 0}
   OrbitSpeed: 1
   VerticalSpeed: 1
+  rotationType: 2
   MaxPitch: 47
   MinPitch: 30
+  AllowZoom: 1
+  ScrollSpeed: 3
+  MaxDist: 200
+  MinDist: 30
+  CurDist: 100
+  AltOrbitSpeed: 1
 --- !u!1001 &1433251329
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11768,6 +11775,68 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1518522961}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1525320066
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1525320067}
+  - component: {fileID: 1525320069}
+  - component: {fileID: 1525320068}
+  m_Layer: 10
+  m_Name: WalkableCamera
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1525320067
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1525320066}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -26.200356, y: -19.908241, z: -5.511879}
+  m_LocalScale: {x: 1, y: 1, z: 1.2454314}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1741976016}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1525320068
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1525320066}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 100, y: 1, z: 100}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &1525320069
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1525320066}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1001 &1536396869
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13250,6 +13319,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1525320067}
   - {fileID: 124907576}
   - {fileID: 484717932}
   - {fileID: 1284944728}
@@ -14203,6 +14273,68 @@ MonoBehaviour:
   nextNode: {fileID: 393864855}
   altNextNode: {fileID: 0}
   NodeRadius: 2
+--- !u!1 &1867287007
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1867287008}
+  - component: {fileID: 1867287010}
+  - component: {fileID: 1867287009}
+  m_Layer: 10
+  m_Name: WalkableCamera
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1867287008
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1867287007}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -16.3, y: -9.3, z: -51.5}
+  m_LocalScale: {x: 1, y: 1, z: 2.2803}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2088004397}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1867287009
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1867287007}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 100, y: 1, z: 100}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &1867287010
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1867287007}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1001 &1896970082
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15737,6 +15869,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1867287008}
   - {fileID: 1516809969}
   - {fileID: 2007319722}
   - {fileID: 561505816}
