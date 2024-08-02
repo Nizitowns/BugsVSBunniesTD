@@ -18,6 +18,11 @@ public class bulletBehavior : MonoBehaviour
     public bool DestroyIfEnemyDies;
     public bool SeenEnemy;
 
+    public SpecialEffects specialEffects;
+
+    public float SpecialEffectLength;
+    public enum SpecialEffects {None,SlowEnemies };
+
     //Spawns + Entangles with enemies when killed (Bubbles foreach enemy etc.)
     public GameObject EntangleWhenKillEnemy;
     void Start()
@@ -57,6 +62,11 @@ public class bulletBehavior : MonoBehaviour
         if (other.CompareTag("enemies")&&other.GetComponent<EnemyCharacteristics>()!=null)
         {
             //Debug.Log("health is now " +damage+" lower whenever we get around to that.");
+            if(specialEffects==SpecialEffects.SlowEnemies)
+            {
+                other.GetComponent<EnemyCharacteristics>().Freeze(SpecialEffectLength);
+            }
+
             if(other.GetComponent<EnemyCharacteristics>().Damage(damage)&& EntangleWhenKillEnemy!=null)
             {
                 GameObject g= Instantiate(EntangleWhenKillEnemy, transform.position, transform.rotation, transform.parent);

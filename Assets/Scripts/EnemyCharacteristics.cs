@@ -3,16 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+[RequireComponent(typeof(NavMeshAgent))]
 public class EnemyCharacteristics : MonoBehaviour
 {
     public int MoneyReward=1;
     public float MaxHealth=30;
     [HideInInspector]
     private float health;
+    NavMeshAgent agent;
     void Start()
     {
         gameObject.tag = "enemies";
         health = MaxHealth;
+        agent=GetComponent<NavMeshAgent>();
+        initalSpeed= agent.speed;
+    }
+    float timeForSlowDown;
+    float initalSpeed;
+
+    public void Freeze(float duration)
+    {
+        timeForSlowDown = Time.timeSinceLevelLoad + duration;
     }
     public bool Damage(float amount)
     {
@@ -61,6 +72,14 @@ public class EnemyCharacteristics : MonoBehaviour
     }
     void Update()
     {
+        if(Time.timeSinceLevelLoad<timeForSlowDown)
+        {//If we are frozen right now
+            agent.speed = initalSpeed * 0.5f;
+        }
+        else
+        {
+            agent.speed = initalSpeed;
+        }
         if(health <= 0)
         {
             Die();
