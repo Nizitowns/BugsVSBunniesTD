@@ -17,7 +17,8 @@ public class BaseHealth : MonoBehaviour
     float defaultVolume=0.02f;
     private void Start()
     {
-        if(PluckingSound!=null)
+        EnemiesBreached=new List<GameObject> ();
+        if (PluckingSound!=null)
         {
             defaultVolume = PluckingSound.volume;
         }
@@ -32,7 +33,7 @@ public class BaseHealth : MonoBehaviour
 
         for (int i=0;i<Carrots.Length;i++)
         {
-            if (!((i + 1) < CurrentHealth) && Carrots[i] != null && Carrots[i].GetComponent<Rigidbody>().constraints==RigidbodyConstraints.FreezeAll)
+            if (((i + 1) > CurrentHealth) && Carrots[i] != null && Carrots[i].GetComponent<Rigidbody>().constraints==RigidbodyConstraints.FreezeAll)
             {
 
                 Carrots[i].GetComponent<Rigidbody>().AddForce(Vector3.up*10,ForceMode.Impulse);
@@ -50,6 +51,7 @@ public class BaseHealth : MonoBehaviour
             DefeatedBase();
         }
     }
+    List<GameObject> EnemiesBreached;
     public void DefeatedBase()
     {
 
@@ -58,9 +60,9 @@ public class BaseHealth : MonoBehaviour
         private void OnTriggerEnter(Collider other)
     {
 
-        if(other.gameObject.GetComponent<EnemyCharacteristics>()!=null)
+        if(other.gameObject.GetComponent<EnemyCharacteristics>()!=null&&!EnemiesBreached.Contains(other.gameObject))
         {
-
+            EnemiesBreached.Add(other.gameObject);
             other.gameObject.GetComponent<EnemyCharacteristics>().Die(false);
             DamageBase();
         }
