@@ -28887,17 +28887,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PivotTargetLocation: {fileID: 0}
-  OrbitSpeed: 1
-  VerticalSpeed: 1
+  OrbitSpeed: 20
+  VerticalSpeed: 20
   rotationType: 2
   MaxPitch: 47
   MinPitch: 30
   AllowZoom: 1
-  ScrollSpeed: 3
+  ScrollSpeed: 30
   MaxDist: 200
-  MinDist: 30
+  MinDist: 50
   CurDist: 100
-  AltOrbitSpeed: 1
+  AltOrbitSpeed: 15
 --- !u!1001 &1424708850
 PrefabInstance:
   m_ObjectHideFlags: 0
