@@ -635,6 +635,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 1000
+  OnlyRotateIfPlaying: {fileID: 222911674878327515}
 --- !u!1 &4650822378979494060
 GameObject:
   m_ObjectHideFlags: 0

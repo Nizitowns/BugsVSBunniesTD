@@ -15,6 +15,9 @@ public class WaveEndHook : MonoBehaviour
 
     public GameObject SetPivotTarget;
 
+    [Min(0)]
+    public int RewardMoneyOnComplete;
+
     
     void Start()
     {
@@ -29,7 +32,15 @@ public class WaveEndHook : MonoBehaviour
                 ListenTarget.WavesCompleted += SetPivot;
             if (FreeOnComplete != null)
                 ListenTarget.WavesCompleted += FreeParent;
+            if (RewardMoneyOnComplete > 0)
+            {
+                ListenTarget.WavesCompleted += RewardMoney;
+            }
         }
+    }
+    public void RewardMoney()
+    {
+        MoneyManager.instance.AddMoney(RewardMoneyOnComplete);
     }
     public void FreeParent()
     {
