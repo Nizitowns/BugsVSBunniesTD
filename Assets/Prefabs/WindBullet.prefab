@@ -120,7 +120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 120
   target: {x: 0, y: 0, z: 0}
-  damage: 2
+  damage: 1.25
   enemy: {fileID: 0}
   despawnTime: 6
   DestroyIfEnemyDies: 0
@@ -129,3 +129,4 @@ MonoBehaviour:
   SpecialEffectLength: 0
   EntangleWhenKillEnemy: {fileID: 628611231193588644, guid: e7a78fde98c28e847bdb6ed60f45cc8f,
     type: 3}
+  MaxHits: 1
