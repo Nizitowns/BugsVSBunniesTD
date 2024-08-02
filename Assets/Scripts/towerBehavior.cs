@@ -103,7 +103,7 @@ public class TowerBehavior : MonoBehaviour
                 }
                 //   Debug.Log(targetList[enemyID]);
                 //Make sure the enemy is not already dead (is null) and is enabled.
-                if (targetList[enemyID] != null&& targetList[enemyID].activeInHierarchy)
+                if (targetList[enemyID] != null&& targetList[enemyID].activeInHierarchy && targetList[enemyID].GetComponent<EnemyCharacteristics>()!=null)
                 {
                     GameObject unit = targetList[enemyID];
                     lastTargeted = unit;
