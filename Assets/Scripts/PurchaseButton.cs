@@ -24,7 +24,7 @@ public class PurchaseButton : MonoBehaviour
     public void UpdateIcon()
     {
         
-        button.interactable = MoneyManager.instance.Balance >= PurchaseCost;
+        button.interactable = MoneyManager.instance.Balance >= PurchaseCost&&TowerPrefab!=null;
         if(!button.interactable&& (TowerPlacer.SelectedTower == this))
         {
             TowerPlacer.SelectedTower = null;

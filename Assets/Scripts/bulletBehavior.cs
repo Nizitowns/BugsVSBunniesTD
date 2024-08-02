@@ -62,7 +62,7 @@ public class bulletBehavior : MonoBehaviour
                 GameObject g= Instantiate(EntangleWhenKillEnemy, transform.position, transform.rotation, transform.parent);
                 g.transform.localScale*=other.transform.localScale.x;
                 other.transform.parent = g.transform;
-                other.transform.localPosition = Vector3.zero;
+                other.transform.localPosition = new Vector3(0,-0.25f,0);
                 other.gameObject.layer = g.gameObject.layer;
                 other.transform.tag = g.gameObject.tag;
                 Destroy(other.GetComponent<EnemyCharacteristics>());
