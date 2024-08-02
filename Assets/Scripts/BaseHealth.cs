@@ -63,7 +63,7 @@ public class BaseHealth : MonoBehaviour
         if(other.gameObject.GetComponent<EnemyCharacteristics>()!=null&&!EnemiesBreached.Contains(other.gameObject))
         {
             EnemiesBreached.Add(other.gameObject);
-            other.gameObject.GetComponent<EnemyCharacteristics>().Die(false);
+            other.gameObject.GetComponent<EnemyCharacteristics>().Die(false,true);
             DamageBase();
         }
 

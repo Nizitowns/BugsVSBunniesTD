@@ -17,6 +17,9 @@ public class bulletBehavior : MonoBehaviour
     Vector3 moveDir;
     public bool DestroyIfEnemyDies;
     public bool SeenEnemy;
+
+    //Spawns + Entangles with enemies when killed (Bubbles foreach enemy etc.)
+    public GameObject EntangleWhenKillEnemy;
     void Start()
     {
 
@@ -28,7 +31,7 @@ public class bulletBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (enemy != null&&enemy.activeInHierarchy)
+        if (enemy != null&&enemy.activeInHierarchy&&enemy.GetComponent<EnemyCharacteristics>()!=null)
         {
             SeenEnemy = true;
             target = enemy.transform.position;
@@ -51,12 +54,21 @@ public class bulletBehavior : MonoBehaviour
     int checkHealth;
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("enemies"))
+        if (other.CompareTag("enemies")&&other.GetComponent<EnemyCharacteristics>()!=null)
         {
             //Debug.Log("health is now " +damage+" lower whenever we get around to that.");
-            Destroy(this.gameObject);
-            other?.GetComponent<EnemyCharacteristics>().Damage(damage);
+            if(other.GetComponent<EnemyCharacteristics>().Damage(damage)&& EntangleWhenKillEnemy!=null)
+            {
+                GameObject g= Instantiate(EntangleWhenKillEnemy, transform.position, transform.rotation, transform.parent);
+                g.transform.localScale*=other.transform.localScale.x;
+                other.transform.parent = g.transform;
+                other.transform.localPosition = Vector3.zero;
+                other.gameObject.layer = g.gameObject.layer;
+                other.transform.tag = g.gameObject.tag;
+                Destroy(other.GetComponent<EnemyCharacteristics>());
+            }
 
+            Destroy(this.gameObject);
             //Debug.Log("detroyed");
         }
     }

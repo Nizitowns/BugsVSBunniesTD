@@ -5036,6 +5036,8 @@ MonoBehaviour:
   despawnTime: 6
   DestroyIfEnemyDies: 0
   SeenEnemy: 0
+  EntangleWhenKillEnemy: {fileID: 628611231193588644, guid: 83b4844023b421842945f148ae68d1fc,
+    type: 3}
 --- !u!198 &591752623609250622
 ParticleSystem:
   m_ObjectHideFlags: 0
