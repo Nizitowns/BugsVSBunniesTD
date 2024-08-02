@@ -133,6 +133,7 @@ MonoBehaviour:
   specialEffects: 1
   SpecialEffectLength: 2
   EntangleWhenKillEnemy: {fileID: 0}
+  MaxHits: 2
 --- !u!198 &5336901670611747799
 ParticleSystem:
   m_ObjectHideFlags: 0

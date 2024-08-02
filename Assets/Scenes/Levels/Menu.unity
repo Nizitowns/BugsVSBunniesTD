@@ -8477,6 +8477,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55fc5ca2f3db8a9499dd53119a566301, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SFXSlider: {fileID: 1078576880}
+  MusicSlider: {fileID: 1401471532}
 --- !u!1001 &1199662952
 PrefabInstance:
   m_ObjectHideFlags: 0

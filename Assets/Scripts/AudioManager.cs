@@ -8,11 +8,16 @@ public class AudioManager : MonoBehaviour
     public static float SFXVolume = 0.5f;
     public static float MusicVolume = 0.5f;
 
-
+    public Slider SFXSlider;
+    public Slider MusicSlider;
     private void Start()
     {
         SFXVolume = PlayerPrefs.GetFloat("SFX_Vol", 0.5f);
         MusicVolume = PlayerPrefs.GetFloat("Music_Vol", 0.5f);
+        if(SFXSlider!=null)
+        SFXSlider.value = SFXVolume;
+        if(MusicSlider!=null)
+        MusicSlider.value = MusicVolume;
     }
     public void SetSFXVolume(Slider slider)
     {

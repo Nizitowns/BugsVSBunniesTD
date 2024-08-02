@@ -323,7 +323,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MoneyReward: 6
-  MaxHealth: 40
+  MaxHealth: 350
 --- !u!136 &7823361502280023569
 CapsuleCollider:
   m_ObjectHideFlags: 0

@@ -57,6 +57,8 @@ public class bulletBehavior : MonoBehaviour
 
     }
     int checkHealth;
+    public int MaxHits = 1;
+    int hits;
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("enemies")&&other.GetComponent<EnemyCharacteristics>()!=null)
@@ -78,7 +80,13 @@ public class bulletBehavior : MonoBehaviour
                 Destroy(other.GetComponent<EnemyCharacteristics>());
             }
 
-            Destroy(this.gameObject);
+            hits++;
+            if(hits>= MaxHits)
+                Destroy(this.gameObject);
+            else if(hits<=1)
+            {
+                Destroy(this.gameObject, 0.1f);
+            }
             //Debug.Log("detroyed");
         }
     }

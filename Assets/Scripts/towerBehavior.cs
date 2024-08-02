@@ -12,6 +12,7 @@ public class TowerBehavior : MonoBehaviour
     public float AttackRadius;
     //per second
     public float fireRate;
+    public float burstDelay;
     public GameObject BulletPrefab;
     public GameObject BulletSource;
     // Start is called before the first frame update
@@ -85,14 +86,16 @@ public class TowerBehavior : MonoBehaviour
     float allowAudioSourceAfter;
     public float AudioCoolDown=0.15f;
     float initial_volume = 0.02f;
+    public int BurstLength = -1;
     private IEnumerator FireLoop()
     {
+        int burstCounter = BurstLength;
         
         while (true)
         {
             if (targetList.Count > 0)
             {
-                if(MyTargetingType == TargetType.FocusOnTarget)
+                if (MyTargetingType == TargetType.FocusOnTarget)
                 {
                     enemyID = targetList.IndexOf(lastTargeted);
                 }
@@ -103,11 +106,27 @@ public class TowerBehavior : MonoBehaviour
                 }
                 //   Debug.Log(targetList[enemyID]);
                 //Make sure the enemy is not already dead (is null) and is enabled.
-                if (targetList[enemyID] != null&& targetList[enemyID].activeInHierarchy && targetList[enemyID].GetComponent<EnemyCharacteristics>()!=null)
+                if (targetList[enemyID] != null && targetList[enemyID].activeInHierarchy && targetList[enemyID].GetComponent<EnemyCharacteristics>() != null)
                 {
-                    GameObject unit = targetList[enemyID];
+
+                    bool abortShot = false;
+                    if (BurstLength >= 0)
+                    {
+                        burstCounter++;
+
+                        if (burstCounter > BurstLength)
+                        {
+                            burstCounter = 0;
+                            yield return new WaitForSeconds(burstDelay);
+                            abortShot = true;
+                        }
+                    }
+
+                    if (!abortShot)
+                    { 
+                        GameObject unit = targetList[enemyID];
                     lastTargeted = unit;
-                   // Debug.Log("PEW! hit enemy " + unit + " at location " + unit.transform.position);
+                    // Debug.Log("PEW! hit enemy " + unit + " at location " + unit.transform.position);
                     BulletPrefab.GetComponent<bulletBehavior>().enemy = unit;
                     //prefab.GetComponent<bulletBehavior>().setTargetPosition(unit);
                     //the weird y position is so the bullet shoots from the top instaed of the middle. adjust as needed
@@ -124,7 +143,7 @@ public class TowerBehavior : MonoBehaviour
                         Quaternion rotation = Quaternion.LookRotation(direction);
 
                         // Apply the rotation to the tower
-                        RotationAxis.transform.rotation = Quaternion.Euler(0, rotation.eulerAngles.y+90, 0);
+                        RotationAxis.transform.rotation = Quaternion.Euler(0, rotation.eulerAngles.y + 90, 0);
                     }
 
 
@@ -134,11 +153,11 @@ public class TowerBehavior : MonoBehaviour
                         spawnPos = BulletSource.transform.position;
                     }
                     Instantiate(BulletPrefab, spawnPos, transform.rotation);
-                    if(playOnShoot!=null)
+                    if (playOnShoot != null)
                     {
                         playOnShoot.Play();
                     }
-                    if(audioSource!=null&& firingSFX.Count>0&&!audioSource.isPlaying)
+                    if (audioSource != null && firingSFX.Count > 0 && !audioSource.isPlaying)
                     {
                         AudioClip randomClip = firingSFX[Random.Range(0, firingSFX.Count)];
                         audioSource.volume = initial_volume * AudioManager.SFXVolume;
@@ -158,7 +177,7 @@ public class TowerBehavior : MonoBehaviour
                                 allowAudioSourceAfter = Time.timeSinceLevelLoad + AudioCoolDown;
 
                             }
-                            
+
                         }
                         else
                         {
@@ -171,11 +190,18 @@ public class TowerBehavior : MonoBehaviour
 
                     }
                     yield return new WaitForSeconds(fireRate);
+
+                }
+                
                 }
                 else
                 {//Lets remove the null instance and try again next loop interation.
                     targetList.RemoveAt(enemyID);
                 }
+            }
+            else
+            {
+                burstCounter = BurstLength;
             }
 
             yield return new WaitForEndOfFrame();

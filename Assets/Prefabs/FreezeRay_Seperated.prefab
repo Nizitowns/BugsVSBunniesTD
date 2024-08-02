@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 8129502170253762053}
   - component: {fileID: 3851737891282847455}
   - component: {fileID: 1704040955679183615}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FX_ElectricRay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5183,9 +5183,9 @@ GameObject:
   - component: {fileID: 5619679912417576634}
   - component: {fileID: 8092410098097611913}
   - component: {fileID: 8958978433869418445}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FreezeRay_Seperated
-  m_TagString: Untagged
+  m_TagString: tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5592,7 +5592,7 @@ GameObject:
   - component: {fileID: 2165828800917649338}
   - component: {fileID: 7763777738037416867}
   - component: {fileID: 334629435239435515}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FreezeRay_Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5709,7 +5709,7 @@ GameObject:
   - component: {fileID: 7841304958553723365}
   - component: {fileID: 7612874399311771340}
   - component: {fileID: 1250956853253989590}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FreezeRay_Top
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -1913,7 +1913,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccf9b738b65d4414197c1cbd888ab44b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TowerPrefab: {fileID: 0}
+  TowerPrefab: {fileID: 7660733433171842739, guid: 92b3136944f419f4eaf06e5b5a7010bc,
+    type: 3}
   PurchaseCost: 75
 --- !u!1 &8431047322537073394
 GameObject:
