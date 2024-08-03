@@ -15,17 +15,20 @@ public class WaveEndHook : MonoBehaviour
 
     public GameObject SetPivotTarget;
 
+    [Tooltip("Tween Enables this UI when all waves are done.")]
+    public CanvasGroup TweenEnableOnComplete;
+
+    public MenuManager PauseMenuManager;
+
     [Min(0)]
     public int RewardMoneyOnComplete;
 
-    
     void Start()
     {
         if(ListenTarget != null)
         {
             if (FadeInOnComplete != null)
                 ListenTarget.WavesCompleted += FadeIn;
-
             if (ToggleOnComplete != null)
                 ListenTarget.WavesCompleted += ToggleActive;
             if (SetPivotTarget != null)
@@ -36,7 +39,16 @@ public class WaveEndHook : MonoBehaviour
             {
                 ListenTarget.WavesCompleted += RewardMoney;
             }
+
+            if(TweenEnableOnComplete!=null&&PauseMenuManager!=null)
+            {
+                ListenTarget.WavesCompleted += TweenEnable;
+            }
         }
+    }
+    public void TweenEnable()
+    {
+        PauseMenuManager.TweenEnable(TweenEnableOnComplete);
     }
     public void RewardMoney()
     {

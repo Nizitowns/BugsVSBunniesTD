@@ -14,6 +14,10 @@ public class ShrinkEffect : MonoBehaviour
         shrinkTween.onComplete += destroyMe;
         shrinkTween.Play();
     }
+    private void OnDestroy()
+    {
+        shrinkTween?.Kill();
+    }
     void destroyMe()
     {
         Destroy(gameObject);

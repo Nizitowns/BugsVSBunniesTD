@@ -5221,6 +5221,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AttackRadius: 30
   fireRate: 0.01
+  burstDelay: 0
   BulletPrefab: {fileID: 64348080937607872, guid: 03876bee01672694980d794f00ff9607,
     type: 3}
   BulletSource: {fileID: 581249562980963965}
@@ -5241,6 +5242,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: cd6490196bf334a4fa9a3f2fea5c96c2, type: 3}
   audioPlayType: 1
   AudioCoolDown: 0.15
+  BurstLength: -1
 --- !u!135 &8958978433869418445
 SphereCollider:
   m_ObjectHideFlags: 0

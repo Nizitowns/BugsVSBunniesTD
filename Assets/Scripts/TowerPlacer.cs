@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.EventSystems;
+using static Unity.VisualScripting.Member;
 public class TowerPlacer : MonoBehaviour
 {
     public static bool PlacementDisabled;
@@ -10,6 +11,7 @@ public class TowerPlacer : MonoBehaviour
 
     public GameObject PreviewPlacerPrefab;
 
+    AudioSource source;
     GameObject previewPlacer;
     MeshFilter previewPlacerMeshFilter;
 
@@ -19,6 +21,7 @@ public class TowerPlacer : MonoBehaviour
     private Material cannotPlace;
     void Start()
     {
+        source = GetComponent<AudioSource>();
         PlacementDisabled = false;
         previewPlacer =Instantiate(PreviewPlacerPrefab).gameObject;
         previewPlacerMeshFilter=previewPlacer.GetComponentInChildren<MeshFilter>();
@@ -107,7 +110,7 @@ public class TowerPlacer : MonoBehaviour
         {
             if (MoneyManager.instance.RemoveMoney(selectedTower.PurchaseCost))
             {
-
+                source?.Play();
                 Instantiate(selectedTower.TowerPrefab, SnapToGrid(previewPlacer.transform.position), Quaternion.identity);
             }
         }

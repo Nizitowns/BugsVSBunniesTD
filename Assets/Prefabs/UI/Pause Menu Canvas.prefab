@@ -3820,6 +3820,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5346068998725051981}
   - component: {fileID: 8280471250934483545}
+  - component: {fileID: 5643893841997931092}
   m_Layer: 5
   m_Name: LossMenu
   m_TagString: Untagged
@@ -3859,6 +3860,23 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &5643893841997931092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6271975281939723232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 724998de9941df24a9bd7719d598904b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ActivationKey: 0
+  ActivateOnPress: {fileID: 0}
+  MenuManager: {fileID: 0}
+  myFadeType: 0
+  PauseIfEnabled: 1
 --- !u!1 &6670031707829697204
 GameObject:
   m_ObjectHideFlags: 0
@@ -4805,6 +4823,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2111678420320316732}
   - component: {fileID: 5549203012462064133}
+  - component: {fileID: 1289816423625687058}
   m_Layer: 5
   m_Name: WinMenu
   m_TagString: Untagged
@@ -4844,6 +4863,23 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &1289816423625687058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8856851053255048797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 724998de9941df24a9bd7719d598904b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ActivationKey: 0
+  ActivateOnPress: {fileID: 0}
+  MenuManager: {fileID: 0}
+  myFadeType: 0
+  PauseIfEnabled: 1
 --- !u!1 &9152038670495044017
 GameObject:
   m_ObjectHideFlags: 0

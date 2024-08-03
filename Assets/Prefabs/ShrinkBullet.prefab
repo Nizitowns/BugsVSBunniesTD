@@ -5031,7 +5031,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 60
   target: {x: 0, y: 0, z: 0}
-  damage: 0.1
+  damage: 0.05
   enemy: {fileID: 0}
   despawnTime: 6
   DestroyIfEnemyDies: 0
@@ -9895,7 +9895,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 9e-43, y: 0, z: 0, w: 1e-45}
+  m_BoundingSphereOverride: {x: 1.02e-43, y: 9e-44, z: 2.4617e-41, w: 1.5942501e+31}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0

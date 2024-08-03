@@ -8,7 +8,6 @@ public class MenuHook : MonoBehaviour
 
     public CanvasGroup ActivateOnPress;
     
-
     public MenuManager MenuManager;
     public FadeType myFadeType;
     public enum FadeType {TweenEnable,TweenEnableImmediate };

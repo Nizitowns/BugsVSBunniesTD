@@ -15,13 +15,22 @@ public class BaseHealth : MonoBehaviour
 
     public AudioSource PluckingSound;
     float defaultVolume=0.02f;
+
+    public MenuManager PauseMenuManager;
+    public CanvasGroup DeathScreen;
+    void FadeDeathScreen()
+    {
+        PauseMenuManager.TweenEnable(DeathScreen);
+    }
     private void Start()
     {
-        EnemiesBreached=new List<GameObject> ();
+        EnemiesBreached =new List<GameObject> ();
         if (PluckingSound!=null)
         {
             defaultVolume = PluckingSound.volume;
         }
+        if(PauseMenuManager!=null&&DeathScreen!=null)
+            BaseDefeated += FadeDeathScreen;
     }
 
     public void DamageBase()

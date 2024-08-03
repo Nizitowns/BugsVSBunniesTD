@@ -5916,7 +5916,7 @@ MonoBehaviour:
     type: 3}
   BulletSource: {fileID: 4209355496663212232}
   targetList: []
-  MyTargetingType: 0
+  MyTargetingType: 1
   RotationAxis: {fileID: 7003246324859791699}
   PreviewMesh: {fileID: -7990379704155441804, guid: 5a0c019d5cebe6a4eac421bce5649dee,
     type: 3}
