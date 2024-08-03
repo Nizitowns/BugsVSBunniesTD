@@ -4960,7 +4960,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 30
   target: {x: 0, y: 0, z: 0}
-  damage: 5
+  damage: 6
   enemy: {fileID: 0}
   despawnTime: 6
   DestroyIfEnemyDies: 0

@@ -7,6 +7,8 @@ public class EnemyCharacteristics : MonoBehaviour
 {
     public int MoneyReward=1;
     public float MaxHealth=30;
+    [Tooltip("How much damage the enemy does when it reaches a base.")]
+    public int CarrotDamage=1;
     [HideInInspector]
     private float health;
     NavMeshAgent agent;

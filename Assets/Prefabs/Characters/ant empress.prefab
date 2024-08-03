@@ -304,6 +304,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MoneyReward: 200
   MaxHealth: 1200
+  CarrotDamage: 8
 --- !u!136 &3518438920551466509
 CapsuleCollider:
   m_ObjectHideFlags: 0

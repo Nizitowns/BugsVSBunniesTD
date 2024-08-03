@@ -33,9 +33,9 @@ public class BaseHealth : MonoBehaviour
             BaseDefeated += FadeDeathScreen;
     }
 
-    public void DamageBase()
+    public void DamageBase(int amount)
     {
-        CurrentHealth -= 1;
+        CurrentHealth -= amount;
 
         PluckingSound.volume = defaultVolume * AudioManager.SFXVolume;
         PluckingSound.Play();
@@ -73,7 +73,7 @@ public class BaseHealth : MonoBehaviour
         {
             EnemiesBreached.Add(other.gameObject);
             other.gameObject.GetComponent<EnemyCharacteristics>().Die(false,true);
-            DamageBase();
+            DamageBase(other.gameObject.GetComponent<EnemyCharacteristics>().CarrotDamage);
         }
 
     }
