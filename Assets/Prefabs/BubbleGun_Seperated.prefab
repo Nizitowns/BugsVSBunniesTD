@@ -5424,6 +5424,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AttackRadius: 30
   fireRate: 0.5
+  burstDelay: 0
   BulletPrefab: {fileID: 8319209496153684854, guid: 68b314a7ecf1ae24eb02eff684eda338,
     type: 3}
   BulletSource: {fileID: 925281527847308597}
@@ -5445,6 +5446,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 474a09b4bb5d8464bb140f9435a68007, type: 3}
   audioPlayType: 1
   AudioCoolDown: 0.15
+  BurstLength: -1
 --- !u!1 &5502142852963121935
 GameObject:
   m_ObjectHideFlags: 0
@@ -5489,7 +5491,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.02
+  m_Volume: 0.04
   m_Pitch: 1
   Loop: 0
   Mute: 0

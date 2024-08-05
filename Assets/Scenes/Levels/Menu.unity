@@ -6946,7 +6946,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 950638683}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -164.15}
   m_LocalScale: {x: 4.2099996, y: 4.2099996, z: 4.2099996}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -6998,12 +6998,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Created by Team Kronos of the Colossus Forge Division for the P1 july
-    game sprint.\r\n\r\nBugBunny was created by:\r\n\r\nCoding:\r\nEric Patrick\r\nMiranda
-    Henning\r\n\r\nArtists:\r\nDaisy Velasquez\r\nThu Nguyen\r\nEric Leafton\r\nMrinmoyee
-    Nandi\r\n\r\nMusic:\r\nJo\xE3o Santos\r\n\r\nSound Effects:\r\nPeiran Zhao\r\n\r\nGame
-    Design:\r\nAlex Esten, (Brick a Brac Games)\r\n\r\nGame & Level Design:\r\nNathan
-    Barnett\r\n\r\nProducer:\r\nAntony Nizamoglou\r"
+  m_text: "Team Kronos of the Colossus Forge Division:\r\n\r\n \r\n\r\nCoding:\r\nEric
+    Patrick\r\nMiranda Henning\r\n \r\n\r\nArtists:\r\nDaisy Velasquez\r\nThu Nguyen\r\nEric
+    Leafton\r\nMrinmoyee Nandi\r\n \r\n\r\nMusic:\r\nJo\xE3o Santos\r\n\r\n \r\n\r\nSound
+    Effects:\r\nPeiran Zhao\r\n \r\n\r\nDesign:\r\nAlex Esten, (Brick a Brac Games)\r\n
+    \r\n\r\nLevel Design:\r\nNathan Barnett\r\n \r\n\r\nLeader:\r\nAntony Nizamoglou"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e5046259be6dda24eb776b4141f34ff7, type: 2}
   m_sharedMaterial: {fileID: 2759571985489830099, guid: e5046259be6dda24eb776b4141f34ff7,
