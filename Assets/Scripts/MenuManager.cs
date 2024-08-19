@@ -13,8 +13,17 @@ public class MenuManager : MonoBehaviour
 
     CanvasGroup lastActive;
     public Volume volume;
+
+    public CanvasGroup CurrentActiveIfLoadedOnceBefore;
+    public static bool LoadedOnceBefore;
     void Start()
     {
+        if(CurrentActiveIfLoadedOnceBefore !=null&& LoadedOnceBefore)
+        {
+            CurrentActive = CurrentActiveIfLoadedOnceBefore;
+            CurrentActive.gameObject.SetActive(true);
+        }
+        LoadedOnceBefore = true;
         if(volume != null)
             targetWeight = volume.weight;
         DisableAll();

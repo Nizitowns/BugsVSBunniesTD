@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class WaveEndHook : MonoBehaviour
 {
@@ -23,6 +24,8 @@ public class WaveEndHook : MonoBehaviour
     [Min(0)]
     public int RewardMoneyOnComplete;
 
+    public bool DeclareLevelCompleteOnComplete;
+
     void Start()
     {
         if(ListenTarget != null)
@@ -44,7 +47,15 @@ public class WaveEndHook : MonoBehaviour
             {
                 ListenTarget.WavesCompleted += TweenEnable;
             }
+            if(DeclareLevelCompleteOnComplete)
+            {
+                ListenTarget.WavesCompleted += FormallyClearLevel;
+            }
         }
+    }
+    public void FormallyClearLevel()
+    {
+        PlayerPrefs.SetInt("LevelCleared_"+SceneManager.GetActiveScene().buildIndex, 1);
     }
     public void TweenEnable()
     {

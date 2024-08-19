@@ -33,7 +33,12 @@ public class CameraMover : MonoBehaviour
     public float CurDist=1;
     float CurTargDist;
 
+
     public float AltOrbitSpeed;
+
+
+    public bool AllowTimeDilation = true;
+    public float TimeSpeedUpSpeed = 4;
     private void OnDrawGizmosSelected()
     {
         if(!Application.isPlaying&&AllowZoom)
@@ -63,7 +68,16 @@ public class CameraMover : MonoBehaviour
         }
 
         Transform target = transform.GetChild(0).transform;
+        if(AllowTimeDilation)
+        {
+            if (Input.GetAxis("Accelerate")>0)
+            {
+                Time.timeScale = TimeSpeedUpSpeed;
+            }
+            else
+                Time.timeScale = 1;
 
+        }
 
         if (rotationType == RotationType.PivotUpDown)
         {

@@ -12652,6 +12652,7 @@ MonoBehaviour:
   TweenEnableOnComplete: {fileID: 0}
   PauseMenuManager: {fileID: 0}
   RewardMoneyOnComplete: 60
+  DeclareLevelCompleteOnComplete: 0
 --- !u!4 &983552379
 Transform:
   m_ObjectHideFlags: 0
@@ -14728,6 +14729,7 @@ MonoBehaviour:
   TweenEnableOnComplete: {fileID: 1305298489938862582}
   PauseMenuManager: {fileID: 1305298489938862581}
   RewardMoneyOnComplete: 0
+  DeclareLevelCompleteOnComplete: 1
 --- !u!4 &1186992395
 Transform:
   m_ObjectHideFlags: 0
@@ -17331,6 +17333,8 @@ MonoBehaviour:
   MinDist: 50
   CurDist: 100
   AltOrbitSpeed: 60
+  AllowTimeDilation: 1
+  TimeSpeedUpSpeed: 4
 --- !u!1001 &1424708850
 PrefabInstance:
   m_ObjectHideFlags: 0
