@@ -14,11 +14,13 @@ public class MenuManager : MonoBehaviour
     CanvasGroup lastActive;
     public Volume volume;
 
+    CanvasGroup DefaultState;
     public CanvasGroup CurrentActiveIfLoadedOnceBefore;
     public static bool LoadedOnceBefore;
     void Start()
     {
-        if(CurrentActiveIfLoadedOnceBefore !=null&& LoadedOnceBefore)
+        DefaultState = CurrentActive;
+        if (CurrentActiveIfLoadedOnceBefore !=null&& LoadedOnceBefore)
         {
             CurrentActive = CurrentActiveIfLoadedOnceBefore;
             CurrentActive.gameObject.SetActive(true);
@@ -55,6 +57,21 @@ public class MenuManager : MonoBehaviour
         fadeTween?.Kill();
         fadeTween = CurrentActive.DOFade(0, 0.01f);
         fadeTween.onComplete += FadeInImmediate;
+        fadeTween.Play();
+
+        lastActive = CurrentActive;
+        CurrentActive = group;
+    }
+    public void TweenToggle(CanvasGroup group)
+    {
+        if(group==CurrentActive)
+        {
+            group = DefaultState;
+        }
+
+        fadeTween?.Kill();
+        fadeTween = CurrentActive.DOFade(0, fadeDuration);
+        fadeTween.onComplete += FadeIn;
         fadeTween.Play();
 
         lastActive = CurrentActive;
