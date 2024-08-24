@@ -39,6 +39,17 @@ public class EnemySpawner : MonoBehaviour
         return totalWavesCompleted/ totalWavesToSpawn;
     }
 
+    public SpawnRequest.DifficultyRating CurrentWaveDifficulty()
+    {
+        if(spawnRequests.Count<=0)
+        {//No waves? This is easy mode!
+            return SpawnRequest.DifficultyRating.Easy;
+        }
+
+        SpawnRequest current = spawnRequests[0];
+        return current.ReportedDifficultyRating;
+    }
+
     [System.Serializable]
     public class SpawnRequest
     {
@@ -58,6 +69,11 @@ public class EnemySpawner : MonoBehaviour
 
         [Tooltip("Should this enemy snap to its entry node when it spawns?")]
         public bool snapSpawning = true;
+
+        public enum DifficultyRating {Normal,Easy,Boss};
+
+        [Tooltip("Optional rating of difficulty for any current wave UI.")]
+        public DifficultyRating ReportedDifficultyRating;
     }
 
 
