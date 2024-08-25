@@ -68,6 +68,8 @@ public class TowerBehavior : MonoBehaviour
         //printList(list);
 
     }
+
+
     //for testing
     void printList(List<int> num)
     {

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.EventSystems;
@@ -14,6 +15,8 @@ public class TowerPlacer : MonoBehaviour
     AudioSource source;
     GameObject previewPlacer;
     MeshFilter previewPlacerMeshFilter;
+
+    public static TowerBehavior SelectedPlacedTower;
 
     [SerializeField]
     private Material canPlace;
@@ -41,6 +44,8 @@ public class TowerPlacer : MonoBehaviour
             previewPlacerMeshFilter.transform.position = SnapToGrid(previewPlacer.transform.position);
 
         }
+
+
 
         if (SelectedTower != null&&!PlacementDisabled)
         {
@@ -75,6 +80,24 @@ public class TowerPlacer : MonoBehaviour
         
         return isClear && hasColliderBelow&&!PlacementDisabled;
     }
+    void SelectTowerInRange(Vector3 point, float radius)
+    {
+        SelectedPlacedTower = null;
+        Collider[] hitColliders = Physics.OverlapSphere(point, radius, LayerMask.GetMask("Tower"));
+        foreach (Collider collider in hitColliders)
+        {
+            if (Vector3.Distance(collider.transform.position, point) < radius)
+            {
+                if (collider.gameObject.GetComponent<TowerBehavior>() != null)
+                {
+                    SelectedPlacedTower = collider.gameObject.GetComponent<TowerBehavior>();
+                }
+                return;
+            }
+        }
+
+    }
+
     bool IsTowerInRange(Vector3 point, float radius)
     {
         Collider[] hitColliders = Physics.OverlapSphere(point, radius, LayerMask.GetMask("Tower"));
@@ -82,6 +105,7 @@ public class TowerPlacer : MonoBehaviour
         {
             if(Vector3.Distance(collider.transform.position,point)< radius)
             {
+
                 return true;
             }
         }
@@ -121,7 +145,16 @@ public class TowerPlacer : MonoBehaviour
     }
     private void Update()
     {
+
+
+
         UpdatePreview();
+
+
+
+        if (previewPlacer != null&& Input.GetMouseButtonDown(0)&&!EventSystem.current.IsPointerOverGameObject())
+            SelectTowerInRange(previewPlacer.transform.position, 3.5f);
+
         if (SelectedTower != null)
         {
             if (Input.GetMouseButtonDown(0))
