@@ -7,6 +7,9 @@ using UnityEngine.SceneManagement;
 
 public class EnemySpawner : MonoBehaviour
 {
+    //The last EnemySpawner to start running, TODO: Replace with a more comprehensive system if multiple enemy spawners are used.
+    public static EnemySpawner LatestLaunched;
+
     public List<SpawnRequest> spawnRequests=new List<SpawnRequest>();
 
 
@@ -24,6 +27,12 @@ public class EnemySpawner : MonoBehaviour
             return 1;
         }
         SpawnRequest current = spawnRequests[0];
+
+        //What percent of enemies spawned this wave have we killed?
+        return (1 - Mathf.Min(Mathf.Max(0, ((float)transform.childCount / Mathf.Max(1,(float)enemiesSpawnedThisWave))), 1));
+
+        /* Alternative Wave Percent Code
+
         if (current.WaitUntilCompletion)
         {
             return (enemiesSpawnedThisWave / current.SpawnAmount)/2.0f +  (1-Mathf.Min(Mathf.Max(0,((float)transform.childCount/(float)current.SpawnAmount)),1))/2.0f;
@@ -32,6 +41,7 @@ public class EnemySpawner : MonoBehaviour
         {//The wave ends when all enemies spawn
             return enemiesSpawnedThisWave / current.SpawnAmount;
         }
+        */
     }
     [Tooltip("On a scale from 0-1 returns how close this entire enemy spawner is to 100% completion.")]
     public float TotalPercentage()
@@ -94,7 +104,8 @@ public class EnemySpawner : MonoBehaviour
     {
         while (spawnRequests.Count > 0)
         {
-            if(spawnRequests.Count> totalWavesToSpawn)
+            LatestLaunched = this;
+            if (spawnRequests.Count> totalWavesToSpawn)
             {
                 totalWavesToSpawn = spawnRequests.Count;
             }
@@ -154,6 +165,8 @@ public class EnemySpawner : MonoBehaviour
         {
             yield return new WaitForSeconds(PostWaveDelay);
         }
+        if(LatestLaunched==this)
+            LatestLaunched = null;
         WavesCompleted?.Invoke();
 
     }

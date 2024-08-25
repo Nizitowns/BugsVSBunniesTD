@@ -919,7 +919,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -99, y: -33}
+  m_AnchoredPosition: {x: -111, y: -44}
   m_SizeDelta: {x: 101, y: 101}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5036164983011402435
@@ -1247,8 +1247,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -0.5094, y: 0}
+  m_SizeDelta: {x: -14.2626, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &6432515532775597137
 MonoBehaviour:
@@ -1822,7 +1822,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5cf14085a47124e4e9f30de7898a9a5d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9816a1ce911ccb449a346b0461d2a8bb, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2303,7 +2303,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -33, y: -33}
+  m_AnchoredPosition: {x: -44, y: -44}
   m_SizeDelta: {x: 129, y: 129}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3738144655681576620
@@ -2634,6 +2634,7 @@ GameObject:
   - component: {fileID: 6961879853463188661}
   - component: {fileID: 5011652083624105681}
   - component: {fileID: 7662287518343381637}
+  - component: {fileID: 8966292569571889637}
   m_Layer: 5
   m_Name: Progress bar
   m_TagString: Untagged
@@ -2699,6 +2700,20 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &8966292569571889637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6785013342664447024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aacd5523b149cde43a41e7c8d4728099, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ProgressSlider: {fileID: 6432515532775597137}
+  ProgressType: 0
 --- !u!1 &7156986640275480459
 GameObject:
   m_ObjectHideFlags: 0
@@ -2711,6 +2726,7 @@ GameObject:
   - component: {fileID: 4851829117724417350}
   - component: {fileID: 8699547367702047924}
   - component: {fileID: 4824549369582055084}
+  - component: {fileID: 5194624646625310635}
   m_Layer: 5
   m_Name: Pause
   m_TagString: Untagged
@@ -2818,7 +2834,33 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8699547367702047924}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
+        m_MethodName: TweenToggle
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.CanvasGroup, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &5194624646625310635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7156986640275480459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4ddc53773cc1254c8c60f20e3427d52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  conditionType: 1
+  IfTrueSprite: {fileID: 21300000, guid: 2090eb7e945c19240805bfda8505d82f, type: 3}
 --- !u!1 &7407977331559609360
 GameObject:
   m_ObjectHideFlags: 0

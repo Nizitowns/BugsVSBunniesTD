@@ -29,6 +29,10 @@ public class TowerPlacer : MonoBehaviour
     public void UpdatePreview()
     {
         Vector3 mouseScreenPosition = Input.mousePosition;
+        if(EventSystem.current.IsPointerOverGameObject())
+        {//Dont let you place if you are over a UI element right now
+            mouseScreenPosition = new Vector3(0, -9999, 0);
+        }
         Ray ray = Camera.main.ScreenPointToRay(mouseScreenPosition);
         int layerMask = ~((1 << LayerMask.NameToLayer("Enemy")) | (1 << LayerMask.NameToLayer("Tower")));
         if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, layerMask))
