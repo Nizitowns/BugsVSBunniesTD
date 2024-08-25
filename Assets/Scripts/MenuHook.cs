@@ -13,25 +13,30 @@ public class MenuHook : MonoBehaviour
     public enum FadeType {TweenEnable,TweenEnableImmediate };
 
     public bool PauseIfEnabled;
+    public static bool IsPaused;
     private void OnDisable()
     {
         if(PauseIfEnabled)
         {
-            Time.timeScale = 1;
+            IsPaused = false;
+            Time.timeScale = 1f;
         }
     }
     private void OnEnable()
     {
-     if(PauseIfEnabled)
+        if(PauseIfEnabled)
         {
-
-            Time.timeScale = 0;
+            IsPaused = true;
+            Time.timeScale = 0f;
         }
     }
     private void OnDestroy()
     {
-        if(PauseIfEnabled)
+        if (PauseIfEnabled)
+        {
+            IsPaused = false;
             Time.timeScale = 1;
+        }
     }
     void Update()
     {

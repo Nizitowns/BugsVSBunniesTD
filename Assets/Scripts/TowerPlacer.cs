@@ -123,7 +123,7 @@ public class TowerPlacer : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 BuyTower(SelectedTower);
-                Debug.Log("Placing " + SelectedTower.TowerPrefab.name);
+              //  Debug.Log("Placing " + SelectedTower.TowerPrefab.name);
             }
 
             if (Input.GetMouseButtonDown(1))

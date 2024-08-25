@@ -81,12 +81,21 @@ public class CameraMover : MonoBehaviour
         Transform target = transform.GetChild(0).transform;
         if(AllowTimeDilation)
         {
-            if (Input.GetAxis("Accelerate")>0)
+            if (MenuHook.IsPaused)
             {
-                Time.timeScale = Math.Max(targetTimeScale,TimeSpeedUpSpeed);
+                Time.timeScale = 0;
             }
             else
-                Time.timeScale = targetTimeScale;
+            {
+
+
+                if (Input.GetAxis("Accelerate") > 0)
+                {
+                    Time.timeScale = Math.Max(targetTimeScale, TimeSpeedUpSpeed);
+                }
+                else
+                    Time.timeScale = targetTimeScale;
+            }
 
         }
 

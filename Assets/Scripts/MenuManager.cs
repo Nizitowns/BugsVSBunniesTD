@@ -77,6 +77,7 @@ public class MenuManager : MonoBehaviour
         lastActive = CurrentActive;
         CurrentActive = group;
     }
+
     public void TweenEnable(CanvasGroup group)
     {
 
