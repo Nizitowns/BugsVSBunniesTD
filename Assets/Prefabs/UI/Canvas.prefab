@@ -441,13 +441,13 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 6830193889459288446}
   - {fileID: 5427403786196321460}
   - {fileID: 1478797500085896919}
   - {fileID: 3351963347256556193}
   - {fileID: 6961879853463188661}
   - {fileID: 6199731339289853664}
   - {fileID: 6252839091351088998}
-  - {fileID: 6830193889459288446}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -2727,7 +2727,6 @@ GameObject:
   - component: {fileID: 4851829117724417350}
   - component: {fileID: 8699547367702047924}
   - component: {fileID: 4824549369582055084}
-  - component: {fileID: 5194624646625310635}
   m_Layer: 5
   m_Name: Pause
   m_TagString: Untagged
@@ -2848,20 +2847,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &5194624646625310635
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7156986640275480459}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4ddc53773cc1254c8c60f20e3427d52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  conditionType: 1
-  IfTrueSprite: {fileID: 21300000, guid: 2090eb7e945c19240805bfda8505d82f, type: 3}
 --- !u!1 &7356998885966365116
 GameObject:
   m_ObjectHideFlags: 0
@@ -2889,8 +2874,8 @@ RectTransform:
   m_GameObject: {fileID: 7356998885966365116}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.66, y: 0.66, z: 0.66}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 9037362324384170276}
   m_Father: {fileID: 3410394754934049363}
@@ -2899,7 +2884,7 @@ RectTransform:
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0.5, y: -1.5}
 --- !u!225 &4326421783277718060
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -2909,7 +2894,7 @@ CanvasGroup:
   m_GameObject: {fileID: 7356998885966365116}
   m_Enabled: 1
   m_Alpha: 0
-  m_Interactable: 1
+  m_Interactable: 0
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
 --- !u!114 &1717097491252480223
@@ -3237,6 +3222,7 @@ GameObject:
   - component: {fileID: 9037362324384170276}
   - component: {fileID: 8014628671317577997}
   - component: {fileID: 1481029121639394423}
+  - component: {fileID: 5582915482679246825}
   m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
@@ -3253,7 +3239,7 @@ RectTransform:
   m_GameObject: {fileID: 8250248430091429877}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 6830193889459288446}
@@ -3261,7 +3247,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1556, y: 707}
+  m_SizeDelta: {x: 363, y: 305}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8014628671317577997
 CanvasRenderer:
@@ -3291,7 +3277,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 0172e86ed3a588f48a83655cd2cbd488, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c0ef9fbfccca6d147afa2b16a1dd2e59, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3301,6 +3287,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &5582915482679246825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8250248430091429877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0.91823894, g: 0.83234674, b: 0.7305485, a: 1}
+  m_EffectDistance: {x: 3, y: 3}
+  m_UseGraphicAlpha: 0
 --- !u!1 &8298633758029808327
 GameObject:
   m_ObjectHideFlags: 0
