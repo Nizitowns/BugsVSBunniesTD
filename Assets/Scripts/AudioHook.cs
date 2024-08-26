@@ -17,6 +17,15 @@ public class AudioHook : MonoBehaviour
         {
             source.volume = 0;
         }
+
+        if (audioSourceType == AudioSourceType.SFX)
+        {
+            source.volume = (initialVolume * AudioManager.SFXVolume);
+        }
+        else if (audioSourceType == AudioSourceType.Music)
+        {
+            source.volume = (initialVolume * AudioManager.MusicVolume);
+        }
     }
     private void Update()
     {
