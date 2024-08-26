@@ -1153,8 +1153,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00211cb2a8f861f41b307d23f22ed697, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SelectedTitle: <color=red>Shrink Ray
   AttackRadius: 30
   fireRate: 0.01
+  burstDelay: 0
   BulletPrefab: {fileID: 8319209496153684854, guid: 2cafa5a61d661284caeddbd998647ce9,
     type: 3}
   BulletSource: {fileID: 1198950817680309563}
@@ -1174,6 +1176,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e234b6125322f9946847bb71e37012a4, type: 3}
   audioPlayType: 1
   AudioCoolDown: 0.15
+  BurstLength: -1
 --- !u!1 &8727745135504050637
 GameObject:
   m_ObjectHideFlags: 0

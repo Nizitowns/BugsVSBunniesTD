@@ -7,7 +7,8 @@ using static UnityEngine.GraphicsBuffer;
 
 public class TowerBehavior : MonoBehaviour
 {
-
+    [Tooltip("What this tower appears as when selected.")]
+    public string SelectedTitle;
     SphereCollider myCollider;
     public float AttackRadius;
     //per second

@@ -506,8 +506,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: SHRINK RAY
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 3cbc63cbeabeb0d44be0f4aa812c6b1d, type: 2}
-  m_sharedMaterial: {fileID: 1992119596052254777, guid: 3cbc63cbeabeb0d44be0f4aa812c6b1d,
+  m_fontAsset: {fileID: 11400000, guid: f1996a1e2f5fa5a42809ebf126c0e88f, type: 2}
+  m_sharedMaterial: {fileID: 6869366312779387892, guid: f1996a1e2f5fa5a42809ebf126c0e88f,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1120,9 +1120,9 @@ RectTransform:
   - {fileID: 6383064960459583439}
   m_Father: {fileID: 1588051579134213373}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 259.5, y: -72}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 137, y: 144}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5307248338796564094
@@ -2476,7 +2476,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &159675017947965957
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2543,9 +2543,9 @@ RectTransform:
   - {fileID: 2678540751059034857}
   m_Father: {fileID: 1588051579134213373}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 646.5, y: -72}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 137, y: 144}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4427569850496374129
@@ -4447,9 +4447,9 @@ RectTransform:
   - {fileID: 1170097596280112658}
   m_Father: {fileID: 1588051579134213373}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -127.5, y: -72}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 137, y: 144}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8058164324050798231
@@ -4557,8 +4557,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'FREEZE RAY '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 3cbc63cbeabeb0d44be0f4aa812c6b1d, type: 2}
-  m_sharedMaterial: {fileID: 1992119596052254777, guid: 3cbc63cbeabeb0d44be0f4aa812c6b1d,
+  m_fontAsset: {fileID: 11400000, guid: f1996a1e2f5fa5a42809ebf126c0e88f, type: 2}
+  m_sharedMaterial: {fileID: 6869366312779387892, guid: f1996a1e2f5fa5a42809ebf126c0e88f,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -5150,8 +5150,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: BUBBLE TOWER
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 3cbc63cbeabeb0d44be0f4aa812c6b1d, type: 2}
-  m_sharedMaterial: {fileID: 1992119596052254777, guid: 3cbc63cbeabeb0d44be0f4aa812c6b1d,
+  m_fontAsset: {fileID: 11400000, guid: f1996a1e2f5fa5a42809ebf126c0e88f, type: 2}
+  m_sharedMaterial: {fileID: 6869366312779387892, guid: f1996a1e2f5fa5a42809ebf126c0e88f,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -5360,8 +5360,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: FAN TOWER
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 3cbc63cbeabeb0d44be0f4aa812c6b1d, type: 2}
-  m_sharedMaterial: {fileID: 1992119596052254777, guid: 3cbc63cbeabeb0d44be0f4aa812c6b1d,
+  m_fontAsset: {fileID: 11400000, guid: f1996a1e2f5fa5a42809ebf126c0e88f, type: 2}
+  m_sharedMaterial: {fileID: 6869366312779387892, guid: f1996a1e2f5fa5a42809ebf126c0e88f,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -6455,9 +6455,9 @@ RectTransform:
   - {fileID: 6063283414982593286}
   m_Father: {fileID: 1588051579134213373}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -514.5, y: -72}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 137, y: 144}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8704413547508519429

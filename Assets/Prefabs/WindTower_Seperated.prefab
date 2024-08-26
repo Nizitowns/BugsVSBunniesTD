@@ -5909,6 +5909,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00211cb2a8f861f41b307d23f22ed697, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SelectedTitle: <color=#005408>Fan Tower
   AttackRadius: 30
   fireRate: 0.01
   burstDelay: 5

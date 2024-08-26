@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class TowerSelectionUI : MonoBehaviour
@@ -11,6 +12,12 @@ public class TowerSelectionUI : MonoBehaviour
         canvas=transform.parent.GetComponent<Canvas>();
     }
     Canvas canvas;
+    public TextMeshProUGUI TowerTitle;
+
+    public void SellTower()
+    {
+
+    }
 
     //Code Ripped Straight From the Internet :3
     public void AnchorPos(GameObject targetObject)
@@ -37,6 +44,7 @@ public class TowerSelectionUI : MonoBehaviour
 
         if(TowerPlacer.SelectedPlacedTower!=null)
         {
+            TowerTitle.text = TowerPlacer.SelectedPlacedTower.SelectedTitle;
             AnchorPos(TowerPlacer.SelectedPlacedTower.gameObject);
         }
     }
