@@ -5220,6 +5220,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SelectedTitle: <color=#001CDB>Freeze Ray
+  PurchaseCost: 60
   AttackRadius: 30
   fireRate: 0.01
   burstDelay: 0

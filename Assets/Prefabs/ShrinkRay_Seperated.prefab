@@ -1154,6 +1154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SelectedTitle: <color=red>Shrink Ray
+  PurchaseCost: 15
   AttackRadius: 30
   fireRate: 0.01
   burstDelay: 0

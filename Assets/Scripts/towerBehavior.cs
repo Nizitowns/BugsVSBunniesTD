@@ -9,6 +9,8 @@ public class TowerBehavior : MonoBehaviour
 {
     [Tooltip("What this tower appears as when selected.")]
     public string SelectedTitle;
+
+    public int PurchaseCost;
     SphereCollider myCollider;
     public float AttackRadius;
     //per second

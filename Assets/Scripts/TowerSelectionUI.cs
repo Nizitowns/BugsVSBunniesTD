@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class TowerSelectionUI : MonoBehaviour
 {
+    public float RefundRatio = 0.75f;
     CanvasGroup canvasGroup;
     void Start()
     {
@@ -16,7 +17,8 @@ public class TowerSelectionUI : MonoBehaviour
 
     public void SellTower()
     {
-
+        MoneyManager.instance.AddMoney(Mathf.RoundToInt(TowerPlacer.SelectedPlacedTower.PurchaseCost* RefundRatio));
+        Destroy(TowerPlacer.SelectedPlacedTower.gameObject);
     }
 
     //Code Ripped Straight From the Internet :3

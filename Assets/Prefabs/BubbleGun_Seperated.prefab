@@ -5423,6 +5423,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SelectedTitle: <color=#FF5AC1>Bubble Gun
+  PurchaseCost: 30
   AttackRadius: 30
   fireRate: 0.5
   burstDelay: 0

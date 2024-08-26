@@ -7,6 +7,7 @@ using UnityEngine.EventSystems;
 public class PurchaseButton : MonoBehaviour
 {
     public GameObject TowerPrefab;
+    [HideInInspector]
     public int PurchaseCost=1;
     AudioSource source;
     private Button button;
@@ -15,6 +16,7 @@ public class PurchaseButton : MonoBehaviour
     private Image bg;
     void Start()
     {
+        PurchaseCost = TowerPrefab.GetComponent<TowerBehavior>().PurchaseCost;
         source = GetComponent<AudioSource>();
         button = GetComponent<Button>();
         bg= GetComponent<Image>();
@@ -24,7 +26,6 @@ public class PurchaseButton : MonoBehaviour
     }
     public void UpdateIcon()
     {
-        
         button.interactable = MoneyManager.instance.Balance >= PurchaseCost&&TowerPrefab!=null;
         if(!button.interactable&& (TowerPlacer.SelectedTower == this))
         {
@@ -39,7 +40,7 @@ public class PurchaseButton : MonoBehaviour
 
     public void ToggleSelected()
     {
-        if(source!=null)
+        if(source!=null&& source.enabled)
         {
             source.Play();
         }

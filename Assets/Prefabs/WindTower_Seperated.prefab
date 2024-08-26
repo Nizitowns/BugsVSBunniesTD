@@ -5910,6 +5910,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SelectedTitle: <color=#005408>Fan Tower
+  PurchaseCost: 75
   AttackRadius: 30
   fireRate: 0.01
   burstDelay: 5
