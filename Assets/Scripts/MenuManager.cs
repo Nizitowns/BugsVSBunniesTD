@@ -17,8 +17,11 @@ public class MenuManager : MonoBehaviour
     CanvasGroup DefaultState;
     public CanvasGroup CurrentActiveIfLoadedOnceBefore;
     public static bool LoadedOnceBefore;
+
+    AudioSource source;
     void Start()
     {
+        source = GetComponent<AudioSource>();
         DefaultState = CurrentActive;
         if (CurrentActiveIfLoadedOnceBefore !=null&& LoadedOnceBefore)
         {
@@ -69,6 +72,10 @@ public class MenuManager : MonoBehaviour
             group = DefaultState;
         }
 
+        if (source != null)
+        {
+            source.Play();
+        }
         fadeTween?.Kill();
         fadeTween = CurrentActive.DOFade(0, fadeDuration);
         fadeTween.onComplete += FadeIn;
@@ -76,6 +83,8 @@ public class MenuManager : MonoBehaviour
 
         lastActive = CurrentActive;
         CurrentActive = group;
+
+
     }
 
     public void TweenEnable(CanvasGroup group)
@@ -86,6 +95,10 @@ public class MenuManager : MonoBehaviour
         fadeTween.onComplete += FadeIn;
         fadeTween.Play();
 
+        if (source != null)
+        {
+            source.Play();
+        }
         lastActive = CurrentActive;
         CurrentActive = group;
     }
@@ -96,6 +109,10 @@ public class MenuManager : MonoBehaviour
     }
     public void FadeOutAndLoad(int sceneID)
     {
+        if (source != null)
+        {
+            source.Play();
+        }
         fadeTween?.Kill();
         fadeTween = CurrentActive.DOFade(0, fadeDuration);
         fadeTween.onComplete += LoadScene;
@@ -104,6 +121,10 @@ public class MenuManager : MonoBehaviour
     }
     public void FadeOutAndReload()
     {
+        if (source != null)
+        {
+            source.Play();
+        }
         fadeTween?.Kill();
         fadeTween = CurrentActive.DOFade(0, fadeDuration);
         fadeTween.onComplete += LoadScene;
@@ -113,6 +134,10 @@ public class MenuManager : MonoBehaviour
 
     public void FadeOutAndQuit()
     {
+        if (source != null)
+        {
+            source.Play();
+        }
         fadeTween?.Kill();
         fadeTween = CurrentActive.DOFade(0, fadeDuration);
         fadeTween.onComplete += Application.Quit;

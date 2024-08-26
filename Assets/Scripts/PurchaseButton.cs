@@ -8,14 +8,15 @@ public class PurchaseButton : MonoBehaviour
 {
     public GameObject TowerPrefab;
     public int PurchaseCost=1;
-
+    AudioSource source;
     private Button button;
     private TextMeshProUGUI cost;
     private Image icon;
     private Image bg;
     void Start()
     {
-        button= GetComponent<Button>();
+        source = GetComponent<AudioSource>();
+        button = GetComponent<Button>();
         bg= GetComponent<Image>();
         cost = GetComponentInChildren<TextMeshProUGUI>();
         icon = transform.GetChild(0).GetComponent<Image>();
@@ -38,6 +39,10 @@ public class PurchaseButton : MonoBehaviour
 
     public void ToggleSelected()
     {
+        if(source!=null)
+        {
+            source.Play();
+        }
         if (TowerPlacer.SelectedTower == this)
         {
             TowerPlacer.SelectedTower = null;
