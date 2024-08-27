@@ -33,6 +33,7 @@ public class PurchaseButton : MonoBehaviour
             EventSystem.current.SetSelectedGameObject(null);
         }
         cost.text = PurchaseCost + "$";
+        icon.sprite = TowerPrefab.GetComponent<TowerBehavior>().PurchaseIcon;
         icon.color = button.targetGraphic.canvasRenderer.GetColor();
         if (TowerPlacer.SelectedTower == this)
             EventSystem.current.SetSelectedGameObject(gameObject);

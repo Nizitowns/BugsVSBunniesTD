@@ -10,6 +10,10 @@ public class TowerBehavior : MonoBehaviour
     [Tooltip("What this tower appears as when selected.")]
     public string SelectedTitle;
 
+    public Sprite PurchaseIcon;
+    public Color PurchaseIconAdditionalTint = Color.white;
+    public GameObject[] UpgradePaths;
+
     public int PurchaseCost;
     SphereCollider myCollider;
     public float AttackRadius;
