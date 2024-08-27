@@ -91,7 +91,7 @@ public class TowerSelectionUI : MonoBehaviour
 
             Destroy(TowerPlacer.SelectedPlacedTower.gameObject);
 
-            TowerPlacer.SelectedTower = null;
+    //        TowerPlacer.SelectedTower = null;
             TowerPlacer.SelectedPlacedTower = newObj.GetComponent<TowerBehavior>();
         }
     }
