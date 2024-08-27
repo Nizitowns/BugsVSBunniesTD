@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using DefaultNamespace;
 using UnityEngine;
 
 public class PathManager : MonoBehaviour
@@ -18,6 +19,7 @@ public class PathManager : MonoBehaviour
     }
     private void OnDrawGizmos()
     {
+        if (!Debugger.Instance.ShowPaths) return;
 
         PathNode node =transform.GetChild(0).GetComponent<PathNode>();
         List<PathNode> visited = new List<PathNode>();
