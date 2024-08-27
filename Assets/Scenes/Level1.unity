@@ -3070,7 +3070,7 @@ MonoBehaviour:
     ReportedDifficultyRating: 0
   - Prefab: {fileID: 452661431563245470, guid: 7e62d7538df94e647963182d41562532, type: 3}
     SpawnAmount: 6
-    SpawnDelayTime: 0.1
+    SpawnDelayTime: 1
     PostWaveDelay: 1
     WaitUntilCompletion: 0
     snapSpawning: 1
@@ -3093,7 +3093,7 @@ MonoBehaviour:
     ReportedDifficultyRating: 0
   - Prefab: {fileID: 452661431563245470, guid: 7e62d7538df94e647963182d41562532, type: 3}
     SpawnAmount: 3
-    SpawnDelayTime: 0.25
+    SpawnDelayTime: 1
     PostWaveDelay: 1
     WaitUntilCompletion: 0
     snapSpawning: 1
