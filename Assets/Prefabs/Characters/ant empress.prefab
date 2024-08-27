@@ -302,7 +302,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2b74adc2000f2444b4798c7e52e350c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoneyReward: 200
+  MoneyReward: 10
   MaxHealth: 1200
   CarrotDamage: 8
 --- !u!136 &3518438920551466509
