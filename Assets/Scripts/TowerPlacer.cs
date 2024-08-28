@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
+using DefaultNamespace.TowerSystem;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.EventSystems;
@@ -57,13 +58,13 @@ public class TowerPlacer : MonoBehaviour
             {
                 previewPlacerMeshFilter.GetComponent<MeshRenderer>().material = cannotPlace;
             }
-            if (SelectedTower.TowerPrefab.GetComponent<MeshFilter>() != null)
+            if (SelectedTower.TowerScriptable.prefab.GetComponent<MeshFilter>() != null)
             {
-                previewPlacerMeshFilter.mesh = SelectedTower.TowerPrefab.GetComponent<MeshFilter>().sharedMesh;
+                previewPlacerMeshFilter.mesh = SelectedTower.TowerScriptable.prefab.GetComponent<MeshFilter>().sharedMesh;
             }
             else
             {
-                previewPlacerMeshFilter.mesh = SelectedTower.TowerPrefab.GetComponent<TowerBehavior>().PreviewMesh;
+                previewPlacerMeshFilter.mesh = SelectedTower.TowerScriptable.previewMesh;
             }
         }
         else
@@ -136,10 +137,14 @@ public class TowerPlacer : MonoBehaviour
     {
         if (isClearToPlace(SnapToGrid(previewPlacer.transform.position)))
         {
-            if (MoneyManager.instance.RemoveMoney(selectedTower.PurchaseCost))
+            if (MoneyManager.instance.RemoveMoney(selectedTower.TowerScriptable.purchaseCost))
             {
                 source?.Play();
-                Instantiate(selectedTower.TowerPrefab, SnapToGrid(previewPlacer.transform.position), Quaternion.identity);
+                var go = Instantiate(selectedTower.TowerScriptable.prefab, SnapToGrid(previewPlacer.transform.position), Quaternion.identity);
+                if (go.TryGetComponent(out NewTowerBase towerBase))
+                {
+                    towerBase.Config = SelectedTower.TowerScriptable;
+                }
             }
         }
     }

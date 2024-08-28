@@ -1,9 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
+using DefaultNamespace.TowerSystem;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyCharacteristics : MonoBehaviour
+public class EnemyCharacteristics : MonoBehaviour, IEnemy
 {
     public int MoneyReward=1;
     public float MaxHealth=30;
@@ -67,9 +66,9 @@ public class EnemyCharacteristics : MonoBehaviour
         }
         if(givesMoney)
             MoneyManager.instance.AddMoney(MoneyReward);
-    //    Debug.Log(GetInstanceID() + " is now dead");
-
-
+        
+        // Debug.Log(GetInstanceID() + " is now dead");
+        isDead = true;
     }
     void Update()
     {
@@ -86,4 +85,7 @@ public class EnemyCharacteristics : MonoBehaviour
             Die();
         }
     }
+
+    public bool isDead { get; private set; }
+    public Transform GetTransform() => transform;
 }

@@ -51,7 +51,7 @@ namespace DefaultNamespace
             return Vector3.zero;
         }
         
-        public T GetHitTransform<T>() where T : class
+        public T GetHitClass<T>() where T : class
         {
             var mousePOs = Input.mousePosition;
             mousePOs.z = mainCam.nearClipPlane;

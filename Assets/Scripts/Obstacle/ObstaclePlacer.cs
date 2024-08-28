@@ -37,7 +37,7 @@ namespace DefaultNamespace.Obstacle
         {
             if (InputGather.isMouseOverGameObject) return false;
 
-            lastHitTileObject = InputGather.Instance.GetHitTransform<PathTileObject>();
+            lastHitTileObject = InputGather.Instance.GetHitClass<PathTileObject>();
             
             if (lastHitTileObject == null) return false;
 

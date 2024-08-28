@@ -44,30 +44,30 @@ public class TowerSelectionUI : MonoBehaviour
 
         if (TowerPlacer.SelectedPlacedTower!=null)
         {
-            if (TowerPlacer.SelectedPlacedTower.UpgradePaths.Length>0)
+            if (TowerPlacer.SelectedPlacedTower.Config.upgradePaths.Length>0)
             {
                 Upgrade1.ResetGraphics();
 
-                Upgrade1.Icon.color = Color.Lerp(TowerPlacer.SelectedPlacedTower.UpgradePaths[0].GetComponent<TowerBehavior>().PurchaseIconAdditionalTint, Upgrade1.Btn.targetGraphic.canvasRenderer.GetColor(),0.5f);
+                Upgrade1.Icon.color = Color.Lerp(TowerPlacer.SelectedPlacedTower.Config.upgradePaths[0].GetComponent<TowerBehavior>().Config.purchaseIconAdditionalTint, Upgrade1.Btn.targetGraphic.canvasRenderer.GetColor(),0.5f);
                 Upgrade1.Icon.enabled = true;
-                Upgrade1.Btn.interactable = MoneyManager.instance.Balance >= TowerPlacer.SelectedPlacedTower.UpgradePaths[0].GetComponent<TowerBehavior>().PurchaseCost;
-                Upgrade1.Icon.sprite = TowerPlacer.SelectedPlacedTower.UpgradePaths[0].GetComponent<TowerBehavior>().PurchaseIcon;
-                Upgrade1.Cost.text = TowerPlacer.SelectedPlacedTower.UpgradePaths[0].GetComponent<TowerBehavior>().PurchaseCost + "$";
+                Upgrade1.Btn.interactable = MoneyManager.instance.Balance >= TowerPlacer.SelectedPlacedTower.Config.upgradePaths[0].GetComponent<TowerBehavior>().Config.purchaseCost;
+                Upgrade1.Icon.sprite = TowerPlacer.SelectedPlacedTower.Config.upgradePaths[0].GetComponent<TowerBehavior>().Config.purchaseIcon;
+                Upgrade1.Cost.text = TowerPlacer.SelectedPlacedTower.Config.upgradePaths[0].GetComponent<TowerBehavior>().Config.purchaseCost + "$";
             }
             else
             {
                 Upgrade1.ResetAll();
             }
-            if (TowerPlacer.SelectedPlacedTower.UpgradePaths.Length > 1)
+            if (TowerPlacer.SelectedPlacedTower.Config.upgradePaths.Length > 1)
             {
                 Upgrade2.ResetGraphics();
 
                 
-                Upgrade2.Icon.color =Color.Lerp(TowerPlacer.SelectedPlacedTower.UpgradePaths[1].GetComponent<TowerBehavior>().PurchaseIconAdditionalTint,Upgrade2.Btn.targetGraphic.canvasRenderer.GetColor(),0.5f);
+                Upgrade2.Icon.color =Color.Lerp(TowerPlacer.SelectedPlacedTower.Config.upgradePaths[1].GetComponent<TowerBehavior>().Config.purchaseIconAdditionalTint,Upgrade2.Btn.targetGraphic.canvasRenderer.GetColor(),0.5f);
                 Upgrade2.Icon.enabled = true;
-                Upgrade2.Icon.sprite = TowerPlacer.SelectedPlacedTower.UpgradePaths[1].GetComponent<TowerBehavior>().PurchaseIcon;
-                Upgrade2.Btn.interactable = MoneyManager.instance.Balance >= TowerPlacer.SelectedPlacedTower.UpgradePaths[1].GetComponent<TowerBehavior>().PurchaseCost;
-                Upgrade2.Cost.text = TowerPlacer.SelectedPlacedTower.UpgradePaths[1].GetComponent<TowerBehavior>().PurchaseCost + "$";
+                Upgrade2.Icon.sprite = TowerPlacer.SelectedPlacedTower.Config.upgradePaths[1].GetComponent<TowerBehavior>().Config.purchaseIcon;
+                Upgrade2.Btn.interactable = MoneyManager.instance.Balance >= TowerPlacer.SelectedPlacedTower.Config.upgradePaths[1].GetComponent<TowerBehavior>().Config.purchaseCost;
+                Upgrade2.Cost.text = TowerPlacer.SelectedPlacedTower.Config.upgradePaths[1].GetComponent<TowerBehavior>().Config.purchaseCost + "$";
             }
             else
             {
@@ -83,8 +83,8 @@ public class TowerSelectionUI : MonoBehaviour
 
     public void UpgradeTower(int upgradeSlot)
     {
-        TowerBehavior NewUpgrade = TowerPlacer.SelectedPlacedTower.UpgradePaths[upgradeSlot].GetComponent<TowerBehavior>();
-        if (MoneyManager.instance.RemoveMoney(NewUpgrade.PurchaseCost))
+        TowerBehavior NewUpgrade = TowerPlacer.SelectedPlacedTower.Config.upgradePaths[upgradeSlot].GetComponent<TowerBehavior>();
+        if (MoneyManager.instance.RemoveMoney(NewUpgrade.Config.purchaseCost))
         {
             TowerBehavior lastTower = TowerPlacer.SelectedPlacedTower;
             GameObject newObj = Instantiate(NewUpgrade.gameObject, lastTower.transform.position, lastTower.transform.rotation, lastTower.transform.parent);
@@ -97,7 +97,7 @@ public class TowerSelectionUI : MonoBehaviour
     }
     public void SellTower()
     {
-        MoneyManager.instance.AddMoney(Mathf.RoundToInt(TowerPlacer.SelectedPlacedTower.PurchaseCost* RefundRatio));
+        MoneyManager.instance.AddMoney(Mathf.RoundToInt(TowerPlacer.SelectedPlacedTower.Config.purchaseCost* RefundRatio));
         Destroy(TowerPlacer.SelectedPlacedTower.gameObject);
     }
 
@@ -127,7 +127,7 @@ public class TowerSelectionUI : MonoBehaviour
 
         if(TowerPlacer.SelectedPlacedTower!=null)
         {
-            TowerTitle.text = TowerPlacer.SelectedPlacedTower.SelectedTitle;
+            TowerTitle.text = TowerPlacer.SelectedPlacedTower.Config.SelectedTitle;
             AnchorPos(TowerPlacer.SelectedPlacedTower.gameObject);
         }
     }

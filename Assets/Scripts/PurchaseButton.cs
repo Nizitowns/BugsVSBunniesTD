@@ -1,14 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using DefaultNamespace.TowerSystem;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.EventSystems;
+
 public class PurchaseButton : MonoBehaviour
 {
-    public GameObject TowerPrefab;
+    public TowerScriptableObject TowerScriptable;
     [HideInInspector]
-    public int PurchaseCost=1;
     AudioSource source;
     private Button button;
     private TextMeshProUGUI cost;
@@ -16,7 +17,6 @@ public class PurchaseButton : MonoBehaviour
     private Image bg;
     void Start()
     {
-        PurchaseCost = TowerPrefab.GetComponent<TowerBehavior>().PurchaseCost;
         source = GetComponent<AudioSource>();
         button = GetComponent<Button>();
         bg= GetComponent<Image>();
@@ -26,14 +26,14 @@ public class PurchaseButton : MonoBehaviour
     }
     public void UpdateIcon()
     {
-        button.interactable = MoneyManager.instance.Balance >= PurchaseCost&&TowerPrefab!=null;
+        button.interactable = MoneyManager.instance.Balance >= TowerScriptable.purchaseCost && TowerScriptable.prefab!=null;
         if(!button.interactable&& (TowerPlacer.SelectedTower == this))
         {
             TowerPlacer.SelectedTower = null;
             EventSystem.current.SetSelectedGameObject(null);
         }
-        cost.text = PurchaseCost + "$";
-        icon.sprite = TowerPrefab.GetComponent<TowerBehavior>().PurchaseIcon;
+        cost.text = TowerScriptable.purchaseCost + "$";
+        icon.sprite = TowerScriptable.purchaseIcon;
         icon.color = button.targetGraphic.canvasRenderer.GetColor();
         if (TowerPlacer.SelectedTower == this)
             EventSystem.current.SetSelectedGameObject(gameObject);
