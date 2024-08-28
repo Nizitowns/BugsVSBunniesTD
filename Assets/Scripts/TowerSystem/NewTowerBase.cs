@@ -37,8 +37,6 @@ namespace DefaultNamespace.TowerSystem
 
         protected virtual void OnFire()
         {
-            if (TargetedEnemy == null) return;
-            
             var spawnPos = BulletSource.position + new Vector3(0, 1, 0);
             var bullet = Instantiate(Config.bulletPrefab, spawnPos, transform.rotation);
             bullet.GetComponent<bulletBehavior>().enemy = TargetedEnemy.mTransform.gameObject;
@@ -66,15 +64,11 @@ namespace DefaultNamespace.TowerSystem
                 }
             
                 yield return new WaitForSeconds(Config.fireRate);
-
-                yield return new WaitForEndOfFrame();
             }
         }
 
         protected void RotateToTarget()
         {
-            if (TargetedEnemy == null) return;
-            
             var direction = TargetedEnemy.mTransform.position - transform.position;
             direction.y = 0;
             var rotation = Quaternion.LookRotation(direction);
