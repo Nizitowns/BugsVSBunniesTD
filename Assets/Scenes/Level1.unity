@@ -10140,28 +10140,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 433086593}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &434185815 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3750858469329923354, guid: 340f469b45fdf764eb886fa12888295f,
-    type: 3}
-  m_PrefabInstance: {fileID: 943494837}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &434185823
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 434185815}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 513684357b50a1147b53beddb2bb04da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  aboutText: 'Are the ants too fast?  Are they evading your defenses?  Use the Freeze
-    Ray to chill and slow them down! '
-  textDisplay: {fileID: 8861742108487833065, guid: 50475ef26dcdf184aaf4bd1d680ef457,
-    type: 3}
 --- !u!1 &436792206
 GameObject:
   m_ObjectHideFlags: 0
@@ -19513,9 +19491,49 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 1152978926328093613, guid: 340f469b45fdf764eb886fa12888295f,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1152978926328093613, guid: 340f469b45fdf764eb886fa12888295f,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1152978926328093613, guid: 340f469b45fdf764eb886fa12888295f,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1152978926328093613, guid: 340f469b45fdf764eb886fa12888295f,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1278525488835738442, guid: 340f469b45fdf764eb886fa12888295f,
         type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1711715833796397869, guid: 340f469b45fdf764eb886fa12888295f,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1711715833796397869, guid: 340f469b45fdf764eb886fa12888295f,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1711715833796397869, guid: 340f469b45fdf764eb886fa12888295f,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1711715833796397869, guid: 340f469b45fdf764eb886fa12888295f,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1853117405009789049, guid: 340f469b45fdf764eb886fa12888295f,
@@ -19579,6 +19597,26 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2358292369339813183, guid: 340f469b45fdf764eb886fa12888295f,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2518518091769633346, guid: 340f469b45fdf764eb886fa12888295f,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2518518091769633346, guid: 340f469b45fdf764eb886fa12888295f,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2518518091769633346, guid: 340f469b45fdf764eb886fa12888295f,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2518518091769633346, guid: 340f469b45fdf764eb886fa12888295f,
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
@@ -19768,6 +19806,26 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6712369484484658918, guid: 340f469b45fdf764eb886fa12888295f,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6712369484484658918, guid: 340f469b45fdf764eb886fa12888295f,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6712369484484658918, guid: 340f469b45fdf764eb886fa12888295f,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6712369484484658918, guid: 340f469b45fdf764eb886fa12888295f,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7926240082086152672, guid: 340f469b45fdf764eb886fa12888295f,
         type: 3}
       propertyPath: m_Enabled
@@ -19777,27 +19835,7 @@ PrefabInstance:
     - {fileID: 7926240082086152672, guid: 340f469b45fdf764eb886fa12888295f, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 963290702401673837, guid: 340f469b45fdf764eb886fa12888295f,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1627244276}
-    - targetCorrespondingSourceObject: {fileID: 963290702401673837, guid: 340f469b45fdf764eb886fa12888295f,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1627244277}
-    - targetCorrespondingSourceObject: {fileID: 513825503099582944, guid: 340f469b45fdf764eb886fa12888295f,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1968114765}
-    - targetCorrespondingSourceObject: {fileID: 3750858469329923354, guid: 340f469b45fdf764eb886fa12888295f,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 434185823}
-    - targetCorrespondingSourceObject: {fileID: 2530605221166173745, guid: 340f469b45fdf764eb886fa12888295f,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 997744421}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 340f469b45fdf764eb886fa12888295f, type: 3}
 --- !u!1001 &952358915
 PrefabInstance:
@@ -21048,28 +21086,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 995264339}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &997744413 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2530605221166173745, guid: 340f469b45fdf764eb886fa12888295f,
-    type: 3}
-  m_PrefabInstance: {fileID: 943494837}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &997744421
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 997744413}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 513684357b50a1147b53beddb2bb04da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  aboutText: Pushes ants backwards along the path, giving your towers more time to
-    deal with the pesky insect invaders.
-  textDisplay: {fileID: 8861742108487833065, guid: 50475ef26dcdf184aaf4bd1d680ef457,
-    type: 3}
 --- !u!1001 &998300961
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33628,42 +33644,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1621586009}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1627244255 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 963290702401673837, guid: 340f469b45fdf764eb886fa12888295f,
-    type: 3}
-  m_PrefabInstance: {fileID: 943494837}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1627244276
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1627244255}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 513684357b50a1147b53beddb2bb04da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  aboutText: '"A marvel of modern bunny science, the Shrink Ray targets a single
-    ant and brings it down to size.  "Honey, we shrunk the ants!"'
-  textDisplay: {fileID: 8861742108487833065, guid: 50475ef26dcdf184aaf4bd1d680ef457,
-    type: 3}
---- !u!114 &1627244277
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1627244255}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07db9212026a72e429fb04a597602dcd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  FadeInOnStart: 0
-  audioSourceType: 0
 --- !u!1001 &1627284133
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -40319,28 +40299,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1965961952}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1968114757 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 513825503099582944, guid: 340f469b45fdf764eb886fa12888295f,
-    type: 3}
-  m_PrefabInstance: {fileID: 943494837}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1968114765
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1968114757}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 513684357b50a1147b53beddb2bb04da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  aboutText: The Bubble Tower captures a single ant in a bubble, removing it from
-    the game.  Just don't get too distracted by all the floating ants.
-  textDisplay: {fileID: 8861742108487833065, guid: 50475ef26dcdf184aaf4bd1d680ef457,
-    type: 3}
 --- !u!1001 &1968449609
 PrefabInstance:
   m_ObjectHideFlags: 0
