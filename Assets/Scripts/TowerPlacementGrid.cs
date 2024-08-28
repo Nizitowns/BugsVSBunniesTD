@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace DefaultNamespace
 {
-    public class TowerPlacement : MonoBehaviour
+    public class TowerPlacementGrid : MonoBehaviour
     {
         public TowerScriptableObject PlacedTowerConfig { get; private set; } = null;
 

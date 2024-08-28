@@ -36,7 +36,8 @@ namespace DefaultNamespace.TowerSystem
     public enum TargetType
     {
         RandomSelect,
-        FocusOnTarget
+        FocusOnFirst,
+        FocusOnLast,
     }
 
     public enum AudioType

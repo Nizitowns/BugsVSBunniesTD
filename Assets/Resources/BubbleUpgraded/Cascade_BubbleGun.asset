@@ -26,7 +26,8 @@ MonoBehaviour:
     type: 3}
   myTargetingType: 0
   upgradableTowers: []
-  particulOnShoot: {fileID: 0}
+  particulOnShoot: {fileID: 2468146883406265530, guid: cd0ec8452dbce9943a49033cba6276f1,
+    type: 3}
   firingSfx:
   - {fileID: 8300000, guid: 194392d77e9e8594c9460a8b78574e44, type: 3}
   - {fileID: 8300000, guid: c74daa39d1624d842bda9885c0167966, type: 3}

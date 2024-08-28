@@ -88,8 +88,11 @@ namespace DefaultNamespace.TowerSystem
                 case TargetType.RandomSelect:
                     TargetedEnemy = TargetList[Random.Range(0, TargetList.Count)];
                     break;
-                case TargetType.FocusOnTarget:
+                case TargetType.FocusOnFirst:
                     TargetedEnemy = TargetList[0];
+                    break;
+                case TargetType.FocusOnLast:
+                    TargetedEnemy = TargetList[^1];
                     break;
             }
 

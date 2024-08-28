@@ -17,15 +17,10 @@ public class MoneyManager : MonoBehaviour
     //Only removes if we are good for the money
     public bool RemoveMoney(int amount)
     {
-        if (Balance >= amount)
-        {
-            Balance -= amount;
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        if (Balance - amount < 0) return false;
+
+        Balance -= amount;
+        return true;
     }
     private void Start()
     {

@@ -18,7 +18,7 @@ public class TowerPlacer : MonoBehaviour
     GameObject previewPlacer;
     MeshFilter previewPlacerMeshFilter;
 
-    public static TowerPlacement TowerPlacement;
+    public static TowerPlacementGrid TowerPlacementGrid;
 
     [SerializeField]
     private Material canPlace;
@@ -82,7 +82,7 @@ public class TowerPlacer : MonoBehaviour
     }
     void SelectTowerInRange(Vector3 point, float radius)
     {
-        TowerPlacement = null;
+        TowerPlacementGrid = null;
         Collider[] hitColliders = Physics.OverlapSphere(point, radius, LayerMask.GetMask("Tower"));
         foreach (Collider collider in hitColliders)
         {
@@ -90,7 +90,7 @@ public class TowerPlacer : MonoBehaviour
             {
                 if (collider.gameObject.GetComponent<DefaultTowerBehaviour>() != null)
                 {
-                    TowerPlacement = InputGather.Instance.GetHitClass<TowerPlacement>();
+                    TowerPlacementGrid = InputGather.Instance.GetHitClass<TowerPlacementGrid>();
                 }
                 return;
             }
@@ -140,7 +140,7 @@ public class TowerPlacer : MonoBehaviour
             {
                 source?.Play();
 
-                var grassTile = InputGather.Instance.GetHitClass<TowerPlacement>();
+                var grassTile = InputGather.Instance.GetHitClass<TowerPlacementGrid>();
 
                 if (grassTile != null)
                 {
@@ -156,14 +156,14 @@ public class TowerPlacer : MonoBehaviour
         
         if (InputGather.Instance.MouseLeftClick)
         {
-            var hitClass = InputGather.Instance.GetHitClass<TowerPlacement>();
+            var hitClass = InputGather.Instance.GetHitClass<TowerPlacementGrid>();
 
             if (hitClass != null)
             {
                 if (hitClass.HasTowerOnIt)
-                    TowerPlacement = hitClass;
+                    TowerPlacementGrid = hitClass;
                 else
-                    TowerPlacement = null;
+                    TowerPlacementGrid = null;
             }
         }
        

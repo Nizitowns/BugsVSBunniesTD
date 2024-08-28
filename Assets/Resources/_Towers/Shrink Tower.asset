@@ -24,7 +24,7 @@ MonoBehaviour:
   burstDelay: 0
   bulletPrefab: {fileID: 8319209496153684854, guid: 2cafa5a61d661284caeddbd998647ce9,
     type: 3}
-  myTargetingType: 1
+  myTargetingType: 2
   upgradableTowers:
   - {fileID: 11400000, guid: 34af6dbbaf6b2054082845fb7475b58f, type: 2}
   - {fileID: 11400000, guid: 928a178fc3764844ba66397f91232067, type: 2}
