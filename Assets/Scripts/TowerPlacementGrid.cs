@@ -14,7 +14,7 @@ namespace DefaultNamespace
 
         public void AddTower(TowerScriptableObject towerScriptableObject)
         {
-            if (PlacedTowerConfig) return;
+            if (HasTowerOnIt) return;
 
             PlacedTowerConfig = towerScriptableObject;
             PlacedTowerObject = Instantiate(PlacedTowerConfig.prefab, PlacementPosition.position, Quaternion.identity);
@@ -24,7 +24,7 @@ namespace DefaultNamespace
 
         public void UpgradeTower(TowerScriptableObject towerScriptableObject)
         {
-            if (!PlacedTowerConfig) return;
+            if (!HasTowerOnIt) return;
             
             RemoveTower();
             AddTower(towerScriptableObject);

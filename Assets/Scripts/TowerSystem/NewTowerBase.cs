@@ -6,11 +6,6 @@ using Random = UnityEngine.Random;
 
 namespace DefaultNamespace.TowerSystem
 {
-    public interface ITower
-    {
-        
-    }
-    
     public abstract class NewTowerBase : MonoBehaviour, ITower
     {
         public TowerScriptableObject Config { get; set; }

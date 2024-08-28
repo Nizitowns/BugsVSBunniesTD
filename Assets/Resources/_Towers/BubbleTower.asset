@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e595cae459fe45ca96f677b58c690d13, type: 3}
   m_Name: BubbleTower
   m_EditorClassIdentifier: 
-  prefab: {fileID: 5299692623051221599, guid: 9d2e9ce0bb4f74c49bc2305e42669b0c, type: 3}
+  purchaseCost: 30
   selectedTitle: 
   purchaseIcon: {fileID: 21300000, guid: a50be26be66e4b7438a4a173469c6836, type: 3}
+  prefab: {fileID: 5299692623051221599, guid: 9d2e9ce0bb4f74c49bc2305e42669b0c, type: 3}
   previewMesh: {fileID: -4182195949832582125, guid: cf62aea6e3c20b64f998a1844b3f882c,
     type: 3}
-  purchaseCost: 30
   purchaseIconAdditionalTint: {r: 1, g: 1, b: 1, a: 1}
   attackRadius: 30
   fireRate: 0.5
@@ -25,11 +25,13 @@ MonoBehaviour:
   bulletPrefab: {fileID: 8319209496153684854, guid: 68b314a7ecf1ae24eb02eff684eda338,
     type: 3}
   myTargetingType: 0
-  upgradableTowers:
+  upgradeOptions:
   - {fileID: 11400000, guid: dfbd2ba31f1550e4395ab5641681b049, type: 2}
   - {fileID: 11400000, guid: 721b20207ca817e48b49dc4b3f685c7d, type: 2}
   particulOnShoot: {fileID: 2468146883406265530, guid: cd0ec8452dbce9943a49033cba6276f1,
     type: 3}
+  audioCoolDown: 0.15
+  audioPlayType: 1
   firingSfx:
   - {fileID: 8300000, guid: 194392d77e9e8594c9460a8b78574e44, type: 3}
   - {fileID: 8300000, guid: c74daa39d1624d842bda9885c0167966, type: 3}
@@ -39,5 +41,3 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 922d6b56a887d3b4fb98d4867970c516, type: 3}
   - {fileID: 8300000, guid: 8058b3e385ba010408fe04f402422edf, type: 3}
   - {fileID: 8300000, guid: 474a09b4bb5d8464bb140f9435a68007, type: 3}
-  audioPlayType: 1
-  audioCoolDown: 0.15

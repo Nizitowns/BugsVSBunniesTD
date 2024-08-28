@@ -1,10 +1,10 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Enemy")]
+[CreateAssetMenu(fileName = "New Enemy", menuName = "New Data / Enemy Data")]
 public class EnemyScriptableObject : ScriptableObject
 {
-    public int MoneyReward;
-    public float MaxHealth=30;
-    private float health;
+    public int moneyReward;
+    public float maxHealth=30;
+    public float _health;
 
 }

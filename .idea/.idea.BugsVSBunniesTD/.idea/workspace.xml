@@ -8,12 +8,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f09f1f5c-0885-4fd4-b329-770c8f92c57a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/TowerSystem/ITower.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/TowerSystem/ITower.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BugsVSBunniesTD/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BugsVSBunniesTD/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MoneyManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MoneyManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/HotReload.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/HotReload/Resources.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/HotReload/Resources/HotReloadSettingsObject.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/HotReload/Resources/HotReloadSettingsObject.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/_Towers/BubbleTower.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/_Towers/BubbleTower.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/_Towers/Freeze Tower.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/_Towers/Freeze Tower.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/_Towers/Shrink Tower.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/_Towers/Shrink Tower.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ScriptableObjects/EnemyScriptableObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ScriptableObjects/EnemyScriptableObject.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/ScriptableObjects/TowerScriptableObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ScriptableObjects/TowerScriptableObject.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TowerPlacement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TowerPlacementGrid.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TowerPlacement.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TowerPlacementGrid.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TowerPlacer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TowerPlacer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TowerPlacementGrid.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TowerPlacementGrid.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/TowerSystem/NewTowerBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TowerSystem/NewTowerBase.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/TowerSystem/TowerSelectionUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TowerSystem/TowerSelectionUI.cs" afterDir="false" />
     </list>

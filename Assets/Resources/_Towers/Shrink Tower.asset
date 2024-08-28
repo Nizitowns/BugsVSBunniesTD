@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e595cae459fe45ca96f677b58c690d13, type: 3}
   m_Name: Shrink Tower
   m_EditorClassIdentifier: 
-  prefab: {fileID: 7909643431233604432, guid: f5b0d4e62ab93be4ea9c06764a46fa2a, type: 3}
+  purchaseCost: 15
   selectedTitle: 
   purchaseIcon: {fileID: 21300000, guid: 3fe24d4a145b9e740a4f73f8830da436, type: 3}
+  prefab: {fileID: 7909643431233604432, guid: f5b0d4e62ab93be4ea9c06764a46fa2a, type: 3}
   previewMesh: {fileID: 2639007440851010173, guid: 1401ac3666f8c7c408a673ac0a37fc41,
     type: 3}
-  purchaseCost: 15
   purchaseIconAdditionalTint: {r: 1, g: 1, b: 1, a: 1}
   attackRadius: 30
   fireRate: 0.01
@@ -25,11 +25,13 @@ MonoBehaviour:
   bulletPrefab: {fileID: 8319209496153684854, guid: 2cafa5a61d661284caeddbd998647ce9,
     type: 3}
   myTargetingType: 2
-  upgradableTowers:
-  - {fileID: 11400000, guid: 34af6dbbaf6b2054082845fb7475b58f, type: 2}
+  upgradeOptions:
   - {fileID: 11400000, guid: 928a178fc3764844ba66397f91232067, type: 2}
+  - {fileID: 11400000, guid: 34af6dbbaf6b2054082845fb7475b58f, type: 2}
   particulOnShoot: {fileID: 1921031764986077031, guid: b01b899d1bd79854bb50474f5a45901a,
     type: 3}
+  audioCoolDown: 0.15
+  audioPlayType: 1
   firingSfx:
   - {fileID: 8300000, guid: 9019dbd00ad29d04da97e2bd95706bd8, type: 3}
   - {fileID: 8300000, guid: 3acacdd5f497e5b4a98b984e13088657, type: 3}
@@ -37,5 +39,3 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 20849697e22951d489f4f1423752d9b6, type: 3}
   - {fileID: 8300000, guid: 9db02d92488bf8b4894ae1a1a9dd6978, type: 3}
   - {fileID: 8300000, guid: e234b6125322f9946847bb71e37012a4, type: 3}
-  audioPlayType: 1
-  audioCoolDown: 0.15

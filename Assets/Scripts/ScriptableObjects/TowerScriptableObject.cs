@@ -1,19 +1,17 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace DefaultNamespace.TowerSystem
 {
-    [CreateAssetMenu(menuName = "New Tower", fileName = "New Tower")]
+    [CreateAssetMenu(fileName = "New Tower", menuName = "New Data / Tower Data")]
     public class TowerScriptableObject : ScriptableObject
     {
         [Header("Purchase Settings")] 
-        [Tooltip("What this tower appears as when selected.")]
-        public GameObject prefab;
+        public int purchaseCost;
         public string selectedTitle;
         public Sprite purchaseIcon;
+        public GameObject prefab;
         public Mesh previewMesh;
-        public int purchaseCost;
         public Color purchaseIconAdditionalTint = Color.white;
 
         [Header("Tower Settings")]
@@ -22,15 +20,17 @@ namespace DefaultNamespace.TowerSystem
         public float burstDelay;
         public GameObject bulletPrefab;
         public TargetType myTargetingType;
-        public TowerScriptableObject[] upgradableTowers;
+        
+        [Header("Upgradable To")]
+        public TowerScriptableObject[] upgradeOptions;
         
         [Header("Particle Settings")]
         public ParticleSystem particulOnShoot;
 
         [Header("Audio Settings")] 
-        public List<AudioClip> firingSfx;
-        public AudioType audioPlayType = AudioType.Multisource;
         public float audioCoolDown;
+        public AudioType audioPlayType = AudioType.Multisource;
+        public List<AudioClip> firingSfx;
     }
 
     public enum TargetType
