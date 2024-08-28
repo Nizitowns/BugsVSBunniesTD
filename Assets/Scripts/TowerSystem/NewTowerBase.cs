@@ -33,8 +33,6 @@ namespace DefaultNamespace.TowerSystem
             _particleSystem = Instantiate(Config.particulOnShoot, BulletSource);
 
             StartCoroutine(FireLoopCo());
-            // TODO Add AudioManager
-            // if (audioSource != null) initial_volume = audioSource.volume;
         }
 
         protected virtual void OnFire()
@@ -45,7 +43,7 @@ namespace DefaultNamespace.TowerSystem
             var bullet = Instantiate(Config.bulletPrefab, spawnPos, transform.rotation);
             bullet.GetComponent<bulletBehavior>().enemy = TargetedEnemy.mTransform.gameObject;
             
-            var randomClip = Config.firingSFX[Random.Range(0, Config.firingSFX.Count)];
+            var randomClip = Config.firingSfx[Random.Range(0, Config.firingSfx.Count)];
             SoundFXPlayer.Instance.PlaySFX(randomClip);
             _particleSystem.Play();
         }
@@ -57,7 +55,20 @@ namespace DefaultNamespace.TowerSystem
 
         protected virtual IEnumerator FireLoopCo()
         {
-            yield return null;
+            while (true)
+            {
+                SetNewTarget();
+
+                if (TargetedEnemy != null)
+                {
+                    RotateToTarget();
+                    OnFire();
+                }
+            
+                yield return new WaitForSeconds(Config.fireRate);
+
+                yield return new WaitForEndOfFrame();
+            }
         }
 
         protected void RotateToTarget()
@@ -101,7 +112,6 @@ namespace DefaultNamespace.TowerSystem
             if (other.TryGetComponent(out IEnemy enemey))
             {
                 TargetList.Add(enemey);
-                TargetedEnemy = enemey;
             }
         }
 

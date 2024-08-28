@@ -127,7 +127,7 @@ public class TowerSelectionUI : MonoBehaviour
 
         if(TowerPlacer.SelectedPlacedDefaultTower!=null)
         {
-            TowerTitle.text = TowerPlacer.SelectedPlacedDefaultTower.Config.SelectedTitle;
+            TowerTitle.text = TowerPlacer.SelectedPlacedDefaultTower.Config.selectedTitle;
             AnchorPos(TowerPlacer.SelectedPlacedDefaultTower.gameObject);
         }
     }

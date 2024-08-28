@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace DefaultNamespace.TowerSystem
 {
@@ -9,7 +10,7 @@ namespace DefaultNamespace.TowerSystem
         [Header("Purchase Settings")] 
         [Tooltip("What this tower appears as when selected.")]
         public GameObject prefab;
-        public string SelectedTitle;
+        public string selectedTitle;
         public Sprite purchaseIcon;
         public Mesh previewMesh;
         public int purchaseCost;
@@ -27,7 +28,7 @@ namespace DefaultNamespace.TowerSystem
         public ParticleSystem particulOnShoot;
 
         [Header("Audio Settings")] 
-        public List<AudioClip> firingSFX;
+        public List<AudioClip> firingSfx;
         public AudioType audioPlayType = AudioType.Multisource;
         public float audioCoolDown;
     }
