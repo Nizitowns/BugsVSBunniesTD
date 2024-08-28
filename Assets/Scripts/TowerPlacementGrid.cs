@@ -34,7 +34,7 @@ namespace DefaultNamespace
         {
             PlacedTowerConfig = null;
             PlacedTowerObject.AnimatedRemove();
-            Destroy(PlacedTowerObject, 1);
+            Destroy(PlacedTowerObject, 2);
             PlacedTowerObject = null;
         }
     }

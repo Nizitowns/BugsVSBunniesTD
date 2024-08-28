@@ -154,7 +154,7 @@ public class TowerPlacer : MonoBehaviour
     {
         UpdatePreview();
         
-        if (InputGather.Instance.MouseLeftClick)
+        if (InputGather.Instance.MouseLeftClick&&!EventSystem.current.IsPointerOverGameObject())
         {
             var hitClass = InputGather.Instance.GetHitClass<TowerPlacementGrid>();
 

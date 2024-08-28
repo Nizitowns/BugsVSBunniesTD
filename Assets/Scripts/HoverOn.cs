@@ -15,7 +15,7 @@ public class HoverOn : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     }
     public void OnPointerEnter(PointerEventData eventData)
     {
-        Debug.Log(name+"\t" + aboutText);
+      //  Debug.Log(name+"\t" + aboutText);
         //GameObject textDisplayClone = Instantiate(textDisplay, new Vector3(0, 5, 0), Quaternion.identity);
         //textDisplayClone.GetComponentInChildren<TMP_Text>().text = aboutText;
 
@@ -25,7 +25,7 @@ public class HoverOn : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        Debug.Log("Pointer Exit"+ name);
+      //  Debug.Log("Pointer Exit"+ name);
     }
     
 }
