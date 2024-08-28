@@ -62,9 +62,24 @@ namespace DefaultNamespace.TowerSystem
             PlaySoundFX();
         }
 
-        protected virtual bool CanShoot()
+        protected virtual bool CanShoot(bool updateWhileWaitingTarget = false)
         {
-            if (Config.burstDelay == 0) return true;
+            if (Config.burstDelay == 0)
+            {
+                IsShooting = true;
+                return true;
+            }
+
+            if (updateWhileWaitingTarget)
+            {
+                if (BurstTimer + Config.burstDelay < Time.time)
+                {
+                    BurstTimer = Time.time;
+                    IsShooting = true;
+                }
+
+                return IsShooting;
+            }
             
             if (BurstTimer + Config.burstDelay < Time.time)
             {
@@ -100,6 +115,10 @@ namespace DefaultNamespace.TowerSystem
                 {
                     RotateToTarget();
                     OnFire();
+                }
+                else
+                {
+                    CanShoot(true);
                 }
             
                 yield return new WaitForSeconds(Config.fireRate);

@@ -8,29 +8,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f09f1f5c-0885-4fd4-b329-770c8f92c57a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Helper.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Helper/ComponentCopier.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Helper/ComponentCopier.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BugsVSBunniesTD/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BugsVSBunniesTD/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Towers/BubbleGun_Seperated.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Towers/BubbleGun_Seperated.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Towers/Freeze_Upgraded/Long_FreezeRay.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Towers/Freeze_Upgraded/Long_FreezeRay.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Towers/ShrinkRay_Seperated.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Towers/ShrinkRay_Seperated.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Towers/WindTower_Seperated.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Towers/WindTower_Seperated.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/_Towers/BubbleTower.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/_Towers/BubbleTower.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/_Towers/Freeze Tower.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/_Towers/Freeze Tower.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/_Towers/Shrink Tower.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/_Towers/Shrink Tower.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/_Towers/Wind Tower.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/_Towers/Wind Tower.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BaseHealth.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BaseHealth.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SoundFXPlayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SoundFXPlayer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TowerPlacementGrid.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TowerPlacementGrid.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/TowerSystem/NewTowerBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TowerSystem/NewTowerBase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Vector3Extension.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Helper/Vector3Extension.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Vector3Extension.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Helper/Vector3Extension.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
