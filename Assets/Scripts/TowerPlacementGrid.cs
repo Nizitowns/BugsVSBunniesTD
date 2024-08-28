@@ -18,7 +18,7 @@ namespace DefaultNamespace
 
             PlacedTowerConfig = towerScriptableObject;
             PlacedTowerObject = Instantiate(PlacedTowerConfig.prefab, PlacementPosition.position, Quaternion.identity);
-            PlacedTowerObject.GetComponent<NewTowerBase>().Config = PlacedTowerConfig;
+            PlacedTowerObject.GetComponent<NewTowerBase>().Initiliaze(PlacedTowerConfig);
             PlacedTowerObject.AnimatedPlacement();
         }
 
@@ -33,9 +33,9 @@ namespace DefaultNamespace
         public void RemoveTower()
         {
             PlacedTowerConfig = null;
+            PlacedTowerObject.GetComponent<NewTowerBase>().IsDisabled = true;
             PlacedTowerObject.AnimatedRemove();
             Destroy(PlacedTowerObject, 2);
-            PlacedTowerObject = null;
         }
     }
 }

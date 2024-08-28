@@ -1,55 +1,99 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Helper;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 namespace DefaultNamespace.TowerSystem
 {
     public abstract class NewTowerBase : MonoBehaviour, ITower
     {
-        public TowerScriptableObject Config { get; set; }
+        public TowerScriptableObject Config { get; private set; }
 
+        protected SphereCollider _myCollider;
+        [SerializeField] protected GameObject RotateAxis;
+        [SerializeField] protected Transform BulletSource;
+        protected AudioSource mAudioSource;
+        
         protected List<IEnemy> TargetList = new List<IEnemy>();
         protected IEnemy TargetedEnemy;
         protected IEnemy LastTargeted;
 
-        private SphereCollider _myCollider;
-        [SerializeField] protected GameObject RotateAxis;
-        [SerializeField] protected Transform BulletSource;
+        protected Coroutine FireRoutine;
+        protected bool IsShooting = true;
+        protected float BurstTimer = 0;
+        protected float AudioTimer = 0;
+
+        protected bool isDisabled = false;
+
+        public bool IsDisabled
+        {
+            get => isDisabled;
+            set => isDisabled = value;
+        }
 
         private ParticleSystem _particleSystem;
 
-        protected virtual void Start()
+        public virtual void Initiliaze(TowerScriptableObject Config)
         {
+            this.Config = Config;
+            
             _myCollider = GetComponent<SphereCollider>();
             _myCollider.radius = Config.attackRadius;
-
+            mAudioSource = ComponentCopier.CopyComponent(SoundFXPlayer.Instance.Source, BulletSource.gameObject);
+            
+            BurstTimer = Time.time;
             _particleSystem = Instantiate(Config.particulOnShoot, BulletSource);
-
-            StartCoroutine(FireLoopCo());
+            FireRoutine = StartCoroutine(FireLoopCo());
         }
 
         protected virtual void OnFire()
         {
+            if (!CanShoot()) return;
+            
             var spawnPos = BulletSource.position + new Vector3(0, 1, 0);
             var bullet = Instantiate(Config.bulletPrefab, spawnPos, transform.rotation);
             bullet.GetComponent<bulletBehavior>().enemy = TargetedEnemy.mTransform.gameObject;
             
-            var randomClip = Config.firingSfx[Random.Range(0, Config.firingSfx.Count)];
-            SoundFXPlayer.Instance.PlaySFX(randomClip);
             _particleSystem.Play();
+            PlaySoundFX();
         }
 
-        protected virtual void StopFire()
+        protected virtual bool CanShoot()
         {
-            _particleSystem.Stop();
+            if (Config.burstDelay == 0) return true;
+            
+            if (BurstTimer + Config.burstDelay < Time.time)
+            {
+                BurstTimer = Time.time;
+                IsShooting = !IsShooting;
+            }
+
+            return IsShooting;
         }
 
+
+        private void PlaySoundFX()
+        {
+            if (AudioTimer + Config.audioCoolDown < Time.time)
+            {
+                var randomClip = Config.firingSfx[Random.Range(0, Config.firingSfx.Count)];
+                // SoundFXPlayer.PlaySFX(mAudioSource, randomClip);
+                mAudioSource.PlayOneShot(randomClip, AudioManager.SFXVolume);
+
+                AudioTimer = Time.time;
+            }
+        }
+        
         protected virtual IEnumerator FireLoopCo()
         {
-            while (true)
+            while (Application.isPlaying)
             {
+                yield return new WaitUntil(() => !isDisabled);
+                
                 SetNewTarget();
 
                 if (TargetedEnemy != null)
@@ -98,7 +142,12 @@ namespace DefaultNamespace.TowerSystem
             }
                
         }
-        
+
+        private void OnDestroy()
+        {
+            StopCoroutine(FireRoutine);
+        }
+
         protected virtual void OnTriggerEnter(Collider other)
         {
             if (other.TryGetComponent(out IEnemy enemey))
