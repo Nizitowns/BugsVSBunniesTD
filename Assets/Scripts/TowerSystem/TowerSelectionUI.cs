@@ -86,7 +86,6 @@ public class TowerSelectionUI : MonoBehaviour
         if (MoneyManager.instance.RemoveMoney(NewUpgrade.purchaseCost))
         {
             TowerPlacer.TowerPlacement.UpgradeTower(NewUpgrade);
-            TowerPlacer.TowerPlacement = null;
         }
     }
     public void SellTower()
@@ -94,7 +93,6 @@ public class TowerSelectionUI : MonoBehaviour
         MoneyManager.instance.AddMoney(Mathf.RoundToInt(TowerPlacer.TowerPlacement.PlacedTowerConfig.purchaseCost* RefundRatio));
         
         TowerPlacer.TowerPlacement.RemoveTower();
-        TowerPlacer.TowerPlacement = null;
         // Destroy(TowerPlacer.SelectedPlacedDefaultTower.gameObject);
     }
 
@@ -105,7 +103,7 @@ public class TowerSelectionUI : MonoBehaviour
             return;
 
         // Step 1: Get the screen position of the target object
-        Vector3 screenPosition = Camera.main.WorldToScreenPoint(targetObject.transform.position);
+        Vector3 screenPosition = Camera.main.WorldToScreenPoint(targetObject.transform.position + Vector3.up * 10);
 
         // Step 2: Convert screen position to canvas space (assuming a Screen Space - Overlay canvas)
         Vector2 canvasPosition;

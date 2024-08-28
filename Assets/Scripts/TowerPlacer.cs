@@ -149,9 +149,26 @@ public class TowerPlacer : MonoBehaviour
             }
         }
     }
+    
     private void Update()
     {
         UpdatePreview();
+        
+        if (InputGather.Instance.MouseLeftClick)
+        {
+            var hitClass = InputGather.Instance.GetHitClass<TowerPlacement>();
+
+            if (hitClass != null)
+            {
+                if (hitClass.HasTowerOnIt)
+                    TowerPlacement = hitClass;
+                else
+                    TowerPlacement = null;
+            }
+        }
+       
+        
+        
 
         if (previewPlacer != null&& Input.GetMouseButtonDown(0)&&!EventSystem.current.IsPointerOverGameObject())
             SelectTowerInRange(previewPlacer.transform.position, 3.5f);
