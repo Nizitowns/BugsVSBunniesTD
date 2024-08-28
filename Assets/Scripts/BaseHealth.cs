@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DefaultNamespace;
 using UnityEngine;
 
 public class BaseHealth : MonoBehaviour
@@ -13,11 +14,13 @@ public class BaseHealth : MonoBehaviour
 
     public GameObject[] Carrots;
 
-    public AudioSource PluckingSound;
     float defaultVolume=0.02f;
 
     public MenuManager PauseMenuManager;
     public CanvasGroup DeathScreen;
+
+    [SerializeField] private AudioClip _audioClip;
+    
     void FadeDeathScreen()
     {
         PauseMenuManager.TweenEnable(DeathScreen);
@@ -25,10 +28,7 @@ public class BaseHealth : MonoBehaviour
     private void Start()
     {
         EnemiesBreached =new List<GameObject> ();
-        if (PluckingSound!=null)
-        {
-            defaultVolume = PluckingSound.volume;
-        }
+       
         if(PauseMenuManager!=null&&DeathScreen!=null)
             BaseDefeated += FadeDeathScreen;
     }
@@ -37,8 +37,7 @@ public class BaseHealth : MonoBehaviour
     {
         CurrentHealth -= amount;
 
-        PluckingSound.volume = defaultVolume * AudioManager.SFXVolume;
-        PluckingSound.Play();
+        SoundFXPlayer.Instance.PlaySFX(_audioClip);
 
         for (int i=0;i<Carrots.Length;i++)
         {

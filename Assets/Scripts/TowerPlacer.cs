@@ -18,7 +18,7 @@ public class TowerPlacer : MonoBehaviour
     GameObject previewPlacer;
     MeshFilter previewPlacerMeshFilter;
 
-    public static DefaultTowerBehaviour SelectedPlacedDefaultTower;
+    public static TowerPlacement TowerPlacement;
 
     [SerializeField]
     private Material canPlace;
@@ -82,7 +82,7 @@ public class TowerPlacer : MonoBehaviour
     }
     void SelectTowerInRange(Vector3 point, float radius)
     {
-        SelectedPlacedDefaultTower = null;
+        TowerPlacement = null;
         Collider[] hitColliders = Physics.OverlapSphere(point, radius, LayerMask.GetMask("Tower"));
         foreach (Collider collider in hitColliders)
         {
@@ -90,7 +90,7 @@ public class TowerPlacer : MonoBehaviour
             {
                 if (collider.gameObject.GetComponent<DefaultTowerBehaviour>() != null)
                 {
-                    SelectedPlacedDefaultTower = collider.gameObject.GetComponent<DefaultTowerBehaviour>();
+                    TowerPlacement = InputGather.Instance.GetHitClass<TowerPlacement>();
                 }
                 return;
             }
@@ -140,19 +140,12 @@ public class TowerPlacer : MonoBehaviour
             {
                 source?.Play();
 
-                var grassTile = InputGather.Instance.GetHitClass<GrassTile>();
+                var grassTile = InputGather.Instance.GetHitClass<TowerPlacement>();
 
                 if (grassTile != null)
                 {
                     grassTile.AddTower(selectedTower.TowerScriptable);
                 }
-
-                //
-                // var go = Instantiate(selectedTower.TowerScriptable.prefab, SnapToGrid(previewPlacer.transform.position), Quaternion.identity);
-                // if (go.TryGetComponent(out NewTowerBase towerBase))
-                // {
-                //     towerBase.Config = SelectedTower.TowerScriptable;
-                // }
             }
         }
     }

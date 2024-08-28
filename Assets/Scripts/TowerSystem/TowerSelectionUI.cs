@@ -41,32 +41,32 @@ public class TowerSelectionUI : MonoBehaviour
 
     public void CheckButtons()
     {
-        if (TowerPlacer.SelectedPlacedDefaultTower!=null)
+        if (TowerPlacer.TowerPlacement!=null)
         {
-            if (TowerPlacer.SelectedPlacedDefaultTower.Config.upgradableTowers.Length > 0)
+            if (TowerPlacer.TowerPlacement.PlacedTowerConfig.upgradableTowers.Length > 0)
             {
                 Upgrade1.ResetGraphics();
 
-                Upgrade1.Icon.color = Color.Lerp(TowerPlacer.SelectedPlacedDefaultTower.Config.upgradableTowers[0].purchaseIconAdditionalTint, Upgrade1.Btn.targetGraphic.canvasRenderer.GetColor(),0.5f);
+                Upgrade1.Icon.color = Color.Lerp(TowerPlacer.TowerPlacement.PlacedTowerConfig.upgradableTowers[0].purchaseIconAdditionalTint, Upgrade1.Btn.targetGraphic.canvasRenderer.GetColor(),0.5f);
                 Upgrade1.Icon.enabled = true;
-                Upgrade1.Btn.interactable = MoneyManager.instance.Balance >= TowerPlacer.SelectedPlacedDefaultTower.Config.upgradableTowers[0].purchaseCost;
-                Upgrade1.Icon.sprite = TowerPlacer.SelectedPlacedDefaultTower.Config.upgradableTowers[0].purchaseIcon;
-                Upgrade1.Cost.text = TowerPlacer.SelectedPlacedDefaultTower.Config.upgradableTowers[0].purchaseCost + "$";
+                Upgrade1.Btn.interactable = MoneyManager.instance.Balance >= TowerPlacer.TowerPlacement.PlacedTowerConfig.upgradableTowers[0].purchaseCost;
+                Upgrade1.Icon.sprite = TowerPlacer.TowerPlacement.PlacedTowerConfig.upgradableTowers[0].purchaseIcon;
+                Upgrade1.Cost.text = TowerPlacer.TowerPlacement.PlacedTowerConfig.upgradableTowers[0].purchaseCost + "$";
             }
             else
             {
                 Upgrade1.ResetAll();
             }
-            if (TowerPlacer.SelectedPlacedDefaultTower.Config.upgradableTowers.Length > 1)
+            if (TowerPlacer.TowerPlacement.PlacedTowerConfig.upgradableTowers.Length > 1)
             {
                 Upgrade2.ResetGraphics();
 
                 
-                Upgrade2.Icon.color =Color.Lerp(TowerPlacer.SelectedPlacedDefaultTower.Config.upgradableTowers[1].purchaseIconAdditionalTint,Upgrade2.Btn.targetGraphic.canvasRenderer.GetColor(),0.5f);
+                Upgrade2.Icon.color =Color.Lerp(TowerPlacer.TowerPlacement.PlacedTowerConfig.upgradableTowers[1].purchaseIconAdditionalTint,Upgrade2.Btn.targetGraphic.canvasRenderer.GetColor(),0.5f);
                 Upgrade2.Icon.enabled = true;
-                Upgrade2.Icon.sprite = TowerPlacer.SelectedPlacedDefaultTower.Config.upgradableTowers[1].purchaseIcon;
-                Upgrade2.Btn.interactable = MoneyManager.instance.Balance >= TowerPlacer.SelectedPlacedDefaultTower.Config.upgradableTowers[1].purchaseCost;
-                Upgrade2.Cost.text = TowerPlacer.SelectedPlacedDefaultTower.Config.upgradableTowers[1].purchaseCost + "$";
+                Upgrade2.Icon.sprite = TowerPlacer.TowerPlacement.PlacedTowerConfig.upgradableTowers[1].purchaseIcon;
+                Upgrade2.Btn.interactable = MoneyManager.instance.Balance >= TowerPlacer.TowerPlacement.PlacedTowerConfig.upgradableTowers[1].purchaseCost;
+                Upgrade2.Cost.text = TowerPlacer.TowerPlacement.PlacedTowerConfig.upgradableTowers[1].purchaseCost + "$";
             }
             else
             {
@@ -82,23 +82,20 @@ public class TowerSelectionUI : MonoBehaviour
 
     public void UpgradeTower(int upgradeSlot)
     {
-        TowerScriptableObject NewUpgrade = TowerPlacer.SelectedPlacedDefaultTower.Config.upgradableTowers[upgradeSlot];
+        TowerScriptableObject NewUpgrade = TowerPlacer.TowerPlacement.PlacedTowerConfig.upgradableTowers[upgradeSlot];
         if (MoneyManager.instance.RemoveMoney(NewUpgrade.purchaseCost))
         {
-            TowerPlacer.SelectedPlacedDefaultTower.Config = NewUpgrade;
-            // DefaultTowerBehaviour lastDefaultTower = TowerPlacer.SelectedPlacedDefaultTower;
-            // GameObject newObj = Instantiate(NewUpgrade.prefab, lastDefaultTower.transform.position, lastDefaultTower.transform.rotation, lastDefaultTower.transform.parent);
-
-            // Destroy(TowerPlacer.SelectedPlacedDefaultTower.gameObject);
-
-            //        TowerPlacer.SelectedTower = null;
-            // TowerPlacer.SelectedPlacedDefaultTower = newObj.GetComponent<DefaultTowerBehaviour>();
+            TowerPlacer.TowerPlacement.UpgradeTower(NewUpgrade);
+            TowerPlacer.TowerPlacement = null;
         }
     }
     public void SellTower()
     {
-        MoneyManager.instance.AddMoney(Mathf.RoundToInt(TowerPlacer.SelectedPlacedDefaultTower.Config.purchaseCost* RefundRatio));
-        Destroy(TowerPlacer.SelectedPlacedDefaultTower.gameObject);
+        MoneyManager.instance.AddMoney(Mathf.RoundToInt(TowerPlacer.TowerPlacement.PlacedTowerConfig.purchaseCost* RefundRatio));
+        
+        TowerPlacer.TowerPlacement.RemoveTower();
+        TowerPlacer.TowerPlacement = null;
+        // Destroy(TowerPlacer.SelectedPlacedDefaultTower.gameObject);
     }
 
     //Code Ripped Straight From the Internet :3
@@ -123,12 +120,12 @@ public class TowerSelectionUI : MonoBehaviour
         CheckButtons();
         canvasGroup.interactable = canvasGroup.alpha > 0;
         canvasGroup.blocksRaycasts = canvasGroup.alpha > 0;
-        canvasGroup.alpha = TowerPlacer.SelectedPlacedDefaultTower == null ? 0 : 1;
+        canvasGroup.alpha = TowerPlacer.TowerPlacement == null ? 0 : 1;
 
-        if(TowerPlacer.SelectedPlacedDefaultTower!=null)
+        if(TowerPlacer.TowerPlacement!=null)
         {
-            TowerTitle.text = TowerPlacer.SelectedPlacedDefaultTower.Config.selectedTitle;
-            AnchorPos(TowerPlacer.SelectedPlacedDefaultTower.gameObject);
+            TowerTitle.text = TowerPlacer.TowerPlacement.PlacedTowerConfig.selectedTitle;
+            AnchorPos(TowerPlacer.TowerPlacement.gameObject);
         }
     }
 }
