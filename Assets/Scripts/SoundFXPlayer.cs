@@ -6,7 +6,7 @@ namespace DefaultNamespace
     public class SoundFXPlayer : MonoBehaviour
     {
         public static SoundFXPlayer Instance;
-        private AudioSource _source;
+        public AudioSource Source { get; private set; }
 
         private void Awake()
         {
@@ -15,12 +15,13 @@ namespace DefaultNamespace
 
         private void Start()
         {
-            _source = GetComponent<AudioSource>();
+            Source = GetComponent<AudioSource>();
         }
 
-        public void PlaySFX(AudioClip clip)
+        public static void PlaySFX(AudioSource source, AudioClip clip)
         {
-            _source.PlayOneShot(clip, AudioManager.SFXVolume);
+            source.PlayOneShot(clip, AudioManager.SFXVolume);
+            Debug.Log("ANimatiion Played");
         }
     }
 }

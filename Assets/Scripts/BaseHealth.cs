@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using DefaultNamespace;
 using UnityEngine;
@@ -37,7 +36,8 @@ public class BaseHealth : MonoBehaviour
     {
         CurrentHealth -= amount;
 
-        SoundFXPlayer.Instance.PlaySFX(_audioClip);
+        // TODO Add ItsOwnComponent
+        // SoundFXPlayer.Instance.PlaySFX(_audioClip);
 
         for (int i=0;i<Carrots.Length;i++)
         {
@@ -49,7 +49,6 @@ public class BaseHealth : MonoBehaviour
 
                 Destroy(Carrots[i].gameObject, 5);
             }
-            
         }
 
         EnemyBreached?.Invoke();
