@@ -1,4 +1,5 @@
 using System.Security.Cryptography;
+using DefaultNamespace.TowerSystem;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -40,11 +41,9 @@ public class TowerSelectionUI : MonoBehaviour
 
     public void CheckButtons()
     {
-
-
         if (TowerPlacer.SelectedPlacedDefaultTower!=null)
         {
-            if (TowerPlacer.SelectedPlacedDefaultTower.Config.upgradableTowers.Length>0)
+            if (TowerPlacer.SelectedPlacedDefaultTower.Config.upgradableTowers.Length > 0)
             {
                 Upgrade1.ResetGraphics();
 
@@ -66,7 +65,7 @@ public class TowerSelectionUI : MonoBehaviour
                 Upgrade2.Icon.color =Color.Lerp(TowerPlacer.SelectedPlacedDefaultTower.Config.upgradableTowers[1].purchaseIconAdditionalTint,Upgrade2.Btn.targetGraphic.canvasRenderer.GetColor(),0.5f);
                 Upgrade2.Icon.enabled = true;
                 Upgrade2.Icon.sprite = TowerPlacer.SelectedPlacedDefaultTower.Config.upgradableTowers[1].purchaseIcon;
-                Upgrade2.Btn.interactable = MoneyManager.instance.Balance >= TowerPlacer.SelectedPlacedDefaultTower.Config.upgradableTowers[1].prefab.GetComponent<DefaultTowerBehaviour>().Config.purchaseCost;
+                Upgrade2.Btn.interactable = MoneyManager.instance.Balance >= TowerPlacer.SelectedPlacedDefaultTower.Config.upgradableTowers[1].purchaseCost;
                 Upgrade2.Cost.text = TowerPlacer.SelectedPlacedDefaultTower.Config.upgradableTowers[1].purchaseCost + "$";
             }
             else
@@ -83,16 +82,17 @@ public class TowerSelectionUI : MonoBehaviour
 
     public void UpgradeTower(int upgradeSlot)
     {
-        DefaultTowerBehaviour NewUpgrade = TowerPlacer.SelectedPlacedDefaultTower.Config.upgradableTowers[upgradeSlot].prefab.GetComponent<DefaultTowerBehaviour>();
-        if (MoneyManager.instance.RemoveMoney(NewUpgrade.Config.purchaseCost))
+        TowerScriptableObject NewUpgrade = TowerPlacer.SelectedPlacedDefaultTower.Config.upgradableTowers[upgradeSlot];
+        if (MoneyManager.instance.RemoveMoney(NewUpgrade.purchaseCost))
         {
-            DefaultTowerBehaviour lastDefaultTower = TowerPlacer.SelectedPlacedDefaultTower;
-            GameObject newObj = Instantiate(NewUpgrade.gameObject, lastDefaultTower.transform.position, lastDefaultTower.transform.rotation, lastDefaultTower.transform.parent);
+            TowerPlacer.SelectedPlacedDefaultTower.Config = NewUpgrade;
+            // DefaultTowerBehaviour lastDefaultTower = TowerPlacer.SelectedPlacedDefaultTower;
+            // GameObject newObj = Instantiate(NewUpgrade.prefab, lastDefaultTower.transform.position, lastDefaultTower.transform.rotation, lastDefaultTower.transform.parent);
 
-            Destroy(TowerPlacer.SelectedPlacedDefaultTower.gameObject);
+            // Destroy(TowerPlacer.SelectedPlacedDefaultTower.gameObject);
 
-    //        TowerPlacer.SelectedTower = null;
-            TowerPlacer.SelectedPlacedDefaultTower = newObj.GetComponent<DefaultTowerBehaviour>();
+            //        TowerPlacer.SelectedTower = null;
+            // TowerPlacer.SelectedPlacedDefaultTower = newObj.GetComponent<DefaultTowerBehaviour>();
         }
     }
     public void SellTower()

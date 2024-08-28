@@ -10,23 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e595cae459fe45ca96f677b58c690d13, type: 3}
-  m_Name: Shrink Tower
+  m_Name: Long_FreezRay
   m_EditorClassIdentifier: 
-  prefab: {fileID: 7909643431233604432, guid: f5b0d4e62ab93be4ea9c06764a46fa2a, type: 3}
+  prefab: {fileID: 6045296787690447725, guid: ee05836415c446f4aa5c2345ac8e2794, type: 3}
   SelectedTitle: 
-  purchaseIcon: {fileID: 21300000, guid: 3fe24d4a145b9e740a4f73f8830da436, type: 3}
-  previewMesh: {fileID: 2639007440851010173, guid: 1401ac3666f8c7c408a673ac0a37fc41,
+  purchaseIcon: {fileID: 21300000, guid: 7f2059454de3ce74db2b44a9548bc9a6, type: 3}
+  previewMesh: {fileID: -8943654866815143141, guid: c381c9bb179d14b4498fdb26e538a71f,
     type: 3}
-  purchaseCost: 15
-  purchaseIconAdditionalTint: {r: 1, g: 1, b: 1, a: 1}
-  upgradePaths: []
+  purchaseCost: 75
+  purchaseIconAdditionalTint: {r: 0.5882353, g: 1, b: 0.9294118, a: 1}
   attackRadius: 30
   fireRate: 0.01
   burstDelay: 0
-  bulletPrefab: {fileID: 8319209496153684854, guid: 2cafa5a61d661284caeddbd998647ce9,
+  bulletPrefab: {fileID: 4008834639158741165, guid: a5394a79a15fc1c41ad6df6ef410cc72,
     type: 3}
   myTargetingType: 1
-  particulOnShoot: {fileID: 1921031764986077031, guid: b01b899d1bd79854bb50474f5a45901a,
+  upgradableTowers: []
+  particulOnShoot: {fileID: 8740331393395582659, guid: fbc56026dd0e4ea49a7570d1522a9767,
     type: 3}
   firingSFX:
   - {fileID: 8300000, guid: 9019dbd00ad29d04da97e2bd95706bd8, type: 3}

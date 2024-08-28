@@ -46,8 +46,6 @@ public class TowerPlacer : MonoBehaviour
 
         }
 
-
-
         if (SelectedTower != null&&!PlacementDisabled)
         {
             if (isClearToPlace(SnapToGrid(previewPlacer.transform.position)))
