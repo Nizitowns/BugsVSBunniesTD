@@ -14,7 +14,6 @@ namespace DefaultNamespace.TowerSystem
         public Mesh previewMesh;
         public int purchaseCost;
         public Color purchaseIconAdditionalTint = Color.white;
-        public GameObject[] upgradePaths;
 
         [Header("Tower Settings")]
         public float attackRadius;
@@ -22,6 +21,7 @@ namespace DefaultNamespace.TowerSystem
         public float burstDelay;
         public GameObject bulletPrefab;
         public TargetType myTargetingType;
+        public TowerScriptableObject[] upgradableTowers;
         
         [Header("Particle Settings")]
         public ParticleSystem particulOnShoot;

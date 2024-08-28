@@ -42,32 +42,32 @@ public class TowerSelectionUI : MonoBehaviour
     {
 
 
-        if (TowerPlacer.SelectedPlacedTower!=null)
+        if (TowerPlacer.SelectedPlacedDefaultTower!=null)
         {
-            if (TowerPlacer.SelectedPlacedTower.Config.upgradePaths.Length>0)
+            if (TowerPlacer.SelectedPlacedDefaultTower.Config.upgradableTowers.Length>0)
             {
                 Upgrade1.ResetGraphics();
 
-                Upgrade1.Icon.color = Color.Lerp(TowerPlacer.SelectedPlacedTower.Config.upgradePaths[0].GetComponent<TowerBehavior>().Config.purchaseIconAdditionalTint, Upgrade1.Btn.targetGraphic.canvasRenderer.GetColor(),0.5f);
+                Upgrade1.Icon.color = Color.Lerp(TowerPlacer.SelectedPlacedDefaultTower.Config.upgradableTowers[0].purchaseIconAdditionalTint, Upgrade1.Btn.targetGraphic.canvasRenderer.GetColor(),0.5f);
                 Upgrade1.Icon.enabled = true;
-                Upgrade1.Btn.interactable = MoneyManager.instance.Balance >= TowerPlacer.SelectedPlacedTower.Config.upgradePaths[0].GetComponent<TowerBehavior>().Config.purchaseCost;
-                Upgrade1.Icon.sprite = TowerPlacer.SelectedPlacedTower.Config.upgradePaths[0].GetComponent<TowerBehavior>().Config.purchaseIcon;
-                Upgrade1.Cost.text = TowerPlacer.SelectedPlacedTower.Config.upgradePaths[0].GetComponent<TowerBehavior>().Config.purchaseCost + "$";
+                Upgrade1.Btn.interactable = MoneyManager.instance.Balance >= TowerPlacer.SelectedPlacedDefaultTower.Config.upgradableTowers[0].purchaseCost;
+                Upgrade1.Icon.sprite = TowerPlacer.SelectedPlacedDefaultTower.Config.upgradableTowers[0].purchaseIcon;
+                Upgrade1.Cost.text = TowerPlacer.SelectedPlacedDefaultTower.Config.upgradableTowers[0].purchaseCost + "$";
             }
             else
             {
                 Upgrade1.ResetAll();
             }
-            if (TowerPlacer.SelectedPlacedTower.Config.upgradePaths.Length > 1)
+            if (TowerPlacer.SelectedPlacedDefaultTower.Config.upgradableTowers.Length > 1)
             {
                 Upgrade2.ResetGraphics();
 
                 
-                Upgrade2.Icon.color =Color.Lerp(TowerPlacer.SelectedPlacedTower.Config.upgradePaths[1].GetComponent<TowerBehavior>().Config.purchaseIconAdditionalTint,Upgrade2.Btn.targetGraphic.canvasRenderer.GetColor(),0.5f);
+                Upgrade2.Icon.color =Color.Lerp(TowerPlacer.SelectedPlacedDefaultTower.Config.upgradableTowers[1].purchaseIconAdditionalTint,Upgrade2.Btn.targetGraphic.canvasRenderer.GetColor(),0.5f);
                 Upgrade2.Icon.enabled = true;
-                Upgrade2.Icon.sprite = TowerPlacer.SelectedPlacedTower.Config.upgradePaths[1].GetComponent<TowerBehavior>().Config.purchaseIcon;
-                Upgrade2.Btn.interactable = MoneyManager.instance.Balance >= TowerPlacer.SelectedPlacedTower.Config.upgradePaths[1].GetComponent<TowerBehavior>().Config.purchaseCost;
-                Upgrade2.Cost.text = TowerPlacer.SelectedPlacedTower.Config.upgradePaths[1].GetComponent<TowerBehavior>().Config.purchaseCost + "$";
+                Upgrade2.Icon.sprite = TowerPlacer.SelectedPlacedDefaultTower.Config.upgradableTowers[1].purchaseIcon;
+                Upgrade2.Btn.interactable = MoneyManager.instance.Balance >= TowerPlacer.SelectedPlacedDefaultTower.Config.upgradableTowers[1].prefab.GetComponent<DefaultTowerBehaviour>().Config.purchaseCost;
+                Upgrade2.Cost.text = TowerPlacer.SelectedPlacedDefaultTower.Config.upgradableTowers[1].purchaseCost + "$";
             }
             else
             {
@@ -83,22 +83,22 @@ public class TowerSelectionUI : MonoBehaviour
 
     public void UpgradeTower(int upgradeSlot)
     {
-        TowerBehavior NewUpgrade = TowerPlacer.SelectedPlacedTower.Config.upgradePaths[upgradeSlot].GetComponent<TowerBehavior>();
+        DefaultTowerBehaviour NewUpgrade = TowerPlacer.SelectedPlacedDefaultTower.Config.upgradableTowers[upgradeSlot].prefab.GetComponent<DefaultTowerBehaviour>();
         if (MoneyManager.instance.RemoveMoney(NewUpgrade.Config.purchaseCost))
         {
-            TowerBehavior lastTower = TowerPlacer.SelectedPlacedTower;
-            GameObject newObj = Instantiate(NewUpgrade.gameObject, lastTower.transform.position, lastTower.transform.rotation, lastTower.transform.parent);
+            DefaultTowerBehaviour lastDefaultTower = TowerPlacer.SelectedPlacedDefaultTower;
+            GameObject newObj = Instantiate(NewUpgrade.gameObject, lastDefaultTower.transform.position, lastDefaultTower.transform.rotation, lastDefaultTower.transform.parent);
 
-            Destroy(TowerPlacer.SelectedPlacedTower.gameObject);
+            Destroy(TowerPlacer.SelectedPlacedDefaultTower.gameObject);
 
     //        TowerPlacer.SelectedTower = null;
-            TowerPlacer.SelectedPlacedTower = newObj.GetComponent<TowerBehavior>();
+            TowerPlacer.SelectedPlacedDefaultTower = newObj.GetComponent<DefaultTowerBehaviour>();
         }
     }
     public void SellTower()
     {
-        MoneyManager.instance.AddMoney(Mathf.RoundToInt(TowerPlacer.SelectedPlacedTower.Config.purchaseCost* RefundRatio));
-        Destroy(TowerPlacer.SelectedPlacedTower.gameObject);
+        MoneyManager.instance.AddMoney(Mathf.RoundToInt(TowerPlacer.SelectedPlacedDefaultTower.Config.purchaseCost* RefundRatio));
+        Destroy(TowerPlacer.SelectedPlacedDefaultTower.gameObject);
     }
 
     //Code Ripped Straight From the Internet :3
@@ -123,12 +123,12 @@ public class TowerSelectionUI : MonoBehaviour
         CheckButtons();
         canvasGroup.interactable = canvasGroup.alpha > 0;
         canvasGroup.blocksRaycasts = canvasGroup.alpha > 0;
-        canvasGroup.alpha = TowerPlacer.SelectedPlacedTower == null ? 0 : 1;
+        canvasGroup.alpha = TowerPlacer.SelectedPlacedDefaultTower == null ? 0 : 1;
 
-        if(TowerPlacer.SelectedPlacedTower!=null)
+        if(TowerPlacer.SelectedPlacedDefaultTower!=null)
         {
-            TowerTitle.text = TowerPlacer.SelectedPlacedTower.Config.SelectedTitle;
-            AnchorPos(TowerPlacer.SelectedPlacedTower.gameObject);
+            TowerTitle.text = TowerPlacer.SelectedPlacedDefaultTower.Config.SelectedTitle;
+            AnchorPos(TowerPlacer.SelectedPlacedDefaultTower.gameObject);
         }
     }
 }

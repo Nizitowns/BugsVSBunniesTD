@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -38,13 +39,20 @@ namespace DefaultNamespace.TowerSystem
 
         protected virtual void OnFire()
         {
+            if (TargetedEnemy == null) return;
+            
             var spawnPos = BulletSource.position + new Vector3(0, 1, 0);
             var bullet = Instantiate(Config.bulletPrefab, spawnPos, transform.rotation);
-            bullet.GetComponent<bulletBehavior>().enemy = TargetedEnemy;
+            bullet.GetComponent<bulletBehavior>().enemy = TargetedEnemy.mTransform.gameObject;
             
             var randomClip = Config.firingSFX[Random.Range(0, Config.firingSFX.Count)];
             SoundFXPlayer.Instance.PlaySFX(randomClip);
             _particleSystem.Play();
+        }
+
+        protected virtual void StopFire()
+        {
+            _particleSystem.Stop();
         }
 
         protected virtual IEnumerator FireLoopCo()
@@ -56,12 +64,38 @@ namespace DefaultNamespace.TowerSystem
         {
             if (TargetedEnemy == null) return;
             
-            var direction = TargetedEnemy.GetTransform().position - transform.position;
+            var direction = TargetedEnemy.mTransform.position - transform.position;
             direction.y = 0;
             var rotation = Quaternion.LookRotation(direction);
             RotateAxis.transform.rotation = Quaternion.Euler(0, rotation.eulerAngles.y + 90, 0);
         }
 
+        protected virtual void SetNewTarget()
+        {
+            if (TargetList.Count == 0)
+            {
+                TargetedEnemy = null;
+                return;
+            }
+
+            switch (Config.myTargetingType)
+            {
+                case TargetType.RandomSelect:
+                    TargetedEnemy = TargetList[Random.Range(0, TargetList.Count)];
+                    break;
+                case TargetType.FocusOnTarget:
+                    TargetedEnemy = TargetList[0];
+                    break;
+            }
+
+            if (TargetedEnemy.isDead)
+            {
+                TargetList.Remove(TargetedEnemy);
+                SetNewTarget();
+            }
+               
+        }
+        
         protected virtual void OnTriggerEnter(Collider other)
         {
             if (other.TryGetComponent(out IEnemy enemey))
@@ -75,38 +109,6 @@ namespace DefaultNamespace.TowerSystem
         {
             if(other.TryGetComponent(out IEnemy enemey))
                 TargetList.Remove(enemey);
-        }
-
-        protected virtual void SetNewTarget()
-        {
-            if (TargetList.Count == 0)
-            {
-                TargetedEnemy = null;
-                return;
-            }
-
-            while (TargetList.Count > 0)
-            {
-                switch (Config.myTargetingType)
-                {
-                    case TargetType.RandomSelect:
-                        TargetedEnemy = TargetList[Random.Range(0, TargetList.Count)];
-                        break;
-                    case TargetType.FocusOnTarget:
-                        TargetedEnemy = TargetList[0];
-                        break;
-                }
-
-                if (TargetedEnemy.isDead)
-                {
-                    TargetList.Remove(TargetedEnemy);
-                    TargetedEnemy = null;
-                }
-                else
-                {
-                    break;
-                }
-            }
         }
     }
 }

@@ -5,6 +5,6 @@ namespace DefaultNamespace.TowerSystem
     public interface IEnemy
     {
         public bool isDead { get; }
-        public Transform GetTransform();
+        public Transform mTransform { get; }
     }
 }

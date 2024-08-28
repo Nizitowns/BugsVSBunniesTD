@@ -17,6 +17,8 @@ public class EnemyCharacteristics : MonoBehaviour, IEnemy
         health = MaxHealth;
         agent=GetComponent<NavMeshAgent>();
         initalSpeed= agent.speed;
+
+        mTransform = transform;
     }
     float timeForSlowDown;
     float initalSpeed;
@@ -87,5 +89,5 @@ public class EnemyCharacteristics : MonoBehaviour, IEnemy
     }
 
     public bool isDead { get; private set; }
-    public Transform GetTransform() => transform;
+    public Transform mTransform { get; private set; }
 }

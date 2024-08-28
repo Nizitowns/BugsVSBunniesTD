@@ -17,7 +17,7 @@ public class TowerPlacer : MonoBehaviour
     GameObject previewPlacer;
     MeshFilter previewPlacerMeshFilter;
 
-    public static TowerBehavior SelectedPlacedTower;
+    public static DefaultTowerBehaviour SelectedPlacedDefaultTower;
 
     [SerializeField]
     private Material canPlace;
@@ -83,15 +83,15 @@ public class TowerPlacer : MonoBehaviour
     }
     void SelectTowerInRange(Vector3 point, float radius)
     {
-        SelectedPlacedTower = null;
+        SelectedPlacedDefaultTower = null;
         Collider[] hitColliders = Physics.OverlapSphere(point, radius, LayerMask.GetMask("Tower"));
         foreach (Collider collider in hitColliders)
         {
             if (Vector3.Distance(collider.transform.position, point) < radius)
             {
-                if (collider.gameObject.GetComponent<TowerBehavior>() != null)
+                if (collider.gameObject.GetComponent<DefaultTowerBehaviour>() != null)
                 {
-                    SelectedPlacedTower = collider.gameObject.GetComponent<TowerBehavior>();
+                    SelectedPlacedDefaultTower = collider.gameObject.GetComponent<DefaultTowerBehaviour>();
                 }
                 return;
             }
