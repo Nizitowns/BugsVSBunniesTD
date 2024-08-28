@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BubbleTower
   m_EditorClassIdentifier: 
   prefab: {fileID: 5299692623051221599, guid: 9d2e9ce0bb4f74c49bc2305e42669b0c, type: 3}
-  SelectedTitle: 
+  selectedTitle: 
   purchaseIcon: {fileID: 21300000, guid: a50be26be66e4b7438a4a173469c6836, type: 3}
   previewMesh: {fileID: -4182195949832582125, guid: cf62aea6e3c20b64f998a1844b3f882c,
     type: 3}
@@ -30,7 +30,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 721b20207ca817e48b49dc4b3f685c7d, type: 2}
   particulOnShoot: {fileID: 2468146883406265530, guid: cd0ec8452dbce9943a49033cba6276f1,
     type: 3}
-  firingSFX:
+  firingSfx:
   - {fileID: 8300000, guid: 194392d77e9e8594c9460a8b78574e44, type: 3}
   - {fileID: 8300000, guid: c74daa39d1624d842bda9885c0167966, type: 3}
   - {fileID: 8300000, guid: 93d9770772191e1458b54cc89bd0fbd9, type: 3}

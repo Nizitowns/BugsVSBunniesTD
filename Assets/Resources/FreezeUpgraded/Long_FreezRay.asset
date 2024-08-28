@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Long_FreezRay
   m_EditorClassIdentifier: 
   prefab: {fileID: 6045296787690447725, guid: ee05836415c446f4aa5c2345ac8e2794, type: 3}
-  SelectedTitle: 
+  selectedTitle: 
   purchaseIcon: {fileID: 21300000, guid: 7f2059454de3ce74db2b44a9548bc9a6, type: 3}
   previewMesh: {fileID: -8943654866815143141, guid: c381c9bb179d14b4498fdb26e538a71f,
     type: 3}
@@ -28,12 +28,13 @@ MonoBehaviour:
   upgradableTowers: []
   particulOnShoot: {fileID: 8740331393395582659, guid: fbc56026dd0e4ea49a7570d1522a9767,
     type: 3}
-  firingSFX:
+  firingSfx:
   - {fileID: 8300000, guid: 9019dbd00ad29d04da97e2bd95706bd8, type: 3}
   - {fileID: 8300000, guid: 3acacdd5f497e5b4a98b984e13088657, type: 3}
   - {fileID: 8300000, guid: 75d0c54a1ab9d884fa9fdf6347581331, type: 3}
   - {fileID: 8300000, guid: 20849697e22951d489f4f1423752d9b6, type: 3}
   - {fileID: 8300000, guid: 9db02d92488bf8b4894ae1a1a9dd6978, type: 3}
   - {fileID: 8300000, guid: e234b6125322f9946847bb71e37012a4, type: 3}
+  - {fileID: 8300000, guid: 03d8f1a0d25198b4a8ce1853149d9509, type: 3}
   audioPlayType: 1
   audioCoolDown: 0.15

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Cascade_BubbleGun
   m_EditorClassIdentifier: 
   prefab: {fileID: 2412408191910621772, guid: a0cd41ce7e5ea80408d07474ee38a646, type: 3}
-  SelectedTitle: 
+  selectedTitle: 
   purchaseIcon: {fileID: 21300000, guid: a50be26be66e4b7438a4a173469c6836, type: 3}
   previewMesh: {fileID: -4182195949832582125, guid: cf62aea6e3c20b64f998a1844b3f882c,
     type: 3}
@@ -27,7 +27,7 @@ MonoBehaviour:
   myTargetingType: 0
   upgradableTowers: []
   particulOnShoot: {fileID: 0}
-  firingSFX:
+  firingSfx:
   - {fileID: 8300000, guid: 194392d77e9e8594c9460a8b78574e44, type: 3}
   - {fileID: 8300000, guid: c74daa39d1624d842bda9885c0167966, type: 3}
   - {fileID: 8300000, guid: 93d9770772191e1458b54cc89bd0fbd9, type: 3}
