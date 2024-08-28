@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
+using DefaultNamespace;
 using DefaultNamespace.TowerSystem;
 using UnityEngine;
 using UnityEngine.AI;
@@ -138,22 +139,26 @@ public class TowerPlacer : MonoBehaviour
             if (MoneyManager.instance.RemoveMoney(selectedTower.TowerScriptable.purchaseCost))
             {
                 source?.Play();
-                var go = Instantiate(selectedTower.TowerScriptable.prefab, SnapToGrid(previewPlacer.transform.position), Quaternion.identity);
-                if (go.TryGetComponent(out NewTowerBase towerBase))
+
+                var grassTile = InputGather.Instance.GetHitClass<GrassTile>();
+
+                if (grassTile != null)
                 {
-                    towerBase.Config = SelectedTower.TowerScriptable;
+                    grassTile.AddTower(selectedTower.TowerScriptable);
                 }
+
+                //
+                // var go = Instantiate(selectedTower.TowerScriptable.prefab, SnapToGrid(previewPlacer.transform.position), Quaternion.identity);
+                // if (go.TryGetComponent(out NewTowerBase towerBase))
+                // {
+                //     towerBase.Config = SelectedTower.TowerScriptable;
+                // }
             }
         }
     }
     private void Update()
     {
-
-
-
         UpdatePreview();
-
-
 
         if (previewPlacer != null&& Input.GetMouseButtonDown(0)&&!EventSystem.current.IsPointerOverGameObject())
             SelectTowerInRange(previewPlacer.transform.position, 3.5f);
