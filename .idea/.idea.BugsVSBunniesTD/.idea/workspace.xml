@@ -9,25 +9,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f09f1f5c-0885-4fd4-b329-770c8f92c57a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BugsVSBunniesTD/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BugsVSBunniesTD/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Towers/BubbleGun_Seperated.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Towers/BubbleGun_Seperated.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Level 1 Towers.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Level 1 Towers/BubbleTower.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Level 1 Towers/BubbleTower.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Level 1 Towers/Freeze Tower.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Level 1 Towers/Freeze Tower.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Level 1 Towers/Shrink Tower.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Level 1 Towers/Shrink Tower.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Level 1 Towers/Wind Tower.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Level 1 Towers/Wind Tower.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Level 2 Towers.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Level 2 Towers/BigBubble_BubbleGun.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Level 2 Towers/BigBubble_BubbleGun.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Level 2 Towers/Cascade_BubbleGun.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Level 2 Towers/Cascade_BubbleGun.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Level 2 Towers/Long_FreezRay.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Level 2 Towers/Long_FreezRay.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TowerPlacer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TowerPlacer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TowerSelectionUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TowerSelectionUI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ShrinkEffect.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ShrinkEffect.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

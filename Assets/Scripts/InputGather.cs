@@ -36,14 +36,10 @@ namespace DefaultNamespace
 
         public Vector3 GetMousePosition()
         {
-            var mousePOs = Input.mousePosition;
-            mousePOs.z = mainCam.nearClipPlane;
-            var ray = mainCam.ScreenPointToRay(mousePOs);
-
             RaycastHit hit;
             float maxDistance = 9999;
 
-            if (Physics.Raycast(ray, out hit, maxDistance, mouseOverLayers))
+            if (Physics.Raycast(DefaulttRay(), out hit, maxDistance, mouseOverLayers))
             {
                 return hit.point;
             }
@@ -53,13 +49,9 @@ namespace DefaultNamespace
         
         public T GetHitClass<T>() where T : class
         {
-            var mousePOs = Input.mousePosition;
-            mousePOs.z = mainCam.nearClipPlane;
-            var ray = mainCam.ScreenPointToRay(mousePOs);
-
             float maxDistance = 9999;
 
-            var hits = Physics.RaycastAll(ray, maxDistance);
+            var hits = Physics.RaycastAll(DefaulttRay(), maxDistance);
 
             foreach (var hit in hits)
             {
@@ -70,6 +62,13 @@ namespace DefaultNamespace
             }
 
             return null;
+        }
+
+        private Ray DefaulttRay()
+        {
+            var mousePOs = Input.mousePosition;
+            mousePOs.z = mainCam.nearClipPlane;
+            return mainCam.ScreenPointToRay(mousePOs);
         }
     }
 }
