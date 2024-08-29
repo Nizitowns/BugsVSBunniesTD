@@ -1,72 +1,127 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Transactions;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class EnemySpawner : MonoBehaviour
 {
     //The last EnemySpawner to start running, TODO: Replace with a more comprehensive system if multiple enemy spawners are used.
     public static EnemySpawner LatestLaunched;
 
-    public List<SpawnRequest> spawnRequests=new List<SpawnRequest>();
+    public List<SpawnRequest> spawnRequests = new();
 
+    [Min(0)] [Tooltip("The delay before declaring all waves completed.")]
+    public float PostWaveDelay;
 
-    public Action WaveStarted;
+    private float enemiesSpawnedThisWave;
+    private float totalWavesCompleted;
+    private float totalWavesToSpawn;
     public Action WaveEnded;
     public Action WavesCompleted;
-    [Tooltip("The delay before declaring all waves completed."),Min(0)]
-    public float PostWaveDelay;
+
+    public Action WaveStarted;
+
+    public void Start()
+    {
+        StartCoroutine(EnemySpawnerLoop());
+    }
 
     [Tooltip("On a scale from 0-1 returns how close the current wave is to completion.")]
     public float WavePercentage()
     {
-        if(spawnRequests.Count <= 0)
-        {//If there are no spawn requests we assume 100% completion of  this wave. (Last wave ends and we have no requests left)
+        if (spawnRequests.Count <= 0)
+            //If there are no spawn requests we assume 100% completion of  this wave. (Last wave ends and we have no requests left)
             return 1;
-        }
-        SpawnRequest current = spawnRequests[0];
+        var current = spawnRequests[0];
 
         //What percent of enemies spawned this wave have we killed?
-        return (1 - Mathf.Min(Mathf.Max(0, ((float)transform.childCount / Mathf.Max(1,(float)enemiesSpawnedThisWave))), 1));
-
-        /* Alternative Wave Percent Code
-
-        if (current.WaitUntilCompletion)
-        {
-            return (enemiesSpawnedThisWave / current.SpawnAmount)/2.0f +  (1-Mathf.Min(Mathf.Max(0,((float)transform.childCount/(float)current.SpawnAmount)),1))/2.0f;
-        }
-        else
-        {//The wave ends when all enemies spawn
-            return enemiesSpawnedThisWave / current.SpawnAmount;
-        }
-        */
+        return 1 - Mathf.Min(Mathf.Max(0, transform.childCount / Mathf.Max(1, enemiesSpawnedThisWave)),
+            1);
     }
+
     [Tooltip("On a scale from 0-1 returns how close this entire enemy spawner is to 100% completion.")]
     public float TotalPercentage()
     {
-        return totalWavesCompleted/ totalWavesToSpawn;
+        return totalWavesCompleted / totalWavesToSpawn;
     }
 
     public SpawnRequest.DifficultyRating CurrentWaveDifficulty()
     {
-        if(spawnRequests.Count<=0)
-        {//No waves? This is easy mode!
+        if (spawnRequests.Count <= 0)
+            //No waves? This is easy mode!
             return SpawnRequest.DifficultyRating.Easy;
-        }
 
-        SpawnRequest current = spawnRequests[0];
+        var current = spawnRequests[0];
         return current.ReportedDifficultyRating;
     }
 
-    [System.Serializable]
+    private bool hasNoChildren()
+    {
+        return transform.childCount <= 0;
+    }
+
+    public IEnumerator EnemySpawnerLoop()
+    {
+        while (spawnRequests.Count > 0)
+        {
+            LatestLaunched = this;
+            if (spawnRequests.Count > totalWavesToSpawn) totalWavesToSpawn = spawnRequests.Count;
+            WaveStarted?.Invoke();
+            var current = spawnRequests[0];
+            enemiesSpawnedThisWave = 0;
+            for (var i = 0; i < current.SpawnAmount; i++)
+            {
+                enemiesSpawnedThisWave++;
+                var spawnPos = transform.position;
+                PathNode initTarget = null;
+
+
+                if (current.snapSpawning) initTarget = PathManager.Instance.getEntryNode();
+                if (initTarget != null) spawnPos = initTarget.transform.position;
+                var g = Instantiate(current.EnemyConfig.prefab, spawnPos, transform.rotation, transform);
+                g.GetComponent<Enemy>().Initialize(current.EnemyConfig);
+
+                if (initTarget != null)
+                {
+                    var p = g.GetComponent<Pathfinder>();
+                    p.currentNode = initTarget;
+                }
+
+                yield return new WaitForSeconds(current.SpawnDelayTime);
+            }
+
+            if (current.WaitUntilCompletion) yield return new WaitUntil(hasNoChildren);
+            totalWavesCompleted++;
+            WaveEnded?.Invoke();
+
+            yield return new WaitForSeconds(current.PostWaveDelay);
+
+            yield return new WaitForEndOfFrame();
+            spawnRequests.RemoveAt(0);
+        }
+
+        while (transform.childCount > 0) yield return new WaitForEndOfFrame();
+        if (PostWaveDelay >= 0) yield return new WaitForSeconds(PostWaveDelay);
+        if (LatestLaunched == this)
+            LatestLaunched = null;
+        WavesCompleted?.Invoke();
+    }
+
+    [Serializable]
     public class SpawnRequest
     {
-        [Tooltip("The enemy to spawn.")]
-        public GameObject Prefab;
+        public enum DifficultyRating
+        {
+            Normal,
+            Easy,
+            Boss
+        }
+
+        public EnemyScriptableObject EnemyConfig;
+
         [Tooltip("How many Enemies to spawn with this order.")]
-        public float SpawnAmount=1;
+        public float SpawnAmount = 1;
+
         [Tooltip("Delay between each spawning.")]
         public float SpawnDelayTime;
 
@@ -80,95 +135,7 @@ public class EnemySpawner : MonoBehaviour
         [Tooltip("Should this enemy snap to its entry node when it spawns?")]
         public bool snapSpawning = true;
 
-        public enum DifficultyRating {Normal,Easy,Boss};
-
         [Tooltip("Optional rating of difficulty for any current wave UI.")]
         public DifficultyRating ReportedDifficultyRating;
     }
-
-
-    public void Start()
-    {
-
-        StartCoroutine(EnemySpawnerLoop());
-    }
-
-    private bool hasNoChildren()
-    {
-        return transform.childCount <= 0;
-    }
-    float enemiesSpawnedThisWave;
-    float totalWavesCompleted;
-    float totalWavesToSpawn;
-    public IEnumerator EnemySpawnerLoop()
-    {
-        while (spawnRequests.Count > 0)
-        {
-            LatestLaunched = this;
-            if (spawnRequests.Count> totalWavesToSpawn)
-            {
-                totalWavesToSpawn = spawnRequests.Count;
-            }
-            WaveStarted?.Invoke();
-            SpawnRequest current = spawnRequests[0];
-            enemiesSpawnedThisWave = 0;
-            for (int i = 0; i < current.SpawnAmount; i++)
-            {
-                enemiesSpawnedThisWave++;
-                Vector3 spawnPos = transform.position;
-                PathNode initTarget = null;
-
-
-                if (current.snapSpawning)
-                {
-
-                    initTarget = PathManager.Instance.getEntryNode();
-
-                }
-                if(initTarget!= null)
-                {
-                    spawnPos = initTarget.transform.position;
-                }
-                GameObject g = Instantiate(current.Prefab, spawnPos, transform.rotation, transform);
-
-                if (initTarget != null)
-                {
-                    Pathfinder p = g.GetComponent<Pathfinder>();
-                    p.currentNode = initTarget;
-                }
-                yield return new WaitForSeconds(current.SpawnDelayTime);
-                
-
-
-            }
-
-
-            if (current.WaitUntilCompletion)
-            {
-                yield return new WaitUntil(hasNoChildren);
-            }
-            totalWavesCompleted++;
-            WaveEnded?.Invoke();
-
-            yield return new WaitForSeconds(current.PostWaveDelay);
-
-
-            yield return new WaitForEndOfFrame();
-            spawnRequests.RemoveAt(0);
-        }
-
-        while(transform.childCount>0)
-        {
-            yield return new WaitForEndOfFrame();
-        }
-        if(PostWaveDelay>=0)
-        {
-            yield return new WaitForSeconds(PostWaveDelay);
-        }
-        if(LatestLaunched==this)
-            LatestLaunched = null;
-        WavesCompleted?.Invoke();
-
-    }
-
 }

@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 501951fb1ae34fd2af2b7b348d9fafe0, type: 3}
+  m_Name: Ant Empress
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 6202685934086139173, guid: ec0474e413a73e1418ff9bd772a9bcbb, type: 3}
+  moneyReward: 10
+  maxHealth: 1200
+  carrotDamage: 8
+  speed: 36

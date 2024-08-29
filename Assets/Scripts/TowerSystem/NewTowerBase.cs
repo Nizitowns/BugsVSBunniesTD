@@ -1,15 +1,12 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using Helper;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 namespace DefaultNamespace.TowerSystem
 {
-    public abstract class NewTowerBase : MonoBehaviour, ITower
+    public abstract class NewTowerBase : MonoBehaviour
     {
         public TowerScriptableObject Config { get; private set; }
 
@@ -18,9 +15,9 @@ namespace DefaultNamespace.TowerSystem
         [SerializeField] protected Transform BulletSource;
         protected AudioSource mAudioSource;
         
-        protected List<IEnemy> TargetList = new List<IEnemy>();
-        protected IEnemy TargetedEnemy;
-        protected IEnemy LastTargeted;
+        protected List<Enemy> TargetList = new List<Enemy>();
+        protected Enemy TargetedEnemy;
+        protected Enemy LastTargeted;
 
         protected Coroutine FireRoutine;
         protected bool IsShooting = true;
@@ -74,7 +71,6 @@ namespace DefaultNamespace.TowerSystem
 
             return IsShooting;
         }
-
 
         private void PlaySoundFX()
         {
@@ -140,25 +136,19 @@ namespace DefaultNamespace.TowerSystem
                 TargetList.Remove(TargetedEnemy);
                 SetNewTarget();
             }
-               
         }
 
-        private void OnDestroy()
-        {
-            StopCoroutine(FireRoutine);
-        }
+        private void OnDestroy() => StopCoroutine(FireRoutine);
 
         protected virtual void OnTriggerEnter(Collider other)
         {
-            if (other.TryGetComponent(out IEnemy enemey))
-            {
+            if (other.TryGetComponent(out Enemy enemey))
                 TargetList.Add(enemey);
-            }
         }
 
         protected virtual void OnTriggerExit(Collider other)
         {
-            if(other.TryGetComponent(out IEnemy enemey))
+            if(other.TryGetComponent(out Enemy enemey))
                 TargetList.Remove(enemey);
         }
     }

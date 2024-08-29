@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace DefaultNamespace
 {
-    public static class Vector3Extension
+    public static class AnimationExtension
     {
         public static void AnimatedPlacement(this GameObject gameObject)
         {

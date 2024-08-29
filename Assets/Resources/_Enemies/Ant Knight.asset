@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 501951fb1ae34fd2af2b7b348d9fafe0, type: 3}
+  m_Name: Ant Knight
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 452661431563245470, guid: 7e62d7538df94e647963182d41562532, type: 3}
+  moneyReward: 10
+  maxHealth: 500
+  carrotDamage: 4
+  speed: 6

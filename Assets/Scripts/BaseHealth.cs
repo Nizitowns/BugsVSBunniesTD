@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using DefaultNamespace;
+using DefaultNamespace.TowerSystem;
 using UnityEngine;
 
 public class BaseHealth : MonoBehaviour
@@ -67,11 +67,11 @@ public class BaseHealth : MonoBehaviour
         private void OnTriggerEnter(Collider other)
     {
 
-        if(other.gameObject.GetComponent<EnemyCharacteristics>()!=null&&!EnemiesBreached.Contains(other.gameObject))
+        if(other.gameObject.GetComponent<DefaultEnemy>()!=null&&!EnemiesBreached.Contains(other.gameObject))
         {
             EnemiesBreached.Add(other.gameObject);
-            other.gameObject.GetComponent<EnemyCharacteristics>().Die(false,true);
-            DamageBase(other.gameObject.GetComponent<EnemyCharacteristics>().CarrotDamage);
+            other.gameObject.GetComponent<DefaultEnemy>().Die(false,true);
+            DamageBase(other.gameObject.GetComponent<Enemy>().Config.carrotDamage);
         }
 
     }
