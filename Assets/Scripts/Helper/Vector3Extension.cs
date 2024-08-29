@@ -14,8 +14,8 @@ namespace DefaultNamespace
 
         public static void AnimatedRemove(this GameObject gameObject)
         {
-            Vector3 endPos = gameObject.transform.position + Vector3.down * 10;
-            gameObject.transform.DOMove(endPos, 1f).SetEase(Ease.OutExpo);
+            Vector3 endPos = gameObject.transform.position + Vector3.up * 1f;
+            gameObject.transform.DOMove(endPos, 0.09f).SetEase(Ease.Linear);
         }
     }
 }

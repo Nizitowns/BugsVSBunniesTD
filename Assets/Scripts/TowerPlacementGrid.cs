@@ -35,7 +35,7 @@ namespace DefaultNamespace
             PlacedTowerConfig = null;
             PlacedTowerObject.GetComponent<NewTowerBase>().IsDisabled = true;
             PlacedTowerObject.AnimatedRemove();
-            Destroy(PlacedTowerObject, 2);
+            Destroy(PlacedTowerObject, 0.1f);
         }
     }
 }
