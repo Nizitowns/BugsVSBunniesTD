@@ -1,7 +1,13 @@
+using System.Collections.Generic;
+using System.Linq;
+using DefaultNamespace.OnDeathEffects;
 using UnityEngine;
 
 public class bulletBehavior : MonoBehaviour
 {
+    //
+    public List<DebuffBase> Debuffs;
+    //
     public enum SpecialEffects
     {
         None,
@@ -17,8 +23,6 @@ public class bulletBehavior : MonoBehaviour
     public bool DestroyIfEnemyDies;
     public bool SeenEnemy;
 
-    public SpecialEffects specialEffects;
-
     public float SpecialEffectLength;
 
     //Spawns + Entangles with enemies when killed (Bubbles foreach enemy etc.)
@@ -33,6 +37,7 @@ public class bulletBehavior : MonoBehaviour
     private void Start()
     {
         destroyAfter = Time.timeSinceLevelLoad + despawnTime;
+        Debuffs = transform.GetComponents<DebuffBase>().ToList();
     }
 
     private void Update()
@@ -63,8 +68,13 @@ public class bulletBehavior : MonoBehaviour
     {
         if (other.CompareTag("enemies") && other.GetComponent<DefaultEnemy>() != null)
         {
-            if (specialEffects == SpecialEffects.SlowEnemies)
-                other.GetComponent<DefaultEnemy>().Freeze(SpecialEffectLength);
+            if (other.TryGetComponent(out IDebuffable debuffable))
+            {
+                foreach (var debuff in Debuffs)
+                {
+                    debuffable.AddDebuff(debuff);
+                }
+            }
 
             if (other.GetComponent<Enemy>().TakeDamage(damage) && EntangleWhenKillEnemy != null)
             {

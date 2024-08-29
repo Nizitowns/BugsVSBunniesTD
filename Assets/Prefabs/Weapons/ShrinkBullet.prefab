@@ -5029,9 +5029,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9782c8ba325946b4c9650596e548d1e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Debuffs: []
   speed: 60
   target: {x: 0, y: 0, z: 0}
   damage: 0.075
+  enemy: {fileID: 0}
   despawnTime: 6
   DestroyIfEnemyDies: 0
   SeenEnemy: 0

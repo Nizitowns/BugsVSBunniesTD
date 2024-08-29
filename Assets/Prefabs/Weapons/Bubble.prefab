@@ -4850,8 +4850,8 @@ GameObject:
   - component: {fileID: 5460195921632590478}
   - component: {fileID: 417531884678583437}
   - component: {fileID: 795401870357362732}
-  - component: {fileID: 3438729455866361278}
   - component: {fileID: 5364946145023232738}
+  - component: {fileID: 3438729455866361278}
   m_Layer: 0
   m_Name: Bubble
   m_TagString: Untagged
@@ -4925,6 +4925,30 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &5364946145023232738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8319209496153684854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9782c8ba325946b4c9650596e548d1e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 30
+  target: {x: 0, y: 0, z: 0}
+  damage: 4
+  enemy: {fileID: 0}
+  despawnTime: 6
+  DestroyIfEnemyDies: 0
+  SeenEnemy: 0
+  specialEffects: 0
+  SpecialEffectLength: 0
+  EntangleWhenKillEnemy: {fileID: 628611231193588644, guid: c5085ad2dc6a1d040baa180525843dc2,
+    type: 3}
+  MaxHits: 1
 --- !u!135 &3438729455866361278
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -4946,26 +4970,3 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5364946145023232738
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8319209496153684854}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9782c8ba325946b4c9650596e548d1e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 30
-  target: {x: 0, y: 0, z: 0}
-  damage: 4
-  despawnTime: 6
-  DestroyIfEnemyDies: 0
-  SeenEnemy: 0
-  specialEffects: 0
-  SpecialEffectLength: 0
-  EntangleWhenKillEnemy: {fileID: 628611231193588644, guid: c5085ad2dc6a1d040baa180525843dc2,
-    type: 3}
-  MaxHits: 1

@@ -19494,6 +19494,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 04f4dee23061fc94ab2721e0724f9ddd,
         type: 2}
+    - target: {fileID: 682048220958233360, guid: 340f469b45fdf764eb886fa12888295f,
+        type: 3}
+      propertyPath: Balance
+      value: 999
+      objectReference: {fileID: 0}
     - target: {fileID: 874564245336317951, guid: 340f469b45fdf764eb886fa12888295f,
         type: 3}
       propertyPath: m_Name
@@ -19855,6 +19860,12 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7332416111681507154, guid: 340f469b45fdf764eb886fa12888295f,
+        type: 3}
+      propertyPath: TowerScriptable
+      value: 
+      objectReference: {fileID: 11400000, guid: 7c24c6949ae221543b08d707e4159990,
+        type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -1,18 +1,17 @@
+using System.Collections.Generic;
+using DefaultNamespace.OnDeathEffects;
 using UnityEngine;
 using UnityEngine.AI;
 
-public abstract class Enemy : MonoBehaviour
+public abstract class Enemy : MonoBehaviour, IDebuffable
 {
     public EnemyScriptableObject Config { get; private set; }
 
     public bool isDead { get; private set; }
     public Transform mTransform { get; private set; }
     [SerializeField] protected float currentHealth;
-    protected NavMeshAgent agent;
+    public NavMeshAgent agent;
     
-    private float timeForSlowDown;
-    private float initalSpeed;
-
     public virtual void Initialize(EnemyScriptableObject Config)
     {
         this.Config = Config;
@@ -20,17 +19,16 @@ public abstract class Enemy : MonoBehaviour
         gameObject.tag = "enemies";
         currentHealth = Config.maxHealth;
         agent = GetComponent<NavMeshAgent>();
-        initalSpeed = Config.speed;
+        agent.speed = Config.speed;
 
         mTransform = transform;
     }
-
     
     public bool TakeDamage(float amount)
     {
         if (currentHealth - amount < 0)
         {
-            Die();
+            KillEnemy();
             return true;
         }
 
@@ -38,14 +36,10 @@ public abstract class Enemy : MonoBehaviour
         return false;
     }
    
-   
-    public void Freeze(float duration)
+    public void KillEnemy(bool givesMoney = true, bool killAfter = false)
     {
-        timeForSlowDown = Time.timeSinceLevelLoad + duration;
-    }
-
-    public void Die(bool givesMoney = true, bool killAfter = false)
-    {
+        if (isDead) return;
+        
         if (killAfter)
         {
             Destroy(gameObject);
@@ -58,12 +52,8 @@ public abstract class Enemy : MonoBehaviour
                 Destroy(GetComponent<Collider>()); //Destroy Trigger Collider
             if (GetComponent<Collider>())
                 Destroy(GetComponent<Collider>()); //Destroy Real Collider
-
-
             if (GetComponent<Pathfinder>())
                 Destroy(GetComponent<Pathfinder>()); //Destroy Pathfinder
-
-
             if (GetComponent<NavMeshAgent>())
                 Destroy(GetComponent<NavMeshAgent>()); //Destroy NavMeshAgent
 
@@ -79,12 +69,37 @@ public abstract class Enemy : MonoBehaviour
 
     private void Update()
     {
-        if (Time.timeSinceLevelLoad < timeForSlowDown)
-            //If we are frozen right now
-            agent.speed = initalSpeed * 0.5f;
-        else
-            agent.speed = initalSpeed;
-        // if (currentHealth <= 0) Die();
+        UpdateDebuffs();
+    }
+    
+    #region Debuff Logic
+
+    public List<DebuffBase> WearDebuffs { get; private set; } = new();
+
+    public void AddDebuff(DebuffBase debuffBase)
+    {
+        foreach (var debuff in WearDebuffs)
+            if (debuff.GetType() == debuffBase.GetType())
+            {
+                debuff.WhatHappensOnStack();
+                return;
+            }
+        
+        WearDebuffs.Add(debuffBase);
+        debuffBase.ApplyDebuff(this);
     }
 
+    public void UpdateDebuffs()
+    {
+        for (int i = WearDebuffs.Count - 1; i >= 0; i--)
+        {
+            if (WearDebuffs[i].IsWearOff)
+            {
+                WearDebuffs.RemoveAt(i);
+                continue;
+            }
+            WearDebuffs[i].UpdateDebuff(this);
+        }
+    }
+    #endregion
 }

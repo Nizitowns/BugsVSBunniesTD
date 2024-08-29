@@ -24,7 +24,7 @@ MonoBehaviour:
   burstDelay: 0
   bulletPrefab: {fileID: 64348080937607872, guid: 03876bee01672694980d794f00ff9607,
     type: 3}
-  myTargetingType: 1
+  myTargetingType: 2
   upgradeOptions:
   - {fileID: 11400000, guid: af0c8bd39937e5f4a916603cefc12577, type: 2}
   particulOnShoot: {fileID: 8740331393395582659, guid: fbc56026dd0e4ea49a7570d1522a9767,
