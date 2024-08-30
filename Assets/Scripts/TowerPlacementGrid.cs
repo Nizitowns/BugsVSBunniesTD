@@ -1,4 +1,5 @@
 using DefaultNamespace.TowerSystem;
+using DG.Tweening;
 using UnityEngine;
 
 namespace DefaultNamespace
@@ -19,7 +20,7 @@ namespace DefaultNamespace
             PlacedTowerConfig = towerScriptableObject;
             PlacedTowerObject = Instantiate(PlacedTowerConfig.prefab, PlacementPosition.position, Quaternion.identity);
             PlacedTowerObject.GetComponent<NewTowerBase>().Initiliaze(PlacedTowerConfig);
-            PlacedTowerObject.AnimatedPlacement();
+            PlacedTowerObject.AnimatedPlacement().OnComplete(() => AnimationExtension.routine?.Kill());
         }
 
         public void UpgradeTower(TowerScriptableObject towerScriptableObject)
@@ -34,8 +35,11 @@ namespace DefaultNamespace
         {
             PlacedTowerConfig = null;
             PlacedTowerObject.GetComponent<NewTowerBase>().IsDisabled = true;
-            PlacedTowerObject.AnimatedRemove();
-            Destroy(PlacedTowerObject, 0.1f);
+            PlacedTowerObject.AnimatedRemove().OnComplete(() =>
+            {
+                AnimationExtension.routine?.Kill();
+                Destroy(PlacedTowerObject);
+            });
         }
     }
 }
