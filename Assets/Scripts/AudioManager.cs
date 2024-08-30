@@ -23,13 +23,13 @@ public class AudioManager : MonoBehaviour
     {
         SFXVolume = slider.value/slider.maxValue;
 
-        PlayerPrefs.SetFloat("SFX_Vol", SFXVolume);
+        PlayerPrefs.SetFloat("SFX_Vol", Mathf.Log10((SFXVolume)*20));
     }
     public void SetMusicVolume(Slider slider)
     {
         MusicVolume = slider.value / slider.maxValue;
 
 
-        PlayerPrefs.SetFloat("Music_Vol", MusicVolume);
+        PlayerPrefs.SetFloat("Music_Vol", Mathf.Log10((MusicVolume)*20));
     }
 }
