@@ -20,7 +20,7 @@ namespace DefaultNamespace
             PlacedTowerConfig = towerScriptableObject;
             PlacedTowerObject = Instantiate(PlacedTowerConfig.prefab, PlacementPosition.position, Quaternion.identity);
             PlacedTowerObject.GetComponent<NewTowerBase>().Initiliaze(PlacedTowerConfig);
-            PlacedTowerObject.AnimatedPlacement().OnComplete(() => AnimationExtension.routine?.Kill());
+            // PlacedTowerObject.AnimatedPlacement();
         }
 
         public void UpgradeTower(TowerScriptableObject towerScriptableObject)
@@ -35,11 +35,11 @@ namespace DefaultNamespace
         {
             PlacedTowerConfig = null;
             PlacedTowerObject.GetComponent<NewTowerBase>().IsDisabled = true;
-            PlacedTowerObject.AnimatedRemove().OnComplete(() =>
-            {
-                AnimationExtension.routine?.Kill();
-                Destroy(PlacedTowerObject);
-            });
+            Destroy(PlacedTowerObject);
+            // PlacedTowerObject.AnimatedRemove().OnComplete(() =>
+            // {
+            //     Destroy(PlacedTowerObject);
+            // });
         }
     }
 }
