@@ -8,8 +8,10 @@ public class TowerSelectionUI : MonoBehaviour
 {
     public float RefundRatio = 0.75f;
     CanvasGroup canvasGroup;
+    AudioSource source;
     void Start()
     {
+    source = GetComponent<AudioSource>();
         canvasGroup=GetComponent<CanvasGroup>();
         canvas=transform.parent.GetComponent<Canvas>();
     }
@@ -85,6 +87,10 @@ public class TowerSelectionUI : MonoBehaviour
         TowerScriptableObject NewUpgrade = TowerPlacer.TowerPlacementGrid.PlacedTowerConfig.upgradeOptions[upgradeSlot];
         if (MoneyManager.instance.RemoveMoney(NewUpgrade.purchaseCost))
         {
+            if(source!=null)
+            {
+                source.Play();
+            }
             TowerPlacer.TowerPlacementGrid.UpgradeTower(NewUpgrade);
             TowerPlacer.TowerPlacementGrid = null;
         }
