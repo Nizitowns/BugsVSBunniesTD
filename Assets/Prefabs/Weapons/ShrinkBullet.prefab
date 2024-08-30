@@ -870,7 +870,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 100
+      scalar: 200
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -5037,7 +5037,6 @@ MonoBehaviour:
   despawnTime: 6
   DestroyIfEnemyDies: 0
   SeenEnemy: 0
-  specialEffects: 0
   SpecialEffectLength: 0
   EntangleWhenKillEnemy: {fileID: 628611231193588644, guid: 83b4844023b421842945f148ae68d1fc,
     type: 3}
@@ -5879,7 +5878,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 50
+      scalar: 100
       minScalar: 10
       maxCurve:
         serializedVersion: 2
