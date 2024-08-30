@@ -110,7 +110,7 @@ namespace DefaultNamespace.TowerSystem
             RotateAxis.transform.rotation = Quaternion.Euler(0, rotation.eulerAngles.y + 90, 0);
         }
 
-        protected virtual void SetNewTarget()
+        private void SetNewTarget()
         {
             if (TargetList.Count == 0)
             {
@@ -125,6 +125,9 @@ namespace DefaultNamespace.TowerSystem
                     break;
                 case TargetType.FocusOnFirst:
                     TargetedEnemy = TargetList[0];
+                    break;
+                case TargetType.FocusOnMiddle:
+                    TargetedEnemy = TargetList[(int)(TargetList.Count / 2)];
                     break;
                 case TargetType.FocusOnLast:
                     TargetedEnemy = TargetList[^1];

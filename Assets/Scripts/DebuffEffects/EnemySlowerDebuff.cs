@@ -5,30 +5,40 @@ namespace DefaultNamespace.OnDeathEffects
         public float speedReduction;
 
         private float speedBeforeDebuff = 0;
-        private float timer = 0;
 
-        public override void ApplyDebuff(Enemy enemy)
+        public override void ApplyDebuff(IEnemyUnit enemy)
         {
-            speedBeforeDebuff = enemy.agent.speed;
-            enemy.agent.speed = speedBeforeDebuff * speedReduction;
+            speedBeforeDebuff = enemy.Speed;
+            enemy.Speed = speedBeforeDebuff * speedReduction;
         }
 
-        public override void UpdateDebuff(Enemy enemy)
+        public override bool UpdateDebuff(IEnemyUnit enemy, float tick)
         {
-            if (RunTimer(ref timer, duration, enemy))
+            if (RunTimer(tick))
             {
                 WearOffDebuff(enemy);
+                return true;
             }
+
+            return false;
         }
 
-        public override void WearOffDebuff(Enemy enemy)
+        public override void WearOffDebuff(IEnemyUnit enemy)
         {
-            IsWearOff = true;
-            enemy.agent.speed = enemy.Config.speed;
+            enemy.Speed = enemy.Config.speed;
         }
 
-        public override void WhatHappensOnStack()
+        public override void WhatHappensOnStack(IEnemyUnit enemy, DebuffBase newDebuff)
         {
+            if (newDebuff is EnemySlowerDebuff debuff)
+            {
+                if (debuff.speedReduction < speedReduction)
+                {
+                    WearOffDebuff(enemy);
+                    debuff.ApplyDebuff(enemy);
+                }
+            }
+                
             timer = 0;
         }
     }

@@ -3,7 +3,14 @@ using DefaultNamespace.OnDeathEffects;
 using UnityEngine;
 using UnityEngine.AI;
 
-public abstract class Enemy : MonoBehaviour, IDebuffable
+public interface IEnemyUnit : IDebuffable, IDamagable
+{
+    public EnemyScriptableObject Config { get; }
+    public Transform mTransform { get; }
+    public float Speed { get; set; }
+}
+
+public abstract class Enemy : MonoBehaviour, IEnemyUnit
 {
     public EnemyScriptableObject Config { get; private set; }
 
@@ -11,24 +18,28 @@ public abstract class Enemy : MonoBehaviour, IDebuffable
     public Transform mTransform { get; private set; }
     [SerializeField] protected float currentHealth;
     public NavMeshAgent agent;
-    
+
+    public float Speed
+    {
+        get => agent.speed;
+        set =>agent.speed = value;
+    }
+
     public virtual void Initialize(EnemyScriptableObject Config)
     {
         this.Config = Config;
-        
-        gameObject.tag = "enemies";
-        currentHealth = Config.maxHealth;
-        agent = GetComponent<NavMeshAgent>();
-        agent.speed = Config.speed;
-
         mTransform = transform;
+        agent = GetComponent<NavMeshAgent>();
+        Speed = Config.speed;
+        currentHealth = Config.maxHealth;
+        gameObject.tag = "enemies";
     }
     
     public bool TakeDamage(float amount)
     {
         if (currentHealth - amount < 0)
         {
-            KillEnemy();
+            KillThis();
             return true;
         }
 
@@ -36,7 +47,7 @@ public abstract class Enemy : MonoBehaviour, IDebuffable
         return false;
     }
    
-    public void KillEnemy(bool givesMoney = true, bool killAfter = false)
+    public void KillThis(bool givesMoney = true, bool killAfter = false)
     {
         if (isDead) return;
         
@@ -69,36 +80,34 @@ public abstract class Enemy : MonoBehaviour, IDebuffable
 
     private void Update()
     {
-        UpdateDebuffs();
+        HandleDebuff();
     }
     
     #region Debuff Logic
-
     public List<DebuffBase> WearDebuffs { get; private set; } = new();
 
-    public void AddDebuff(DebuffBase debuffBase)
+    public void AddDebuff(DebuffBase newDebuff)
     {
         foreach (var debuff in WearDebuffs)
-            if (debuff.GetType() == debuffBase.GetType())
+            if (debuff.GetType() == newDebuff.GetType())
             {
-                debuff.WhatHappensOnStack();
+                debuff.WhatHappensOnStack(this, newDebuff);
                 return;
             }
         
-        WearDebuffs.Add(debuffBase);
-        debuffBase.ApplyDebuff(this);
+        WearDebuffs.Add(newDebuff);
+        newDebuff.ApplyDebuff(this);
     }
 
-    public void UpdateDebuffs()
+    public void HandleDebuff()
     {
         for (int i = WearDebuffs.Count - 1; i >= 0; i--)
         {
-            if (WearDebuffs[i].IsWearOff)
+            if (WearDebuffs[i].UpdateDebuff(this, Time.deltaTime))
             {
                 WearDebuffs.RemoveAt(i);
                 continue;
             }
-            WearDebuffs[i].UpdateDebuff(this);
         }
     }
     #endregion

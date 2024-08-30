@@ -18,6 +18,7 @@ public class EnemySpawner : MonoBehaviour
     private float totalWavesToSpawn;
     public Action WaveEnded;
     public Action WavesCompleted;
+    
 
     public Action WaveStarted;
 
