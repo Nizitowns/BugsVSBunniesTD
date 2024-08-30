@@ -9,28 +9,25 @@ namespace DefaultNamespace.OnDeathEffects
         
         private float timer;
         
-        public override void ApplyDebuff(Enemy enemy)
+        public override void ApplyDebuff(IEnemyUnit enemy)
         {
-            enemy.transform.DOScale(Vector3.one * sizeMultiplier, 0.5f);
+            enemy.mTransform.DOScale(Vector3.one * sizeMultiplier, 0.5f);
         }
 
-        public override void UpdateDebuff(Enemy enemy)
+        public override bool UpdateDebuff(IEnemyUnit enemy, float tick)
         {
-            if (RunTimer(ref timer, duration, enemy))
+            if (RunTimer(tick))
             {
                 WearOffDebuff(enemy);
+                return true;
             }
+            return false;
         }
 
-        public override void WearOffDebuff(Enemy enemy)
+        public override void WearOffDebuff(IEnemyUnit enemy)
         {
             IsWearOff = true;
-            enemy.transform.DOScale(Vector3.one, 0.5f);
-        }
-
-        public override void WhatHappensOnStack()
-        {
-            timer = 0;
+            enemy.mTransform.DOScale(Vector3.one, 0.5f);
         }
     }
 }

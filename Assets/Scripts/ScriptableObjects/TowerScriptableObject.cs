@@ -37,6 +37,7 @@ namespace DefaultNamespace.TowerSystem
     {
         RandomSelect,
         FocusOnFirst,
+        FocusOnMiddle,
         FocusOnLast,
     }
 

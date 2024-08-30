@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3861564386092771805}
   - component: {fileID: 5399412483328631633}
-  - component: {fileID: 4058750935423950271}
+  - component: {fileID: -3904955553191890061}
   - component: {fileID: 536699752744990067}
   - component: {fileID: 6802170399240619984}
   - component: {fileID: 2715008732594602681}
@@ -61,7 +61,7 @@ MonoBehaviour:
   SpecialEffectLength: 2
   EntangleWhenKillEnemy: {fileID: 0}
   MaxHits: 5
---- !u!114 &4058750935423950271
+--- !u!114 &-3904955553191890061
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

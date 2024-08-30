@@ -5,22 +5,31 @@ namespace DefaultNamespace.OnDeathEffects
     public abstract class DebuffBase : MonoBehaviour
     {
         public float duration = 0;
+        protected float timer = 0;
         public bool IsWearOff { get; protected set; }
-        public abstract void ApplyDebuff(Enemy enemy);
-        public abstract void UpdateDebuff(Enemy enemy);
-        public abstract void WearOffDebuff(Enemy enemy);
+        public abstract void ApplyDebuff(IEnemyUnit enemy);
+        /// <summary>
+        /// Returns true on wear off
+        /// </summary>
+        /// <param name="enemy"></param>
+        /// <param name="tick"></param>
+        /// <returns></returns>
+        public abstract bool UpdateDebuff(IEnemyUnit enemy, float tick);
+        public abstract void WearOffDebuff(IEnemyUnit enemy);
 
-        protected bool RunTimer(ref float passedTime, float duration, Enemy enemy)
+        protected bool RunTimer(float tick)
         {
-            passedTime += Time.deltaTime;
-            if (passedTime > duration)
+            timer += tick;
+            if (timer > duration)
             {
                 return true;
             }
-
             return false;
         }
 
-        public abstract void WhatHappensOnStack();
+        public virtual void WhatHappensOnStack(IEnemyUnit enemy, DebuffBase newDebuff)
+        {
+            duration = 0;
+        }
     }
 }
