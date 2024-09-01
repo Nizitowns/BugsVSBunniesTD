@@ -607,10 +607,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 513684357b50a1147b53beddb2bb04da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aboutText: The Bubble Tower captures a single ant in a bubble, removing it from
-    the game.  Just don't get too distracted by all the floating ants.
-  textDisplay: {fileID: 8861742108487833065, guid: 50475ef26dcdf184aaf4bd1d680ef457,
-    type: 3}
+  TowerInfo: {fileID: 0}
+  onPointerEnter: 0
 --- !u!1 &583482007111437696
 GameObject:
   m_ObjectHideFlags: 0
@@ -3090,10 +3088,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 513684357b50a1147b53beddb2bb04da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aboutText: '"A marvel of modern bunny science, the Shrink Ray targets a single
-    ant and brings it down to size.  "Honey, we shrunk the ants!"'
-  textDisplay: {fileID: 8861742108487833065, guid: 50475ef26dcdf184aaf4bd1d680ef457,
-    type: 3}
+  TowerInfo: {fileID: 0}
+  onPointerEnter: 0
 --- !u!114 &6141227656140698798
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4302,10 +4298,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 513684357b50a1147b53beddb2bb04da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aboutText: Pushes ants backwards along the path, giving your towers more time to
-    deal with the pesky insect invaders.
-  textDisplay: {fileID: 8861742108487833065, guid: 50475ef26dcdf184aaf4bd1d680ef457,
-    type: 3}
+  TowerInfo: {fileID: 0}
+  onPointerEnter: 0
 --- !u!1 &7011684336643707705
 GameObject:
   m_ObjectHideFlags: 0
@@ -5426,9 +5420,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 513684357b50a1147b53beddb2bb04da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aboutText: Are the ants too fast?  Are they evading your defenses?  Use the Freeze
-    Ray to chill and slow them down!
-  textDisplay: {fileID: 0}
+  TowerInfo: {fileID: 0}
+  onPointerEnter: 0
 --- !u!1 &8364453970659071216
 GameObject:
   m_ObjectHideFlags: 0
