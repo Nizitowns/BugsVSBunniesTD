@@ -10,6 +10,8 @@ namespace DefaultNamespace
 
         private GameObject PlacedTowerObject;
         [SerializeField] private Transform PlacementPosition;
+
+        public Transform GetPlacementPosition => PlacementPosition;
         
         public bool HasTowerOnIt => PlacedTowerConfig != null;
 

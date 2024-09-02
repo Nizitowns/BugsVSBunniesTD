@@ -1,12 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Drawing;
 using DefaultNamespace;
-using DefaultNamespace.TowerSystem;
 using UnityEngine;
-using UnityEngine.AI;
 using UnityEngine.EventSystems;
-using static Unity.VisualScripting.Member;
+
 public class TowerPlacer : MonoBehaviour
 {
     public static bool PlacementDisabled;
@@ -20,43 +15,63 @@ public class TowerPlacer : MonoBehaviour
 
     public static TowerPlacementGrid TowerPlacementGrid;
 
-    [SerializeField]
-    private Material canPlace;
-    [SerializeField]
-    private Material cannotPlace;
-    void Start()
+    [SerializeField] private Material canPlace;
+    [SerializeField] private Material cannotPlace;
+    
+    private void Start()
     {
         source = GetComponent<AudioSource>();
         PlacementDisabled = false;
-        previewPlacer =Instantiate(PreviewPlacerPrefab).gameObject;
-        previewPlacerMeshFilter=previewPlacer.GetComponentInChildren<MeshFilter>();
+        previewPlacer = Instantiate(PreviewPlacerPrefab).gameObject;
+        previewPlacerMeshFilter = previewPlacer.GetComponentInChildren<MeshFilter>();
     }
-    public void UpdatePreview()
+    
+    private void Update()
     {
-        Vector3 mouseScreenPosition = Input.mousePosition;
-        if(EventSystem.current.IsPointerOverGameObject())
-        {//Dont let you place if you are over a UI element right now
-            mouseScreenPosition = new Vector3(0, -9999, 0);
-        }
-        Ray ray = Camera.main.ScreenPointToRay(mouseScreenPosition);
-        int layerMask = ~((1 << LayerMask.NameToLayer("Enemy")) | (1 << LayerMask.NameToLayer("Tower")));
-        if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, layerMask))
+        UpdatePreview();
+        var hitClass = InputGather.Instance.GetHitClass<TowerPlacementGrid>();
+        if (SelectedTower != null)
         {
-            previewPlacer.transform.position = hit.point+new Vector3(0,1,0);
-            previewPlacerMeshFilter.transform.position = SnapToGrid(previewPlacer.transform.position);
-
-        }
-
-        if (SelectedTower != null&&!PlacementDisabled)
-        {
-            if (isClearToPlace(SnapToGrid(previewPlacer.transform.position)))
+            if (hitClass != null && 
+                InputGather.Instance.MouseLeftClick &&
+                !EventSystem.current.IsPointerOverGameObject() &&
+                CanPlacable(out DefaultNamespace.TowerPlacementGrid grid))
             {
-                previewPlacerMeshFilter.GetComponent<MeshRenderer>().material = canPlace;
+                BuyTower(SelectedTower);
+            }
+        }
+        else if(InputGather.Instance.MouseLeftClick && !InputGather.isMouseOverGameObject)
+        {
+            if (hitClass != null)
+            {
+                if (hitClass == TowerPlacementGrid)
+                    TowerPlacementGrid = null;
+                else if (hitClass.HasTowerOnIt)
+                    TowerPlacementGrid = hitClass;
+                else
+                    TowerPlacementGrid = null;
             }
             else
-            {
-                previewPlacerMeshFilter.GetComponent<MeshRenderer>().material = cannotPlace;
-            }
+                TowerPlacementGrid = null;
+        }
+        
+        if (InputGather.Instance.CancelButton)
+        {
+            TowerPlacementGrid = null;
+            SelectedTower = null;
+        }
+    }
+    
+    public void UpdatePreview()
+    {
+        // Color And Mesh Stuff
+        if (SelectedTower == null || PlacementDisabled)
+        {
+            previewPlacerMeshFilter.mesh = null;
+            return;
+        }
+        else
+        {
             if (SelectedTower.TowerScriptable.prefab.GetComponent<MeshFilter>() != null)
             {
                 previewPlacerMeshFilter.mesh = SelectedTower.TowerScriptable.prefab.GetComponent<MeshFilter>().sharedMesh;
@@ -66,127 +81,39 @@ public class TowerPlacer : MonoBehaviour
                 previewPlacerMeshFilter.mesh = SelectedTower.TowerScriptable.previewMesh;
             }
         }
-        else
-        {
-            previewPlacerMeshFilter.mesh = null;
-        }
-    }
-    public bool isClearToPlace(Vector3 curPos)
-    {
-        bool isClear = !IsPointOnNavMesh(curPos, 2) && !IsTowerInRange(curPos, 7f);
-
-        RaycastHit hit;
-        bool hasColliderBelow = Physics.Raycast(curPos, Vector3.down, out hit,Mathf.Infinity, LayerMask.GetMask("Placeable"));
         
-        return isClear && hasColliderBelow&&!PlacementDisabled;
-    }
-    void SelectTowerInRange(Vector3 point, float radius)
-    {
-        TowerPlacementGrid = null;
-        Collider[] hitColliders = Physics.OverlapSphere(point, radius, LayerMask.GetMask("Tower"));
-        foreach (Collider collider in hitColliders)
-        {
-            if (Vector3.Distance(collider.transform.position, point) < radius)
-            {
-                if (collider.gameObject.GetComponent<DefaultTowerBehaviour>() != null)
-                {
-                    TowerPlacementGrid = InputGather.Instance.GetHitClass<TowerPlacementGrid>();
-                }
-                return;
-            }
-        }
+        if (CanPlacable(out TowerPlacementGrid grid))
+            previewPlacerMeshFilter.GetComponent<MeshRenderer>().material = canPlace;
+        else
+            previewPlacerMeshFilter.GetComponent<MeshRenderer>().material = cannotPlace;
+        
+        // Placement
+        var hitClass = InputGather.Instance.GetHitClass<TowerPlacementGrid>();
 
+        if (hitClass != null)
+            previewPlacerMeshFilter.transform.position = hitClass.GetPlacementPosition.position;
+        else
+            previewPlacerMeshFilter.transform.position = InputGather.Instance.GetMousePosition();
     }
-
-    bool IsTowerInRange(Vector3 point, float radius)
-    {
-        Collider[] hitColliders = Physics.OverlapSphere(point, radius, LayerMask.GetMask("Tower"));
-        foreach(Collider collider in hitColliders)
-        {
-            if(Vector3.Distance(collider.transform.position,point)< radius)
-            {
-
-                return true;
-            }
-        }
-        return false;
-    }
-    bool IsPointOnNavMesh(Vector3 point, float distance)
-    {
-        NavMeshHit hit;
-        if (NavMesh.SamplePosition(point, out hit, distance, NavMesh.AllAreas))
-        {
-            return true;
-        }
-        return false;
-    }
-
-    public Vector3 SnapToGrid(Vector3 curPos)
-    {
-        //TODO: Replace with actually good grid snapping system.
-        RaycastHit hit;
-        if(Physics.Raycast(curPos, Vector3.down, out hit, Mathf.Infinity, LayerMask.GetMask("Placeable")))
-        {
-            return hit.collider.transform.position + new Vector3(0, 5.1f, 0);
-        }
-
-        return curPos;
-    }
+    
     public void BuyTower(PurchaseButton selectedTower)
     {
-        if (isClearToPlace(SnapToGrid(previewPlacer.transform.position)))
+        if (CanPlacable(out TowerPlacementGrid grid))
         {
             if (MoneyManager.instance.RemoveMoney(selectedTower.TowerScriptable.purchaseCost))
             {
                 source?.Play();
-
-                var grassTile = InputGather.Instance.GetHitClass<TowerPlacementGrid>();
-
-                if (grassTile != null)
-                {
-                    grassTile.AddTower(selectedTower.TowerScriptable);
-                }
+                grid.AddTower(selectedTower.TowerScriptable);
             }
         }
     }
-    
-    private void Update()
+
+    public bool CanPlacable(out TowerPlacementGrid placementGrid)
     {
-        UpdatePreview();
-        
-      /*  if (InputGather.Instance.MouseLeftClick&&!EventSystem.current.IsPointerOverGameObject())
-        {
-            var hitClass = InputGather.Instance.GetHitClass<TowerPlacementGrid>();
+        placementGrid = InputGather.Instance.GetHitClass<TowerPlacementGrid>();
 
-            if (hitClass != null)
-            {
-                if (hitClass.HasTowerOnIt)
-                    TowerPlacementGrid = hitClass;
-                else
-                    TowerPlacementGrid = null;
-            }
-        }
-       */
-        
-        
+        if (placementGrid == null) return false;
 
-        if (previewPlacer != null&& Input.GetMouseButtonDown(0)&&!EventSystem.current.IsPointerOverGameObject())
-            SelectTowerInRange(previewPlacer.transform.position, 3.5f);
-
-        if (SelectedTower != null)
-        {
-            if (Input.GetMouseButtonDown(0))
-            {
-                BuyTower(SelectedTower);
-              //  Debug.Log("Placing " + SelectedTower.TowerPrefab.name);
-            }
-
-            if (Input.GetMouseButtonDown(1))
-            {
-                EventSystem.current.SetSelectedGameObject(null);
-                SelectedTower = null;
-            }
-        }
+        return !placementGrid.HasTowerOnIt;
     }
-
 }
