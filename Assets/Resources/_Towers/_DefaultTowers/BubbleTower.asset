@@ -25,6 +25,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 8319209496153684854, guid: 68b314a7ecf1ae24eb02eff684eda338,
     type: 3}
   myTargetingType: 0
+  debuffs: []
   upgradeOptions:
   - {fileID: 11400000, guid: dfbd2ba31f1550e4395ab5641681b049, type: 2}
   - {fileID: 11400000, guid: 721b20207ca817e48b49dc4b3f685c7d, type: 2}

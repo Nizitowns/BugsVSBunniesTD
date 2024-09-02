@@ -1,45 +1,25 @@
+
+using UnityEngine;
+
 namespace DefaultNamespace.OnDeathEffects
 {
-    public class EnemySlowerDebuff : DebuffBase
+    [CreateAssetMenu(menuName = "Debuffs/Slow Debuff")]
+    public class EnemySlowerDebuff : Debuff
     {
-        public float speedReduction;
-
-        private float speedBeforeDebuff = 0;
-
-        public override void ApplyDebuff(IEnemyUnit enemy)
+        // Effect strength can be between 0 and 1. 0.2 means %20 reduction.
+        public override void ApplyEffect(IEnemyUnit enemy)
         {
-            speedBeforeDebuff = enemy.Speed;
-            enemy.Speed = speedBeforeDebuff * speedReduction;
+            enemy.Speed *= 1 - effectStrength;
         }
 
-        public override bool UpdateDebuff(IEnemyUnit enemy, float tick)
+        public override void UpdateDebuff(float deltaTime)
         {
-            if (RunTimer(tick))
-            {
-                WearOffDebuff(enemy);
-                return true;
-            }
-
-            return false;
+            
         }
 
-        public override void WearOffDebuff(IEnemyUnit enemy)
+        public override void RemoveEffect(IEnemyUnit enemy)
         {
-            enemy.Speed = enemy.Config.speed;
-        }
-
-        public override void WhatHappensOnStack(IEnemyUnit enemy, DebuffBase newDebuff)
-        {
-            if (newDebuff is EnemySlowerDebuff debuff)
-            {
-                if (debuff.speedReduction < speedReduction)
-                {
-                    WearOffDebuff(enemy);
-                    debuff.ApplyDebuff(enemy);
-                }
-            }
-                
-            timer = 0;
+            enemy.Speed /= 1 - effectStrength;
         }
     }
 }

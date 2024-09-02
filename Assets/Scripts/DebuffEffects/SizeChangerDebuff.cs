@@ -1,33 +1,22 @@
-using DG.Tweening;
+
 using UnityEngine;
 
 namespace DefaultNamespace.OnDeathEffects
 {
-    public class SizeChangerDebuff : DebuffBase
+    [CreateAssetMenu(menuName = "Debuffs/SizeChange Debuff")]
+    public class SizeChangerDebuff : Debuff
     {
-        public float sizeMultiplier;
-        
-        private float timer;
-        
-        public override void ApplyDebuff(IEnemyUnit enemy)
+        public override void ApplyEffect(IEnemyUnit enemy)
         {
-            enemy.mTransform.DOScale(Vector3.one * sizeMultiplier, 0.5f);
         }
 
-        public override bool UpdateDebuff(IEnemyUnit enemy, float tick)
+        public override void UpdateDebuff(float deltaTime)
         {
-            if (RunTimer(tick))
-            {
-                WearOffDebuff(enemy);
-                return true;
-            }
-            return false;
+            
         }
 
-        public override void WearOffDebuff(IEnemyUnit enemy)
+        public override void RemoveEffect(IEnemyUnit enemy)
         {
-            IsWearOff = true;
-            enemy.mTransform.DOScale(Vector3.one, 0.5f);
         }
     }
 }

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using DefaultNamespace.OnDeathEffects;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -24,7 +25,7 @@ public abstract class Enemy : MonoBehaviour, IEnemyUnit
         get => agent.speed;
         set =>agent.speed = value;
     }
-
+ 
     public virtual void Initialize(EnemyScriptableObject Config)
     {
         this.Config = Config;
@@ -84,29 +85,40 @@ public abstract class Enemy : MonoBehaviour, IEnemyUnit
     }
     
     #region Debuff Logic
-    public List<DebuffBase> WearDebuffs { get; private set; } = new();
 
-    public void AddDebuff(DebuffBase newDebuff)
+    public List<Debuff> ActiveDebuffs { get; } = new List<Debuff>();
+
+    public void AddDebuff(Debuff newDebuff)
     {
-        foreach (var debuff in WearDebuffs)
-            if (debuff.GetType() == newDebuff.GetType())
-            {
-                debuff.WhatHappensOnStack(this, newDebuff);
-                return;
-            }
-        
-        WearDebuffs.Add(newDebuff);
-        newDebuff.ApplyDebuff(this);
+        var existingDebuff = ActiveDebuffs.Find(d => d.GetType() == newDebuff.GetType());
+
+        if (existingDebuff != null)
+        {
+            if (existingDebuff.isStackable)
+                existingDebuff.Stack(newDebuff.duration, newDebuff.effectStrength);
+            else
+                existingDebuff.DefaultStack(newDebuff.duration, newDebuff.effectStrength);
+            
+            existingDebuff.RemoveEffect(this);
+            existingDebuff.ApplyEffect(this);
+            return;
+        }
+
+        Debuff debuffInstance = Instantiate(newDebuff);
+        debuffInstance.Initialize(newDebuff.effectStrength, newDebuff.duration);
+        debuffInstance.ApplyEffect(this);
+
+        ActiveDebuffs.Add(debuffInstance);
     }
 
     public void HandleDebuff()
     {
-        for (int i = WearDebuffs.Count - 1; i >= 0; i--)
+        for (int i = ActiveDebuffs.Count - 1; i >= 0; i--)
         {
-            if (WearDebuffs[i].UpdateDebuff(this, Time.deltaTime))
+            if (ActiveDebuffs[i].UpdateTimer(Time.deltaTime))
             {
-                WearDebuffs.RemoveAt(i);
-                continue;
+                ActiveDebuffs[i].RemoveEffect(this);
+                ActiveDebuffs.RemoveAt(i);
             }
         }
     }

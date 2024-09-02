@@ -53,7 +53,7 @@ namespace DefaultNamespace.TowerSystem
             
             var spawnPos = BulletSource.position + new Vector3(0, 1, 0);
             var bullet = Instantiate(Config.bulletPrefab, spawnPos, transform.rotation);
-            bullet.GetComponent<bulletBehavior>().enemy = TargetedEnemy.mTransform.gameObject;
+            bullet.GetComponent<bulletBehavior>().Initialize(Config.debuffs, TargetedEnemy.gameObject);
             
             _particleSystem.Play();
             PlaySoundFX();

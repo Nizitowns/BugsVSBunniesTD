@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using DefaultNamespace.OnDeathEffects;
 using UnityEngine;
 
 namespace DefaultNamespace.TowerSystem
@@ -20,6 +21,7 @@ namespace DefaultNamespace.TowerSystem
         public float burstDelay;
         public GameObject bulletPrefab;
         public TargetType myTargetingType;
+        public List<Debuff> debuffs;
         
         [Header("Upgradable To")]
         public TowerScriptableObject[] upgradeOptions;

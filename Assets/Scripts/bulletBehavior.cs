@@ -6,7 +6,7 @@ using UnityEngine;
 public class bulletBehavior : MonoBehaviour
 {
     //
-    public List<DebuffBase> Debuffs;
+    public List<Debuff> Debuffs;
     //
     public enum SpecialEffects
     {
@@ -34,10 +34,12 @@ public class bulletBehavior : MonoBehaviour
     private int hits;
     private Vector3 moveDir;
 
-    private void Start()
+
+    public void Initialize(List<Debuff> debuffs, GameObject target)
     {
         destroyAfter = Time.timeSinceLevelLoad + despawnTime;
-        Debuffs = transform.GetComponents<DebuffBase>().ToList();
+        Debuffs = debuffs;
+        enemy = target;
     }
 
     private void Update()

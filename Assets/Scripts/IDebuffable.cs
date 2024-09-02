@@ -3,7 +3,7 @@ using DefaultNamespace.OnDeathEffects;
 
 public interface IDebuffable
 {
-    public List<DebuffBase> WearDebuffs { get; }
-    public void AddDebuff(DebuffBase newDebuff);
+    public List<Debuff> ActiveDebuffs { get; }
+    public void AddDebuff(Debuff newDebuff);
     public void HandleDebuff();
 }
