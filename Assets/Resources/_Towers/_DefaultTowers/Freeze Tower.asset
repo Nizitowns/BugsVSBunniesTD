@@ -26,7 +26,7 @@ MonoBehaviour:
     type: 3}
   myTargetingType: 2
   debuffs:
-  - {fileID: 11400000, guid: 62e0d2485762c86448cf559ae1a9df55, type: 2}
+  - {fileID: 11400000, guid: 9fd93c2a1e826634c95d5a5f7892d188, type: 2}
   upgradeOptions:
   - {fileID: 11400000, guid: af0c8bd39937e5f4a916603cefc12577, type: 2}
   particulOnShoot: {fileID: 8740331393395582659, guid: fbc56026dd0e4ea49a7570d1522a9767,

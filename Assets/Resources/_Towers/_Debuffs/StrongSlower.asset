@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debuffName: StrongSlower
   icon: {fileID: 0}
-  duration: 3
-  effectStrength: 0.45
+  duration: 5
+  effectStrength: 0.6
   isStackable: 0
