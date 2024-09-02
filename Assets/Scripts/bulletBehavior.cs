@@ -70,11 +70,11 @@ public class bulletBehavior : MonoBehaviour
     {
         if (other.CompareTag("enemies") && other.GetComponent<DefaultEnemy>() != null)
         {
-            if (other.TryGetComponent(out IDebuffable debuffable))
+            if (other.TryGetComponent(out IEnemyUnit unit))
             {
                 foreach (var debuff in Debuffs)
                 {
-                    debuffable.AddDebuff(debuff);
+                    unit.Debuffable.AddDebuff(debuff);
                 }
             }
 

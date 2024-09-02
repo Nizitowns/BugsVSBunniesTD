@@ -1,12 +1,10 @@
-using System.Collections.Generic;
-using DefaultNamespace.OnDeathEffects;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
 
-public interface IEnemyUnit : IDebuffable, IDamagable
+public interface IEnemyUnit : IDamagable
 {
     public EnemyScriptableObject Config { get; }
+    public IDebuffable Debuffable { get; }
     public Transform mTransform { get; }
     public float Speed { get; set; }
 }
@@ -15,6 +13,7 @@ public abstract class Enemy : MonoBehaviour, IEnemyUnit
 {
     public EnemyScriptableObject Config { get; private set; }
 
+    public IDebuffable Debuffable { get; private set; }
     public bool isDead { get; private set; }
     public Transform mTransform { get; private set; }
     [SerializeField] protected float currentHealth;
@@ -34,6 +33,7 @@ public abstract class Enemy : MonoBehaviour, IEnemyUnit
         Speed = Config.speed;
         currentHealth = Config.maxHealth;
         gameObject.tag = "enemies";
+        Debuffable = new EnemyDebuffHandler(this);
     }
     
     public bool TakeDamage(float amount)
@@ -81,46 +81,6 @@ public abstract class Enemy : MonoBehaviour, IEnemyUnit
 
     private void Update()
     {
-        HandleDebuff();
+        Debuffable.HandleDebuff();
     }
-    
-    #region Debuff Logic
-
-    public List<Debuff> ActiveDebuffs { get; } = new List<Debuff>();
-
-    public void AddDebuff(Debuff newDebuff)
-    {
-        var existingDebuff = ActiveDebuffs.Find(d => d.GetType() == newDebuff.GetType());
-
-        if (existingDebuff != null)
-        {
-            if (existingDebuff.isStackable)
-                existingDebuff.Stack(newDebuff.duration, newDebuff.effectStrength);
-            else
-                existingDebuff.DefaultStack(newDebuff.duration, newDebuff.effectStrength);
-            
-            existingDebuff.RemoveEffect(this);
-            existingDebuff.ApplyEffect(this);
-            return;
-        }
-
-        Debuff debuffInstance = Instantiate(newDebuff);
-        debuffInstance.Initialize(newDebuff.effectStrength, newDebuff.duration);
-        debuffInstance.ApplyEffect(this);
-
-        ActiveDebuffs.Add(debuffInstance);
-    }
-
-    public void HandleDebuff()
-    {
-        for (int i = ActiveDebuffs.Count - 1; i >= 0; i--)
-        {
-            if (ActiveDebuffs[i].UpdateTimer(Time.deltaTime))
-            {
-                ActiveDebuffs[i].RemoveEffect(this);
-                ActiveDebuffs.RemoveAt(i);
-            }
-        }
-    }
-    #endregion
 }
