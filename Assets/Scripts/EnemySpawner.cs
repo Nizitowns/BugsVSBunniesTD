@@ -75,7 +75,10 @@ public class EnemySpawner : MonoBehaviour
                 enemiesSpawnedThisWave++;
                 var spawnPos = transform.position;
                 PathNode initTarget = null;
-
+                if(current.EnemyConfig==null)
+                {
+                    Debug.LogError("Enemy Configuration is null, enemy configs are either unset or may have been lost in data migration?");
+                }
 
                 if (current.snapSpawning) initTarget = PathManager.Instance.getEntryNode();
                 if (initTarget != null) spawnPos = initTarget.transform.position;

@@ -1437,7 +1437,7 @@ MonoBehaviour:
   m_OverrideTileSize: 0
   m_TileSize: 256
   m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.16666667
+  m_VoxelSize: 0.33333334
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: 200a0a67795bef144bae3a0c9b0c7c89, type: 2}
   m_BuildHeightMesh: 0
@@ -8310,37 +8310,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnRequests:
-  - Prefab: {fileID: 3242485786814403479, guid: 78e7e200bda70b248a83755e589d8308,
-      type: 3}
+  - EnemyConfig: {fileID: 11400000, guid: bb93ab8c7692a2441a4df4e28b3c9921, type: 2}
     SpawnAmount: 3
     SpawnDelayTime: 1
     PostWaveDelay: 6
     WaitUntilCompletion: 0
     snapSpawning: 1
     ReportedDifficultyRating: 0
-  - Prefab: {fileID: 452661431563245470, guid: 7b43342b7a9a95b41b33232c567c74b9, type: 3}
+  - EnemyConfig: {fileID: 11400000, guid: bb93ab8c7692a2441a4df4e28b3c9921, type: 2}
     SpawnAmount: 6
     SpawnDelayTime: 2
     PostWaveDelay: 6
     WaitUntilCompletion: 0
     snapSpawning: 1
     ReportedDifficultyRating: 0
-  - Prefab: {fileID: 452661431563245470, guid: 7b43342b7a9a95b41b33232c567c74b9, type: 3}
+  - EnemyConfig: {fileID: 11400000, guid: 7d09aea050ded784fb9a03ba866de67a, type: 2}
     SpawnAmount: 10
     SpawnDelayTime: 1.5
     PostWaveDelay: 10
     WaitUntilCompletion: 0
     snapSpawning: 1
     ReportedDifficultyRating: 0
-  - Prefab: {fileID: 3242485786814403479, guid: 78e7e200bda70b248a83755e589d8308,
-      type: 3}
+  - EnemyConfig: {fileID: 11400000, guid: 9c7758d600e43ec4f9aeb4eaa95c5f8c, type: 2}
     SpawnAmount: 5
     SpawnDelayTime: 2
     PostWaveDelay: 10
     WaitUntilCompletion: 0
     snapSpawning: 1
     ReportedDifficultyRating: 0
-  - Prefab: {fileID: 452661431563245470, guid: 7b43342b7a9a95b41b33232c567c74b9, type: 3}
+  - EnemyConfig: {fileID: 11400000, guid: bb93ab8c7692a2441a4df4e28b3c9921, type: 2}
     SpawnAmount: 10
     SpawnDelayTime: 1.5
     PostWaveDelay: 10

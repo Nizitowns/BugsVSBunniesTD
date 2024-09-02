@@ -16,7 +16,7 @@ namespace DefaultNamespace
         public static Tween AnimatedRemove(this GameObject gameObject)
         {
             Vector3 endPos = gameObject.transform.position + Vector3.up * 1f;
-            Tween routine = gameObject.transform.DOMove(endPos, 0.09f).SetEase(Ease.Linear);
+            Tween routine = gameObject.transform.DOMove(endPos, 0.1f).SetEase(Ease.Linear);
             return routine;
         }
     }

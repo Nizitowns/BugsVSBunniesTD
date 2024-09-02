@@ -13,12 +13,12 @@ public class HoverOn : MonoBehaviour, IPointerExitHandler
 {
 
     public GameObject TowerInfo;
-    private float duration = 1f;
-    private float speed = 25f;
-    private float elapsedTime;
-    float percent;
-    Vector3 startPos;
-    Vector3 endPos;
+ //   private float duration = 5f;
+  //  private float speed = 25f;
+    //private float elapsedTime;
+    //float percent;
+    //Vector3 startPos;
+    //Vector3 endPos;
     public bool onPointerEnter=false;
 
 
@@ -27,8 +27,8 @@ public class HoverOn : MonoBehaviour, IPointerExitHandler
     {
         //textColor.a = 1;
         //TowerInfo.SetActive(false);
-        startPos = TowerInfo.transform.position;
-        endPos = new Vector3(TowerInfo.transform.position.x, TowerInfo.transform.position.y+180, TowerInfo.transform.position.z);
+      //  startPos = TowerInfo.transform.position;
+      //  endPos = new Vector3(TowerInfo.transform.position.x, TowerInfo.transform.position.y+180, TowerInfo.transform.position.z);
 
 
     }
@@ -37,10 +37,19 @@ public class HoverOn : MonoBehaviour, IPointerExitHandler
     void Update()
     {
 
-        elapsedTime += (Time.deltaTime*speed);
-        percent=elapsedTime / duration;
-        
+        //        elapsedTime += (Time.deltaTime*speed);
+        //      float percent=elapsedTime / duration;
+
+        //Controls the transparency of our preview text
+        CanvasGroup group =TowerInfo.GetComponent<CanvasGroup>();
+        group.interactable = onPointerEnter;//Disable the tower blocking of an invisible hover text
+
         if (onPointerEnter)
+            group.alpha = (1+group.alpha*19)/20f; //Fade in alpha when pointer is over
+        else
+            group.alpha = 0; //Snap alpha off when pointer is off
+
+        /*if (onPointerEnter)
         {
             TowerInfo.transform.position = Vector3.Lerp(startPos, endPos, percent);
         }
@@ -48,8 +57,9 @@ public class HoverOn : MonoBehaviour, IPointerExitHandler
         {
             TowerInfo.transform.position = Vector3.Lerp(endPos, startPos, percent);
         }
-        
-        
+        */
+
+
     }
 
    
@@ -58,7 +68,7 @@ public class HoverOn : MonoBehaviour, IPointerExitHandler
         //TowerInfo.SetActive(true);
 
         onPointerEnter = true;
-        elapsedTime = 0;
+        //elapsedTime = 0;
         SetIconValues Current = current.GetComponent<SetIconValues>();
 
         GameObject Desc = TowerInfo.transform.Find("Desc").gameObject;
@@ -74,7 +84,7 @@ public class HoverOn : MonoBehaviour, IPointerExitHandler
     public void OnPointerExit(PointerEventData eventData)
     {
         onPointerEnter = false;
-        elapsedTime = 0;
+        //elapsedTime = 0;
         //TowerInfo.SetActive(false);
 
 
