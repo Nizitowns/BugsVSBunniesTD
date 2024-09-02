@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4664618404375460587
+--- !u!1 &2752348210679336444
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,39 +8,39 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1912254218081454798}
-  - component: {fileID: 7005241131232813234}
-  - component: {fileID: -860880049226838980}
-  m_Layer: 0
-  m_Name: GrassPathCross
+  - component: {fileID: 3584719566539064088}
+  - component: {fileID: 3563323838727594006}
+  - component: {fileID: 1580688586753437024}
+  m_Layer: 6
+  m_Name: GrassPathT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1912254218081454798
+--- !u!4 &3584719566539064088
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4664618404375460587}
+  m_GameObject: {fileID: 2752348210679336444}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 6825115328725531393}
+  - {fileID: 4067723436915801420}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7005241131232813234
+--- !u!114 &3563323838727594006
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4664618404375460587}
+  m_GameObject: {fileID: 2752348210679336444}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 121b962c377acc74dbc12f88f008dda9, type: 3}
@@ -49,13 +49,13 @@ MonoBehaviour:
   HasObstacle: 0
   directionData:
     eDirection: 0
---- !u!65 &-860880049226838980
+--- !u!65 &1580688586753437024
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4664618404375460587}
+  m_GameObject: {fileID: 2752348210679336444}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -70,13 +70,13 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 10, y: 5, z: 10}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!1001 &6430321438837660906
+--- !u!1001 &4609941744083589799
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1912254218081454798}
+    m_TransformParent: {fileID: 3584719566539064088}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: de3457fb50ee4364d981d05d8fa8269a,
         type: 3}
@@ -147,20 +147,25 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: ca4c7070dda09f64fb7c224ca05dc91e, type: 2}
+      objectReference: {fileID: 2100000, guid: 52a9f045d0dfd174e90c9c6b59e59800, type: 2}
     - target: {fileID: 919132149155446097, guid: de3457fb50ee4364d981d05d8fa8269a,
         type: 3}
       propertyPath: m_Name
       value: BaseTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: de3457fb50ee4364d981d05d8fa8269a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de3457fb50ee4364d981d05d8fa8269a, type: 3}
---- !u!4 &6825115328725531393 stripped
+--- !u!4 &4067723436915801420 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: de3457fb50ee4364d981d05d8fa8269a,
     type: 3}
-  m_PrefabInstance: {fileID: 6430321438837660906}
+  m_PrefabInstance: {fileID: 4609941744083589799}
   m_PrefabAsset: {fileID: 0}
