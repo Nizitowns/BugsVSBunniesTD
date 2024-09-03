@@ -31,20 +31,27 @@ namespace DefaultNamespace
         {
             if (!HasTowerOnIt) return;
             
-            RemoveTower();
+            RemoveTower(true);
             AddTower(towerScriptableObject);
         }
 
-        public void RemoveTower()
+        public void RemoveTower(bool immediate=false)
         {
             PlacedTowerConfig = null;
             PlacedTowerObject.GetComponent<NewTowerBase>().IsDisabled = true;
             //Destroy(PlacedTowerObject);
-            trackedTween?.Kill();
-            trackedTween =PlacedTowerObject.AnimatedRemove().OnComplete(() =>
-             {
-                 Destroy(PlacedTowerObject);
-             });
+            if (immediate)
+            {
+                Destroy(PlacedTowerObject);
+            }
+            else
+            {
+                trackedTween?.Kill();
+                trackedTween = PlacedTowerObject.AnimatedRemove().OnComplete(() =>
+                 {
+                     Destroy(PlacedTowerObject);
+                 });
+            }
         }
         private void OnDestroy()
         {
