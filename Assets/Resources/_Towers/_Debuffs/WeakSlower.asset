@@ -15,5 +15,5 @@ MonoBehaviour:
   debuffName: WeakSlower
   icon: {fileID: 0}
   duration: 2
-  effectStrength: 0.5
+  effectStrength: 0.6
   isStackable: 0

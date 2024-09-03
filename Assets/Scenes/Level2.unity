@@ -1765,7 +1765,7 @@ Transform:
   m_GameObject: {fileID: 244423829}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 375, y: 0, z: 0}
+  m_LocalPosition: {x: 381.47, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6349,53 +6349,67 @@ MonoBehaviour:
     WaitUntilCompletion: 0
     snapSpawning: 1
     ReportedDifficultyRating: 0
-  - EnemyConfig: {fileID: 11400000, guid: 7d09aea050ded784fb9a03ba866de67a, type: 2}
+  - EnemyConfig: {fileID: 11400000, guid: fc6d735b5ec3f1146b74df71bfbb22cd, type: 2}
     SpawnAmount: 10
     SpawnDelayTime: 1
     PostWaveDelay: 6
     WaitUntilCompletion: 1
     snapSpawning: 1
     ReportedDifficultyRating: 0
-  - EnemyConfig: {fileID: 11400000, guid: 7d09aea050ded784fb9a03ba866de67a, type: 2}
+  - EnemyConfig: {fileID: 11400000, guid: 193d3db572efb004e8c4a28fcca55afa, type: 2}
     SpawnAmount: 2
     SpawnDelayTime: 1
     PostWaveDelay: 0.1
     WaitUntilCompletion: 0
     snapSpawning: 1
     ReportedDifficultyRating: 0
-  - EnemyConfig: {fileID: 11400000, guid: f9432b14992d4e241a125d313cad9388, type: 2}
+  - EnemyConfig: {fileID: 11400000, guid: fc6d735b5ec3f1146b74df71bfbb22cd, type: 2}
     SpawnAmount: 15
     SpawnDelayTime: 0.5
     PostWaveDelay: 6
     WaitUntilCompletion: 1
     snapSpawning: 1
     ReportedDifficultyRating: 0
-  - EnemyConfig: {fileID: 11400000, guid: 7d09aea050ded784fb9a03ba866de67a, type: 2}
+  - EnemyConfig: {fileID: 11400000, guid: 24ae7144d649cc347b2c2d2d60777d55, type: 2}
     SpawnAmount: 9
     SpawnDelayTime: 0.5
     PostWaveDelay: 0
     WaitUntilCompletion: 0
     snapSpawning: 1
     ReportedDifficultyRating: 0
-  - EnemyConfig: {fileID: 11400000, guid: 7d09aea050ded784fb9a03ba866de67a, type: 2}
+  - EnemyConfig: {fileID: 11400000, guid: fc6d735b5ec3f1146b74df71bfbb22cd, type: 2}
     SpawnAmount: 6
     SpawnDelayTime: 0.25
     PostWaveDelay: 6
     WaitUntilCompletion: 1
     snapSpawning: 1
     ReportedDifficultyRating: 0
-  - EnemyConfig: {fileID: 11400000, guid: 7d09aea050ded784fb9a03ba866de67a, type: 2}
+  - EnemyConfig: {fileID: 11400000, guid: fc6d735b5ec3f1146b74df71bfbb22cd, type: 2}
     SpawnAmount: 15
     SpawnDelayTime: 0.25
     PostWaveDelay: 1
     WaitUntilCompletion: 0
     snapSpawning: 1
     ReportedDifficultyRating: 0
-  - EnemyConfig: {fileID: 11400000, guid: 24ae7144d649cc347b2c2d2d60777d55, type: 2}
-    SpawnAmount: 1
-    SpawnDelayTime: 0.25
+  - EnemyConfig: {fileID: 11400000, guid: 193d3db572efb004e8c4a28fcca55afa, type: 2}
+    SpawnAmount: 5
+    SpawnDelayTime: 2
     PostWaveDelay: 1
+    WaitUntilCompletion: 1
+    snapSpawning: 1
+    ReportedDifficultyRating: 0
+  - EnemyConfig: {fileID: 11400000, guid: 193d3db572efb004e8c4a28fcca55afa, type: 2}
+    SpawnAmount: 1
+    SpawnDelayTime: 1
+    PostWaveDelay: 2
     WaitUntilCompletion: 0
+    snapSpawning: 1
+    ReportedDifficultyRating: 0
+  - EnemyConfig: {fileID: 11400000, guid: fc6d735b5ec3f1146b74df71bfbb22cd, type: 2}
+    SpawnAmount: 25
+    SpawnDelayTime: 1
+    PostWaveDelay: 1
+    WaitUntilCompletion: 1
     snapSpawning: 1
     ReportedDifficultyRating: 0
   PostWaveDelay: 5
@@ -7618,11 +7632,25 @@ MonoBehaviour:
     WaitUntilCompletion: 1
     snapSpawning: 1
     ReportedDifficultyRating: 0
-  - EnemyConfig: {fileID: 11400000, guid: 7d09aea050ded784fb9a03ba866de67a, type: 2}
+  - EnemyConfig: {fileID: 11400000, guid: fc6d735b5ec3f1146b74df71bfbb22cd, type: 2}
     SpawnAmount: 10
     SpawnDelayTime: 1
-    PostWaveDelay: 12
+    PostWaveDelay: 4
+    WaitUntilCompletion: 1
+    snapSpawning: 1
+    ReportedDifficultyRating: 0
+  - EnemyConfig: {fileID: 11400000, guid: 24ae7144d649cc347b2c2d2d60777d55, type: 2}
+    SpawnAmount: 15
+    SpawnDelayTime: 1
+    PostWaveDelay: 1
     WaitUntilCompletion: 0
+    snapSpawning: 1
+    ReportedDifficultyRating: 0
+  - EnemyConfig: {fileID: 11400000, guid: 987223ab1290b4f44b5040f97800ca44, type: 2}
+    SpawnAmount: 2
+    SpawnDelayTime: 3
+    PostWaveDelay: 12
+    WaitUntilCompletion: 1
     snapSpawning: 1
     ReportedDifficultyRating: 0
   PostWaveDelay: 5
