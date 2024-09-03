@@ -1,3 +1,4 @@
+using System;
 using DefaultNamespace;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -14,7 +15,8 @@ public class TowerPlacer : MonoBehaviour
     MeshFilter previewPlacerMeshFilter;
 
     public static TowerPlacementGrid TowerPlacementGrid;
-
+    private eCurrentMode _currentMode = eCurrentMode.None;
+    
     [SerializeField] private Material canPlace;
     [SerializeField] private Material cannotPlace;
     
@@ -29,37 +31,108 @@ public class TowerPlacer : MonoBehaviour
     private void Update()
     {
         UpdatePreview();
-        var hitClass = InputGather.Instance.GetHitClass<TowerPlacementGrid>();
-        if (SelectedTower != null)
+        var hitClass1 = InputGather.Instance.GetHitClass<TowerPlacementGrid>();
+
+        switch (_currentMode)
         {
-            if (hitClass != null && 
-                InputGather.Instance.MouseLeftClick &&
-                !EventSystem.current.IsPointerOverGameObject() &&
-                CanPlacable(out DefaultNamespace.TowerPlacementGrid grid))
-            {
-                BuyTower(SelectedTower);
-            }
-        }
-        else if(InputGather.Instance.MouseLeftClick && !InputGather.isMouseOverGameObject)
-        {
-            if (hitClass != null)
-            {
-                if (hitClass == TowerPlacementGrid)
+            case eCurrentMode.None:
+                if(InputGather.Instance.MouseLeftClick && !InputGather.isMouseOverGameObject) // Selecting
+                    if (hitClass1 != null && hitClass1.HasTowerOnIt)
+                    {
+                        SelectedTower = null;
+                        TowerPlacementGrid = hitClass1;
+                        _currentMode = eCurrentMode.Selection;
+                    }
+
+                if (SelectedTower != null)
+                {
                     TowerPlacementGrid = null;
-                else if (hitClass.HasTowerOnIt)
-                    TowerPlacementGrid = hitClass;
-                else
-                    TowerPlacementGrid = null;
-            }
-            else
-                TowerPlacementGrid = null;
+                    _currentMode = eCurrentMode.Painting;
+                }
+                
+                break;
+            case eCurrentMode.Selection:
+                if (SelectedTower != null) _currentMode = eCurrentMode.Painting;
+                
+                if(InputGather.Instance.MouseLeftClick && !InputGather.isMouseOverGameObject) // Selecting
+                {
+                    if (hitClass1 != null)
+                    {
+                        if (hitClass1 == TowerPlacementGrid)
+                        {
+                            TowerPlacementGrid = null;
+                        }
+                        else if (hitClass1.HasTowerOnIt)
+                        {
+                            TowerPlacementGrid = hitClass1;
+                        }
+                        else
+                        {
+                            TowerPlacementGrid = null;
+                            _currentMode = eCurrentMode.None;
+                        }
+                    }
+                    else
+                    {
+                        TowerPlacementGrid = null;
+                        _currentMode = eCurrentMode.None;
+                    }
+                }
+                break;
+            case eCurrentMode.Painting:
+                if (SelectedTower == null) _currentMode = eCurrentMode.None;
+                
+                if (hitClass1 != null && 
+                    InputGather.Instance.MouseLeftClick &&
+                    !EventSystem.current.IsPointerOverGameObject())
+                {
+                    if(CanPlacable(out TowerPlacementGrid grid))
+                    {
+                        BuyTower(SelectedTower);
+                    }
+                    else if(hitClass1.HasTowerOnIt)
+                    {
+                        TowerPlacementGrid = hitClass1;
+                        _currentMode = eCurrentMode.Selection;
+                    }
+                }
+                break;
         }
-        
+          
         if (InputGather.Instance.CancelButton)
         {
             TowerPlacementGrid = null;
             SelectedTower = null;
+            _currentMode = eCurrentMode.None;
         }
+        
+        // Zombie Code ***
+        // var hitClass = InputGather.Instance.GetHitClass<TowerPlacementGrid>();
+        // if (SelectedTower != null) // Placing
+        // {
+        //     if (hitClass != null && 
+        //         InputGather.Instance.MouseLeftClick &&
+        //         !EventSystem.current.IsPointerOverGameObject() &&
+        //         CanPlacable(out DefaultNamespace.TowerPlacementGrid grid))
+        //     {
+        //         BuyTower(SelectedTower);
+        //     }
+        // }
+        // else if(InputGather.Instance.MouseLeftClick && !InputGather.isMouseOverGameObject) // Selecting
+        // {
+        //     if (hitClass != null)
+        //     {
+        //         if (hitClass == TowerPlacementGrid)
+        //             TowerPlacementGrid = null;
+        //         else if (hitClass.HasTowerOnIt)
+        //             TowerPlacementGrid = hitClass;
+        //         else
+        //             TowerPlacementGrid = null;
+        //     }
+        //     else
+        //         TowerPlacementGrid = null;
+        // }
+      
     }
     
     public void UpdatePreview()
@@ -115,5 +188,12 @@ public class TowerPlacer : MonoBehaviour
         if (placementGrid == null) return false;
 
         return !placementGrid.HasTowerOnIt;
+    }
+
+    public enum eCurrentMode
+    {
+        None,
+        Selection,
+        Painting,
     }
 }
