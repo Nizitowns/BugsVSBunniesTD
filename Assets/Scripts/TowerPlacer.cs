@@ -90,10 +90,13 @@ public class TowerPlacer : MonoBehaviour
                     {
                         BuyTower(SelectedTower);
                     }
+                    else if (hitClass1 == TowerPlacementGrid)
+                    {
+                        TowerPlacementGrid = null;
+                    }
                     else if(hitClass1.HasTowerOnIt)
                     {
                         TowerPlacementGrid = hitClass1;
-                        _currentMode = eCurrentMode.Selection;
                     }
                 }
                 break;
