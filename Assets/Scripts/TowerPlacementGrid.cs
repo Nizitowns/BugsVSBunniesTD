@@ -15,7 +15,6 @@ namespace DefaultNamespace
         
         public bool HasTowerOnIt => PlacedTowerConfig != null;
 
-        Tween trackedTween;
         public void AddTower(TowerScriptableObject towerScriptableObject)
         {
             if (HasTowerOnIt) return;
@@ -23,8 +22,7 @@ namespace DefaultNamespace
             PlacedTowerConfig = towerScriptableObject;
             PlacedTowerObject = Instantiate(PlacedTowerConfig.prefab, PlacementPosition.position, Quaternion.identity);
             PlacedTowerObject.GetComponent<NewTowerBase>().Initiliaze(PlacedTowerConfig);
-            trackedTween?.Kill();
-            trackedTween =PlacedTowerObject.AnimatedPlacement();
+            PlacedTowerObject.AnimatedPlacement();
         }
 
         public void UpgradeTower(TowerScriptableObject towerScriptableObject)
@@ -35,27 +33,18 @@ namespace DefaultNamespace
             AddTower(towerScriptableObject);
         }
 
-        public void RemoveTower(bool immediate=false)
+        public void RemoveTower(bool immediate = false)
         {
             PlacedTowerConfig = null;
             PlacedTowerObject.GetComponent<NewTowerBase>().IsDisabled = true;
-            //Destroy(PlacedTowerObject);
+
             if (immediate)
             {
                 Destroy(PlacedTowerObject);
+                return;
             }
-            else
-            {
-                trackedTween?.Kill();
-                trackedTween = PlacedTowerObject.AnimatedRemove().OnComplete(() =>
-                 {
-                     Destroy(PlacedTowerObject);
-                 });
-            }
-        }
-        private void OnDestroy()
-        {
-            trackedTween?.Kill();
+            
+            PlacedTowerObject.AnimatedRemove();
         }
     }
 }
