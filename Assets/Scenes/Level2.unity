@@ -7619,15 +7619,22 @@ MonoBehaviour:
     snapSpawning: 1
     ReportedDifficultyRating: 0
   - EnemyConfig: {fileID: 11400000, guid: 24ae7144d649cc347b2c2d2d60777d55, type: 2}
-    SpawnAmount: 5
-    SpawnDelayTime: 0.5
-    PostWaveDelay: 6
+    SpawnAmount: 3
+    SpawnDelayTime: 1
+    PostWaveDelay: 12
     WaitUntilCompletion: 1
     snapSpawning: 1
     ReportedDifficultyRating: 0
   - EnemyConfig: {fileID: 11400000, guid: 24ae7144d649cc347b2c2d2d60777d55, type: 2}
-    SpawnAmount: 15
-    SpawnDelayTime: 0.5
+    SpawnAmount: 10
+    SpawnDelayTime: 1.5
+    PostWaveDelay: 6
+    WaitUntilCompletion: 1
+    snapSpawning: 1
+    ReportedDifficultyRating: 0
+  - EnemyConfig: {fileID: 11400000, guid: 987223ab1290b4f44b5040f97800ca44, type: 2}
+    SpawnAmount: 1
+    SpawnDelayTime: 1
     PostWaveDelay: 6
     WaitUntilCompletion: 1
     snapSpawning: 1
@@ -7635,7 +7642,14 @@ MonoBehaviour:
   - EnemyConfig: {fileID: 11400000, guid: fc6d735b5ec3f1146b74df71bfbb22cd, type: 2}
     SpawnAmount: 10
     SpawnDelayTime: 1
-    PostWaveDelay: 4
+    PostWaveDelay: 2
+    WaitUntilCompletion: 0
+    snapSpawning: 1
+    ReportedDifficultyRating: 0
+  - EnemyConfig: {fileID: 11400000, guid: 987223ab1290b4f44b5040f97800ca44, type: 2}
+    SpawnAmount: 2
+    SpawnDelayTime: 8
+    PostWaveDelay: 8
     WaitUntilCompletion: 1
     snapSpawning: 1
     ReportedDifficultyRating: 0
@@ -7647,9 +7661,9 @@ MonoBehaviour:
     snapSpawning: 1
     ReportedDifficultyRating: 0
   - EnemyConfig: {fileID: 11400000, guid: 987223ab1290b4f44b5040f97800ca44, type: 2}
-    SpawnAmount: 2
-    SpawnDelayTime: 3
-    PostWaveDelay: 12
+    SpawnAmount: 1
+    SpawnDelayTime: 1
+    PostWaveDelay: 1
     WaitUntilCompletion: 1
     snapSpawning: 1
     ReportedDifficultyRating: 0
