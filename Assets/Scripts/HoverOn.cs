@@ -43,6 +43,8 @@ public class HoverOn : MonoBehaviour, IPointerExitHandler
         //Controls the transparency of our preview text
         CanvasGroup group =TowerInfo.GetComponent<CanvasGroup>();
         group.interactable = onPointerEnter;//Disable the tower blocking of an invisible hover text
+        group.blocksRaycasts = onPointerEnter;//Disable the tower blocking of an invisible hover text
+
 
         if (onPointerEnter)
             group.alpha = (1+group.alpha*19)/20f; //Fade in alpha when pointer is over
