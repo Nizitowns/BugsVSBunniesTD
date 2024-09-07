@@ -6321,6 +6321,27 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 246481428}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &250939916 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1278525488835738442, guid: 340f469b45fdf764eb886fa12888295f,
+    type: 3}
+  m_PrefabInstance: {fileID: 943494837}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &250939921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 250939916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b725d5b3ea0846c3a32ea13b67904205, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ButtonType: 1
+  isAnimatedOnClick: 1
+  isAnimatedOnHover: 1
 --- !u!1001 &251122106
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19446,6 +19467,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 65451493364052602, guid: 340f469b45fdf764eb886fa12888295f,
+        type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 511947851975184163, guid: 340f469b45fdf764eb886fa12888295f,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -19474,6 +19500,11 @@ PrefabInstance:
     - target: {fileID: 511947851975184163, guid: 340f469b45fdf764eb886fa12888295f,
         type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 524688962019416120, guid: 340f469b45fdf764eb886fa12888295f,
+        type: 3}
+      propertyPath: m_RaycastTarget
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 570981475554576527, guid: 340f469b45fdf764eb886fa12888295f,
@@ -19635,6 +19666,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 7c24c6949ae221543b08d707e4159990,
         type: 2}
+    - target: {fileID: 3281728431990849872, guid: 340f469b45fdf764eb886fa12888295f,
+        type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3410394754934049363, guid: 340f469b45fdf764eb886fa12888295f,
         type: 3}
       propertyPath: m_Pivot.x
@@ -19735,6 +19771,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3918081473965201777, guid: 340f469b45fdf764eb886fa12888295f,
+        type: 3}
+      propertyPath: ButtonType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3918081473965201777, guid: 340f469b45fdf764eb886fa12888295f,
+        type: 3}
+      propertyPath: isAnimatedOnClick
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3918081473965201777, guid: 340f469b45fdf764eb886fa12888295f,
+        type: 3}
+      propertyPath: isAnimatedOnHover
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4252732383825188585, guid: 340f469b45fdf764eb886fa12888295f,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -19765,6 +19816,21 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4513995806907568666, guid: 340f469b45fdf764eb886fa12888295f,
+        type: 3}
+      propertyPath: ButtonType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4513995806907568666, guid: 340f469b45fdf764eb886fa12888295f,
+        type: 3}
+      propertyPath: isAnimatedOnClick
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4513995806907568666, guid: 340f469b45fdf764eb886fa12888295f,
+        type: 3}
+      propertyPath: isAnimatedOnHover
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4824549369582055084, guid: 340f469b45fdf764eb886fa12888295f,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -19775,6 +19841,21 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
       objectReference: {fileID: 1007399497}
+    - target: {fileID: 5136917853841474428, guid: 340f469b45fdf764eb886fa12888295f,
+        type: 3}
+      propertyPath: ButtonType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5136917853841474428, guid: 340f469b45fdf764eb886fa12888295f,
+        type: 3}
+      propertyPath: isAnimatedOnClick
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5136917853841474428, guid: 340f469b45fdf764eb886fa12888295f,
+        type: 3}
+      propertyPath: isAnimatedOnHover
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5904269972348048237, guid: 340f469b45fdf764eb886fa12888295f,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -19857,14 +19938,42 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7332416111681507154, guid: 340f469b45fdf764eb886fa12888295f,
         type: 3}
+      propertyPath: ButtonType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7332416111681507154, guid: 340f469b45fdf764eb886fa12888295f,
+        type: 3}
       propertyPath: TowerScriptable
       value: 
       objectReference: {fileID: 11400000, guid: 7c24c6949ae221543b08d707e4159990,
         type: 2}
+    - target: {fileID: 7332416111681507154, guid: 340f469b45fdf764eb886fa12888295f,
+        type: 3}
+      propertyPath: isAnimatedOnClick
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7332416111681507154, guid: 340f469b45fdf764eb886fa12888295f,
+        type: 3}
+      propertyPath: isAnimatedOnHover
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8754953551245619537, guid: 340f469b45fdf764eb886fa12888295f,
+        type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4825280590812475707, guid: 340f469b45fdf764eb886fa12888295f,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1465803756}
+    - targetCorrespondingSourceObject: {fileID: 1278525488835738442, guid: 340f469b45fdf764eb886fa12888295f,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 250939921}
   m_SourcePrefab: {fileID: 100100000, guid: 340f469b45fdf764eb886fa12888295f, type: 3}
 --- !u!1001 &952358915
 PrefabInstance:
@@ -30843,6 +30952,27 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1464710395}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1465803751 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4825280590812475707, guid: 340f469b45fdf764eb886fa12888295f,
+    type: 3}
+  m_PrefabInstance: {fileID: 943494837}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1465803756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1465803751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b725d5b3ea0846c3a32ea13b67904205, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ButtonType: 1
+  isAnimatedOnClick: 0
+  isAnimatedOnHover: 1
 --- !u!1001 &1469591858
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33229,7 +33359,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SendPointerHoverToParent: 1
+  m_SendPointerHoverToParent: 0
   m_HorizontalAxis: Horizontal
   m_VerticalAxis: Vertical
   m_SubmitButton: Submit
@@ -44431,6 +44561,11 @@ PrefabInstance:
     - target: {fileID: 7614610917779674881, guid: 20c0e2be6a3b59b47a7907c631221e3a,
         type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8318179932179292503, guid: 20c0e2be6a3b59b47a7907c631221e3a,
+        type: 3}
+      propertyPath: isAnimatedOnClick
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8856851053255048797, guid: 20c0e2be6a3b59b47a7907c631221e3a,

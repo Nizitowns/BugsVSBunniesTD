@@ -37,12 +37,7 @@ namespace DefaultNamespace
 
             _lastDirection = _target.mTransform.position - transform.position;
         }
-        
-        public void Dispose()
-        {
-            Destroy(gameObject);
-        }
-
+       
         private void Update()
         {
             durationTimer += Time.deltaTime;
@@ -81,7 +76,7 @@ namespace DefaultNamespace
                 if (enemyUnit.TakeDamage(_bulletConfig.damage, false))
                 {
                     ApplySpecialDeath(enemyUnit);
-                    enemyUnit.Kill();
+                    enemyUnit.Kill(true);
                 }
 
                 _hitCount++;
@@ -118,6 +113,11 @@ namespace DefaultNamespace
             spawn.transform.localScale *= enemyUnit.mTransform.localScale.x;
             spawn.GetComponent<Rigidbody>().AddForce(_lastDirection, ForceMode.Impulse);
             spawn.GetComponent<Rigidbody>().AddTorque(new Vector3().RandomDirection() * 10, ForceMode.Impulse);
+        }
+        
+        public void Dispose()
+        {
+            Destroy(gameObject);
         }
     }
 }

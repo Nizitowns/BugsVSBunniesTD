@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -10,16 +11,24 @@ public class MoneyManager : MonoBehaviour
 
     public TextMeshProUGUI balanceUI;
 
+    public static Action OnMoneyChanged;
+
     public void AddMoney(int amount)
     {
         Balance += amount;
+        OnMoneyChanged?.Invoke();
     }
     //Only removes if we are good for the money
     public bool RemoveMoney(int amount)
     {
-        if (Balance - amount < 0) return false;
+        if (Balance - amount < 0)
+        {
+            OnMoneyChanged?.Invoke();
+            return false;
+        }
 
         Balance -= amount;
+        OnMoneyChanged?.Invoke();
         return true;
     }
     private void Start()

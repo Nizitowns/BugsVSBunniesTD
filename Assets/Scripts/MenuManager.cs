@@ -56,7 +56,6 @@ public class MenuManager : MonoBehaviour
     Tween fadeTween;
     public void EnableImmediate(CanvasGroup group)
     {
-
         fadeTween?.Kill();
         fadeTween = CurrentActive.DOFade(0, 0.01f);
         fadeTween.onComplete += FadeInImmediate;
@@ -83,8 +82,6 @@ public class MenuManager : MonoBehaviour
 
         lastActive = CurrentActive;
         CurrentActive = group;
-
-
     }
 
     public void TweenEnable(CanvasGroup group)

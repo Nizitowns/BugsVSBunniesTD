@@ -10,8 +10,7 @@ public interface IEnemyUnit : IDamagable
     public Transform mTransform { get; }
     public bool IsDead { get; }
     public float Speed { get; set; }
-    public void ReachedTheBase(bool givesMoney = true);
-    public void Kill();
+    public void Kill(bool givesMoney);
 }
 
 public abstract class Enemy : MonoBehaviour, IEnemyUnit, IDebuffable
@@ -53,27 +52,18 @@ public abstract class Enemy : MonoBehaviour, IEnemyUnit, IDebuffable
         if (currentHealth - amount < 0)
         {
             IsDead = true;
-            MoneyManager.instance.AddMoney(Config.moneyReward);
-            if (killAfter) Kill();
+            if (killAfter) Kill(true);
             return true;
         }
 
         currentHealth -= amount;
         return false;
     }
-    
-    public void ReachedTheBase(bool givesMoney = true)
-    {
-        if (givesMoney)
-        {
-            MoneyManager.instance.AddMoney(Config.moneyReward);
-        }
 
-        Kill();
-    }
-
-    public void Kill()
+    public void Kill(bool givesMoney)
     {
+        if (givesMoney) MoneyManager.instance.AddMoney(Config.moneyReward);
+        
         IsDead = true;
         Destroy(gameObject);
     }

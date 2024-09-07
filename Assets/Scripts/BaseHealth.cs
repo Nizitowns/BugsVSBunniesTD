@@ -70,7 +70,7 @@ public class BaseHealth : MonoBehaviour
         if(other.gameObject.GetComponent<DefaultEnemy>()!=null&&!EnemiesBreached.Contains(other.gameObject))
         {
             EnemiesBreached.Add(other.gameObject);
-            other.gameObject.GetComponent<DefaultEnemy>().ReachedTheBase(false);
+            other.gameObject.GetComponent<DefaultEnemy>().Kill(false);
             DamageBase(other.gameObject.GetComponent<Enemy>().Config.carrotDamage);
         }
 
