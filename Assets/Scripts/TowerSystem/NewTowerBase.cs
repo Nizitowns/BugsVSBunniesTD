@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Helper;
@@ -7,6 +8,7 @@ using Random = UnityEngine.Random;
 
 namespace DefaultNamespace.TowerSystem
 {
+    [SelectionBase]
     public abstract class NewTowerBase : MonoBehaviour
     {
         public TowerScriptableObject Config { get; private set; }
@@ -154,6 +156,17 @@ namespace DefaultNamespace.TowerSystem
         {
             if(other.TryGetComponent(out Enemy enemey))
                 TargetList.Remove(enemey);
+        }
+
+        
+        private void OnDrawGizmosSelected()
+        {
+            if (Debugger.ShowTowerRange)
+            {
+                var radius = GetComponent<SphereCollider>().radius;
+                Gizmos.color = Color.green;
+                Gizmos.DrawWireSphere(transform.position, radius);
+            }
         }
     }
 }
