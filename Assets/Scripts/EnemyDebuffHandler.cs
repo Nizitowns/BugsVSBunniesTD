@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using DefaultNamespace.OnDeathEffects;
 using UnityEngine;
 
-public class EnemyDebuffHandler : IDebuffable
+public class EnemyDebuffHandler : IDebuffHandler
 {
     public List<Debuff> ActiveDebuffs { get; } = new List<Debuff>();
     private IEnemyUnit unit;
@@ -12,7 +12,7 @@ public class EnemyDebuffHandler : IDebuffable
         this.unit = unit;
     }
 
-    public void AddDebuff(Debuff newDebuff)
+    public void ApplyDebuff(Debuff newDebuff)
     {
         var existingDebuff = ActiveDebuffs.Find(d => d.GetType() == newDebuff.GetType());
 
@@ -39,6 +39,8 @@ public class EnemyDebuffHandler : IDebuffable
     {
         for (int i = ActiveDebuffs.Count - 1; i >= 0; i--)
         {
+            ActiveDebuffs[i].UpdateDebuff(Time.deltaTime);
+            
             if (ActiveDebuffs[i].UpdateTimer(Time.deltaTime))
             {
                 ActiveDebuffs[i].RemoveEffect(unit);

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Helper;
+using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -52,8 +53,8 @@ namespace DefaultNamespace.TowerSystem
             if (!CanShoot()) return;
             
             var spawnPos = BulletSource.position + new Vector3(0, 1, 0);
-            var bullet = Instantiate(Config.bulletPrefab, spawnPos, transform.rotation);
-            bullet.GetComponent<bulletBehavior>().Initialize(Config.debuffs, TargetedEnemy.gameObject);
+            var bullet = Instantiate(Config.BulletConfig.prefab, spawnPos, transform.rotation);
+            bullet.GetComponent<NewBulletBehaviour>().Initialize(Config.debuffs, TargetedEnemy, Config.BulletConfig);
             
             _particleSystem.Play();
             PlaySoundFX();
@@ -134,7 +135,7 @@ namespace DefaultNamespace.TowerSystem
                     break;
             }
 
-            if (TargetedEnemy.isDead)
+            if (TargetedEnemy.IsDead)
             {
                 TargetList.Remove(TargetedEnemy);
                 SetNewTarget();

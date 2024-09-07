@@ -19,13 +19,21 @@ MonoBehaviour:
   previewMesh: {fileID: 2639007440851010173, guid: 1401ac3666f8c7c408a673ac0a37fc41,
     type: 3}
   purchaseIconAdditionalTint: {r: 0.9607844, g: 1, b: 0.76470596, a: 1}
-  attackRadius: 60
+  BulletConfig:
+    prefab: {fileID: 8319209496153684854, guid: 2cafa5a61d661284caeddbd998647ce9,
+      type: 3}
+    damage: 0.075
+    speed: 60
+    maxHit: 1
+    deathEffect: 0
   fireRate: 0.01
+  attackRadius: 60
   burstDelay: 0
+  myTargetingType: 1
+  debuffs: []
+  upgradeOptions: []
   bulletPrefab: {fileID: 8319209496153684854, guid: 2cafa5a61d661284caeddbd998647ce9,
     type: 3}
-  myTargetingType: 1
-  upgradeOptions: []
   particulOnShoot: {fileID: 1921031764986077031, guid: b01b899d1bd79854bb50474f5a45901a,
     type: 3}
   audioCoolDown: 0.15

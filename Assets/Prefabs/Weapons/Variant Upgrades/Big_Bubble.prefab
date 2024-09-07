@@ -20,6 +20,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5364946145023232738, guid: 68b314a7ecf1ae24eb02eff684eda338,
         type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5364946145023232738, guid: 68b314a7ecf1ae24eb02eff684eda338,
+        type: 3}
       propertyPath: EntangleWhenKillEnemy
       value: 
       objectReference: {fileID: 628611231193588644, guid: 76f2ab584e4f66145afaa37a11c93db5,
