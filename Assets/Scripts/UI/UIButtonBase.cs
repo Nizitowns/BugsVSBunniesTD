@@ -39,8 +39,6 @@ namespace DefaultNamespace
         // ============== End ==============
         
         public ButtonType ButtonType;
-        private Tween _routine;
-        private Vector3 _localScaleSave;
 
         public bool 
             isAnimatedOnClick,
@@ -51,15 +49,17 @@ namespace DefaultNamespace
             _infoDetailedToggle,
             _toggle;
         
-        private float 
-            maxScale = 1.05f,
-            speed = 0.05f;
+        private float // Animation Adjustments
+            _maxScale = 1.05f,
+            _speed = 0.05f;
         
+        private Tween _routine;
+        private Vector3 _savedScale;
         
         public void Awake()
         {
             GetComponent<Button>().onClick.AddListener(OnAction);
-            _localScaleSave = transform.localScale;
+            _savedScale = transform.localScale;
             OnAwake();
         }
 
@@ -104,8 +104,8 @@ namespace DefaultNamespace
         private void D_OnClick()
         {
             if (isAnimatedOnClick && !_routine.IsPlaying())
-                _routine = transform.DOScale(transform.localScale * maxScale, speed).SetEase(Ease.OutSine)
-                    .OnComplete(() => _routine =  transform.DOScale(transform.localScale / maxScale, speed).SetEase(Ease.InSine));
+                _routine = transform.DOScale(transform.localScale * _maxScale, _speed).SetEase(Ease.OutSine)
+                    .OnComplete(() => _routine =  transform.DOScale(transform.localScale / _maxScale, _speed).SetEase(Ease.InSine));
             OnClick();
         }
         
@@ -141,7 +141,7 @@ namespace DefaultNamespace
         public void OnPointerEnter(PointerEventData eventData)
         {
             if (isAnimatedOnHover)
-                _routine = transform.DOScale(transform.localScale * maxScale, speed).SetEase(Ease.OutSine);
+                _routine = transform.DOScale(transform.localScale * _maxScale, _speed).SetEase(Ease.OutSine);
             OnMouseEnter();
             D_OnHoverInfo(true);
         }
@@ -151,7 +151,7 @@ namespace DefaultNamespace
             if (isAnimatedOnHover)
             {
                 _routine?.Kill();
-                _routine = transform.DOScale(_localScaleSave, speed).SetEase(Ease.InSine);
+                _routine = transform.DOScale(_savedScale, _speed).SetEase(Ease.InSine);
             }
             OnMouseExit();
             D_OnHoverInfo(false);
