@@ -289,6 +289,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 0
   agent: {fileID: 0}
+  visual: {fileID: 7338262137697385781}
 --- !u!136 &646691335326422539
 CapsuleCollider:
   m_ObjectHideFlags: 0

@@ -87,7 +87,6 @@ MonoBehaviour:
   - {fileID: 1028907419116148088}
   - {fileID: 699390590249565375}
   - {fileID: 2455897752104071147}
-  PluckingSound: {fileID: 0}
   PauseMenuManager: {fileID: 0}
   DeathScreen: {fileID: 0}
   _audioClip: {fileID: 8300000, guid: ec66a3204810a154d8dd16494b235e60, type: 3}

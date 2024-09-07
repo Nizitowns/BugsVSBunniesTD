@@ -18,6 +18,11 @@ PrefabInstance:
       propertyPath: MaxHits
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 5364946145023232738, guid: 68b314a7ecf1ae24eb02eff684eda338,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5460195921632590478, guid: 68b314a7ecf1ae24eb02eff684eda338,
         type: 3}
       propertyPath: m_LocalPosition.x

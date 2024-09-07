@@ -1,19 +1,9 @@
 using System.Collections.Generic;
-using System.Linq;
 using DefaultNamespace.OnDeathEffects;
 using UnityEngine;
 
 public class bulletBehavior : MonoBehaviour
 {
-    //
-    public List<Debuff> Debuffs;
-    //
-    public enum SpecialEffects
-    {
-        None,
-        SlowEnemies
-    }
-
     // Start is called before the first frame update
     public float speed;
     public Vector3 target;
@@ -23,27 +13,20 @@ public class bulletBehavior : MonoBehaviour
     public bool DestroyIfEnemyDies;
     public bool SeenEnemy;
 
-    public float SpecialEffectLength;
-
     //Spawns + Entangles with enemies when killed (Bubbles foreach enemy etc.)
     public GameObject EntangleWhenKillEnemy;
+    
     public int MaxHits = 1;
     private int checkHealth;
 
     private float destroyAfter;
     private int hits;
     private Vector3 moveDir;
-
-
-    public void Initialize(List<Debuff> debuffs, GameObject target)
-    {
-        destroyAfter = Time.timeSinceLevelLoad + despawnTime;
-        Debuffs = debuffs;
-        enemy = target;
-    }
+    public List<Debuff> Debuffs;
 
     private void Update()
     {
+        return;
         if (enemy != null && enemy.activeInHierarchy && enemy.GetComponent<DefaultEnemy>() != null)
         {
             SeenEnemy = true;
@@ -68,15 +51,12 @@ public class bulletBehavior : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        return;
         if (other.CompareTag("enemies") && other.GetComponent<DefaultEnemy>() != null)
         {
             if (other.TryGetComponent(out IEnemyUnit unit))
-            {
                 foreach (var debuff in Debuffs)
-                {
-                    unit.Debuffable.AddDebuff(debuff);
-                }
-            }
+                    unit.DebuffHandler.ApplyDebuff(debuff);
 
             if (other.GetComponent<Enemy>().TakeDamage(damage) && EntangleWhenKillEnemy != null)
             {
@@ -95,4 +75,12 @@ public class bulletBehavior : MonoBehaviour
             else if (hits <= 1) Destroy(gameObject, 0.1f);
         }
     }
+
+
+    // public void Initialize(List<Debuff> debuffs, GameObject target)
+    // {
+    //     destroyAfter = Time.timeSinceLevelLoad + despawnTime;
+    //     Debuffs = debuffs;
+    //     enemy = target;
+    // }
 }

@@ -8,6 +8,7 @@ namespace DefaultNamespace
     {
         public static bool ShowPaths = false;
         public static bool ShowObstacleFacingDirection = false;
-       
+        public static bool ShowTowerRange = true;
+
     }
 }

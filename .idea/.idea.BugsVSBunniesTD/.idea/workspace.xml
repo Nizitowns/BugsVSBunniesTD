@@ -8,19 +8,60 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f09f1f5c-0885-4fd4-b329-770c8f92c57a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/NewBulletBehaviour.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/NewBulletBehaviour.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/ScriptableObjects/DebuffEffects.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/ScriptableObjects/DebuffEffects/Debuff.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/ScriptableObjects/DebuffEffects/Debuff.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/ScriptableObjects/DebuffEffects/EnemySlowerDebuff.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/ScriptableObjects/DebuffEffects/EnemySlowerDebuff.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/ScriptableObjects/DebuffEffects/SizeChangerDebuff.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/ScriptableObjects/DebuffEffects/SizeChangerDebuff.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BugsVSBunniesTD/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BugsVSBunniesTD/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/BaseHealth.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/BaseHealth.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Characters/AntKnight 1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Characters/AntKnight 1.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Characters/AntSoldier1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Characters/AntSoldier1.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Characters/AntSoldierFly.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Characters/AntSoldierFly.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Characters/ShrimpBoss.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Characters/ShrimpBoss.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Characters/ShrimpKnight.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Characters/ShrimpKnight.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Characters/ShrimpSoldier Fast.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Characters/ShrimpSoldier Fast.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Characters/ShrimpSoldier.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Characters/ShrimpSoldier.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Characters/ant empress.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Characters/ant empress.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Characters/ant queen.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Characters/ant queen.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/DeathBubble.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/DeathBubble.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/DeathShrink.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/DeathShrink.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/DeathWind.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/DeathWind.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Large_DeathBubble.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Large_DeathBubble.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Weapons/Bubble.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Weapons/Bubble.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Weapons/FreezeBullet.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Weapons/FreezeBullet.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Weapons/ShrinkBullet.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Weapons/ShrinkBullet.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Weapons/Variant Upgrades/Big_Bubble.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Weapons/Variant Upgrades/Big_Bubble.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Weapons/Variant Upgrades/Cascade_Bubble.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Weapons/Variant Upgrades/Cascade_Bubble.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Weapons/WindBullet.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Weapons/WindBullet.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/_Towers/BubbleUpgraded/BigBubble_BubbleGun.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/_Towers/BubbleUpgraded/BigBubble_BubbleGun.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/_Towers/BubbleUpgraded/Cascade_BubbleGun.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/_Towers/BubbleUpgraded/Cascade_BubbleGun.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/_Towers/FreezeUpgraded/Long_FreezRay.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/_Towers/FreezeUpgraded/Long_FreezRay.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/_Towers/ShrinkUpgraded/Extended_ShrinkRay.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/_Towers/ShrinkUpgraded/Extended_ShrinkRay.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/_Towers/ShrinkUpgraded/Overclocked_ShrinkRay.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/_Towers/ShrinkUpgraded/Overclocked_ShrinkRay.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/_Towers/_DefaultTowers/BubbleTower.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/_Towers/_DefaultTowers/BubbleTower.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/_Towers/_DefaultTowers/Freeze Tower.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/_Towers/_DefaultTowers/Freeze Tower.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/_Towers/_DefaultTowers/Shrink Tower.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/_Towers/_DefaultTowers/Shrink Tower.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level1.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DebuffEffects/DebuffBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DebuffEffects/Debuff.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DebuffEffects/DebuffBase.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DebuffEffects/Debuff.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DebuffEffects/EnemySlowerDebuff.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DebuffEffects/EnemySlowerDebuff.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DebuffEffects/SizeChangerDebuff.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DebuffEffects/SizeChangerDebuff.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/_Towers/_DefaultTowers/Wind Tower.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/_Towers/_DefaultTowers/Wind Tower.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BaseHealth.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BaseHealth.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DebuffEffects.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DebuffEffects/Debuff.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DebuffEffects/Debuff.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DebuffEffects/EnemySlowerDebuff.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DebuffEffects/EnemySlowerDebuff.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DebuffEffects/SizeChangerDebuff.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DebuffEffects/SizeChangerDebuff.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/HoverOn.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/HoverOn.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/IDebuffable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/IDebuffable.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EnemyDebuffHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/EnemyDebuffHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Helper/AnimationExtension.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Helper/AnimationExtension.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/IDamagable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/IDamagable.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/IDebuffable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/IDebuffHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/IDebuffable.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/IDebuffHandler.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Pathfinder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Pathfinder.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/ScriptableObjects/TowerScriptableObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ScriptableObjects/TowerScriptableObject.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/TowerSystem/NewTowerBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TowerSystem/NewTowerBase.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/bulletBehavior.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/bulletBehavior.cs" afterDir="false" />
@@ -35,8 +76,10 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/DebuffEffects/Debuff.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/ScriptableObjects/DebuffEffects/Debuff.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/TowerPlacer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/UnityProjects/BugsVSBunniesTD/Assets/Scripts/TowerSystem/NewTowerBase.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/82a2fd073ee449928e161903460426d72ae00/4d/4d3d45d2/Tween.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -119,6 +162,9 @@
       <workItem from="1724889866117" duration="3172000" />
       <workItem from="1724994373229" duration="5006000" />
       <workItem from="1725248929548" duration="3789000" />
+      <workItem from="1725587572293" duration="9342000" />
+      <workItem from="1725597204098" duration="1000" />
+      <workItem from="1725661497732" duration="15013000" />
     </task>
     <servers />
   </component>

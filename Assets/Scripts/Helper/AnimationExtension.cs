@@ -26,4 +26,16 @@ namespace DefaultNamespace
             return routine;
         }
     }
+
+    public static class Vector3Extension
+    {
+        public static Vector3 RandomDirection(this Vector3 vector)
+        {
+            var x = Random.Range(-1, 1);
+            var y = Random.Range(-1, 1);
+            var z = Random.Range(-1, 1);
+
+            return new Vector3(x, y, z).normalized;
+        }
+    }
 }

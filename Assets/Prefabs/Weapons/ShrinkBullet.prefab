@@ -4918,11 +4918,11 @@ GameObject:
   - component: {fileID: 417531884678583437}
   - component: {fileID: 795401870357362732}
   - component: {fileID: 3438729455866361278}
-  - component: {fileID: 5364946145023232738}
   - component: {fileID: 591752623609250622}
   - component: {fileID: 8365392313941872451}
   - component: {fileID: 909741247308402300}
   - component: {fileID: 4399379427137645294}
+  - component: {fileID: -5933626552770920668}
   m_Layer: 0
   m_Name: ShrinkBullet
   m_TagString: Untagged
@@ -5017,30 +5017,6 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5364946145023232738
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8319209496153684854}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9782c8ba325946b4c9650596e548d1e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Debuffs: []
-  speed: 60
-  target: {x: 0, y: 0, z: 0}
-  damage: 0.075
-  enemy: {fileID: 0}
-  despawnTime: 6
-  DestroyIfEnemyDies: 0
-  SeenEnemy: 0
-  SpecialEffectLength: 0
-  EntangleWhenKillEnemy: {fileID: 628611231193588644, guid: 83b4844023b421842945f148ae68d1fc,
-    type: 3}
-  MaxHits: 1
 --- !u!198 &591752623609250622
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -9923,3 +9899,17 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+--- !u!114 &-5933626552770920668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8319209496153684854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d85fe93889448d49cc364eca4dcea16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EntangleWhenKillEnemy: {fileID: 628611231193588644, guid: 83b4844023b421842945f148ae68d1fc,
+    type: 3}

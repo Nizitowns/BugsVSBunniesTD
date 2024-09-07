@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using DefaultNamespace.OnDeathEffects;
 using UnityEngine;
@@ -15,24 +16,42 @@ namespace DefaultNamespace.TowerSystem
         public Mesh previewMesh;
         public Color purchaseIconAdditionalTint = Color.white;
 
-        [Header("Tower Settings")]
-        public float attackRadius;
+        [Header("Tower Settings")] 
+        public BulletConfig BulletConfig;
         public float fireRate;
+        public float attackRadius;
         public float burstDelay;
-        public GameObject bulletPrefab;
         public TargetType myTargetingType;
         public List<Debuff> debuffs;
         
         [Header("Upgradable To")]
         public TowerScriptableObject[] upgradeOptions;
         
-        [Header("Particle Settings")]
+        [Header("Particul Settings")]
         public ParticleSystem particulOnShoot;
 
         [Header("Audio Settings")] 
         public float audioCoolDown;
         public AudioType audioPlayType = AudioType.Multisource;
         public List<AudioClip> firingSfx;
+    }
+    
+    [Serializable]
+    public struct BulletConfig : IPoolable
+    {
+        public int ID => prefab.GetHashCode();
+        public GameObject prefab;
+        public float damage;
+        public float speed;
+        [Range(1,10)]
+        public int maxHit;
+        public eDeathEffect deathEffect;
+
+        public GameObject Prefab => prefab;
+
+        public void Dispose()
+        {
+        }
     }
 
     public enum TargetType
@@ -47,5 +66,13 @@ namespace DefaultNamespace.TowerSystem
     {
         SingleSource,
         Multisource
+    }
+
+    public enum eDeathEffect
+    {
+        None,
+        BubbleUp,
+        FlyAway,
+        Electrocute,
     }
 }

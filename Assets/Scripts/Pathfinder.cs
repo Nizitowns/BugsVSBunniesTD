@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 using UnityEngine.AI;
@@ -16,8 +14,6 @@ public class Pathfinder : MonoBehaviour
     [HideInInspector]
     public PathNode currentNode;
     public int health;
-
-    
     
     void Start()
     {
