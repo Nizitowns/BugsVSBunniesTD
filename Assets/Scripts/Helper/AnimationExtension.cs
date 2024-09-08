@@ -25,6 +25,13 @@ namespace DefaultNamespace
             Tween routine = gameObject.transform.DOMove(endPos, 0.1f).SetEase(Ease.Linear).SetLink(gameObject).OnComplete(() => MonoBehaviour.Destroy(gameObject));
             return routine;
         }
+        
+        public static Tween DefaultUISettings(this Tween tween, bool isInAnimation = true, Ease? ease = null)
+        {
+            tween.SetUpdate(UpdateType.Normal, true);
+            tween.SetEase(ease ?? (isInAnimation ? Ease.InSine : Ease.OutSine));
+            return tween;
+        }
     }
 
     public static class Vector3Extension

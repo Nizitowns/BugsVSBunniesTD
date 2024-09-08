@@ -358,6 +358,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccf9b738b65d4414197c1cbd888ab44b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ButtonType: 0
+  isAnimatedOnClick: 0
+  isAnimatedOnHover: 0
   TowerScriptable: {fileID: 0}
 --- !u!82 &2096936958823446216
 AudioSource:
@@ -619,6 +622,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccf9b738b65d4414197c1cbd888ab44b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ButtonType: 0
+  isAnimatedOnClick: 0
+  isAnimatedOnHover: 0
   TowerScriptable: {fileID: 11400000, guid: c63e632e7b962a84a87cb7bd22c0b2cb, type: 2}
 --- !u!82 &2423625904619732022
 AudioSource:
@@ -3268,6 +3274,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccf9b738b65d4414197c1cbd888ab44b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ButtonType: 0
+  isAnimatedOnClick: 0
+  isAnimatedOnHover: 0
   TowerScriptable: {fileID: 11400000, guid: 9b2665676c2570b43825aeb364ccff6d, type: 2}
 --- !u!82 &5156744108824992985
 AudioSource:
@@ -3633,6 +3642,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccf9b738b65d4414197c1cbd888ab44b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ButtonType: 0
+  isAnimatedOnClick: 0
+  isAnimatedOnHover: 0
   TowerScriptable: {fileID: 0}
 --- !u!82 &140685552432118986
 AudioSource:
@@ -4647,6 +4659,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccf9b738b65d4414197c1cbd888ab44b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ButtonType: 0
+  isAnimatedOnClick: 0
+  isAnimatedOnHover: 0
   TowerScriptable: {fileID: 11400000, guid: 7c24c6949ae221543b08d707e4159990, type: 2}
 --- !u!82 &783813862900718382
 AudioSource:
@@ -4862,6 +4877,7 @@ GameObject:
   - component: {fileID: 8699547367702047924}
   - component: {fileID: 4824549369582055084}
   - component: {fileID: 1648491308484028322}
+  - component: {fileID: 6028239307795028302}
   m_Layer: 5
   m_Name: Pause
   m_TagString: Untagged
@@ -4996,6 +5012,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   conditionType: 1
   IfTrueSprite: {fileID: 21300000, guid: 2090eb7e945c19240805bfda8505d82f, type: 3}
+--- !u!114 &6028239307795028302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7156986640275480459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b725d5b3ea0846c3a32ea13b67904205, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ButtonType: 1
+  isAnimatedOnClick: 1
+  isAnimatedOnHover: 1
 --- !u!1 &7180309585353061433
 GameObject:
   m_ObjectHideFlags: 0
@@ -5756,6 +5787,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccf9b738b65d4414197c1cbd888ab44b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ButtonType: 0
+  isAnimatedOnClick: 0
+  isAnimatedOnHover: 0
   TowerScriptable: {fileID: 11400000, guid: 04f4dee23061fc94ab2721e0724f9ddd, type: 2}
 --- !u!82 &153188573159503165
 AudioSource:

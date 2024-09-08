@@ -104,8 +104,8 @@ namespace DefaultNamespace
         private void D_OnClick()
         {
             if (isAnimatedOnClick && !_routine.IsPlaying())
-                _routine = transform.DOScale(transform.localScale * _maxScale, _speed).SetEase(Ease.OutSine).SetUpdate(UpdateType.Normal, true)
-                    .OnComplete(() => _routine =  transform.DOScale(transform.localScale / _maxScale, _speed).SetEase(Ease.InSine).SetUpdate(UpdateType.Normal, true));
+                _routine = transform.DOScale(transform.localScale * _maxScale, _speed).DefaultUISettings(false)
+                    .OnComplete(() => _routine = transform.DOScale(transform.localScale / _maxScale, _speed).DefaultUISettings());
             OnClick();
         }
         
@@ -141,7 +141,7 @@ namespace DefaultNamespace
         public void OnPointerEnter(PointerEventData eventData)
         {
             if (isAnimatedOnHover)
-                _routine = transform.DOScale(transform.localScale * _maxScale, _speed).SetEase(Ease.OutSine).SetUpdate(UpdateType.Normal, true);
+                _routine = transform.DOScale(transform.localScale * _maxScale, _speed).DefaultUISettings(false);
             OnMouseEnter();
             D_OnHoverInfo(true);
         }
@@ -151,7 +151,7 @@ namespace DefaultNamespace
             if (isAnimatedOnHover)
             {
                 _routine?.Kill();
-                _routine = transform.DOScale(_savedScale, _speed).SetEase(Ease.InSine).SetUpdate(UpdateType.Normal, true);
+                _routine = transform.DOScale(_savedScale, _speed).DefaultUISettings();
             }
             OnMouseExit();
             D_OnHoverInfo(false);
