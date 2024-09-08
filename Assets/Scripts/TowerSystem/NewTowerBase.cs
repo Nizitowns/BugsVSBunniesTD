@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Helper;
@@ -21,7 +22,7 @@ namespace DefaultNamespace.TowerSystem
         protected Enemy LastTargeted;
 
         protected Coroutine FireRoutine;
-        protected bool IsShooting = true;
+        protected bool CanShoot = true;
         protected float BurstTimer = 0;
         protected float AudioTimer = 0;
 
@@ -48,42 +49,13 @@ namespace DefaultNamespace.TowerSystem
             FireRoutine = StartCoroutine(FireLoopCo());
         }
 
-        protected virtual void OnFire()
+        private void Update()
         {
-            if (!CanShoot()) return;
-            
-            var spawnPos = BulletSource.position + new Vector3(0, 1, 0);
-            var bullet = Instantiate(Config.BulletConfig.prefab, spawnPos, transform.rotation);
-            bullet.GetComponent<NewBulletBehaviour>().Initialize(Config.debuffs, TargetedEnemy, Config.BulletConfig);
-            
-            _particleSystem.Play();
-            PlaySoundFX();
+            UpdateBurstTimer();
+            OnUpdate();
         }
 
-        protected virtual bool CanShoot()
-        {
-            if (Config.burstDelay == 0) return true;
-            
-            if (BurstTimer + Config.burstDelay < Time.time)
-            {
-                BurstTimer = Time.time;
-                IsShooting = !IsShooting;
-            }
-
-            return IsShooting;
-        }
-
-        private void PlaySoundFX()
-        {
-            if (AudioTimer + Config.audioCoolDown < Time.time)
-            {
-                var randomClip = Config.firingSfx[Random.Range(0, Config.firingSfx.Count)];
-                // SoundFXPlayer.PlaySFX(mAudioSource, randomClip);
-                mAudioSource.PlayOneShot(randomClip, AudioManager.SFXVolume);
-
-                AudioTimer = Time.time;
-            }
-        }
+        protected virtual void OnUpdate() { }
         
         protected virtual IEnumerator FireLoopCo()
         {
@@ -100,6 +72,56 @@ namespace DefaultNamespace.TowerSystem
                 }
             
                 yield return new WaitForSeconds(Config.fireRate);
+            }
+        }
+
+        protected virtual void OnFire()
+        {
+            if (!CanShoot) return;
+            
+            var spawnPos = BulletSource.position + new Vector3(0, 1, 0);
+            var bullet = Instantiate(Config.BulletConfig.prefab, spawnPos, transform.rotation);
+            bullet.GetComponent<NewBulletBehaviour>().Initialize(Config.debuffs, TargetedEnemy, Config.BulletConfig);
+            
+            _particleSystem.Play();
+            PlaySoundFX();
+        }
+
+        private bool reset = true;
+        private void UpdateBurstTimer()
+        {
+            if (Config.burstDelay == 0)
+            {
+                CanShoot = true;
+                return;
+            }
+            
+            if (TargetList.Count == 0 && reset)
+            {
+                if (BurstTimer + Config.burstDelay < Time.time)
+                {
+                    BurstTimer = Time.time;
+                    CanShoot = true;
+                    reset = false;
+                }
+            }
+            else if (BurstTimer + Config.burstDelay < Time.time)
+            {
+                BurstTimer = Time.time;
+                CanShoot = !CanShoot;
+                reset = true;
+            }
+        }
+
+        private void PlaySoundFX()
+        {
+            if (AudioTimer + Config.audioCoolDown < Time.time)
+            {
+                var randomClip = Config.firingSfx[Random.Range(0, Config.firingSfx.Count)];
+                // SoundFXPlayer.PlaySFX(mAudioSource, randomClip);
+                mAudioSource.PlayOneShot(randomClip, AudioManager.SFXVolume);
+
+                AudioTimer = Time.time;
             }
         }
 

@@ -1,6 +1,6 @@
 namespace DefaultNamespace
 {
-    public class StandartButton : UIButtonBase
+    public class AnimatedButton : UIButtonBase
     {
         
     }

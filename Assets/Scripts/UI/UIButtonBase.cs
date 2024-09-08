@@ -2,11 +2,12 @@ using System;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace DefaultNamespace
 {
-    public enum ButtonType
+    public enum eButtonType
     {
         Info,
         Click,
@@ -17,7 +18,7 @@ namespace DefaultNamespace
     {
         /*
          * ================================
-         *        Common Methods
+         *            Methods
          * ================================
          */
         
@@ -36,9 +37,11 @@ namespace DefaultNamespace
         
         public virtual void PlaySoundFX(){}
         
+        public virtual void OnInteractableChanged(bool interactable){}
+        
         // ============== End ==============
         
-        public ButtonType ButtonType;
+        public eButtonType ButtonType;
 
         public bool 
             isAnimatedOnClick,
@@ -52,14 +55,17 @@ namespace DefaultNamespace
         private float // Animation Adjustments
             _maxScale = 1.05f,
             _speed = 0.05f;
-        
+
+        private Button _button;
         private Tween _routine;
         private Vector3 _savedScale;
-        
+
         public void Awake()
         {
-            GetComponent<Button>().onClick.AddListener(OnAction);
+            _button = GetComponent<Button>();
+            _button.onClick.AddListener(OnAction);
             _savedScale = transform.localScale;
+            Interactable = _button.interactable;
             OnAwake();
         }
 
@@ -85,13 +91,13 @@ namespace DefaultNamespace
         {
             switch (ButtonType)
             {
-                case ButtonType.Info:
+                case eButtonType.Info:
                     D_OnDetailedInfo();
                     break;
-                case ButtonType.Click:
+                case eButtonType.Click:
                     D_OnClick();
                     break;
-                case ButtonType.Toggle:
+                case eButtonType.Toggle:
                     D_OnToggle();
                     break;
                 default:
@@ -155,6 +161,21 @@ namespace DefaultNamespace
             }
             OnMouseExit();
             D_OnHoverInfo(false);
+        }
+
+        public bool Interactable
+        {
+            get
+            {
+                return _button.interactable;
+            }
+            set
+            {
+                if (Interactable == value) return;
+                
+                _button.interactable = value;
+                OnInteractableChanged(value);
+            }
         }
 
         private void OnDestroy()

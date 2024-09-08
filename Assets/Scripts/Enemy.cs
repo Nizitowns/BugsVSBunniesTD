@@ -49,6 +49,8 @@ public abstract class Enemy : MonoBehaviour, IEnemyUnit, IDebuffable
 
     public bool TakeDamage(float amount, bool killAfter = true)
     {
+        if (IsDead) return false;
+        
         if (currentHealth - amount < 0)
         {
             IsDead = true;

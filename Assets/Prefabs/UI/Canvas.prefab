@@ -1351,6 +1351,7 @@ GameObject:
   - component: {fileID: 5036164983011402435}
   - component: {fileID: 49074334917784670}
   - component: {fileID: 1853117405009789049}
+  - component: {fileID: 5764278087581290605}
   m_Layer: 5
   m_Name: Info
   m_TagString: Untagged
@@ -1471,6 +1472,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &5764278087581290605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1278525488835738442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b725d5b3ea0846c3a32ea13b67904205, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ButtonType: 0
+  isAnimatedOnClick: 1
+  isAnimatedOnHover: 1
 --- !u!1 &1329371474022864759
 GameObject:
   m_ObjectHideFlags: 0
@@ -1543,6 +1559,7 @@ GameObject:
   - component: {fileID: 1794857029984022269}
   - component: {fileID: 777492862583916884}
   - component: {fileID: 9035459604962170740}
+  - component: {fileID: 6499781610766130301}
   m_Layer: 5
   m_Name: SellTowerButton
   m_TagString: Untagged
@@ -1663,6 +1680,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &6499781610766130301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1678159775415138501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b725d5b3ea0846c3a32ea13b67904205, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ButtonType: 1
+  isAnimatedOnClick: 1
+  isAnimatedOnHover: 1
 --- !u!1 &1845418192269331058
 GameObject:
   m_ObjectHideFlags: 0
@@ -1751,6 +1783,7 @@ GameObject:
   - component: {fileID: 2438922226127272331}
   - component: {fileID: 5158301512992219378}
   - component: {fileID: 2263390883885966838}
+  - component: {fileID: 781382778350985410}
   m_Layer: 5
   m_Name: UpgradePath1
   m_TagString: Untagged
@@ -1873,6 +1906,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &781382778350985410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1887149624427547404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b725d5b3ea0846c3a32ea13b67904205, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ButtonType: 1
+  isAnimatedOnClick: 1
+  isAnimatedOnHover: 1
 --- !u!1 &1898270735051295480
 GameObject:
   m_ObjectHideFlags: 0
@@ -3004,6 +3052,7 @@ GameObject:
   - component: {fileID: 3738144655681576620}
   - component: {fileID: 8729091647923632855}
   - component: {fileID: 5904269972348048237}
+  - component: {fileID: 2750235999752473404}
   m_Layer: 5
   m_Name: Option
   m_TagString: Untagged
@@ -3124,6 +3173,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &2750235999752473404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4825280590812475707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b725d5b3ea0846c3a32ea13b67904205, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ButtonType: 1
+  isAnimatedOnClick: 1
+  isAnimatedOnHover: 1
 --- !u!1 &5155863946314818685
 GameObject:
   m_ObjectHideFlags: 0
@@ -6080,6 +6144,7 @@ GameObject:
   - component: {fileID: 7884759293496974321}
   - component: {fileID: 8527292992118500703}
   - component: {fileID: 1494703257974362275}
+  - component: {fileID: 9054327934382105525}
   m_Layer: 5
   m_Name: UpgradePath2
   m_TagString: Untagged
@@ -6202,3 +6267,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &9054327934382105525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9182974223005108632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b725d5b3ea0846c3a32ea13b67904205, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ButtonType: 1
+  isAnimatedOnClick: 1
+  isAnimatedOnHover: 1
