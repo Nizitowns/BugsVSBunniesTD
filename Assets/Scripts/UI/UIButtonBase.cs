@@ -26,7 +26,7 @@ namespace DefaultNamespace
         public virtual void OnUpdate(){}
 
         public virtual void OnClick(){}
-        public virtual void OnHoverIndo(bool toggle){}
+        public virtual void OnHoverInfo(bool toggle){}
         public virtual void OnDetailedInfo(bool toggle){}
         public virtual void OnToggle(bool toggle){}
         public virtual void OnCancel(){}
@@ -104,15 +104,15 @@ namespace DefaultNamespace
         private void D_OnClick()
         {
             if (isAnimatedOnClick && !_routine.IsPlaying())
-                _routine = transform.DOScale(transform.localScale * _maxScale, _speed).SetEase(Ease.OutSine)
-                    .OnComplete(() => _routine =  transform.DOScale(transform.localScale / _maxScale, _speed).SetEase(Ease.InSine));
+                _routine = transform.DOScale(transform.localScale * _maxScale, _speed).SetEase(Ease.OutSine).SetUpdate(UpdateType.Normal, true)
+                    .OnComplete(() => _routine =  transform.DOScale(transform.localScale / _maxScale, _speed).SetEase(Ease.InSine).SetUpdate(UpdateType.Normal, true));
             OnClick();
         }
         
         private void D_OnHoverInfo(bool? overrideToggle = null)
         {
             _infoToggle = overrideToggle ?? !_infoToggle;
-            OnHoverIndo(_infoToggle);
+            OnHoverInfo(_infoToggle);
         }
 
         private void D_OnDetailedInfo(bool? overrideToggle = null)
@@ -141,7 +141,7 @@ namespace DefaultNamespace
         public void OnPointerEnter(PointerEventData eventData)
         {
             if (isAnimatedOnHover)
-                _routine = transform.DOScale(transform.localScale * _maxScale, _speed).SetEase(Ease.OutSine);
+                _routine = transform.DOScale(transform.localScale * _maxScale, _speed).SetEase(Ease.OutSine).SetUpdate(UpdateType.Normal, true);
             OnMouseEnter();
             D_OnHoverInfo(true);
         }
@@ -151,7 +151,7 @@ namespace DefaultNamespace
             if (isAnimatedOnHover)
             {
                 _routine?.Kill();
-                _routine = transform.DOScale(_savedScale, _speed).SetEase(Ease.InSine);
+                _routine = transform.DOScale(_savedScale, _speed).SetEase(Ease.InSine).SetUpdate(UpdateType.Normal, true);
             }
             OnMouseExit();
             D_OnHoverInfo(false);
