@@ -622,9 +622,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccf9b738b65d4414197c1cbd888ab44b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ButtonType: 0
-  isAnimatedOnClick: 0
-  isAnimatedOnHover: 0
+  ButtonType: 2
+  isAnimatedOnClick: 1
+  isAnimatedOnHover: 1
   TowerScriptable: {fileID: 11400000, guid: c63e632e7b962a84a87cb7bd22c0b2cb, type: 2}
 --- !u!82 &2423625904619732022
 AudioSource:
@@ -3338,9 +3338,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccf9b738b65d4414197c1cbd888ab44b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ButtonType: 0
-  isAnimatedOnClick: 0
-  isAnimatedOnHover: 0
+  ButtonType: 2
+  isAnimatedOnClick: 1
+  isAnimatedOnHover: 1
   TowerScriptable: {fileID: 11400000, guid: 9b2665676c2570b43825aeb364ccff6d, type: 2}
 --- !u!82 &5156744108824992985
 AudioSource:
@@ -4723,9 +4723,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccf9b738b65d4414197c1cbd888ab44b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ButtonType: 0
-  isAnimatedOnClick: 0
-  isAnimatedOnHover: 0
+  ButtonType: 2
+  isAnimatedOnClick: 1
+  isAnimatedOnHover: 1
   TowerScriptable: {fileID: 11400000, guid: 7c24c6949ae221543b08d707e4159990, type: 2}
 --- !u!82 &783813862900718382
 AudioSource:
@@ -5851,9 +5851,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccf9b738b65d4414197c1cbd888ab44b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ButtonType: 0
-  isAnimatedOnClick: 0
-  isAnimatedOnHover: 0
+  ButtonType: 2
+  isAnimatedOnClick: 1
+  isAnimatedOnHover: 1
   TowerScriptable: {fileID: 11400000, guid: 04f4dee23061fc94ab2721e0724f9ddd, type: 2}
 --- !u!82 &153188573159503165
 AudioSource:
