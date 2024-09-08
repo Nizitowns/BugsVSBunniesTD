@@ -64,7 +64,7 @@ public abstract class Enemy : MonoBehaviour, IEnemyUnit, IDebuffable
 
     public void Kill(bool givesMoney)
     {
-        if (givesMoney) MoneyManager.instance.AddMoney(Config.moneyReward);
+        if (givesMoney && !IsDead) MoneyManager.instance.AddMoney(Config.moneyReward);
         
         IsDead = true;
         Destroy(gameObject);
