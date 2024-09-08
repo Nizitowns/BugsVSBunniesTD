@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 6055506124579711910, guid: b4d435fefef12f144b0b51ded2b65592, type: 3}
   moneyReward: 7
-  maxHealth: 40
+  maxHealth: 30
   carrotDamage: 1
   speed: 6

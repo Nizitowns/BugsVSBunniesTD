@@ -15,7 +15,7 @@ MonoBehaviour:
   active: 1
   intensity:
     m_OverrideState: 1
-    m_Value: 0.087
+    m_Value: 0.263
 --- !u!114 &-8082527814785510672
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -28,7 +28,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c01700fd266d6914ababb731e09af2eb, type: 3}
   m_Name: DepthOfField
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   mode:
     m_OverrideState: 1
     m_Value: 2
@@ -144,16 +144,16 @@ MonoBehaviour:
   active: 1
   color:
     m_OverrideState: 1
-    m_Value: {r: 0, g: 0.002475351, b: 0.11320752, a: 1}
+    m_Value: {r: 0, g: 0.16397303, b: 0.40251565, a: 1}
   center:
     m_OverrideState: 1
     m_Value: {x: 0.5, y: 0.5}
   intensity:
     m_OverrideState: 1
-    m_Value: 0.459
+    m_Value: 0.283
   smoothness:
     m_OverrideState: 1
-    m_Value: 0.077
+    m_Value: 0.661
   rounded:
     m_OverrideState: 1
     m_Value: 0
