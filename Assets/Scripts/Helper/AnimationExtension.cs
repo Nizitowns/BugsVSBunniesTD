@@ -25,7 +25,13 @@ namespace DefaultNamespace
             Tween routine = gameObject.transform.DOMove(endPos, 0.1f).SetEase(Ease.Linear).SetLink(gameObject).OnComplete(() => MonoBehaviour.Destroy(gameObject));
             return routine;
         }
-        
+        /// <summary>
+        /// Sets the Tween Use deafult Ease and FrameIndepent Update
+        /// </summary>
+        /// <param name="tween"></param>
+        /// <param name="isInAnimation"></param>
+        /// <param name="ease"></param>
+        /// <returns></returns>
         public static Tween DefaultUISettings(this Tween tween, bool isInAnimation = true, Ease? ease = null)
         {
             tween.SetUpdate(UpdateType.Normal, true);
