@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7822076942126051118
+--- !u!1 &4325506548121458236
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,9 +8,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1384997405825921234}
-  - component: {fileID: 8491236004146685091}
-  - component: {fileID: 1386401821079248457}
+  - component: {fileID: 51086608266589080}
+  - component: {fileID: 7262374908395249427}
+  - component: {fileID: 5472462308789564204}
   m_Layer: 0
   m_Name: coral003
   m_TagString: Untagged
@@ -18,36 +18,36 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1384997405825921234
+--- !u!4 &51086608266589080
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7822076942126051118}
+  m_GameObject: {fileID: 4325506548121458236}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0.5370991, z: -0, w: 0.84351915}
-  m_LocalPosition: {x: 0.1910833, y: 2.1867492, z: -2.8229077}
-  m_LocalScale: {x: 0.68052596, y: 0.68052596, z: 0.68052596}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.828, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1384997405825921234}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &8491236004146685091
+--- !u!33 &7262374908395249427
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7822076942126051118}
+  m_GameObject: {fileID: 4325506548121458236}
   m_Mesh: {fileID: -3898763427635941364, guid: 9eb38f21eaabfa14cb52980a681e7c33, type: 3}
---- !u!23 &1386401821079248457
+--- !u!23 &5472462308789564204
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7822076942126051118}
+  m_GameObject: {fileID: 4325506548121458236}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -83,3 +83,35 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &7822076942126051118
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1384997405825921234}
+  m_Layer: 0
+  m_Name: coral003
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1384997405825921234
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7822076942126051118}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 9.193818, y: 4.0875864, z: -12.121394}
+  m_LocalScale: {x: 0.68052596, y: 0.68052596, z: 0.68052596}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 51086608266589080}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
