@@ -3451,8 +3451,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ObjectName: Shrink Ray
-  AboutText: '"A marvel of modern bunny science, the Shrink Ray targets a single
-    ant and brings it down to size.  "Honey, we shrunk the ants!"'
+  AboutText: A marvel of modern bunny science, the Shrink Ray targets a single ant
+    and brings it down to size.  "Honey, we shrunk the ants!"
   TextColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &6141227656140698798
 MonoBehaviour:
