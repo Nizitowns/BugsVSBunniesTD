@@ -37,6 +37,10 @@ public class HoverOn : MonoBehaviour, IPointerExitHandler
     void Update()
     {
 
+        if (!EventSystem.current.IsPointerOverGameObject())
+        {
+            onPointerEnter = false;
+        }
         //        elapsedTime += (Time.deltaTime*speed);
         //      float percent=elapsedTime / duration;
 

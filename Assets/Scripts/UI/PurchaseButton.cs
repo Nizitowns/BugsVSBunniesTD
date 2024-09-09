@@ -43,6 +43,12 @@ public class PurchaseButton : UIButtonBase
         cost.text = TowerScriptable.purchaseCost + "$";
         icon.sprite = TowerScriptable.purchaseIcon;
         icon.color = button.targetGraphic.canvasRenderer.GetColor();
+        if(!button.interactable&&EventSystem.current.currentSelectedGameObject==this.gameObject)
+        {
+            EventSystem.current.SetSelectedGameObject(null);
+        }
+        if (TowerPlacer.SelectedTower == this)
+            EventSystem.current.SetSelectedGameObject(gameObject);
     }
 
     public override void OnToggle(bool toggle)
