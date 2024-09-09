@@ -18631,6 +18631,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 04f4dee23061fc94ab2721e0724f9ddd,
         type: 2}
+    - target: {fileID: 682048220958233360, guid: 340f469b45fdf764eb886fa12888295f,
+        type: 3}
+      propertyPath: Balance
+      value: 128
+      objectReference: {fileID: 0}
     - target: {fileID: 874564245336317951, guid: 340f469b45fdf764eb886fa12888295f,
         type: 3}
       propertyPath: m_Name
