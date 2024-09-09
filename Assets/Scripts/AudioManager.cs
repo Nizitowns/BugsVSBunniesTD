@@ -19,7 +19,6 @@ public class AudioManager : MonoBehaviour
         if(MusicSlider!=null)
         MusicSlider.value = MusicVolume;
 
-       // Debug.Log("Loaded: "+MusicVolume + " " + SFXVolume);
     }
     public void SetSFXVolume(Slider slider)
     {
