@@ -15585,7 +15585,7 @@ MonoBehaviour:
   SetPivotTarget: {fileID: 141246755}
   TweenEnableOnComplete: {fileID: 0}
   PauseMenuManager: {fileID: 0}
-  RewardMoneyOnComplete: 60
+  RewardMoneyOnComplete: 150
   DeclareLevelCompleteOnComplete: 0
 --- !u!4 &983552379
 Transform:
