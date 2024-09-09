@@ -7753,10 +7753,10 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Team Kronos of the Colossus Forge Division:\r\n\r\n \r\n\r\nCoding:\r\nEric
     Patrick\r\nMiranda Henning\r\nKadir Kul \r\n\r\nArtists:\r\nDaisy Velasquez\r\nThu
-    Nguyen\r\nEric Leafton\r\nMrinmoyee Nandi\r\n\r\nAudio:\r\nJo\xE3o Santos\r\nPeiran
-    Zhao\r\nLeandro Polack\r\n\r\nGame Design:\r\nAlex Esten, (Brick a Brac Games)\r\n\r\nLevel
-    Design:\r\nNathan Barnett\r\nAziz Hamza\r\n\r\nProduction:\r\nElena Hall\r\n\r\nLeader:\r\nAntony
-    Nizamoglou"
+    Nguyen\r\nEric Leafton\r\nMrinmoyee Nandi\r\n\rTingyue Wang\n\r\nAudio:\r\nJo\xE3o
+    Santos\r\nPeiran Zhao\r\nLeandro Polack\r\n\r\nGame Design:\r\nAlex Esten, (Brick
+    a Brac Games)\r\n\r\nLevel Design:\r\nNathan Barnett\r\nAziz Hamza\r\n\r\nProduction:\r\nElena
+    Hall\r\n\r\nLeader:\r\nAntony Nizamoglou"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e5046259be6dda24eb776b4141f34ff7, type: 2}
   m_sharedMaterial: {fileID: 2759571985489830099, guid: e5046259be6dda24eb776b4141f34ff7,
