@@ -25,6 +25,7 @@ MonoBehaviour:
     speed: 60
     maxHit: 5
     deathEffect: 0
+    BulletDiesOnTargetDeath: 1
   fireRate: 0.01
   attackRadius: 30
   burstDelay: 0

@@ -47,6 +47,10 @@ namespace DefaultNamespace
             if (!CheckTargetAvaliablity())
             {
                 transform.position += _lastDirection.normalized * _bulletConfig.speed * Time.deltaTime;
+                if(_bulletConfig.BulletDiesOnTargetDeath)
+                {
+                    Dispose();
+                }
                 return;
             }
 

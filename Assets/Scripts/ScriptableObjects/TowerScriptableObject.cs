@@ -46,6 +46,7 @@ namespace DefaultNamespace.TowerSystem
         [Range(1,10)]
         public int maxHit;
         public eDeathEffect deathEffect;
+        public bool BulletDiesOnTargetDeath;
 
         public GameObject Prefab => prefab;
 
