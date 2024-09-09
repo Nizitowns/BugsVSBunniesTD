@@ -4996,7 +4996,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 384dd24dfb3de9946aa6b4b20deb7774, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2090eb7e945c19240805bfda8505d82f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5075,7 +5075,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   conditionType: 1
-  IfTrueSprite: {fileID: 21300000, guid: 2090eb7e945c19240805bfda8505d82f, type: 3}
+  IfTrueSprite: {fileID: 21300000, guid: 384dd24dfb3de9946aa6b4b20deb7774, type: 3}
 --- !u!114 &6028239307795028302
 MonoBehaviour:
   m_ObjectHideFlags: 0
