@@ -64,6 +64,7 @@ public abstract class Enemy : MonoBehaviour, IEnemyUnit, IDebuffable
 
     public void Kill(bool givesMoney)
     {
+        EnemySpawner.LatestLaunched?.LogKilledEnemy();
         if (givesMoney)
         {
             MoneyManager.instance.AddMoney(Config.moneyReward);

@@ -13,7 +13,9 @@ public class EnemySpawner : MonoBehaviour
     [Min(0)] [Tooltip("The delay before declaring all waves completed.")]
     public float PostWaveDelay;
 
+    private float enemiesWantedToSpawnThisWave;
     private float enemiesSpawnedThisWave;
+    private float enemiesKilledThisWave;
     private float totalWavesCompleted;
     private float totalWavesToSpawn;
     public Action WaveEnded;
@@ -27,17 +29,29 @@ public class EnemySpawner : MonoBehaviour
         StartCoroutine(EnemySpawnerLoop());
     }
 
+    //Log that an enemy for this wave has been killed
+    public void LogKilledEnemy()
+    {
+        enemiesKilledThisWave++;
+    }
     [Tooltip("On a scale from 0-1 returns how close the current wave is to completion.")]
     public float WavePercentage()
     {
+
+
+        //What percent of enemies spawned this wave have we killed?
+        return  Mathf.Min(Mathf.Max(0, enemiesKilledThisWave / Mathf.Max(1, enemiesWantedToSpawnThisWave)),
+            1);
+
+        /*Legacy Code
+         * 
         if (spawnRequests.Count <= 0)
             //If there are no spawn requests we assume 100% completion of  this wave. (Last wave ends and we have no requests left)
             return 1;
-        var current = spawnRequests[0];
-
-        //What percent of enemies spawned this wave have we killed?
+         *         //What percent of enemies spawned this wave have we killed?
         return 1 - Mathf.Min(Mathf.Max(0, transform.childCount / Mathf.Max(1, enemiesSpawnedThisWave)),
             1);
+         */
     }
 
     [Tooltip("On a scale from 0-1 returns how close this entire enemy spawner is to 100% completion.")]
@@ -61,15 +75,35 @@ public class EnemySpawner : MonoBehaviour
         return transform.childCount <= 0;
     }
 
+
     public IEnumerator EnemySpawnerLoop()
     {
+        bool lastWasCompletionBased = true;
         while (spawnRequests.Count > 0)
         {
             LatestLaunched = this;
             if (spawnRequests.Count > totalWavesToSpawn) totalWavesToSpawn = spawnRequests.Count;
             WaveStarted?.Invoke();
             var current = spawnRequests[0];
-            enemiesSpawnedThisWave = 0;
+            if (lastWasCompletionBased)
+            {
+                enemiesKilledThisWave = 0;
+                enemiesSpawnedThisWave = 0;
+                enemiesWantedToSpawnThisWave = 0;
+                for (int i = 0; i < spawnRequests.Count; i++)
+                {
+                    var temp_current = spawnRequests[i];
+                    enemiesWantedToSpawnThisWave += temp_current.SpawnAmount;
+
+                    if (temp_current.WaitUntilCompletion)
+                        break;
+                }
+                lastWasCompletionBased = false;
+            }
+            if(current.WaitUntilCompletion)
+            {
+                lastWasCompletionBased = true;
+            }
             for (var i = 0; i < current.SpawnAmount; i++)
             {
                 enemiesSpawnedThisWave++;
