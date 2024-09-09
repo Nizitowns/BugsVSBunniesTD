@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Shrimp Boss
   m_EditorClassIdentifier: 
   prefab: {fileID: 6055506124579711910, guid: 6d4fc9958338f3c4d933bc3e97cb2b06, type: 3}
-  moneyReward: 10
-  maxHealth: 600
+  moneyReward: 15
+  maxHealth: 400
   carrotDamage: 7
   speed: 10
