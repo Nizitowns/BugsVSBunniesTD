@@ -19821,6 +19821,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
       objectReference: {fileID: 1007399497}
+    - target: {fileID: 5906169519308327427, guid: 340f469b45fdf764eb886fa12888295f,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5913558179617787152, guid: 340f469b45fdf764eb886fa12888295f,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -19885,6 +19890,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6798061431850302960, guid: 340f469b45fdf764eb886fa12888295f,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6800005642247616412, guid: 340f469b45fdf764eb886fa12888295f,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7146934081285554604, guid: 340f469b45fdf764eb886fa12888295f,
         type: 3}
@@ -30662,6 +30677,7 @@ GameObject:
   - component: {fileID: 1455927893}
   - component: {fileID: 1455927895}
   - component: {fileID: 1455927894}
+  - component: {fileID: 1455927896}
   m_Layer: 0
   m_Name: SoundFXPlayer
   m_TagString: Untagged
@@ -30792,6 +30808,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e0eb17542b44d6f81b85470f80fdc33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1455927896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1455927892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07db9212026a72e429fb04a597602dcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FadeInOnStart: 0
+  audioSourceType: 0
 --- !u!1001 &1464710395
 PrefabInstance:
   m_ObjectHideFlags: 0
