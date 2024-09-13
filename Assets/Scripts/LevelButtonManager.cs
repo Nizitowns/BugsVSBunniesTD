@@ -1,48 +1,39 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
+using DefaultNamespace;
 using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.Rendering;
-using UnityEngine.UI;
 
-public class LevelButtonManager : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class LevelButtonManager : UIButtonBase
 {
     [Min(1)]
     public int LevelID=1;
-    Button button;
     float scale;
     float scale_mod;
-    private void Start()
+    private float _timer = 0;
+
+    public override void OnStart()
     {
         scale=transform.localScale.x;
         scale_mod = 0;
-        button = GetComponent<Button>();
         if(LevelID==1 )
         {
             PlayerPrefs.SetInt("LevelCleared_0", 1);
         }
     }
+
     bool mouseOver;
-    public void OnPointerEnter(PointerEventData data)
+
+    public override void OnUpdate()
     {
-        mouseOver = true;
-    }
-    public void OnPointerExit(PointerEventData data)
-    {
-        mouseOver = false;
-    }
-    void Update()
-    {
-        button.interactable = PlayerPrefs.GetInt("LevelCleared_" + (LevelID-1), 0)==1;
+        Interactable = PlayerPrefs.GetInt("LevelCleared_" + (LevelID-1), 0)==1;
         
-        if(mouseOver&&button.interactable)
+        if(IsMouseOver && Interactable)
         {
-            scale_mod =(Mathf.Sin(2.5f*Time.timeSinceLevelLoad)+1)/66f;
+            _timer += Time.deltaTime;
+            scale_mod =(Mathf.Sin(2.5f*_timer)+1)/66f;
         }
         else
         {
             scale_mod = 0;
+            _timer = 0;
         }
         transform.localScale = new Vector3(scale+ scale_mod, scale+ scale_mod, scale+ scale_mod);
     }

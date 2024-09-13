@@ -47,6 +47,9 @@ namespace DefaultNamespace
             isAnimatedOnClick,
             isAnimatedOnHover;
 
+        protected bool
+            IsMouseOver;
+
         private bool
             _infoToggle,
             _infoDetailedToggle,
@@ -146,6 +149,8 @@ namespace DefaultNamespace
         
         public void OnPointerEnter(PointerEventData eventData)
         {
+            IsMouseOver = true;
+            
             if (isAnimatedOnHover)
                 _routine = transform.DOScale(transform.localScale * _maxScale, _speed).DefaultUISettings(false);
             OnMouseEnter();
@@ -154,6 +159,8 @@ namespace DefaultNamespace
 
         public void OnPointerExit(PointerEventData eventData)
         {
+            IsMouseOver = false;
+
             if (isAnimatedOnHover)
             {
                 _routine?.Kill();
