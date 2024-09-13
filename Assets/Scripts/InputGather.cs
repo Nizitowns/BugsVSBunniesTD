@@ -13,6 +13,7 @@ namespace DefaultNamespace
         [SerializeField] private LayerMask mouseOverLayers;
         
         [HideInInspector] public bool MouseLeftClick;
+        [HideInInspector] public bool XClick;
         [HideInInspector] public bool CancelButton;
         
         public static bool isMouseOverGameObject => EventSystem.current.IsPointerOverGameObject();
@@ -31,6 +32,7 @@ namespace DefaultNamespace
         private void Update()
         {
             MouseLeftClick = Input.GetMouseButtonDown(0);
+            XClick = Input.GetKey(KeyCode.X);
             CancelButton = Input.GetKeyDown(KeyCode.Escape) || Input.GetMouseButtonDown(1);
         }
 
