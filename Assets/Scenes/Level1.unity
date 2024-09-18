@@ -36936,6 +36936,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 2624
   MouseLeftClick: 0
+  XClick: 0
   CancelButton: 0
 --- !u!1001 &1824706648
 PrefabInstance:

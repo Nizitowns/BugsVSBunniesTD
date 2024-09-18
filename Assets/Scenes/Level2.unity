@@ -3561,6 +3561,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 2624
   MouseLeftClick: 0
+  XClick: 0
   CancelButton: 0
 --- !u!4 &203014390
 Transform:

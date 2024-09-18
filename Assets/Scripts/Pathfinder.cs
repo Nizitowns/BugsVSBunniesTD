@@ -1,7 +1,8 @@
 using UnityEngine;
-
+using System.Collections;
 using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshAgent))]
+
 public class Pathfinder : MonoBehaviour
 {
     public enum PathType {DebugChargeBase,FollowPaths };
@@ -11,6 +12,9 @@ public class Pathfinder : MonoBehaviour
     private Rigidbody body;
     private NavMeshAgent agent;
 
+    private IEnumerator softlock;
+
+
     [HideInInspector]
     public PathNode currentNode;
     public int health;
@@ -19,6 +23,8 @@ public class Pathfinder : MonoBehaviour
     {
         body=GetComponent<Rigidbody>();
         agent=GetComponent<NavMeshAgent>();
+        softlock = softlockChecker();
+        StartCoroutine(softlock);
     }
     void goToMousePos()
     {
@@ -78,6 +84,35 @@ public class Pathfinder : MonoBehaviour
                     }
 
                 }
+            }
+        }
+    }
+    Vector3 a, b;
+    float distance;
+    Collider m_collider;
+    //check distance of self to previous location 5 seconds ago
+    //if this distance is still within 20 of the old location, turn off 
+    //collission to other enemy tagged items for 0.3 seconds
+    //20 and 0.3 were chosen arbitrarily by playing around 
+    IEnumerator softlockChecker()
+    {
+        
+        while (true)
+        {
+            a = this.transform.position;
+            yield return new WaitForSeconds(5);
+            b = this.transform.position;
+            distance = Vector3.Distance(a, b);
+            m_collider=this.GetComponent<Collider>();
+            //Debug.Log(this.gameObject+":\t" +distance);
+            if (distance<20)
+            {
+                m_collider.enabled= false;
+                //Debug.Log(this.gameObject.GetInstanceID() + " off at "+Time.time);
+                yield return new WaitForSeconds(0.3f);
+                m_collider.enabled = true;
+                //Debug.Log(this.gameObject.GetInstanceID() + " on at " + Time.time);
+
             }
         }
     }
