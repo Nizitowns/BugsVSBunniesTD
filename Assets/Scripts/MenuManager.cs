@@ -86,7 +86,6 @@ public class MenuManager : MonoBehaviour
 
     public void TweenEnable(CanvasGroup group)
     {
-
         fadeTween?.Kill();
         fadeTween = CurrentActive.DOFade(0,fadeDuration);
         fadeTween.onComplete += FadeIn;
