@@ -17,3 +17,4 @@ MonoBehaviour:
   maxHealth: 25
   carrotDamage: 1
   speed: 6
+  offset: 0.2

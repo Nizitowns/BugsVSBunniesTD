@@ -8,4 +8,5 @@ public class EnemyScriptableObject : ScriptableObject
     public float maxHealth;
     public int carrotDamage;
     public float speed;
+    public float offset;
 }

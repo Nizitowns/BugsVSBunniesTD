@@ -119,7 +119,7 @@ namespace DefaultNamespace
             
             spawn.transform.localScale *= enemyUnit.mTransform.localScale.x;
             newMeshObject.transform.SetParent(spawn.transform);
-            newMeshObject.transform.localPosition = new Vector3(0,0, -0.25f); // TODO Add Offset Based On Enemy's Pivot Point
+            newMeshObject.transform.localPosition = new Vector3(0,0, -enemyUnit.offset); // TODO Add Offset Based On Enemy's Pivot Point
             
             spawn.GetComponent<Rigidbody>().AddForce(new Vector3(_lastDirection.x, 0, _lastDirection.z) * 10, ForceMode.Impulse);
             spawn.GetComponent<Rigidbody>().AddTorque(new Vector3().RandomDirection() * 10, ForceMode.Impulse);
