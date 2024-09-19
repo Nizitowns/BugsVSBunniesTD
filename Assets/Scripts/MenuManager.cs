@@ -32,6 +32,8 @@ public class MenuManager : MonoBehaviour
         if(volume != null)
             targetWeight = volume.weight;
         DisableAll();
+        
+        
     }
     private void DisableAll()
     {
