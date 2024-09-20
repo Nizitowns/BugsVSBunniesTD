@@ -21,6 +21,8 @@ namespace DefaultNamespace.TowerSystem
         public float fireRate;
         public float attackRadius;
         public float burstDelay;
+        public float attackTime;
+        public float cooldown;
         public TargetType myTargetingType;
         public List<Debuff> debuffs;
         
