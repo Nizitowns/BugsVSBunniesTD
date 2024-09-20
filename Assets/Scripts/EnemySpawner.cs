@@ -20,12 +20,15 @@ public class EnemySpawner : MonoBehaviour
     private float totalWavesToSpawn;
     public Action WaveEnded;
     public Action WavesCompleted;
+
+    private List<Enemy> spawnedEnemies;
     
 
     public Action WaveStarted;
 
     public void Start()
     {
+        spawnedEnemies = new List<Enemy>();
         StartCoroutine(EnemySpawnerLoop());
     }
 
@@ -70,11 +73,14 @@ public class EnemySpawner : MonoBehaviour
         return current.ReportedDifficultyRating;
     }
 
-    private bool hasNoChildren()
+    private bool IsEnemiesDead()
     {
+        foreach (var enemy in spawnedEnemies)
+            if (!enemy.IsDead) return false;
+
+        return true;
         return transform.childCount <= 0;
     }
-
 
     public IEnumerator EnemySpawnerLoop()
     {
@@ -104,6 +110,8 @@ public class EnemySpawner : MonoBehaviour
             {
                 lastWasCompletionBased = true;
             }
+
+            spawnedEnemies = new List<Enemy>();
             for (var i = 0; i < current.SpawnAmount; i++)
             {
                 enemiesSpawnedThisWave++;
@@ -117,7 +125,9 @@ public class EnemySpawner : MonoBehaviour
                 if (current.snapSpawning) initTarget = PathManager.Instance.getEntryNode();
                 if (initTarget != null) spawnPos = initTarget.transform.position;
                 var g = Instantiate(current.EnemyConfig.prefab, spawnPos, transform.rotation, transform);
-                g.GetComponent<Enemy>().Initialize(current.EnemyConfig);
+                var enemy = g.GetComponent<Enemy>();
+                spawnedEnemies.Add(enemy);
+                enemy.Initialize(current.EnemyConfig);
 
                 if (initTarget != null)
                 {
@@ -128,7 +138,7 @@ public class EnemySpawner : MonoBehaviour
                 yield return new WaitForSeconds(current.SpawnDelayTime);
             }
 
-            if (current.WaitUntilCompletion) yield return new WaitUntil(hasNoChildren);
+            if (current.WaitUntilCompletion) yield return new WaitUntil(IsEnemiesDead);
             totalWavesCompleted++;
             WaveEnded?.Invoke();
 
@@ -168,7 +178,6 @@ public class EnemySpawner : MonoBehaviour
 
         [Tooltip("True if the next wave must wait before this one is finished to start.")]
         public bool WaitUntilCompletion;
-
 
         [Tooltip("Should this enemy snap to its entry node when it spawns?")]
         public bool snapSpawning = true;

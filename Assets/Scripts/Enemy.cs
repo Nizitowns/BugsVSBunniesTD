@@ -11,6 +11,7 @@ public interface IEnemyUnit : IDamagable
     public bool IsDead { get; }
     public float Speed { get; set; }
     public void Kill(bool givesMoney);
+    public float offset => Config.offset;
 }
 
 public abstract class Enemy : MonoBehaviour, IEnemyUnit, IDebuffable

@@ -23,6 +23,7 @@ namespace DefaultNamespace.TowerSystem
 
         protected Coroutine FireRoutine;
         protected bool CanShoot = true;
+        private float shootTimer = 0;
         protected float BurstTimer = 0;
         protected float AudioTimer = 0;
 
@@ -46,32 +47,36 @@ namespace DefaultNamespace.TowerSystem
             
             BurstTimer = Time.time;
             _particleSystem = Instantiate(Config.particulOnShoot, BulletSource);
-            FireRoutine = StartCoroutine(FireLoopCo());
         }
 
         private void Update()
         {
-            UpdateBurstTimer();
             OnUpdate();
         }
-
-        protected virtual void OnUpdate() { }
         
-        protected virtual IEnumerator FireLoopCo()
-        {
-            while (Application.isPlaying)
-            {
-                yield return new WaitUntil(() => !isDisabled);
-                
-                SetNewTarget();
+        protected virtual void OnUpdate() { }
 
-                if (TargetedEnemy != null)
-                {
-                    RotateToTarget();
-                    OnFire();
-                }
+        private void FixedUpdate()
+        {
+            UpdateFire();
+            UpdateBurstTimer();
+        }
+        
+        protected virtual void UpdateFire()
+        {
+            shootTimer += Time.deltaTime;
+
+            if (shootTimer < Config.fireRate) return;
+            shootTimer = 0;
             
-                yield return new WaitForSeconds(Config.fireRate);
+            if (isDisabled) return;
+                
+            SetNewTarget();
+
+            if (TargetedEnemy != null)
+            {
+                RotateToTarget();
+                OnFire();
             }
         }
 
@@ -88,7 +93,8 @@ namespace DefaultNamespace.TowerSystem
         }
 
         private bool reset = true;
-        private void UpdateBurstTimer()
+        
+        private void UpdateBurstTimer() // TODO Separate this into cooldown and firetime
         {
             if (Config.burstDelay == 0)
             {

@@ -8,4 +8,6 @@ public class EnemyScriptableObject : ScriptableObject
     public float maxHealth;
     public int carrotDamage;
     public float speed;
+    [Tooltip("Helps to recenter Prefab")]
+    public float offset;
 }

@@ -1,8 +1,5 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 
 public class CameraMover : MonoBehaviour
 {
@@ -12,7 +9,7 @@ public class CameraMover : MonoBehaviour
     private void Start()
     {
         CurTargDist = CurDist;
-        targetTimeScale = 1;
+        // targetTimeScale = 1;
         instance = this;
     }
     public float OrbitSpeed = 1;
@@ -38,7 +35,7 @@ public class CameraMover : MonoBehaviour
     public float AltOrbitSpeed;
 
 
-    public bool AllowTimeDilation = true;
+    // public bool AllowTimeDilation = true;
     public float TimeSpeedUpSpeed = 4;
     private void OnDrawGizmosSelected()
     {
@@ -61,16 +58,16 @@ public class CameraMover : MonoBehaviour
 
         return hasColliderBelow;
     }
-    float targetTimeScale = 1;
-    [Tooltip("Sets the TimeScale to value, but it if it is already that value it just resets it to 1")]
-    public void ToggleSetTimeSpeed(float value)
-    {
-        if(targetTimeScale==value)
-        {
-            value = 1;
-        }
-        targetTimeScale = value;
-    }
+    // float targetTimeScale = 1;
+    // [Tooltip("Sets the TimeScale to value, but it if it is already that value it just resets it to 1")]
+    // public void ToggleSetTimeSpeed(float value)
+    // {
+    //     if(targetTimeScale==value)
+    //     {
+    //         value = 1;
+    //     }
+    //     targetTimeScale = value;
+    // }
     private void Update()
     {
         if (PivotTargetLocation != null)
@@ -79,25 +76,25 @@ public class CameraMover : MonoBehaviour
         }
 
         Transform target = transform.GetChild(0).transform;
-        if(AllowTimeDilation)
-        {
-            if (MenuHook.IsPaused)
-            {
-                Time.timeScale = 0;
-            }
-            else
-            {
-
-
-                if (Input.GetAxis("Accelerate") > 0)
-                {
-                    Time.timeScale = Math.Max(targetTimeScale, TimeSpeedUpSpeed);
-                }
-                else
-                    Time.timeScale = targetTimeScale;
-            }
-
-        }
+        // if(AllowTimeDilation)
+        // {
+        //     if (MenuHook.IsPaused)
+        //     {
+        //         Time.timeScale = 0;
+        //     }
+        //     else
+        //     {
+        //
+        //
+        //         if (Input.GetAxis("Accelerate") > 0)
+        //         {
+        //             Time.timeScale = Math.Max(targetTimeScale, TimeSpeedUpSpeed);
+        //         }
+        //         else
+        //             Time.timeScale = targetTimeScale;
+        //     }
+        //
+        // }
 
         if (rotationType == RotationType.PivotUpDown)
         {

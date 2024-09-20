@@ -32,6 +32,8 @@ public class MenuManager : MonoBehaviour
         if(volume != null)
             targetWeight = volume.weight;
         DisableAll();
+        
+        
     }
     private void DisableAll()
     {
@@ -86,7 +88,6 @@ public class MenuManager : MonoBehaviour
 
     public void TweenEnable(CanvasGroup group)
     {
-
         fadeTween?.Kill();
         fadeTween = CurrentActive.DOFade(0,fadeDuration);
         fadeTween.onComplete += FadeIn;
