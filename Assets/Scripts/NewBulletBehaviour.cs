@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using DefaultNamespace.OnDeathEffects;
 using DefaultNamespace.TowerSystem;
@@ -106,23 +107,65 @@ namespace DefaultNamespace
         private void ApplySpecialDeath(IEnemyUnit enemyUnit)
         {
             var copiedMesh = new Mesh();
-            var skinnedMesh = enemyUnit.mTransform.transform.GetComponentInChildren<SkinnedMeshRenderer>();
-            skinnedMesh.BakeMesh(copiedMesh);
+            var skinnedMesh = new SkinnedMeshRenderer();
+
+            GameObject newMeshObject = null;
+            MeshFilter meshFilter = null;
+            MeshRenderer meshRenderer = null;
             
-            GameObject newMeshObject = new GameObject("CopiedMesh");
-            MeshFilter meshFilter = newMeshObject.AddComponent<MeshFilter>();
-            MeshRenderer meshRenderer = newMeshObject.AddComponent<MeshRenderer>();
-            meshFilter.mesh = copiedMesh;
-            meshRenderer.material = skinnedMesh.material;
+            switch (_bulletConfig.deathEffect)
+            {
+                case eDeathEffect.None:
+                    // Nothing Happens - Just Die
+                    break;
+                case eDeathEffect.BubbleUp:
+                    skinnedMesh = enemyUnit.mTransform.transform.GetComponentInChildren<SkinnedMeshRenderer>();
+                    skinnedMesh.BakeMesh(copiedMesh);
             
-            var spawn = Instantiate(EntangleWhenKillEnemy, enemyUnit.mTransform.position, quaternion.identity);
+                    newMeshObject = new GameObject("CopiedMesh");
+                    meshFilter = newMeshObject.AddComponent<MeshFilter>();
+                    meshRenderer = newMeshObject.AddComponent<MeshRenderer>();
+                    meshFilter.mesh = copiedMesh;
+                    meshRenderer.material = skinnedMesh.material;
             
-            spawn.transform.localScale *= enemyUnit.mTransform.localScale.x;
-            newMeshObject.transform.SetParent(spawn.transform);
-            newMeshObject.transform.localPosition = new Vector3(0,0, -enemyUnit.offset); // TODO Add Offset Based On Enemy's Pivot Point
+                    var spawn = Instantiate(EntangleWhenKillEnemy, enemyUnit.mTransform.position, quaternion.identity);
             
-            spawn.GetComponent<Rigidbody>().AddForce(new Vector3(_lastDirection.x, 0, _lastDirection.z) * 10, ForceMode.Impulse);
-            spawn.GetComponent<Rigidbody>().AddTorque(new Vector3().RandomDirection() * 10, ForceMode.Impulse);
+                    spawn.transform.localScale *= enemyUnit.mTransform.localScale.x;
+                    newMeshObject.transform.SetParent(spawn.transform);
+                    newMeshObject.transform.localPosition = new Vector3(0,0, -enemyUnit.offset); // TODO Add Offset Based On Enemy's Pivot Point
+            
+                    spawn.GetComponent<Rigidbody>().AddForce(new Vector3(_lastDirection.x, 0, _lastDirection.z).normalized * 10, ForceMode.Impulse);
+                    spawn.GetComponent<Rigidbody>().AddTorque(new Vector3().RandomDirection() * 10, ForceMode.Impulse);
+
+                    Destroy(spawn, 5);
+                    break;
+                
+                case eDeathEffect.FlyAway:
+                    skinnedMesh = enemyUnit.mTransform.transform.GetComponentInChildren<SkinnedMeshRenderer>();
+                    skinnedMesh.BakeMesh(copiedMesh);
+            
+                    newMeshObject = new GameObject("CopiedMesh");
+                    meshFilter = newMeshObject.AddComponent<MeshFilter>();
+                    meshRenderer = newMeshObject.AddComponent<MeshRenderer>();
+                    meshFilter.mesh = copiedMesh;
+                    meshRenderer.material = skinnedMesh.material;
+
+                    newMeshObject.transform.position = enemyUnit.mTransform.position;
+                    
+                    var rigidbody = newMeshObject.AddComponent<Rigidbody>();
+                    // rigidbody.useGravity = false;
+                    rigidbody.AddForce(new Vector3(_lastDirection.x, 0, _lastDirection.z).normalized * 50, ForceMode.Impulse);
+                    rigidbody.AddTorque(new Vector3().RandomDirection() * 10, ForceMode.Impulse);
+                    
+                    Destroy(newMeshObject, 5);
+                    break;
+                
+                case eDeathEffect.Electrocute:
+                    // Get Electrocuted
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
         }
         
         public void Dispose()

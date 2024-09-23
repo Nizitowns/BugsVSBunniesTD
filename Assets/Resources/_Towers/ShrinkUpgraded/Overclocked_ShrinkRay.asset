@@ -24,10 +24,13 @@ MonoBehaviour:
     damage: 0.175
     speed: 60
     maxHit: 1
-    deathEffect: 0
+    deathEffect: 2
+    BulletDiesOnTargetDeath: 0
   fireRate: 0.01
   attackRadius: 30
   burstDelay: 0
+  attackTime: 0
+  cooldown: 0
   myTargetingType: 1
   debuffs: []
   upgradeOptions: []
