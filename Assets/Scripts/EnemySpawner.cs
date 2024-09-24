@@ -22,7 +22,8 @@ public class EnemySpawner : MonoBehaviour
     public Action WavesCompleted;
 
     private List<Enemy> spawnedEnemies;
-    
+
+    public static event Action<SpawnRequest.DifficultyRating> OnDiffucltyChanged;
 
     public Action WaveStarted;
 
@@ -91,6 +92,7 @@ public class EnemySpawner : MonoBehaviour
             if (spawnRequests.Count > totalWavesToSpawn) totalWavesToSpawn = spawnRequests.Count;
             WaveStarted?.Invoke();
             var current = spawnRequests[0];
+            OnDiffucltyChanged?.Invoke(current.ReportedDifficultyRating);
             if (lastWasCompletionBased)
             {
                 enemiesKilledThisWave = 0;

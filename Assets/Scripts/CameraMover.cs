@@ -1,4 +1,5 @@
 using System;
+using DefaultNamespace;
 using UnityEngine;
 
 public class CameraMover : MonoBehaviour
@@ -120,11 +121,10 @@ public class CameraMover : MonoBehaviour
         }
         else if (rotationType==RotationType.Walking)
         {
+            target.eulerAngles += new Vector3(0, -Input.GetAxis("Orbit") * Time.unscaledDeltaTime * AltOrbitSpeed, 0);
 
-            target.eulerAngles += new Vector3(0, -Input.GetAxis("Orbit") * (1 / (Mathf.Max(1, Time.timeScale))) * Time.deltaTime * AltOrbitSpeed, 0);
-
-            Vector3 targDir =target.forward * VerticalSpeed * (1 / (Mathf.Max(1, Time.timeScale))) * Time.deltaTime * Input.GetAxis("Vertical");
-            targDir += target.right * OrbitSpeed * (1 / (Mathf.Max(1, Time.timeScale))) * Time.deltaTime * Input.GetAxis("Horizontal");
+            Vector3 targDir =target.forward * VerticalSpeed * Time.unscaledDeltaTime * InputGather.Instance.AxisNormalized.x;
+            targDir += target.right * OrbitSpeed * Time.unscaledDeltaTime * InputGather.Instance.AxisNormalized.y;
             targDir.y = 0;
             if (IsValid(transform.position + targDir))
                 transform.position += targDir;
@@ -140,7 +140,7 @@ public class CameraMover : MonoBehaviour
         {
             Vector3 targ_dir = -target.forward;
 
-            CurTargDist += -Input.GetAxis("Mouse ScrollWheel") * (1 / (Mathf.Max(1, Time.timeScale))) * Time.deltaTime * ScrollSpeed;
+            CurTargDist += -InputGather.Instance.ScroolWheel * Time.unscaledDeltaTime * ScrollSpeed;
             CurTargDist = Mathf.Min(Mathf.Max(MinDist, CurTargDist), MaxDist);
 
             CurDist = (CurDist * 4 + CurTargDist) / 5f;
