@@ -11,11 +11,23 @@ namespace DefaultNamespace
 
         private Camera mainCam;
         [SerializeField] private LayerMask mouseOverLayers;
-        
+
+        [HideInInspector] public Vector2 Axis;
+        [HideInInspector] public Vector2 AxisRaw;
+        [HideInInspector] public float ScroolWheel;
         [HideInInspector] public bool MouseLeftClick;
         [HideInInspector] public bool XClick;
         [HideInInspector] public bool CancelButton;
         
+        public Vector2 AxisNormalized
+        {
+            get
+            {
+                if (Axis.magnitude > 1) return Axis.normalized;
+                return Axis;
+            }
+        }
+
         public static bool isMouseOverGameObject => EventSystem.current.IsPointerOverGameObject();
 
         private void Awake()
@@ -31,6 +43,13 @@ namespace DefaultNamespace
 
         private void Update()
         {
+            Axis.x = Input.GetAxis("Vertical");
+            Axis.y = Input.GetAxis("Horizontal");
+            
+            AxisRaw.x = Input.GetAxisRaw("Vertical");
+            AxisRaw.y = Input.GetAxisRaw("Horizontal");
+            ScroolWheel = Input.GetAxis("Mouse ScrollWheel");
+            
             MouseLeftClick = Input.GetMouseButtonDown(0);
             XClick = Input.GetKey(KeyCode.X);
             CancelButton = Input.GetKeyDown(KeyCode.Escape) || Input.GetMouseButtonDown(1);
