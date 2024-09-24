@@ -30,6 +30,7 @@ namespace DefaultNamespace
         {
             Time.timeScale = 0;
         }
+        
 
         public void ResumeGame(bool setDefault = false)
         {
