@@ -31,8 +31,15 @@ namespace DefaultNamespace
             Time.timeScale = 0;
         }
 
-        public void ResumeGame()
+        public void ResumeGame(bool setDefault = false)
         {
+            if (setDefault)
+            {
+                currentSpeed = GameSpeedX.X1;
+                Time.timeScale = 1;
+                return;
+            } 
+            
             Time.timeScale = (int)currentSpeed;
         }
 

@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using Helper;
 using UnityEngine;
@@ -10,6 +9,12 @@ namespace DefaultNamespace.TowerSystem
     [SelectionBase]
     public abstract class NewTowerBase : MonoBehaviour
     {
+        private enum TowerState
+        {
+            Shoot,
+            Cooldown,
+        }
+        
         public TowerScriptableObject Config { get; private set; }
 
         protected SphereCollider _myCollider;
@@ -21,9 +26,9 @@ namespace DefaultNamespace.TowerSystem
         protected Enemy TargetedEnemy;
         protected Enemy LastTargeted;
 
-        protected Coroutine FireRoutine;
-        protected bool CanShoot = true;
-        protected float BurstTimer = 0;
+        private TowerState currentState = TowerState.Shoot;
+        private float BurstTimer = 0;
+        private float shootTimer = 0;
         protected float AudioTimer = 0;
 
         protected bool isDisabled = false;
@@ -44,41 +49,38 @@ namespace DefaultNamespace.TowerSystem
             _myCollider.radius = Config.attackRadius;
             mAudioSource = ComponentCopier.CopyComponent(SoundFXPlayer.Instance.Source, BulletSource.gameObject);
             
-            BurstTimer = Time.time;
             _particleSystem = Instantiate(Config.particulOnShoot, BulletSource);
-            FireRoutine = StartCoroutine(FireLoopCo());
         }
 
-        private void Update()
+        private void FixedUpdate()
         {
-            UpdateBurstTimer();
-            OnUpdate();
+            TryFire();
         }
-
-        protected virtual void OnUpdate() { }
         
-        protected virtual IEnumerator FireLoopCo()
+        protected virtual void TryFire()
         {
-            while (Application.isPlaying)
-            {
-                yield return new WaitUntil(() => !isDisabled);
-                
-                SetNewTarget();
+            UpdateCoolDown();
 
-                if (TargetedEnemy != null)
-                {
-                    RotateToTarget();
-                    OnFire();
-                }
+            if (currentState != TowerState.Shoot) return;
+
+            shootTimer += Time.deltaTime;
+
+            if (shootTimer < Config.fireRate) return;
+            shootTimer = 0;
             
-                yield return new WaitForSeconds(Config.fireRate);
+            if (isDisabled) return;
+                
+            SetNewTarget();
+
+            if (TargetedEnemy != null)
+            {
+                RotateToTarget();
+                OnFire();
             }
         }
 
         protected virtual void OnFire()
         {
-            if (!CanShoot) return;
-            
             var spawnPos = BulletSource.position + new Vector3(0, 1, 0);
             var bullet = Instantiate(Config.BulletConfig.prefab, spawnPos, transform.rotation);
             bullet.GetComponent<NewBulletBehaviour>().Initialize(Config.debuffs, TargetedEnemy, Config.BulletConfig);
@@ -87,29 +89,40 @@ namespace DefaultNamespace.TowerSystem
             PlaySoundFX();
         }
 
-        private bool reset = true;
-        private void UpdateBurstTimer()
+        private void UpdateCoolDown()
         {
-            if (Config.burstDelay == 0)
+            if (Config.cooldown == 0)
             {
-                CanShoot = true;
+                currentState = TowerState.Shoot;
                 return;
             }
-            
-            if (TargetList.Count == 0 && reset)
+
+            switch (currentState)
             {
-                if (BurstTimer + Config.burstDelay < Time.time)
-                {
-                    BurstTimer = Time.time;
-                    CanShoot = true;
-                    reset = false;
-                }
-            }
-            else if (BurstTimer + Config.burstDelay < Time.time)
-            {
-                BurstTimer = Time.time;
-                CanShoot = !CanShoot;
-                reset = true;
+                case TowerState.Shoot:
+                    if (TargetedEnemy == null)
+                    {
+                        BurstTimer -= Time.deltaTime;
+                        if (BurstTimer <= 0) BurstTimer = 0;
+                    }
+                    else
+                        BurstTimer += Time.deltaTime;
+                    
+                    if (BurstTimer >= Config.attackTime)
+                    {
+                        BurstTimer = 0;
+                        currentState = TowerState.Cooldown;
+                    }
+                    break;
+                case TowerState.Cooldown:
+                    BurstTimer += Time.deltaTime;
+                    if (BurstTimer >= Config.cooldown)
+                    {
+                        BurstTimer = 0;
+                        currentState = TowerState.Shoot;
+                        shootTimer = Config.fireRate;
+                    }
+                    break;
             }
         }
 
@@ -164,8 +177,6 @@ namespace DefaultNamespace.TowerSystem
             }
         }
 
-        private void OnDestroy() => StopCoroutine(FireRoutine);
-
         protected virtual void OnTriggerEnter(Collider other)
         {
             if (other.TryGetComponent(out Enemy enemey))
@@ -177,7 +188,6 @@ namespace DefaultNamespace.TowerSystem
             if(other.TryGetComponent(out Enemy enemey))
                 TargetList.Remove(enemey);
         }
-
         
         private void OnDrawGizmosSelected()
         {

@@ -25,6 +25,8 @@ public class EnemySpawner : MonoBehaviour
     private List<Enemy> spawnedEnemies;
 
     [Header("Sound FX")] [SerializeField] private AudioClip waveIncomingSoundFx;
+    
+    public static event Action<SpawnRequest.DifficultyRating> OnDiffucltyChanged;
 
     public Action WaveStarted;
 
@@ -93,6 +95,7 @@ public class EnemySpawner : MonoBehaviour
             if (spawnRequests.Count > totalWavesToSpawn) totalWavesToSpawn = spawnRequests.Count;
             WaveStarted?.Invoke();
             var current = spawnRequests[0];
+            OnDiffucltyChanged?.Invoke(current.ReportedDifficultyRating);
             if (lastWasCompletionBased)
             {
                 enemiesKilledThisWave = 0;
