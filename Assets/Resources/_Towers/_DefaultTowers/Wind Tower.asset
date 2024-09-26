@@ -25,15 +25,16 @@ MonoBehaviour:
     damage: 0.625
     speed: 120
     maxHit: 1
-    deathEffect: 0
+    deathEffect: 2
+    BulletDiesOnTargetDeath: 0
   fireRate: 0.01
   attackRadius: 30
   burstDelay: 5
+  attackTime: 0
+  cooldown: 0
   myTargetingType: 1
   debuffs: []
   upgradeOptions: []
-  bulletPrefab: {fileID: 8319209496153684854, guid: ea5c8f97d52a1cf4984a4043be96a876,
-    type: 3}
   particulOnShoot: {fileID: 2715936340150396377, guid: 8abd9277df9eba54d839f0a6663ff39e,
     type: 3}
   audioCoolDown: 0.15
