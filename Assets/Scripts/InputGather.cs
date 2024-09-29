@@ -1,7 +1,5 @@
-using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.Serialization;
 
 namespace DefaultNamespace
 {
@@ -11,22 +9,45 @@ namespace DefaultNamespace
 
         private Camera mainCam;
         [SerializeField] private LayerMask mouseOverLayers;
+        [Tooltip("Custom Input Smoothness Sensitivity")]
+        [SerializeField] private float sensitivity = 10;
 
-        [HideInInspector] public Vector2 Axis;
-        [HideInInspector] public Vector2 AxisRaw;
-        [HideInInspector] public float ScroolWheel;
-        [HideInInspector] public bool MouseLeftClick;
-        [HideInInspector] public bool XClick;
-        [HideInInspector] public bool CancelButton;
+        public float AxisX { get; private set; }
+        public float AxisY { get; private set; }
+        public float AxisRawX { get; private set; }
+        public float AxisRawY { get; private set; }
         
+        public float OrbitRaw { get; private set; }
+        public float ScroolWheel { get; private set; }
+        public bool MouseLeftClick { get; private set; }
+        public bool XClick { get; private set; }
+        public bool CancelButton { get; private set; }
+        
+        private Vector2 _customAxis = Vector2.zero;
+        private float _customOrbit = 0;
+
+        public Vector2 Axis => new Vector2(AxisX, AxisY);
+        public Vector2 AxisRaw => new Vector2(AxisRawX, AxisRawY);
+        
+        /// <summary>
+        /// Returns Normalized Frame Independent Custom Axis
+        /// </summary>
         public Vector2 AxisNormalized
         {
             get
             {
-                if (Axis.magnitude > 1) return Axis.normalized;
-                return Axis;
+                if (_customAxis.magnitude > 1)
+                {
+                    return _customAxis.normalized;
+                }
+                return _customAxis;
             }
         }
+
+        /// <summary>
+        /// Returns Frame Independent Orbit Value
+        /// </summary>
+        public float Orbit => _customOrbit;
 
         public static bool isMouseOverGameObject => EventSystem.current.IsPointerOverGameObject();
 
@@ -43,16 +64,42 @@ namespace DefaultNamespace
 
         private void Update()
         {
-            Axis.x = Input.GetAxis("Vertical");
-            Axis.y = Input.GetAxis("Horizontal");
+            AxisX = Input.GetAxis("Vertical");
+            AxisY = Input.GetAxis("Horizontal");
             
-            AxisRaw.x = Input.GetAxisRaw("Vertical");
-            AxisRaw.y = Input.GetAxisRaw("Horizontal");
+            AxisRawX = Input.GetAxisRaw("Vertical");
+            AxisRawY = Input.GetAxisRaw("Horizontal");
+            
+            OrbitRaw = Input.GetAxisRaw("Orbit");
             ScroolWheel = Input.GetAxis("Mouse ScrollWheel");
-            
+
             MouseLeftClick = Input.GetMouseButtonDown(0);
             XClick = Input.GetKey(KeyCode.X);
             CancelButton = Input.GetKeyDown(KeyCode.Escape) || Input.GetMouseButtonDown(1);
+            
+            UpdateCustomInputs();
+        }
+
+        private void UpdateCustomInputs()
+        {
+            // Frame Independent Axis value
+            if (AxisRaw != Vector2.zero)
+                _customAxis = Vector2.Lerp(_customAxis, AxisRaw, sensitivity * Time.unscaledDeltaTime);
+            else
+                _customAxis = Vector2.Lerp(_customAxis, Vector2.zero, sensitivity * Time.unscaledDeltaTime);
+            
+            // Frame Independent Orbit value
+            if (OrbitRaw != 0)
+            {
+                if(OrbitRaw > 0)
+                    _customOrbit = Mathf.Lerp(_customOrbit, 1, sensitivity * Time.unscaledDeltaTime);
+                else
+                    _customOrbit = Mathf.Lerp(_customOrbit, -1, sensitivity * Time.unscaledDeltaTime);
+            }
+            else
+            {
+                _customOrbit = Mathf.Lerp(_customOrbit, 0, sensitivity * Time.unscaledDeltaTime);
+            }
         }
 
         public Vector3 GetMousePosition()
@@ -81,7 +128,6 @@ namespace DefaultNamespace
                     return t;
                 }
             }
-
             return null;
         }
 
