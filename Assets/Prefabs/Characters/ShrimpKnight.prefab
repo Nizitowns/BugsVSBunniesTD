@@ -289,7 +289,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 0
   agent: {fileID: 0}
-  visual: {fileID: 7338262137697385781}
+  DeathSX: {fileID: 8300000, guid: 1e19995a33f04544ca3fa01bf35eb88b, type: 3}
 --- !u!136 &646691335326422539
 CapsuleCollider:
   m_ObjectHideFlags: 0

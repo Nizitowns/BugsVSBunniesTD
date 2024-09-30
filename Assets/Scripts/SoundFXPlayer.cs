@@ -11,17 +11,13 @@ namespace DefaultNamespace
         private void Awake()
         {
             Instance = this;
-        }
-
-        private void Start()
-        {
             Source = GetComponent<AudioSource>();
+
         }
 
         public static void PlaySFX(AudioSource source, AudioClip clip)
         {
             source.PlayOneShot(clip, AudioManager.SFXVolume);
-            Debug.Log("ANimatiion Played");
         }
     }
 }
