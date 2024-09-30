@@ -1,3 +1,4 @@
+using DefaultNamespace;
 using DefaultNamespace.OnDeathEffects;
 using UnityEngine;
 using UnityEngine.AI;
@@ -23,6 +24,9 @@ public abstract class Enemy : MonoBehaviour, IEnemyUnit, IDebuffable
     public Transform mTransform { get; private set; }
     [SerializeField] protected float currentHealth;
     public NavMeshAgent agent;
+
+    [Header("Sound FX")]
+    [SerializeField] private AudioClip DeathSX;
 
     public float Speed
     {
@@ -71,6 +75,7 @@ public abstract class Enemy : MonoBehaviour, IEnemyUnit, IDebuffable
             MoneyManager.instance.AddMoney(Config.moneyReward);
         }
         IsDead = true;
+        SoundFXPlayer.PlaySFX(SoundFXPlayer.Instance.Source, DeathSX);
         Destroy(gameObject);
     }
 

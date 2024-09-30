@@ -324,7 +324,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 0
   agent: {fileID: 0}
-  visual: {fileID: 4005926682978992397}
+  DeathSX: {fileID: 8300000, guid: 1e19995a33f04544ca3fa01bf35eb88b, type: 3}
 --- !u!136 &7823361502280023569
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -348,9 +348,3 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!1 &4005926682978992397 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -4819223349682164798, guid: 1c8929c1ae2893e4896b59565f6ab783,
-    type: 3}
-  m_PrefabInstance: {fileID: 759213868086323919}
-  m_PrefabAsset: {fileID: 0}

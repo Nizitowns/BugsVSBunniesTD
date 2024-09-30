@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DefaultNamespace;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
@@ -23,6 +24,8 @@ public class EnemySpawner : MonoBehaviour
 
     private List<Enemy> spawnedEnemies;
 
+    [Header("Sound FX")] [SerializeField] private AudioClip waveIncomingSoundFx;
+    
     public static event Action<SpawnRequest.DifficultyRating> OnDiffucltyChanged;
 
     public Action WaveStarted;
@@ -114,6 +117,7 @@ public class EnemySpawner : MonoBehaviour
             }
 
             spawnedEnemies = new List<Enemy>();
+            SoundFXPlayer.PlaySFX(SoundFXPlayer.Instance.Source, waveIncomingSoundFx);
             for (var i = 0; i < current.SpawnAmount; i++)
             {
                 enemiesSpawnedThisWave++;
