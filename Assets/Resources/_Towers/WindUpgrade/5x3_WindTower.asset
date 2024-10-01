@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e595cae459fe45ca96f677b58c690d13, type: 3}
-  m_Name: Wind Tower
+  m_Name: 5x3_WindTower
   m_EditorClassIdentifier: 
   purchaseCost: 75
   selectedTitle: <color=#005408>Fan Tower
   purchaseIcon: {fileID: 21300000, guid: f62db4a94018e3446b4720ad650586cb, type: 3}
-  prefab: {fileID: 7660733433171842739, guid: 92b3136944f419f4eaf06e5b5a7010bc, type: 3}
+  prefab: {fileID: 7660733433171842739, guid: 68b7d2a976f18684291a13b14324d89b, type: 3}
   previewMesh: {fileID: -7990379704155441804, guid: 5a0c019d5cebe6a4eac421bce5649dee,
     type: 3}
   purchaseIconAdditionalTint: {r: 1, g: 1, b: 1, a: 1}
@@ -35,7 +35,7 @@ MonoBehaviour:
   myTargetingType: 1
   debuffs: []
   upgradeOptions:
-  - {fileID: 11400000, guid: 63872e2a070aa8846b7c693ba87f6c10, type: 2}
+  - {fileID: 11400000}
   - {fileID: 11400000, guid: d2d13f034147424448dbb2e82dbdc564, type: 2}
   particulOnShoot: {fileID: 2715936340150396377, guid: 8abd9277df9eba54d839f0a6663ff39e,
     type: 3}

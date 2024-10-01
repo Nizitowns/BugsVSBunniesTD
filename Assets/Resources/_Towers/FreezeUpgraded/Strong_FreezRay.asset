@@ -10,34 +10,33 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e595cae459fe45ca96f677b58c690d13, type: 3}
-  m_Name: Wind Tower
+  m_Name: Strong_FreezRay
   m_EditorClassIdentifier: 
   purchaseCost: 75
-  selectedTitle: <color=#005408>Fan Tower
-  purchaseIcon: {fileID: 21300000, guid: f62db4a94018e3446b4720ad650586cb, type: 3}
-  prefab: {fileID: 7660733433171842739, guid: 92b3136944f419f4eaf06e5b5a7010bc, type: 3}
-  previewMesh: {fileID: -7990379704155441804, guid: 5a0c019d5cebe6a4eac421bce5649dee,
+  selectedTitle: <color=#001CDB>Deep Freeze Ray
+  purchaseIcon: {fileID: 21300000, guid: 7f2059454de3ce74db2b44a9548bc9a6, type: 3}
+  prefab: {fileID: 6045296787690447725, guid: a8ac46dffdd864e48925bf07c3bbdbe7, type: 3}
+  previewMesh: {fileID: -8943654866815143141, guid: c381c9bb179d14b4498fdb26e538a71f,
     type: 3}
-  purchaseIconAdditionalTint: {r: 1, g: 1, b: 1, a: 1}
+  purchaseIconAdditionalTint: {r: 0.5882353, g: 1, b: 0.9294118, a: 1}
   BulletConfig:
-    prefab: {fileID: 8319209496153684854, guid: ea5c8f97d52a1cf4984a4043be96a876,
+    prefab: {fileID: 4008834639158741165, guid: a5394a79a15fc1c41ad6df6ef410cc72,
       type: 3}
-    damage: 0.625
-    speed: 120
-    maxHit: 1
-    deathEffect: 2
-    BulletDiesOnTargetDeath: 0
+    damage: 0
+    speed: 60
+    maxHit: 5
+    deathEffect: 0
+    BulletDiesOnTargetDeath: 1
   fireRate: 0.01
   attackRadius: 30
-  burstDelay: 5
+  burstDelay: 0
   attackTime: 0
   cooldown: 0
   myTargetingType: 1
-  debuffs: []
-  upgradeOptions:
-  - {fileID: 11400000, guid: 63872e2a070aa8846b7c693ba87f6c10, type: 2}
-  - {fileID: 11400000, guid: d2d13f034147424448dbb2e82dbdc564, type: 2}
-  particulOnShoot: {fileID: 2715936340150396377, guid: 8abd9277df9eba54d839f0a6663ff39e,
+  debuffs:
+  - {fileID: 11400000, guid: 62e0d2485762c86448cf559ae1a9df55, type: 2}
+  upgradeOptions: []
+  particulOnShoot: {fileID: 8740331393395582659, guid: fbc56026dd0e4ea49a7570d1522a9767,
     type: 3}
   audioCoolDown: 0.15
   audioPlayType: 1
@@ -48,3 +47,4 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 20849697e22951d489f4f1423752d9b6, type: 3}
   - {fileID: 8300000, guid: 9db02d92488bf8b4894ae1a1a9dd6978, type: 3}
   - {fileID: 8300000, guid: e234b6125322f9946847bb71e37012a4, type: 3}
+  - {fileID: 8300000, guid: 03d8f1a0d25198b4a8ce1853149d9509, type: 3}
