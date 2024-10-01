@@ -34,9 +34,7 @@ MonoBehaviour:
   cooldown: 0
   myTargetingType: 1
   debuffs: []
-  upgradeOptions:
-  - {fileID: 11400000}
-  - {fileID: 11400000, guid: d2d13f034147424448dbb2e82dbdc564, type: 2}
+  upgradeOptions: []
   particulOnShoot: {fileID: 2715936340150396377, guid: 8abd9277df9eba54d839f0a6663ff39e,
     type: 3}
   audioCoolDown: 0.15
