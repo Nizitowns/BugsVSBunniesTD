@@ -45,10 +45,10 @@ namespace DefaultNamespace.TowerSystem
         public GameObject prefab;
         public float damage;
         public float speed;
-        [Range(1,10)]
-        public int maxHit;
+        public bool activateAOE;
+        [Range(1,50)]
+        public int hitAreaRadius;
         public eDeathEffect deathEffect;
-        public bool BulletDiesOnTargetDeath;
 
         public GameObject Prefab => prefab;
 

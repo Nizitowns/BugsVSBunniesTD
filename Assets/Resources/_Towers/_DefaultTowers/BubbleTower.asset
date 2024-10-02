@@ -24,9 +24,9 @@ MonoBehaviour:
       type: 3}
     damage: 4
     speed: 30
-    maxHit: 1
+    activateAOE: 0
+    hitAreaRadius: 1
     deathEffect: 1
-    BulletDiesOnTargetDeath: 0
   fireRate: 0.5
   attackRadius: 30
   burstDelay: 0
