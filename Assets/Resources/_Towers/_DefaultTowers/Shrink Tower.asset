@@ -25,7 +25,7 @@ MonoBehaviour:
     damage: 0.1
     speed: 60
     activateAOE: 1
-    hitAreaRadius: 10
+    hitAreaRadius: 23
     deathEffect: 2
   fireRate: 0.01
   attackRadius: 30
