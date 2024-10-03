@@ -23,17 +23,20 @@ MonoBehaviour:
     prefab: {fileID: 64348080937607872, guid: 03876bee01672694980d794f00ff9607, type: 3}
     damage: 0
     speed: 60
-    maxHit: 5
+    activateAOE: 0
+    hitAreaRadius: 1
     deathEffect: 0
-    BulletDiesOnTargetDeath: 1
   fireRate: 0.01
   attackRadius: 30
   burstDelay: 0
+  attackTime: 0
+  cooldown: 0
   myTargetingType: 2
   debuffs:
   - {fileID: 11400000, guid: 9fd93c2a1e826634c95d5a5f7892d188, type: 2}
   upgradeOptions:
   - {fileID: 11400000, guid: af0c8bd39937e5f4a916603cefc12577, type: 2}
+  - {fileID: 11400000, guid: 11162b1454bf84a4987657b384d0b2d2, type: 2}
   particulOnShoot: {fileID: 8740331393395582659, guid: fbc56026dd0e4ea49a7570d1522a9767,
     type: 3}
   audioCoolDown: 0.15

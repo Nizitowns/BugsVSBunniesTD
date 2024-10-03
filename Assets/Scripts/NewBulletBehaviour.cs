@@ -25,7 +25,6 @@ namespace DefaultNamespace
         //Spawns + Entangles with enemies when killed (Bubbles foreach enemy etc.)
         public GameObject EntangleWhenKillEnemy;
 
-        private int _hitCount;
         private Vector3 _lastDirection;
 
         private float durationTimer = 0;
@@ -47,20 +46,10 @@ namespace DefaultNamespace
 
             if (!CheckTargetAvaliablity())
             {
-                if (_bulletConfig.BulletDiesOnTargetDeath)
-                {
-                    Dispose();
-                    return;
-                }
-                
                 transform.position += _lastDirection.normalized * _bulletConfig.speed * Time.deltaTime;
-                if(_bulletConfig.BulletDiesOnTargetDeath)
-                {
-                    Dispose();
-                }
                 return;
             }
-
+            
             _lastDirection = _target.mTransform.position - transform.position;
             transform.position = Vector3.MoveTowards(transform.position, _target.mTransform.position,
                 _bulletConfig.speed * Time.deltaTime);
@@ -68,13 +57,13 @@ namespace DefaultNamespace
 
         private void OnTriggerEnter(Collider other)
         {
-            if (_hitCount >= _bulletConfig.maxHit)
-            {
-                Dispose();
-                return;
-            }
+            ApplyDamage(other.transform);
+            Dispose();
+        }
 
-            if (other.TryGetComponent(out IDebuffable debuffable))
+        private void ApplyDamage(Transform target)
+        {
+            if (target.TryGetComponent(out IDebuffable debuffable))
             {
                 foreach (var debuff in _debuffs)
                 {
@@ -82,15 +71,13 @@ namespace DefaultNamespace
                 }
             }
             
-            if (other.TryGetComponent(out IEnemyUnit enemyUnit))
+            if (target.TryGetComponent(out IEnemyUnit enemyUnit))
             {
                 if (enemyUnit.TakeDamage(_bulletConfig.damage, false))
                 {
                     ApplySpecialDeath(enemyUnit);
                     enemyUnit.Kill(true);
                 }
-
-                _hitCount++;
             }
         }
 
@@ -161,7 +148,7 @@ namespace DefaultNamespace
                     break;
                 
                 case eDeathEffect.Electrocute:
-                    // Get Electrocuted
+                    // TODO Get Electrocuted
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
@@ -170,6 +157,25 @@ namespace DefaultNamespace
         
         public void Dispose()
         {
+            if (_bulletConfig.activateAOE)
+            {
+                Ray ray = new Ray(transform.position, Vector3.down);
+                var hitall = Physics.SphereCastAll(ray, _bulletConfig.hitAreaRadius);
+                foreach (var hit in hitall)
+                {
+                    ApplyDamage(hit.transform);
+                }
+                
+                if (Debugger.ShowAreaEffectVisualizer)
+                {
+                    var ball = Instantiate(DebugVisual.Instance.BulletAreaVisualizer);
+                    ball.transform.position = transform.position;
+                    ball.transform.localScale = Vector3.one * _bulletConfig.hitAreaRadius;
+                
+                    Destroy(ball, 0.15f);
+                }
+            }
+            
             Destroy(gameObject);
         }
     }

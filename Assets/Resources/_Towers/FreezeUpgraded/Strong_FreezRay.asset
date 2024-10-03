@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e595cae459fe45ca96f677b58c690d13, type: 3}
+  m_Name: Strong_FreezRay
+  m_EditorClassIdentifier: 
+  purchaseCost: 75
+  selectedTitle: <color=#001CDB>Deep Freeze Ray
+  purchaseIcon: {fileID: 21300000, guid: 7f2059454de3ce74db2b44a9548bc9a6, type: 3}
+  prefab: {fileID: 6045296787690447725, guid: a8ac46dffdd864e48925bf07c3bbdbe7, type: 3}
+  previewMesh: {fileID: -8943654866815143141, guid: c381c9bb179d14b4498fdb26e538a71f,
+    type: 3}
+  purchaseIconAdditionalTint: {r: 0.5882353, g: 1, b: 0.9294118, a: 1}
+  BulletConfig:
+    prefab: {fileID: 4008834639158741165, guid: a5394a79a15fc1c41ad6df6ef410cc72,
+      type: 3}
+    damage: 0
+    speed: 60
+    maxHit: 5
+    deathEffect: 0
+    BulletDiesOnTargetDeath: 1
+  fireRate: 0.01
+  attackRadius: 30
+  burstDelay: 0
+  attackTime: 0
+  cooldown: 0
+  myTargetingType: 1
+  debuffs:
+  - {fileID: 11400000, guid: 62e0d2485762c86448cf559ae1a9df55, type: 2}
+  upgradeOptions: []
+  particulOnShoot: {fileID: 8740331393395582659, guid: fbc56026dd0e4ea49a7570d1522a9767,
+    type: 3}
+  audioCoolDown: 0.15
+  audioPlayType: 1
+  firingSfx:
+  - {fileID: 8300000, guid: 9019dbd00ad29d04da97e2bd95706bd8, type: 3}
+  - {fileID: 8300000, guid: 3acacdd5f497e5b4a98b984e13088657, type: 3}
+  - {fileID: 8300000, guid: 75d0c54a1ab9d884fa9fdf6347581331, type: 3}
+  - {fileID: 8300000, guid: 20849697e22951d489f4f1423752d9b6, type: 3}
+  - {fileID: 8300000, guid: 9db02d92488bf8b4894ae1a1a9dd6978, type: 3}
+  - {fileID: 8300000, guid: e234b6125322f9946847bb71e37012a4, type: 3}
+  - {fileID: 8300000, guid: 03d8f1a0d25198b4a8ce1853149d9509, type: 3}
