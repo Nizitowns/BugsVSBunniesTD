@@ -57,7 +57,31 @@ namespace DefaultNamespace
 
         private void OnTriggerEnter(Collider other)
         {
-            ApplyDamage(other.transform);
+            if (_bulletConfig.activateAOE)
+            {
+                Vector3 pos = new Vector3(transform.position.x, 2.5f, transform.position.z);
+                Ray ray = new Ray(pos, Vector3.down);
+                var hitall = Physics.SphereCastAll(ray, _bulletConfig.hitAreaRadius);
+                foreach (var hit in hitall)
+                {
+                    ApplyDamage(hit.transform);
+                }
+                
+                // Debuging
+                if (Debugger.ShowAreaEffectVisualizer)
+                {
+                    var ball = Instantiate(DebugVisual.Instance.BulletAreaVisualizer);
+                    ball.transform.position = pos;
+                    ball.transform.localScale = Vector3.one * _bulletConfig.hitAreaRadius * 2;
+                
+                    Destroy(ball, 0.15f);
+                }
+            }
+            else
+            {
+                ApplyDamage(other.transform);
+            }
+            
             Dispose();
         }
 
@@ -157,25 +181,6 @@ namespace DefaultNamespace
         
         public void Dispose()
         {
-            if (_bulletConfig.activateAOE)
-            {
-                Ray ray = new Ray(transform.position, Vector3.down);
-                var hitall = Physics.SphereCastAll(ray, _bulletConfig.hitAreaRadius);
-                foreach (var hit in hitall)
-                {
-                    ApplyDamage(hit.transform);
-                }
-                
-                if (Debugger.ShowAreaEffectVisualizer)
-                {
-                    var ball = Instantiate(DebugVisual.Instance.BulletAreaVisualizer);
-                    ball.transform.position = transform.position;
-                    ball.transform.localScale = Vector3.one * _bulletConfig.hitAreaRadius;
-                
-                    Destroy(ball, 0.15f);
-                }
-            }
-            
             Destroy(gameObject);
         }
     }
