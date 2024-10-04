@@ -26749,6 +26749,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 325541483169477326, guid: 340f469b45fdf764eb886fa12888295f,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 97662f53d15bcbb42993a038cfb589b2,
+        type: 3}
     - target: {fileID: 874564245336317951, guid: 340f469b45fdf764eb886fa12888295f,
         type: 3}
       propertyPath: m_Name
@@ -35497,6 +35503,11 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 1775251551929591778, guid: 20c0e2be6a3b59b47a7907c631221e3a, type: 3}
     - {fileID: 3397278373062276768, guid: 20c0e2be6a3b59b47a7907c631221e3a, type: 3}
+    - {fileID: 1289816423625687058, guid: 20c0e2be6a3b59b47a7907c631221e3a, type: 3}
+    - {fileID: 5643893841997931092, guid: 20c0e2be6a3b59b47a7907c631221e3a, type: 3}
+    - {fileID: 6718645986595919773, guid: 20c0e2be6a3b59b47a7907c631221e3a, type: 3}
+    - {fileID: 7974407053492055279, guid: 20c0e2be6a3b59b47a7907c631221e3a, type: 3}
+    - {fileID: 1222585762086368036, guid: 20c0e2be6a3b59b47a7907c631221e3a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:

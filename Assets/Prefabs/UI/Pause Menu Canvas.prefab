@@ -2509,7 +2509,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5150462060476865382}
   - component: {fileID: 115311466540236683}
-  - component: {fileID: 7974407053492055279}
   m_Layer: 5
   m_Name: Options Canvas
   m_TagString: Untagged
@@ -2555,23 +2554,6 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!114 &7974407053492055279
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2968411968876443039}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 724998de9941df24a9bd7719d598904b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ActivationKey: 27
-  ActivateOnPress: {fileID: 431297675162819833}
-  MenuManager: {fileID: 4717637354088806438}
-  myFadeType: 0
-  PauseIfEnabled: 1
 --- !u!1 &2976610540310555129
 GameObject:
   m_ObjectHideFlags: 0
@@ -2582,7 +2564,6 @@ GameObject:
   m_Component:
   - component: {fileID: 159675017947965957}
   - component: {fileID: 7280302045566161498}
-  - component: {fileID: 1222585762086368036}
   m_Layer: 5
   m_Name: Tower Info
   m_TagString: Untagged
@@ -2622,23 +2603,6 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!114 &1222585762086368036
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2976610540310555129}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 724998de9941df24a9bd7719d598904b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ActivationKey: 27
-  ActivateOnPress: {fileID: 431297675162819833}
-  MenuManager: {fileID: 4717637354088806438}
-  myFadeType: 0
-  PauseIfEnabled: 1
 --- !u!1 &3431445691778898173
 GameObject:
   m_ObjectHideFlags: 0
@@ -3468,7 +3432,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6839413431458872634}
   - component: {fileID: 431297675162819833}
-  - component: {fileID: 6718645986595919773}
   m_Layer: 0
   m_Name: EmptyMenu
   m_TagString: Untagged
@@ -3507,23 +3470,6 @@ CanvasGroup:
   m_Interactable: 0
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!114 &6718645986595919773
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4402768170742127454}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 724998de9941df24a9bd7719d598904b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ActivationKey: 27
-  ActivateOnPress: {fileID: 5517157550343426752}
-  MenuManager: {fileID: 4717637354088806438}
-  myFadeType: 1
-  PauseIfEnabled: 0
 --- !u!1 &4444582264858335874
 GameObject:
   m_ObjectHideFlags: 0
@@ -5092,7 +5038,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5346068998725051981}
   - component: {fileID: 8280471250934483545}
-  - component: {fileID: 5643893841997931092}
   - component: {fileID: 3442995388080254134}
   - component: {fileID: 3303443804381701168}
   m_Layer: 5
@@ -5134,23 +5079,6 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!114 &5643893841997931092
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6271975281939723232}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 724998de9941df24a9bd7719d598904b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ActivationKey: 0
-  ActivateOnPress: {fileID: 0}
-  MenuManager: {fileID: 0}
-  myFadeType: 0
-  PauseIfEnabled: 1
 --- !u!82 &3442995388080254134
 AudioSource:
   m_ObjectHideFlags: 0
@@ -6520,8 +6448,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5411273068317444462}
   - component: {fileID: 5517157550343426752}
-  - component: {fileID: 1775251551929591778}
-  - component: {fileID: 3397278373062276768}
   m_Layer: 0
   m_Name: Main Menu
   m_TagString: Untagged
@@ -6565,40 +6491,6 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!114 &1775251551929591778
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7857466217847911784}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 724998de9941df24a9bd7719d598904b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ActivationKey: 27
-  ActivateOnPress: {fileID: 431297675162819833}
-  MenuManager: {fileID: 4717637354088806438}
-  myFadeType: 1
-  PauseIfEnabled: 1
---- !u!114 &3397278373062276768
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7857466217847911784}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 724998de9941df24a9bd7719d598904b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ActivationKey: 27
-  ActivateOnPress: {fileID: 0}
-  MenuManager: {fileID: 0}
-  myFadeType: 0
-  PauseIfEnabled: 0
 --- !u!1 &7955429763664767261
 GameObject:
   m_ObjectHideFlags: 0
@@ -6752,7 +6644,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2111678420320316732}
   - component: {fileID: 5549203012462064133}
-  - component: {fileID: 1289816423625687058}
   - component: {fileID: 5570436792259482284}
   - component: {fileID: 7250946679885537537}
   m_Layer: 5
@@ -6794,23 +6685,6 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!114 &1289816423625687058
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8856851053255048797}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 724998de9941df24a9bd7719d598904b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ActivationKey: 0
-  ActivateOnPress: {fileID: 0}
-  MenuManager: {fileID: 0}
-  myFadeType: 0
-  PauseIfEnabled: 1
 --- !u!82 &5570436792259482284
 AudioSource:
   m_ObjectHideFlags: 0
