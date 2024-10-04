@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,11 +21,13 @@ public class WaveEndHook : MonoBehaviour
     public CanvasGroup TweenEnableOnComplete;
 
     public MenuManager PauseMenuManager;
-
+    
     [Min(0)]
     public int RewardMoneyOnComplete;
 
     public bool DeclareLevelCompleteOnComplete;
+
+    public static event Action OnWaveEnded;
 
     void Start()
     {
@@ -95,6 +98,7 @@ public class WaveEndHook : MonoBehaviour
 
     public void ToggleActive()
     {
+        OnWaveEnded?.Invoke();
         ToggleOnComplete.SetActive(!ToggleOnComplete.gameObject.activeSelf);
     }
 }
