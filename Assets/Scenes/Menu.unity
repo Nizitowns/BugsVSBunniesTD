@@ -8351,87 +8351,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 579782954}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1049860676
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1049860678}
-  - component: {fileID: 1049860677}
-  m_Layer: 0
-  m_Name: Enemy Spawner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1049860677
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1049860676}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: abf6da8976135a345b7f4494e08f421d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnRequests:
-  - EnemyConfig: {fileID: 11400000, guid: bb93ab8c7692a2441a4df4e28b3c9921, type: 2}
-    SpawnAmount: 3
-    SpawnDelayTime: 1
-    PostWaveDelay: 6
-    WaitUntilCompletion: 0
-    snapSpawning: 1
-    ReportedDifficultyRating: 0
-  - EnemyConfig: {fileID: 11400000, guid: bb93ab8c7692a2441a4df4e28b3c9921, type: 2}
-    SpawnAmount: 6
-    SpawnDelayTime: 2
-    PostWaveDelay: 6
-    WaitUntilCompletion: 0
-    snapSpawning: 1
-    ReportedDifficultyRating: 0
-  - EnemyConfig: {fileID: 11400000, guid: 7d09aea050ded784fb9a03ba866de67a, type: 2}
-    SpawnAmount: 10
-    SpawnDelayTime: 1.5
-    PostWaveDelay: 10
-    WaitUntilCompletion: 0
-    snapSpawning: 1
-    ReportedDifficultyRating: 0
-  - EnemyConfig: {fileID: 11400000, guid: 9c7758d600e43ec4f9aeb4eaa95c5f8c, type: 2}
-    SpawnAmount: 5
-    SpawnDelayTime: 2
-    PostWaveDelay: 10
-    WaitUntilCompletion: 0
-    snapSpawning: 1
-    ReportedDifficultyRating: 0
-  - EnemyConfig: {fileID: 11400000, guid: bb93ab8c7692a2441a4df4e28b3c9921, type: 2}
-    SpawnAmount: 10
-    SpawnDelayTime: 1.5
-    PostWaveDelay: 10
-    WaitUntilCompletion: 0
-    snapSpawning: 1
-    ReportedDifficultyRating: 0
-  PostWaveDelay: 0
---- !u!4 &1049860678
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1049860676}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -80, y: 5, z: 10}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!4 &1053991670 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2336667533218166754, guid: 98c998558ed06d544b5565b8a67268dd,
@@ -9363,7 +9282,7 @@ MonoBehaviour:
   CurrentActive: {fileID: 21277294}
   fadeDuration: 0.25
   volume: {fileID: 162602077}
-  CurrentActiveIfLoadedOnceBefore: {fileID: 477331984}
+  CurrentActiveIfLoadedOnceBefore: {fileID: 21277294}
 --- !u!114 &1193559351
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15898,7 +15817,6 @@ SceneRoots:
   - {fileID: 871291107}
   - {fileID: 2145310176}
   - {fileID: 1017271729}
-  - {fileID: 1049860678}
   - {fileID: 164078996}
   - {fileID: 2088004397}
   - {fileID: 1915152175}
