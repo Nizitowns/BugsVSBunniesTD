@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using DefaultNamespace;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -95,6 +96,7 @@ public class WaveEndHook : MonoBehaviour
 
     public void ToggleActive()
     {
+        GameSpeed.Instance.SetGameSpeed(GameSpeed.GameSpeedX.X1);
         ToggleOnComplete.SetActive(!ToggleOnComplete.gameObject.activeSelf);
     }
 }
