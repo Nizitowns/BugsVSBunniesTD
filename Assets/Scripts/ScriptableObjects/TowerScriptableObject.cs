@@ -20,7 +20,6 @@ namespace DefaultNamespace.TowerSystem
         public BulletConfig BulletConfig;
         public float fireRate;
         public float attackRadius;
-        public float burstDelay;
         public float attackTime;
         public float cooldown;
         public TargetType myTargetingType;
