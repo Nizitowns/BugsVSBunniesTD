@@ -7,7 +7,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f09f1f5c-0885-4fd4-b329-770c8f92c57a" name="Changes" comment="" />
+    <list default="true" id="f09f1f5c-0885-4fd4-b329-770c8f92c57a" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NewBulletBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NewBulletBehaviour.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ScriptableObjects/TowerScriptableObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ScriptableObjects/TowerScriptableObject.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -59,7 +62,7 @@
 }</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="$USER_HOME$/OneDrive/Desktop/Unity Builds/BugsVSBunniesTD-Win Build\BugsVSBunniesTD.exe" />
+      <option name="EXE_PATH" value="$USER_HOME$/OneDrive/Desktop/Unity Builds/BugsVSBunniesTD-Win Build/BugsVSBunniesTD.exe" />
       <option name="PROGRAM_PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="C:\Users\Kugon\OneDrive\Desktop\Unity Builds\BugsVSBunniesTD-Win Build" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -120,7 +123,7 @@
       <workItem from="1725597204098" duration="1000" />
       <workItem from="1725661497732" duration="15013000" />
       <workItem from="1727206126557" duration="1658000" />
-      <workItem from="1727899854803" duration="2616000" />
+      <workItem from="1727899854803" duration="3807000" />
     </task>
     <servers />
   </component>

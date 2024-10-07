@@ -34,7 +34,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 64}
+  m_AnchoredPosition: {x: 0, y: 16.3}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3857664795778945821
@@ -750,8 +750,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ObjectName: Bubble Tower
-  AboutText: The Bubble Tower captures a single ant in a bubble, removing it from
-    the game.  Just don't get too distracted by all the floating ants.
+  AboutText: Captures an ant in a bubble.
   TextColor: {r: 1, g: 0.35686275, b: 0.75686276, a: 1}
 --- !u!1 &583482007111437696
 GameObject:
@@ -2971,8 +2970,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 35}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 0, y: -22}
+  m_SizeDelta: {x: 200, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &518971684878711985
 CanvasRenderer:
@@ -3002,8 +3001,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ' A marvel of modern bunny science, the Shrink Ray targets a single ant
-    and brings it down to size.  "Honey, we shrunk the ants!"'
+  m_text: Shrinks an ant!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3cbc63cbeabeb0d44be0f4aa812c6b1d, type: 2}
   m_sharedMaterial: {fileID: 1992119596052254777, guid: 3cbc63cbeabeb0d44be0f4aa812c6b1d,
@@ -3031,7 +3029,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 14.85
+  m_fontSize: 15
   m_fontSizeBase: 15
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -3559,8 +3557,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ObjectName: Shrink Ray
-  AboutText: A marvel of modern bunny science, the Shrink Ray targets a single ant
-    and brings it down to size.  "Honey, we shrunk the ants!"
+  AboutText: Shrinks an ant!
   TextColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &6141227656140698798
 MonoBehaviour:
@@ -4132,8 +4129,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 186, y: 31}
-  m_SizeDelta: {x: 176.4786, y: 185.7814}
+  m_AnchoredPosition: {x: 186, y: 62}
+  m_SizeDelta: {x: 176.4786, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6673028258338682626
 CanvasRenderer:
@@ -5049,8 +5046,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ObjectName: Wind Tower
-  AboutText: ' Pushes ants backwards along the path, giving your towers more time
-    to deal with the pesky insect invaders.'
+  AboutText: Blows ants away.
   TextColor: {r: 0, g: 0.33333334, b: 0.03137255, a: 1}
 --- !u!1 &7011684336643707705
 GameObject:
@@ -6588,8 +6584,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ObjectName: Freeze Ray
-  AboutText: Are the ants too fast?  Are they evading your defenses?  Use the Freeze
-    Ray to chill and slow them down!
+  AboutText: Slows down an ant.
   TextColor: {r: 0, g: 0.10980392, b: 0.85882354, a: 1}
 --- !u!1 &8364453970659071216
 GameObject:

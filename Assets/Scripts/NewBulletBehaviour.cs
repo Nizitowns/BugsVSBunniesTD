@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using DefaultNamespace.OnDeathEffects;
 using DefaultNamespace.TowerSystem;
+using DG.Tweening;
 using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -57,7 +58,31 @@ namespace DefaultNamespace
 
         private void OnTriggerEnter(Collider other)
         {
-            ApplyDamage(other.transform);
+            if (_bulletConfig.activateAOE)
+            {
+                Vector3 pos = new Vector3(transform.position.x, 2.5f, transform.position.z);
+                Ray ray = new Ray(pos, Vector3.down);
+                var hitall = Physics.SphereCastAll(ray, _bulletConfig.hitAreaRadius);
+                foreach (var hit in hitall)
+                {
+                    ApplyDamage(hit.transform);
+                }
+                
+                // Debuging
+                if (Debugger.ShowAreaEffectVisualizer)
+                {
+                    var ball = Instantiate(DebugVisual.Instance.BulletAreaVisualizer);
+                    ball.transform.position = pos;
+                    ball.transform.localScale = Vector3.one * _bulletConfig.hitAreaRadius * 2;
+                
+                    Destroy(ball, 0.15f);
+                }
+            }
+            else
+            {
+                ApplyDamage(other.transform);
+            }
+            
             Dispose();
         }
 
@@ -104,6 +129,22 @@ namespace DefaultNamespace
             {
                 case eDeathEffect.None:
                     // Nothing Happens - Just Die
+                    break;
+                case eDeathEffect.Shrink:
+                    skinnedMesh = enemyUnit.mTransform.transform.GetComponentInChildren<SkinnedMeshRenderer>();
+                    skinnedMesh.BakeMesh(copiedMesh);
+            
+                    newMeshObject = new GameObject("CopiedMesh");
+                    meshFilter = newMeshObject.AddComponent<MeshFilter>();
+                    meshRenderer = newMeshObject.AddComponent<MeshRenderer>();
+                    meshFilter.mesh = copiedMesh;
+                    meshRenderer.material = skinnedMesh.material;
+
+                    var killTime = 0.5f;
+                    newMeshObject.transform.position = enemyUnit.mTransform.position;
+                    newMeshObject.transform.DOScale(Vector3.zero, killTime).SetEase(Ease.InBack).SetLink(newMeshObject);
+                    
+                    Destroy(newMeshObject, killTime);
                     break;
                 case eDeathEffect.BubbleUp:
                     skinnedMesh = enemyUnit.mTransform.transform.GetComponentInChildren<SkinnedMeshRenderer>();
@@ -157,25 +198,6 @@ namespace DefaultNamespace
         
         public void Dispose()
         {
-            if (_bulletConfig.activateAOE)
-            {
-                Ray ray = new Ray(transform.position, Vector3.down);
-                var hitall = Physics.SphereCastAll(ray, _bulletConfig.hitAreaRadius);
-                foreach (var hit in hitall)
-                {
-                    ApplyDamage(hit.transform);
-                }
-                
-                if (Debugger.ShowAreaEffectVisualizer)
-                {
-                    var ball = Instantiate(DebugVisual.Instance.BulletAreaVisualizer);
-                    ball.transform.position = transform.position;
-                    ball.transform.localScale = Vector3.one * _bulletConfig.hitAreaRadius;
-                
-                    Destroy(ball, 0.15f);
-                }
-            }
-            
             Destroy(gameObject);
         }
     }
