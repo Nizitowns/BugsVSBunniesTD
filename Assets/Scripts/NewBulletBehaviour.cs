@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using DefaultNamespace.OnDeathEffects;
 using DefaultNamespace.TowerSystem;
+using DG.Tweening;
 using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -128,6 +129,22 @@ namespace DefaultNamespace
             {
                 case eDeathEffect.None:
                     // Nothing Happens - Just Die
+                    break;
+                case eDeathEffect.Shrink:
+                    skinnedMesh = enemyUnit.mTransform.transform.GetComponentInChildren<SkinnedMeshRenderer>();
+                    skinnedMesh.BakeMesh(copiedMesh);
+            
+                    newMeshObject = new GameObject("CopiedMesh");
+                    meshFilter = newMeshObject.AddComponent<MeshFilter>();
+                    meshRenderer = newMeshObject.AddComponent<MeshRenderer>();
+                    meshFilter.mesh = copiedMesh;
+                    meshRenderer.material = skinnedMesh.material;
+
+                    var killTime = 0.5f;
+                    newMeshObject.transform.position = enemyUnit.mTransform.position;
+                    newMeshObject.transform.DOScale(Vector3.zero, killTime).SetEase(Ease.InBack).SetLink(newMeshObject);
+                    
+                    Destroy(newMeshObject, killTime);
                     break;
                 case eDeathEffect.BubbleUp:
                     skinnedMesh = enemyUnit.mTransform.transform.GetComponentInChildren<SkinnedMeshRenderer>();

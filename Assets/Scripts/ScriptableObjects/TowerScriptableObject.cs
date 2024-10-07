@@ -74,6 +74,7 @@ namespace DefaultNamespace.TowerSystem
     public enum eDeathEffect
     {
         None,
+        Shrink,
         BubbleUp,
         FlyAway,
         Electrocute,
