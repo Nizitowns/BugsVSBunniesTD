@@ -21,15 +21,15 @@ MonoBehaviour:
   purchaseIconAdditionalTint: {r: 0, g: 0.35686275, b: 1, a: 1}
   BulletConfig:
     prefab: {fileID: 585120068255766094, guid: 8f6c717db94a7ac45aca526e2470863d, type: 3}
-    damage: 4
+    damage: 6
     speed: 30
-    maxHit: 4
+    activateAOE: 0
+    hitAreaRadius: 1
     deathEffect: 1
-    BulletDiesOnTargetDeath: 0
-  fireRate: 0.25
+  fireRate: 0.2
   attackRadius: 30
   burstDelay: 0
-  attackTime: 0
+  attackTime: 1
   cooldown: 0
   myTargetingType: 0
   debuffs: []

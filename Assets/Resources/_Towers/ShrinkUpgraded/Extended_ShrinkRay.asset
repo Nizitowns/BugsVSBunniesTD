@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e595cae459fe45ca96f677b58c690d13, type: 3}
   m_Name: Extended_ShrinkRay
   m_EditorClassIdentifier: 
-  purchaseCost: 30
+  purchaseCost: 35
   selectedTitle: <color=red>Extended Shrink Ray
   purchaseIcon: {fileID: 21300000, guid: 3fe24d4a145b9e740a4f73f8830da436, type: 3}
   prefab: {fileID: 4083087000483744265, guid: bdbd97bbc554c4d44b5b0a57e5e4caf4, type: 3}
@@ -26,11 +26,11 @@ MonoBehaviour:
     speed: 60
     activateAOE: 0
     hitAreaRadius: 1
-    deathEffect: 0
+    deathEffect: 2
   fireRate: 0.01
-  attackRadius: 60
+  attackRadius: 45
   burstDelay: 0
-  attackTime: 0
+  attackTime: 1
   cooldown: 0
   myTargetingType: 1
   debuffs: []

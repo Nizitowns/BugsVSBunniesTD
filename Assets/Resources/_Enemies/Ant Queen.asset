@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Ant Queen
   m_EditorClassIdentifier: 
   prefab: {fileID: 6202685934086139173, guid: e1f4a25b2c3bfbb47a3009d9ead3093b, type: 3}
-  moneyReward: 10
+  moneyReward: 5
   maxHealth: 600
   carrotDamage: 6
-  speed: 20
+  speed: 15
   offset: 0.5

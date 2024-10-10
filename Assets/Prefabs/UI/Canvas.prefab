@@ -1546,7 +1546,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13d1cbab174a8584691cd123769c65a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Balance: 100
+  Balance: 50
   balanceUI: {fileID: 5362346809335301941}
 --- !u!1 &1678159775415138501
 GameObject:
