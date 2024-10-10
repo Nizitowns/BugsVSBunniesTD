@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Shrimp Soldier Fast
   m_EditorClassIdentifier: 
   prefab: {fileID: 6055506124579711910, guid: b4d435fefef12f144b0b51ded2b65592, type: 3}
-  moneyReward: 8
-  maxHealth: 50
-  carrotDamage: 1
-  speed: 15
+  moneyReward: 4
+  maxHealth: 30
+  carrotDamage: 2
+  speed: 13
   offset: 0.4

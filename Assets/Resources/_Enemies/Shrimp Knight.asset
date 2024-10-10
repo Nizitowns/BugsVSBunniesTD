@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Shrimp Knight
   m_EditorClassIdentifier: 
   prefab: {fileID: 6055506124579711910, guid: f360439ef19e6d845aa36808c204fda2, type: 3}
-  moneyReward: 10
-  maxHealth: 250
+  moneyReward: 5
+  maxHealth: 300
   carrotDamage: 4
-  speed: 10
+  speed: 6
   offset: 0.5

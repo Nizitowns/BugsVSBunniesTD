@@ -24,15 +24,15 @@ MonoBehaviour:
       type: 3}
     damage: 0
     speed: 60
-    maxHit: 5
+    activateAOE: 1
+    hitAreaRadius: 5
     deathEffect: 0
-    BulletDiesOnTargetDeath: 1
   fireRate: 0.01
   attackRadius: 30
   burstDelay: 0
-  attackTime: 0
-  cooldown: 0
-  myTargetingType: 1
+  attackTime: 0.5
+  cooldown: 1
+  myTargetingType: 2
   debuffs:
   - {fileID: 11400000, guid: 62e0d2485762c86448cf559ae1a9df55, type: 2}
   upgradeOptions: []

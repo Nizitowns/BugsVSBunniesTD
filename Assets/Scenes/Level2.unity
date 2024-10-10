@@ -14771,78 +14771,207 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abf6da8976135a345b7f4494e08f421d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnRequests:
-  - EnemyConfig: {fileID: 11400000, guid: 24ae7144d649cc347b2c2d2d60777d55, type: 2}
-    SpawnAmount: 1
-    SpawnDelayTime: 1
-    PostWaveDelay: 12
-    WaitUntilCompletion: 0
-    snapSpawning: 1
-    ReportedDifficultyRating: 0
-  - EnemyConfig: {fileID: 11400000, guid: fc6d735b5ec3f1146b74df71bfbb22cd, type: 2}
-    SpawnAmount: 10
-    SpawnDelayTime: 1
+  enemyWaves:
+  - ReportedDifficultyRating: 0
+    enemiesToSpawn:
+    - EnemyConfig: {fileID: 11400000, guid: 24ae7144d649cc347b2c2d2d60777d55, type: 2}
+      SpawnAmount: 20
+      spawnInterval: 1
+      snapSpawning: 1
     PostWaveDelay: 6
     WaitUntilCompletion: 1
-    snapSpawning: 1
-    ReportedDifficultyRating: 0
-  - EnemyConfig: {fileID: 11400000, guid: 193d3db572efb004e8c4a28fcca55afa, type: 2}
-    SpawnAmount: 2
-    SpawnDelayTime: 1
-    PostWaveDelay: 0.1
-    WaitUntilCompletion: 0
-    snapSpawning: 1
-    ReportedDifficultyRating: 0
-  - EnemyConfig: {fileID: 11400000, guid: fc6d735b5ec3f1146b74df71bfbb22cd, type: 2}
-    SpawnAmount: 15
-    SpawnDelayTime: 0.5
+  - ReportedDifficultyRating: 0
+    enemiesToSpawn:
+    - EnemyConfig: {fileID: 11400000, guid: 24ae7144d649cc347b2c2d2d60777d55, type: 2}
+      SpawnAmount: 3
+      spawnInterval: 1
+      snapSpawning: 1
+    - EnemyConfig: {fileID: 11400000, guid: fc6d735b5ec3f1146b74df71bfbb22cd, type: 2}
+      SpawnAmount: 3
+      spawnInterval: 1
+      snapSpawning: 1
+    - EnemyConfig: {fileID: 11400000, guid: 24ae7144d649cc347b2c2d2d60777d55, type: 2}
+      SpawnAmount: 3
+      spawnInterval: 1
+      snapSpawning: 1
+    - EnemyConfig: {fileID: 11400000, guid: fc6d735b5ec3f1146b74df71bfbb22cd, type: 2}
+      SpawnAmount: 3
+      spawnInterval: 1
+      snapSpawning: 1
+    - EnemyConfig: {fileID: 11400000, guid: 24ae7144d649cc347b2c2d2d60777d55, type: 2}
+      SpawnAmount: 3
+      spawnInterval: 1
+      snapSpawning: 1
+    - EnemyConfig: {fileID: 11400000, guid: fc6d735b5ec3f1146b74df71bfbb22cd, type: 2}
+      SpawnAmount: 3
+      spawnInterval: 1
+      snapSpawning: 1
+    - EnemyConfig: {fileID: 11400000, guid: 24ae7144d649cc347b2c2d2d60777d55, type: 2}
+      SpawnAmount: 3
+      spawnInterval: 1
+      snapSpawning: 1
+    - EnemyConfig: {fileID: 11400000, guid: fc6d735b5ec3f1146b74df71bfbb22cd, type: 2}
+      SpawnAmount: 3
+      spawnInterval: 1
+      snapSpawning: 1
+    - EnemyConfig: {fileID: 11400000, guid: 24ae7144d649cc347b2c2d2d60777d55, type: 2}
+      SpawnAmount: 3
+      spawnInterval: 1
+      snapSpawning: 1
+    - EnemyConfig: {fileID: 11400000, guid: fc6d735b5ec3f1146b74df71bfbb22cd, type: 2}
+      SpawnAmount: 3
+      spawnInterval: 1
+      snapSpawning: 1
+    - EnemyConfig: {fileID: 11400000, guid: 24ae7144d649cc347b2c2d2d60777d55, type: 2}
+      SpawnAmount: 3
+      spawnInterval: 1
+      snapSpawning: 1
+    - EnemyConfig: {fileID: 11400000, guid: fc6d735b5ec3f1146b74df71bfbb22cd, type: 2}
+      SpawnAmount: 3
+      spawnInterval: 1
+      snapSpawning: 1
+    - EnemyConfig: {fileID: 11400000, guid: 24ae7144d649cc347b2c2d2d60777d55, type: 2}
+      SpawnAmount: 3
+      spawnInterval: 1
+      snapSpawning: 1
     PostWaveDelay: 6
     WaitUntilCompletion: 1
-    snapSpawning: 1
-    ReportedDifficultyRating: 0
-  - EnemyConfig: {fileID: 11400000, guid: 24ae7144d649cc347b2c2d2d60777d55, type: 2}
-    SpawnAmount: 9
-    SpawnDelayTime: 0.5
-    PostWaveDelay: 0
-    WaitUntilCompletion: 0
-    snapSpawning: 1
-    ReportedDifficultyRating: 0
-  - EnemyConfig: {fileID: 11400000, guid: fc6d735b5ec3f1146b74df71bfbb22cd, type: 2}
-    SpawnAmount: 6
-    SpawnDelayTime: 0.25
+  - ReportedDifficultyRating: 0
+    enemiesToSpawn:
+    - EnemyConfig: {fileID: 11400000, guid: 24ae7144d649cc347b2c2d2d60777d55, type: 2}
+      SpawnAmount: 2
+      spawnInterval: 1
+      snapSpawning: 1
+    - EnemyConfig: {fileID: 11400000, guid: 987223ab1290b4f44b5040f97800ca44, type: 2}
+      SpawnAmount: 2
+      spawnInterval: 1
+      snapSpawning: 1
+    - EnemyConfig: {fileID: 11400000, guid: fc6d735b5ec3f1146b74df71bfbb22cd, type: 2}
+      SpawnAmount: 10
+      spawnInterval: 1
+      snapSpawning: 1
+    - EnemyConfig: {fileID: 11400000, guid: 24ae7144d649cc347b2c2d2d60777d55, type: 2}
+      SpawnAmount: 2
+      spawnInterval: 1
+      snapSpawning: 1
+    - EnemyConfig: {fileID: 11400000, guid: fc6d735b5ec3f1146b74df71bfbb22cd, type: 2}
+      SpawnAmount: 10
+      spawnInterval: 1
+      snapSpawning: 1
     PostWaveDelay: 6
     WaitUntilCompletion: 1
-    snapSpawning: 1
-    ReportedDifficultyRating: 0
-  - EnemyConfig: {fileID: 11400000, guid: fc6d735b5ec3f1146b74df71bfbb22cd, type: 2}
-    SpawnAmount: 15
-    SpawnDelayTime: 0.25
-    PostWaveDelay: 1
-    WaitUntilCompletion: 0
-    snapSpawning: 1
-    ReportedDifficultyRating: 0
-  - EnemyConfig: {fileID: 11400000, guid: 193d3db572efb004e8c4a28fcca55afa, type: 2}
-    SpawnAmount: 5
-    SpawnDelayTime: 2
-    PostWaveDelay: 1
+  - ReportedDifficultyRating: 0
+    enemiesToSpawn:
+    - EnemyConfig: {fileID: 11400000, guid: 987223ab1290b4f44b5040f97800ca44, type: 2}
+      SpawnAmount: 2
+      spawnInterval: 1
+      snapSpawning: 1
+    - EnemyConfig: {fileID: 11400000, guid: 24ae7144d649cc347b2c2d2d60777d55, type: 2}
+      SpawnAmount: 2
+      spawnInterval: 1
+      snapSpawning: 1
+    - EnemyConfig: {fileID: 11400000, guid: fc6d735b5ec3f1146b74df71bfbb22cd, type: 2}
+      SpawnAmount: 2
+      spawnInterval: 1
+      snapSpawning: 1
+    - EnemyConfig: {fileID: 11400000, guid: 24ae7144d649cc347b2c2d2d60777d55, type: 2}
+      SpawnAmount: 2
+      spawnInterval: 1
+      snapSpawning: 1
+    - EnemyConfig: {fileID: 11400000, guid: fc6d735b5ec3f1146b74df71bfbb22cd, type: 2}
+      SpawnAmount: 2
+      spawnInterval: 1
+      snapSpawning: 1
+    - EnemyConfig: {fileID: 11400000, guid: 24ae7144d649cc347b2c2d2d60777d55, type: 2}
+      SpawnAmount: 2
+      spawnInterval: 1
+      snapSpawning: 1
+    - EnemyConfig: {fileID: 11400000, guid: fc6d735b5ec3f1146b74df71bfbb22cd, type: 2}
+      SpawnAmount: 2
+      spawnInterval: 1
+      snapSpawning: 1
+    - EnemyConfig: {fileID: 11400000, guid: 24ae7144d649cc347b2c2d2d60777d55, type: 2}
+      SpawnAmount: 2
+      spawnInterval: 1
+      snapSpawning: 1
+    - EnemyConfig: {fileID: 11400000, guid: fc6d735b5ec3f1146b74df71bfbb22cd, type: 2}
+      SpawnAmount: 2
+      spawnInterval: 1
+      snapSpawning: 1
+    - EnemyConfig: {fileID: 11400000, guid: 24ae7144d649cc347b2c2d2d60777d55, type: 2}
+      SpawnAmount: 2
+      spawnInterval: 1
+      snapSpawning: 1
+    - EnemyConfig: {fileID: 11400000, guid: fc6d735b5ec3f1146b74df71bfbb22cd, type: 2}
+      SpawnAmount: 2
+      spawnInterval: 1
+      snapSpawning: 1
+    - EnemyConfig: {fileID: 11400000, guid: 987223ab1290b4f44b5040f97800ca44, type: 2}
+      SpawnAmount: 4
+      spawnInterval: 1
+      snapSpawning: 1
+    - EnemyConfig: {fileID: 11400000, guid: fc6d735b5ec3f1146b74df71bfbb22cd, type: 2}
+      SpawnAmount: 10
+      spawnInterval: 1
+      snapSpawning: 1
+    PostWaveDelay: 6
     WaitUntilCompletion: 1
-    snapSpawning: 1
-    ReportedDifficultyRating: 0
-  - EnemyConfig: {fileID: 11400000, guid: 193d3db572efb004e8c4a28fcca55afa, type: 2}
-    SpawnAmount: 1
-    SpawnDelayTime: 1
-    PostWaveDelay: 2
-    WaitUntilCompletion: 0
-    snapSpawning: 1
-    ReportedDifficultyRating: 0
-  - EnemyConfig: {fileID: 11400000, guid: fc6d735b5ec3f1146b74df71bfbb22cd, type: 2}
-    SpawnAmount: 25
-    SpawnDelayTime: 1
-    PostWaveDelay: 1
+  - ReportedDifficultyRating: 0
+    enemiesToSpawn:
+    - EnemyConfig: {fileID: 11400000, guid: 987223ab1290b4f44b5040f97800ca44, type: 2}
+      SpawnAmount: 2
+      spawnInterval: 1
+      snapSpawning: 1
+    - EnemyConfig: {fileID: 11400000, guid: 24ae7144d649cc347b2c2d2d60777d55, type: 2}
+      SpawnAmount: 5
+      spawnInterval: 1
+      snapSpawning: 1
+    - EnemyConfig: {fileID: 11400000, guid: fc6d735b5ec3f1146b74df71bfbb22cd, type: 2}
+      SpawnAmount: 5
+      spawnInterval: 1
+      snapSpawning: 1
+    - EnemyConfig: {fileID: 11400000, guid: 24ae7144d649cc347b2c2d2d60777d55, type: 2}
+      SpawnAmount: 5
+      spawnInterval: 1
+      snapSpawning: 1
+    - EnemyConfig: {fileID: 11400000, guid: fc6d735b5ec3f1146b74df71bfbb22cd, type: 2}
+      SpawnAmount: 5
+      spawnInterval: 1
+      snapSpawning: 1
+    - EnemyConfig: {fileID: 11400000, guid: 24ae7144d649cc347b2c2d2d60777d55, type: 2}
+      SpawnAmount: 5
+      spawnInterval: 1
+      snapSpawning: 1
+    - EnemyConfig: {fileID: 11400000, guid: fc6d735b5ec3f1146b74df71bfbb22cd, type: 2}
+      SpawnAmount: 5
+      spawnInterval: 1
+      snapSpawning: 1
+    - EnemyConfig: {fileID: 11400000, guid: 24ae7144d649cc347b2c2d2d60777d55, type: 2}
+      SpawnAmount: 5
+      spawnInterval: 1
+      snapSpawning: 1
+    - EnemyConfig: {fileID: 11400000, guid: fc6d735b5ec3f1146b74df71bfbb22cd, type: 2}
+      SpawnAmount: 5
+      spawnInterval: 1
+      snapSpawning: 1
+    - EnemyConfig: {fileID: 11400000, guid: 24ae7144d649cc347b2c2d2d60777d55, type: 2}
+      SpawnAmount: 5
+      spawnInterval: 1
+      snapSpawning: 1
+    - EnemyConfig: {fileID: 11400000, guid: fc6d735b5ec3f1146b74df71bfbb22cd, type: 2}
+      SpawnAmount: 5
+      spawnInterval: 1
+      snapSpawning: 1
+    - EnemyConfig: {fileID: 11400000, guid: 193d3db572efb004e8c4a28fcca55afa, type: 2}
+      SpawnAmount: 1
+      spawnInterval: 1
+      snapSpawning: 1
+    - EnemyConfig: {fileID: 11400000, guid: fc6d735b5ec3f1146b74df71bfbb22cd, type: 2}
+      SpawnAmount: 20
+      spawnInterval: 1
+      snapSpawning: 1
+    PostWaveDelay: 6
     WaitUntilCompletion: 1
-    snapSpawning: 1
-    ReportedDifficultyRating: 0
-  PostWaveDelay: 5
   waveIncomingSoundFx: {fileID: 8300000, guid: efa8899e844d9c34db0b685f8db83f45, type: 3}
 --- !u!1001 &934358640
 PrefabInstance:
@@ -15614,7 +15743,7 @@ MonoBehaviour:
   SetPivotTarget: {fileID: 141246755}
   TweenEnableOnComplete: {fileID: 0}
   PauseMenuManager: {fileID: 0}
-  RewardMoneyOnComplete: 150
+  RewardMoneyOnComplete: 0
   DeclareLevelCompleteOnComplete: 0
 --- !u!4 &983552379
 Transform:
@@ -17298,64 +17427,127 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abf6da8976135a345b7f4494e08f421d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnRequests:
-  - EnemyConfig: {fileID: 11400000, guid: 24ae7144d649cc347b2c2d2d60777d55, type: 2}
-    SpawnAmount: 1
-    SpawnDelayTime: 1
-    PostWaveDelay: 12
-    WaitUntilCompletion: 0
-    snapSpawning: 1
-    ReportedDifficultyRating: 0
-  - EnemyConfig: {fileID: 11400000, guid: 24ae7144d649cc347b2c2d2d60777d55, type: 2}
-    SpawnAmount: 3
-    SpawnDelayTime: 1
-    PostWaveDelay: 12
-    WaitUntilCompletion: 1
-    snapSpawning: 1
-    ReportedDifficultyRating: 0
-  - EnemyConfig: {fileID: 11400000, guid: 24ae7144d649cc347b2c2d2d60777d55, type: 2}
-    SpawnAmount: 10
-    SpawnDelayTime: 1.5
+  enemyWaves:
+  - ReportedDifficultyRating: 0
+    enemiesToSpawn:
+    - EnemyConfig: {fileID: 11400000, guid: 24ae7144d649cc347b2c2d2d60777d55, type: 2}
+      SpawnAmount: 15
+      spawnInterval: 3
+      snapSpawning: 1
     PostWaveDelay: 6
     WaitUntilCompletion: 1
-    snapSpawning: 1
-    ReportedDifficultyRating: 0
-  - EnemyConfig: {fileID: 11400000, guid: 987223ab1290b4f44b5040f97800ca44, type: 2}
-    SpawnAmount: 1
-    SpawnDelayTime: 1
+  - ReportedDifficultyRating: 0
+    enemiesToSpawn:
+    - EnemyConfig: {fileID: 11400000, guid: 24ae7144d649cc347b2c2d2d60777d55, type: 2}
+      SpawnAmount: 7
+      spawnInterval: 2
+      snapSpawning: 1
+    - EnemyConfig: {fileID: 11400000, guid: fc6d735b5ec3f1146b74df71bfbb22cd, type: 2}
+      SpawnAmount: 1
+      spawnInterval: 2
+      snapSpawning: 1
+    - EnemyConfig: {fileID: 11400000, guid: 24ae7144d649cc347b2c2d2d60777d55, type: 2}
+      SpawnAmount: 8
+      spawnInterval: 2
+      snapSpawning: 1
+    - EnemyConfig: {fileID: 11400000, guid: fc6d735b5ec3f1146b74df71bfbb22cd, type: 2}
+      SpawnAmount: 1
+      spawnInterval: 2
+      snapSpawning: 1
     PostWaveDelay: 6
     WaitUntilCompletion: 1
-    snapSpawning: 1
-    ReportedDifficultyRating: 0
-  - EnemyConfig: {fileID: 11400000, guid: fc6d735b5ec3f1146b74df71bfbb22cd, type: 2}
-    SpawnAmount: 10
-    SpawnDelayTime: 1
-    PostWaveDelay: 2
-    WaitUntilCompletion: 0
-    snapSpawning: 1
-    ReportedDifficultyRating: 0
-  - EnemyConfig: {fileID: 11400000, guid: 987223ab1290b4f44b5040f97800ca44, type: 2}
-    SpawnAmount: 2
-    SpawnDelayTime: 8
-    PostWaveDelay: 8
+  - ReportedDifficultyRating: 0
+    enemiesToSpawn:
+    - EnemyConfig: {fileID: 11400000, guid: 24ae7144d649cc347b2c2d2d60777d55, type: 2}
+      SpawnAmount: 2
+      spawnInterval: 2
+      snapSpawning: 1
+    - EnemyConfig: {fileID: 11400000, guid: fc6d735b5ec3f1146b74df71bfbb22cd, type: 2}
+      SpawnAmount: 1
+      spawnInterval: 1
+      snapSpawning: 1
+    - EnemyConfig: {fileID: 11400000, guid: 24ae7144d649cc347b2c2d2d60777d55, type: 2}
+      SpawnAmount: 2
+      spawnInterval: 2
+      snapSpawning: 1
+    - EnemyConfig: {fileID: 11400000, guid: fc6d735b5ec3f1146b74df71bfbb22cd, type: 2}
+      SpawnAmount: 1
+      spawnInterval: 1
+      snapSpawning: 1
+    - EnemyConfig: {fileID: 11400000, guid: 24ae7144d649cc347b2c2d2d60777d55, type: 2}
+      SpawnAmount: 2
+      spawnInterval: 2
+      snapSpawning: 1
+    - EnemyConfig: {fileID: 11400000, guid: fc6d735b5ec3f1146b74df71bfbb22cd, type: 2}
+      SpawnAmount: 1
+      spawnInterval: 1
+      snapSpawning: 1
+    - EnemyConfig: {fileID: 11400000, guid: 24ae7144d649cc347b2c2d2d60777d55, type: 2}
+      SpawnAmount: 2
+      spawnInterval: 2
+      snapSpawning: 1
+    - EnemyConfig: {fileID: 11400000, guid: fc6d735b5ec3f1146b74df71bfbb22cd, type: 2}
+      SpawnAmount: 1
+      spawnInterval: 1
+      snapSpawning: 1
+    - EnemyConfig: {fileID: 11400000, guid: 24ae7144d649cc347b2c2d2d60777d55, type: 2}
+      SpawnAmount: 2
+      spawnInterval: 2
+      snapSpawning: 1
+    PostWaveDelay: 6
     WaitUntilCompletion: 1
-    snapSpawning: 1
-    ReportedDifficultyRating: 0
-  - EnemyConfig: {fileID: 11400000, guid: 24ae7144d649cc347b2c2d2d60777d55, type: 2}
-    SpawnAmount: 15
-    SpawnDelayTime: 1
-    PostWaveDelay: 1
-    WaitUntilCompletion: 0
-    snapSpawning: 1
-    ReportedDifficultyRating: 0
-  - EnemyConfig: {fileID: 11400000, guid: 987223ab1290b4f44b5040f97800ca44, type: 2}
-    SpawnAmount: 1
-    SpawnDelayTime: 1
-    PostWaveDelay: 1
+  - ReportedDifficultyRating: 0
+    enemiesToSpawn:
+    - EnemyConfig: {fileID: 11400000, guid: 24ae7144d649cc347b2c2d2d60777d55, type: 2}
+      SpawnAmount: 5
+      spawnInterval: 1
+      snapSpawning: 1
+    - EnemyConfig: {fileID: 11400000, guid: fc6d735b5ec3f1146b74df71bfbb22cd, type: 2}
+      SpawnAmount: 2
+      spawnInterval: 2
+      snapSpawning: 1
+    - EnemyConfig: {fileID: 11400000, guid: 24ae7144d649cc347b2c2d2d60777d55, type: 2}
+      SpawnAmount: 5
+      spawnInterval: 1
+      snapSpawning: 1
+    - EnemyConfig: {fileID: 11400000, guid: fc6d735b5ec3f1146b74df71bfbb22cd, type: 2}
+      SpawnAmount: 2
+      spawnInterval: 2
+      snapSpawning: 1
+    PostWaveDelay: 6
     WaitUntilCompletion: 1
-    snapSpawning: 1
-    ReportedDifficultyRating: 0
-  PostWaveDelay: 5
+  - ReportedDifficultyRating: 0
+    enemiesToSpawn:
+    - EnemyConfig: {fileID: 11400000, guid: 24ae7144d649cc347b2c2d2d60777d55, type: 2}
+      SpawnAmount: 1
+      spawnInterval: 1
+      snapSpawning: 1
+    - EnemyConfig: {fileID: 11400000, guid: fc6d735b5ec3f1146b74df71bfbb22cd, type: 2}
+      SpawnAmount: 8
+      spawnInterval: 1
+      snapSpawning: 1
+    - EnemyConfig: {fileID: 11400000, guid: 24ae7144d649cc347b2c2d2d60777d55, type: 2}
+      SpawnAmount: 1
+      spawnInterval: 1
+      snapSpawning: 1
+    - EnemyConfig: {fileID: 11400000, guid: fc6d735b5ec3f1146b74df71bfbb22cd, type: 2}
+      SpawnAmount: 8
+      spawnInterval: 1
+      snapSpawning: 1
+    PostWaveDelay: 6
+    WaitUntilCompletion: 1
+  - ReportedDifficultyRating: 0
+    enemiesToSpawn:
+    - EnemyConfig: {fileID: 11400000, guid: 987223ab1290b4f44b5040f97800ca44, type: 2}
+      SpawnAmount: 1
+      spawnInterval: 1
+      snapSpawning: 1
+    - EnemyConfig: {fileID: 11400000, guid: fc6d735b5ec3f1146b74df71bfbb22cd, type: 2}
+      SpawnAmount: 20
+      spawnInterval: 1
+      snapSpawning: 1
+    PostWaveDelay: 6
+    WaitUntilCompletion: 1
   waveIncomingSoundFx: {fileID: 8300000, guid: efa8899e844d9c34db0b685f8db83f45, type: 3}
 --- !u!4 &1049860678
 Transform:

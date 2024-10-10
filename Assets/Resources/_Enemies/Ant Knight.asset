@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Ant Knight
   m_EditorClassIdentifier: 
   prefab: {fileID: 452661431563245470, guid: 7e62d7538df94e647963182d41562532, type: 3}
-  moneyReward: 10
-  maxHealth: 500
+  moneyReward: 5
+  maxHealth: 300
   carrotDamage: 4
   speed: 6
   offset: 0.5
