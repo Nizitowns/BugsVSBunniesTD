@@ -24,22 +24,22 @@ namespace DefaultNamespace
             EnemySpawner.OnDiffucltyChanged -= UpdateIcon;
         }
 
-        private void UpdateIcon(EnemySpawner.SpawnRequest.DifficultyRating difficultyRating)
+        private void UpdateIcon(EnemySpawner.EnemyWave.DifficultyRating difficultyRating)
         {
             switch (difficultyRating)
             {
-                case EnemySpawner.SpawnRequest.DifficultyRating.Normal:
+                case EnemySpawner.EnemyWave.DifficultyRating.Normal:
                     _renderer.sprite = normal;
                     break;
-                case EnemySpawner.SpawnRequest.DifficultyRating.Easy:
+                case EnemySpawner.EnemyWave.DifficultyRating.Easy:
                     _renderer.sprite = easy;
                     break;
-                case EnemySpawner.SpawnRequest.DifficultyRating.Boss:
+                case EnemySpawner.EnemyWave.DifficultyRating.Boss:
                     _renderer.sprite = boss;
                     break;
                 default:
                     _renderer.sprite = null;
-                    break;
+                    break;  
             }
         }
     }
