@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e595cae459fe45ca96f677b58c690d13, type: 3}
   m_Name: Long_FreezRay
   m_EditorClassIdentifier: 
-  purchaseCost: 75
+  purchaseCost: 50
   selectedTitle: <color=#001CDB>Deep Freeze Ray
   purchaseIcon: {fileID: 21300000, guid: 7f2059454de3ce74db2b44a9548bc9a6, type: 3}
   prefab: {fileID: 6045296787690447725, guid: ee05836415c446f4aa5c2345ac8e2794, type: 3}
@@ -30,9 +30,9 @@ MonoBehaviour:
   fireRate: 0.01
   attackRadius: 30
   burstDelay: 0
-  attackTime: 0
+  attackTime: 1
   cooldown: 0
-  myTargetingType: 1
+  myTargetingType: 2
   debuffs:
   - {fileID: 11400000, guid: 62e0d2485762c86448cf559ae1a9df55, type: 2}
   upgradeOptions: []

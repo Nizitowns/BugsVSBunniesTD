@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Ant Empress
   m_EditorClassIdentifier: 
   prefab: {fileID: 6202685934086139173, guid: ec0474e413a73e1418ff9bd772a9bcbb, type: 3}
-  moneyReward: 10
-  maxHealth: 1200
+  moneyReward: 5
+  maxHealth: 1000
   carrotDamage: 8
-  speed: 36
+  speed: 25
   offset: 0.5
