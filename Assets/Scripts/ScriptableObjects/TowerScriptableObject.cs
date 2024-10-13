@@ -38,7 +38,7 @@ namespace DefaultNamespace.TowerSystem
     }
     
     [Serializable]
-    public struct BulletConfig : IPoolable
+    public struct BulletConfig
     {
         public int ID => prefab.GetHashCode();
         public GameObject prefab;
@@ -48,12 +48,6 @@ namespace DefaultNamespace.TowerSystem
         [Range(1,50)]
         public int hitAreaRadius;
         public eDeathEffect deathEffect;
-
-        public GameObject Prefab => prefab;
-
-        public void Dispose()
-        {
-        }
     }
 
     public enum TargetType

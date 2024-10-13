@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using DefaultNamespace;
 using DefaultNamespace.OnDeathEffects;
 using DefaultNamespace.TowerSystem;
 using DG.Tweening;
@@ -7,17 +8,15 @@ using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 
-
 public interface IPoolable
 {
-    public int ID { get; }
-    public GameObject Prefab { get; }
+    public BulletPool ConnectedPool { get; }
     public void Dispose();
 }
 
 namespace DefaultNamespace
 {
-    public class NewBulletBehaviour : MonoBehaviour
+    public class NewBulletBehaviour : MonoBehaviour, IPoolable
     {
         private List<Debuff> _debuffs;
         private IEnemyUnit _target;
@@ -29,12 +28,13 @@ namespace DefaultNamespace
         private Vector3 _lastDirection;
 
         private float durationTimer = 0;
-        
-        public void Initialize(List<Debuff> debuffs, IEnemyUnit target, BulletConfig bulletConfig)
+
+        public void Initialize(List<Debuff> debuffs, IEnemyUnit target, BulletConfig bulletConfig, Vector3 startPosition)
         {
             _debuffs = debuffs;
             _target = target;
             _bulletConfig = bulletConfig;
+            transform.position = startPosition;
 
             _lastDirection = _target.mTransform.position - transform.position;
         }
@@ -195,10 +195,12 @@ namespace DefaultNamespace
                     throw new ArgumentOutOfRangeException();
             }
         }
-        
+
+        public BulletPool ConnectedPool { get; set; }
+
         public void Dispose()
         {
-            Destroy(gameObject);
+            ConnectedPool.ReturnToPool(this);
         }
     }
 }
