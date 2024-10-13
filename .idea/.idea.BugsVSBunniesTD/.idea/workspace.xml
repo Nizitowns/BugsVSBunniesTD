@@ -10,10 +10,6 @@
     <list default="true" id="f09f1f5c-0885-4fd4-b329-770c8f92c57a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BugsVSBunniesTD/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BugsVSBunniesTD/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level1.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level2.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NewBulletBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NewBulletBehaviour.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PoolManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PoolManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/UIButtonBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/UIButtonBase.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
