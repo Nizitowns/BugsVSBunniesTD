@@ -5,12 +5,12 @@ using DefaultNamespace.OnDeathEffects;
 using DefaultNamespace.TowerSystem;
 using DG.Tweening;
 using Unity.Mathematics;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public interface IPoolable
 {
-    public BulletPool ConnectedPool { get; }
+    public PoolManager.PoolID ConnectedPool { get; }
+    public void Reset();
     public void Dispose();
 }
 
@@ -42,7 +42,7 @@ namespace DefaultNamespace
         private void Update()
         {
             durationTimer += Time.deltaTime;
-            if (durationTimer > 10) // Total Life Duration
+            if (durationTimer > 5) // Total Life Duration
                 Dispose();
 
             if (!CheckTargetAvaliablity())
@@ -196,7 +196,13 @@ namespace DefaultNamespace
             }
         }
 
-        public BulletPool ConnectedPool { get; set; }
+        public PoolManager.PoolID ConnectedPool { get; set; }
+
+        public void Reset()
+        {
+            durationTimer = 0;
+            _lastDirection = Vector3.zero;
+        }
 
         public void Dispose()
         {
