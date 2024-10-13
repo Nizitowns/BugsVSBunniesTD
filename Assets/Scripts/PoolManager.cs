@@ -64,7 +64,6 @@ namespace DefaultNamespace
 
             private void AddObjectToPool()
             {
-                Debug.Log("Added");
                 var obj = Instantiate(BulletPrefab, Instance.BulletContainer);
                 obj.SetActive(false);
             
@@ -90,7 +89,6 @@ namespace DefaultNamespace
                 bulletBehaviour.gameObject.SetActive(false);
                 bulletBehaviour.transform.position = Vector3.zero;
                 _pooledObjects.Enqueue(bulletBehaviour);
-                Debug.Log("Returned To Pool");
             }
         }
     }

@@ -42,7 +42,7 @@ namespace DefaultNamespace
         private void Update()
         {
             durationTimer += Time.deltaTime;
-            if (durationTimer > 5) // Total Life Duration
+            if (transform.position.y < -0.5f || durationTimer > 5) // Total Life Duration
                 Dispose();
 
             if (!CheckTargetAvaliablity())
