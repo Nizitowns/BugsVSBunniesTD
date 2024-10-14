@@ -62,6 +62,7 @@ public class TowerPlacer : MonoBehaviour
                 if (SelectedTower != null)
                 {
                     TowerPlacementGrid = null;
+                    previewPlacerMeshFilter.transform.position = InputGather.Instance.GetMousePosition();
                     _currentMode = eCurrentMode.Painting;
                 }
                 
@@ -131,7 +132,6 @@ public class TowerPlacer : MonoBehaviour
     public void UpdatePreview()
     {
         // Color And Mesh Stuff
-
         if (SelectedTower == null || PlacementDisabled)
         {
             previewPlacerMeshFilter.mesh = null;
