@@ -89,9 +89,6 @@ namespace DefaultNamespace.TowerSystem
                 bullet.Initialize(Config.debuffs, TargetedEnemy, Config.BulletConfig, spawnPos);
             }
             
-            // var bullet = Instantiate(Config.BulletConfig.prefab, spawnPos, transform.rotation);
-            // bullet.GetComponent<NewBulletBehaviour>().Initialize(Config.debuffs, TargetedEnemy, Config.BulletConfig);
-            
             _particleSystem.Play();
             PlaySoundFX();
         }
