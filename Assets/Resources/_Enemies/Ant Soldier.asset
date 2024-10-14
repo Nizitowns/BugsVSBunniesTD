@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Ant Soldier
   m_EditorClassIdentifier: 
   prefab: {fileID: 452661431563245470, guid: 7b43342b7a9a95b41b33232c567c74b9, type: 3}
-  moneyReward: 7
-  maxHealth: 25
+  moneyReward: 3
+  maxHealth: 20
   carrotDamage: 1
   speed: 6
   offset: 0.2

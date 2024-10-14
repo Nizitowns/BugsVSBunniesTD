@@ -9,10 +9,7 @@ public class EnemySpawner : MonoBehaviour
     //The last EnemySpawner to start running, TODO: Replace with a more comprehensive system if multiple enemy spawners are used.
     public static EnemySpawner LatestLaunched;
 
-    public List<SpawnRequest> spawnRequests = new();
-
-    [Min(0)] [Tooltip("The delay before declaring all waves completed.")]
-    public float PostWaveDelay;
+    public List<EnemyWave> enemyWaves = new();
 
     private float enemiesWantedToSpawnThisWave;
     private float enemiesSpawnedThisWave;
@@ -26,7 +23,7 @@ public class EnemySpawner : MonoBehaviour
 
     [Header("Sound FX")] [SerializeField] private AudioClip waveIncomingSoundFx;
     
-    public static event Action<SpawnRequest.DifficultyRating> OnDiffucltyChanged;
+    public static event Action<EnemyWave.DifficultyRating> OnDiffucltyChanged;
 
     public Action WaveStarted;
 
@@ -52,7 +49,7 @@ public class EnemySpawner : MonoBehaviour
 
         /*Legacy Code
          * 
-        if (spawnRequests.Count <= 0)
+        if (enemyWaves.Count <= 0)
             //If there are no spawn requests we assume 100% completion of  this wave. (Last wave ends and we have no requests left)
             return 1;
          *         //What percent of enemies spawned this wave have we killed?
@@ -67,13 +64,13 @@ public class EnemySpawner : MonoBehaviour
         return totalWavesCompleted / totalWavesToSpawn;
     }
 
-    public SpawnRequest.DifficultyRating CurrentWaveDifficulty()
+    public EnemyWave.DifficultyRating CurrentWaveDifficulty()
     {
-        if (spawnRequests.Count <= 0)
+        if (enemyWaves.Count <= 0)
             //No waves? This is easy mode!
-            return SpawnRequest.DifficultyRating.Easy;
+            return EnemyWave.DifficultyRating.Easy;
 
-        var current = spawnRequests[0];
+        var current = enemyWaves[0];
         return current.ReportedDifficultyRating;
     }
 
@@ -86,27 +83,30 @@ public class EnemySpawner : MonoBehaviour
         return transform.childCount <= 0;
     }
 
+    // Spawn Loop
     public IEnumerator EnemySpawnerLoop()
     {
         bool lastWasCompletionBased = true;
-        while (spawnRequests.Count > 0)
+
+        while (enemyWaves.Count > 0)
         {
             LatestLaunched = this;
-            if (spawnRequests.Count > totalWavesToSpawn) totalWavesToSpawn = spawnRequests.Count;
+            if (enemyWaves.Count > totalWavesToSpawn) totalWavesToSpawn = enemyWaves.Count;
             WaveStarted?.Invoke();
-            var current = spawnRequests[0];
+            var current = enemyWaves[0];
             OnDiffucltyChanged?.Invoke(current.ReportedDifficultyRating);
             if (lastWasCompletionBased)
             {
                 enemiesKilledThisWave = 0;
                 enemiesSpawnedThisWave = 0;
                 enemiesWantedToSpawnThisWave = 0;
-                for (int i = 0; i < spawnRequests.Count; i++)
+                for (int i = 0; i < enemyWaves.Count; i++)
                 {
-                    var temp_current = spawnRequests[i];
-                    enemiesWantedToSpawnThisWave += temp_current.SpawnAmount;
+                    var currentWave = enemyWaves[i];
+                    foreach (var enemyToSpawn in currentWave.enemiesToSpawn)
+                        enemiesWantedToSpawnThisWave += enemyToSpawn.SpawnAmount;  //TODO: enemiesToSpawn[0]
 
-                    if (temp_current.WaitUntilCompletion)
+                    if (currentWave.WaitUntilCompletion)
                         break;
                 }
                 lastWasCompletionBased = false;
@@ -118,52 +118,58 @@ public class EnemySpawner : MonoBehaviour
 
             spawnedEnemies = new List<Enemy>();
             SoundFXPlayer.PlaySFX(SoundFXPlayer.Instance.Source, waveIncomingSoundFx);
-            for (var i = 0; i < current.SpawnAmount; i++)
+            foreach (var enemyToSpawn in current.enemiesToSpawn)
             {
-                enemiesSpawnedThisWave++;
-                var spawnPos = transform.position;
-                PathNode initTarget = null;
-                if(current.EnemyConfig==null)
+                for (var i = 0; i < enemyToSpawn.SpawnAmount; i++)   //TODO: enemiesToSpawn[0]
                 {
-                    Debug.LogError("Enemy Configuration is null, enemy configs are either unset or may have been lost in data migration?");
+                    enemiesSpawnedThisWave++;
+                    var spawnPos = transform.position;
+                    PathNode initTarget = null;
+                    if(enemyToSpawn.EnemyConfig == null)   //TODO: enemiesToSpawn[0]
+                    {
+                        Debug.LogError("Enemy Configuration is null, enemy configs are either unset or may have been lost in data migration?");
+                    }
+
+                    if (enemyToSpawn.snapSpawning) initTarget = PathManager.Instance.getEntryNode(); //TODO: enemiesToSpawn[0]
+                    if (initTarget != null) spawnPos = initTarget.transform.position;
+                    var g = Instantiate(enemyToSpawn.EnemyConfig.prefab, spawnPos, transform.rotation, transform);   //TODO: enemiesToSpawn[0]
+                    var enemy = g.GetComponent<Enemy>();
+                    spawnedEnemies.Add(enemy);
+                    enemy.Initialize(enemyToSpawn.EnemyConfig);  //TODO: enemiesToSpawn[0]
+
+                    if (initTarget != null)
+                    {
+                        var p = g.GetComponent<Pathfinder>();
+                        p.currentNode = initTarget;
+                    }
+
+                    yield return new WaitForSeconds(enemyToSpawn.spawnInterval);    //TODO: enemiesToSpawn[0]
                 }
-
-                if (current.snapSpawning) initTarget = PathManager.Instance.getEntryNode();
-                if (initTarget != null) spawnPos = initTarget.transform.position;
-                var g = Instantiate(current.EnemyConfig.prefab, spawnPos, transform.rotation, transform);
-                var enemy = g.GetComponent<Enemy>();
-                spawnedEnemies.Add(enemy);
-                enemy.Initialize(current.EnemyConfig);
-
-                if (initTarget != null)
-                {
-                    var p = g.GetComponent<Pathfinder>();
-                    p.currentNode = initTarget;
-                }
-
-                yield return new WaitForSeconds(current.SpawnDelayTime);
             }
 
             if (current.WaitUntilCompletion) yield return new WaitUntil(IsEnemiesDead);
             totalWavesCompleted++;
             WaveEnded?.Invoke();
 
-            yield return new WaitForSeconds(current.PostWaveDelay);
+            yield return new WaitForSeconds(current.PostWaveDelay);   //TODO: enemiesToSpawn[0]
 
             yield return new WaitForEndOfFrame();
-            spawnRequests.RemoveAt(0);
+            enemyWaves.RemoveAt(0);
         }
 
         while (transform.childCount > 0) yield return new WaitForEndOfFrame();
-        if (PostWaveDelay >= 0) yield return new WaitForSeconds(PostWaveDelay);
+        // if (PostWaveDelay >= 0) yield return new WaitForSeconds(PostWaveDelay);  //BUG: Not sure what this was meant for, there was a post wave delay for the level spawner script itself.
         if (LatestLaunched == this)
             LatestLaunched = null;
         WavesCompleted?.Invoke();
     }
 
     [Serializable]
-    public class SpawnRequest
+    public class EnemyWave : ISerializationCallbackReceiver
     {
+        [Tooltip("Optional rating of difficulty for any current wave UI.")]
+        public DifficultyRating ReportedDifficultyRating;
+
         public enum DifficultyRating
         {
             Normal,
@@ -171,24 +177,45 @@ public class EnemySpawner : MonoBehaviour
             Boss
         }
 
+        [Tooltip("List of enemies for this spawn request.")]
+        public List<EnemyToSpawn> enemiesToSpawn;    // List of EnemyToSpawn inside EnemyWave
+
+        [Tooltip("How long to wait before next wave.")]
+        public float PostWaveDelay = 6.0f;
+
+        [Tooltip("True if the next wave must wait before this one is finished to start.")]
+        public bool WaitUntilCompletion = true;
+
+        //Set Defaults
+        public EnemyWave()
+        {
+            enemiesToSpawn = new List<EnemyToSpawn>();
+        }
+
+        // This method is called after Unity deserializes your object.
+        public void OnAfterDeserialize()    //TODO: Can't set WaitUntilCompletion to false with this method. Just needing to set defaults this is a temp fix.
+        {
+            if (PostWaveDelay == 0.0f) PostWaveDelay = 6.0f;
+
+            if (WaitUntilCompletion == false) WaitUntilCompletion = true;
+        }
+
+        // Required by the interface but not used.
+        public void OnBeforeSerialize() { }
+    }
+    
+    [Serializable]
+    public class EnemyToSpawn
+    {
         public EnemyScriptableObject EnemyConfig;
 
         [Tooltip("How many Enemies to spawn with this order.")]
-        public float SpawnAmount = 1;
+        public float SpawnAmount;
 
         [Tooltip("Delay between each spawning.")]
-        public float SpawnDelayTime;
-
-        [Tooltip("How long to wait before next wave.")]
-        public float PostWaveDelay;
-
-        [Tooltip("True if the next wave must wait before this one is finished to start.")]
-        public bool WaitUntilCompletion;
+        public float spawnInterval;
 
         [Tooltip("Should this enemy snap to its entry node when it spawns?")]
         public bool snapSpawning = true;
-
-        [Tooltip("Optional rating of difficulty for any current wave UI.")]
-        public DifficultyRating ReportedDifficultyRating;
     }
 }

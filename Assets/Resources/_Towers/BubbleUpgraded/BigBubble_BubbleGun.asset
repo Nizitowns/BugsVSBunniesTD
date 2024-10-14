@@ -22,15 +22,15 @@ MonoBehaviour:
   BulletConfig:
     prefab: {fileID: 8807235615969479855, guid: 29e3917595b6ea14d81f797a0ad437ba,
       type: 3}
-    damage: 8
+    damage: 40
     speed: 30
-    maxHit: 1
+    activateAOE: 0
+    hitAreaRadius: 1
     deathEffect: 1
-    BulletDiesOnTargetDeath: 0
-  fireRate: 0.5
+  fireRate: 2
   attackRadius: 30
   burstDelay: 0
-  attackTime: 0
+  attackTime: 1
   cooldown: 0
   myTargetingType: 0
   debuffs: []

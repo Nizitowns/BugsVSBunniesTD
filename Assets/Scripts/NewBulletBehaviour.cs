@@ -1,22 +1,22 @@
 using System;
 using System.Collections.Generic;
+using DefaultNamespace;
 using DefaultNamespace.OnDeathEffects;
 using DefaultNamespace.TowerSystem;
+using DG.Tweening;
 using Unity.Mathematics;
-using Unity.VisualScripting;
 using UnityEngine;
-
 
 public interface IPoolable
 {
-    public int ID { get; }
-    public GameObject Prefab { get; }
+    public PoolManager.PoolID ConnectedPool { get; }
+    public void Reset();
     public void Dispose();
 }
 
 namespace DefaultNamespace
 {
-    public class NewBulletBehaviour : MonoBehaviour
+    public class NewBulletBehaviour : MonoBehaviour, IPoolable
     {
         private List<Debuff> _debuffs;
         private IEnemyUnit _target;
@@ -28,12 +28,13 @@ namespace DefaultNamespace
         private Vector3 _lastDirection;
 
         private float durationTimer = 0;
-        
-        public void Initialize(List<Debuff> debuffs, IEnemyUnit target, BulletConfig bulletConfig)
+
+        public void Initialize(List<Debuff> debuffs, IEnemyUnit target, BulletConfig bulletConfig, Vector3 startPosition)
         {
             _debuffs = debuffs;
             _target = target;
             _bulletConfig = bulletConfig;
+            transform.position = startPosition;
 
             _lastDirection = _target.mTransform.position - transform.position;
         }
@@ -41,7 +42,7 @@ namespace DefaultNamespace
         private void Update()
         {
             durationTimer += Time.deltaTime;
-            if (durationTimer > 10) // Total Life Duration
+            if (transform.position.y < -0.5f || durationTimer > 5) // Total Life Duration
                 Dispose();
 
             if (!CheckTargetAvaliablity())
@@ -57,7 +58,31 @@ namespace DefaultNamespace
 
         private void OnTriggerEnter(Collider other)
         {
-            ApplyDamage(other.transform);
+            if (_bulletConfig.activateAOE)
+            {
+                Vector3 pos = new Vector3(transform.position.x, 2.5f, transform.position.z);
+                Ray ray = new Ray(pos, Vector3.down);
+                var hitall = Physics.SphereCastAll(ray, _bulletConfig.hitAreaRadius);
+                foreach (var hit in hitall)
+                {
+                    ApplyDamage(hit.transform);
+                }
+                
+                // Debuging
+                if (Debugger.ShowAreaEffectVisualizer)
+                {
+                    var ball = Instantiate(DebugVisual.Instance.BulletAreaVisualizer);
+                    ball.transform.position = pos;
+                    ball.transform.localScale = Vector3.one * _bulletConfig.hitAreaRadius * 2;
+                
+                    Destroy(ball, 0.15f);
+                }
+            }
+            else
+            {
+                ApplyDamage(other.transform);
+            }
+            
             Dispose();
         }
 
@@ -104,6 +129,22 @@ namespace DefaultNamespace
             {
                 case eDeathEffect.None:
                     // Nothing Happens - Just Die
+                    break;
+                case eDeathEffect.Shrink:
+                    skinnedMesh = enemyUnit.mTransform.transform.GetComponentInChildren<SkinnedMeshRenderer>();
+                    skinnedMesh.BakeMesh(copiedMesh);
+            
+                    newMeshObject = new GameObject("CopiedMesh");
+                    meshFilter = newMeshObject.AddComponent<MeshFilter>();
+                    meshRenderer = newMeshObject.AddComponent<MeshRenderer>();
+                    meshFilter.mesh = copiedMesh;
+                    meshRenderer.material = skinnedMesh.material;
+
+                    var killTime = 0.5f;
+                    newMeshObject.transform.position = enemyUnit.mTransform.position;
+                    newMeshObject.transform.DOScale(Vector3.zero, killTime).SetEase(Ease.InBack).SetLink(newMeshObject);
+                    
+                    Destroy(newMeshObject, killTime);
                     break;
                 case eDeathEffect.BubbleUp:
                     skinnedMesh = enemyUnit.mTransform.transform.GetComponentInChildren<SkinnedMeshRenderer>();
@@ -154,29 +195,18 @@ namespace DefaultNamespace
                     throw new ArgumentOutOfRangeException();
             }
         }
-        
+
+        public PoolManager.PoolID ConnectedPool { get; set; }
+
+        public void Reset()
+        {
+            durationTimer = 0;
+            _lastDirection = Vector3.zero;
+        }
+
         public void Dispose()
         {
-            if (_bulletConfig.activateAOE)
-            {
-                Ray ray = new Ray(transform.position, Vector3.down);
-                var hitall = Physics.SphereCastAll(ray, _bulletConfig.hitAreaRadius);
-                foreach (var hit in hitall)
-                {
-                    ApplyDamage(hit.transform);
-                }
-                
-                if (Debugger.ShowAreaEffectVisualizer)
-                {
-                    var ball = Instantiate(DebugVisual.Instance.BulletAreaVisualizer);
-                    ball.transform.position = transform.position;
-                    ball.transform.localScale = Vector3.one * _bulletConfig.hitAreaRadius;
-                
-                    Destroy(ball, 0.15f);
-                }
-            }
-            
-            Destroy(gameObject);
+            ConnectedPool.ReturnToPool(this);
         }
     }
 }

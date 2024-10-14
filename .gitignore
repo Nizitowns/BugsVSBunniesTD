@@ -75,3 +75,7 @@ crashlytics-build.properties
 ProjectSettings/ProjectVersion.txt
 ProjectSettings/ProjectVersion.txt
 ProjectSettings/ProjectVersion.txt
+.vscode/extensions.json
+.vscode/launch.json
+.vscode/settings.json
+.gitignore
