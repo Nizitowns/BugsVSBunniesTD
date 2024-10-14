@@ -79,7 +79,7 @@ namespace DefaultNamespace
 
         private void Update()
         {
-            if (InputGather.Instance.CancelButton)
+            if (InputGather.Instance!=null&&InputGather.Instance.CancelButton)
             {
                 OnCancel();
                 D_OnDetailedInfo(false);

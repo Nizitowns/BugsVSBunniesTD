@@ -1,22 +1,23 @@
 using System;
 using System.Collections.Generic;
-using DefaultNamespace;
 using DefaultNamespace.OnDeathEffects;
 using DefaultNamespace.TowerSystem;
 using DG.Tweening;
 using Unity.Mathematics;
+using Unity.VisualScripting;
 using UnityEngine;
+
 
 public interface IPoolable
 {
-    public PoolManager.PoolID ConnectedPool { get; }
-    public void Reset();
+    public int ID { get; }
+    public GameObject Prefab { get; }
     public void Dispose();
 }
 
 namespace DefaultNamespace
 {
-    public class NewBulletBehaviour : MonoBehaviour, IPoolable
+    public class NewBulletBehaviour : MonoBehaviour
     {
         private List<Debuff> _debuffs;
         private IEnemyUnit _target;
@@ -28,13 +29,12 @@ namespace DefaultNamespace
         private Vector3 _lastDirection;
 
         private float durationTimer = 0;
-
-        public void Initialize(List<Debuff> debuffs, IEnemyUnit target, BulletConfig bulletConfig, Vector3 startPosition)
+        
+        public void Initialize(List<Debuff> debuffs, IEnemyUnit target, BulletConfig bulletConfig)
         {
             _debuffs = debuffs;
             _target = target;
             _bulletConfig = bulletConfig;
-            transform.position = startPosition;
 
             _lastDirection = _target.mTransform.position - transform.position;
         }
@@ -42,7 +42,7 @@ namespace DefaultNamespace
         private void Update()
         {
             durationTimer += Time.deltaTime;
-            if (transform.position.y < -0.5f || durationTimer > 5) // Total Life Duration
+            if (durationTimer > 10) // Total Life Duration
                 Dispose();
 
             if (!CheckTargetAvaliablity())
@@ -195,18 +195,10 @@ namespace DefaultNamespace
                     throw new ArgumentOutOfRangeException();
             }
         }
-
-        public PoolManager.PoolID ConnectedPool { get; set; }
-
-        public void Reset()
-        {
-            durationTimer = 0;
-            _lastDirection = Vector3.zero;
-        }
-
+        
         public void Dispose()
         {
-            ConnectedPool.ReturnToPool(this);
+            Destroy(gameObject);
         }
     }
 }

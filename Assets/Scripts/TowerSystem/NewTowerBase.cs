@@ -44,8 +44,7 @@ namespace DefaultNamespace.TowerSystem
         public virtual void Initiliaze(TowerScriptableObject Config)
         {
             this.Config = Config;
-
-            PoolManager.Instance.CreatePool(Config.BulletConfig, 1);
+            
             _myCollider = GetComponent<SphereCollider>();
             _myCollider.radius = Config.attackRadius;
             mAudioSource = ComponentCopier.CopyComponent(SoundFXPlayer.Instance.Source, BulletSource.gameObject);
@@ -83,14 +82,8 @@ namespace DefaultNamespace.TowerSystem
         protected virtual void OnFire()
         {
             var spawnPos = BulletSource.position + new Vector3(0, 1, 0);
-            var bullet = PoolManager.Instance.GetBullet(Config.BulletConfig.ID);
-            if (bullet != null)
-            {
-                bullet.Initialize(Config.debuffs, TargetedEnemy, Config.BulletConfig, spawnPos);
-            }
-            
-            // var bullet = Instantiate(Config.BulletConfig.prefab, spawnPos, transform.rotation);
-            // bullet.GetComponent<NewBulletBehaviour>().Initialize(Config.debuffs, TargetedEnemy, Config.BulletConfig);
+            var bullet = Instantiate(Config.BulletConfig.prefab, spawnPos, transform.rotation);
+            bullet.GetComponent<NewBulletBehaviour>().Initialize(Config.debuffs, TargetedEnemy, Config.BulletConfig);
             
             _particleSystem.Play();
             PlaySoundFX();
