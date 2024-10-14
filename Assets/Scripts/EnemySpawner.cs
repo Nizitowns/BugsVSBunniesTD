@@ -31,8 +31,6 @@ public class EnemySpawner : MonoBehaviour
     {
         spawnedEnemies = new List<Enemy>();
         StartCoroutine(EnemySpawnerLoop());
-
-
     }
 
     //Log that an enemy for this wave has been killed
