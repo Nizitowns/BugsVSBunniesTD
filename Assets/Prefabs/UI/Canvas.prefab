@@ -6751,7 +6751,7 @@ GameObject:
   - component: {fileID: 8908925486522932927}
   - component: {fileID: 8073182899112564582}
   m_Layer: 5
-  m_Name: 5X
+  m_Name: 4X
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6873,7 +6873,7 @@ MonoBehaviour:
   ButtonType: 1
   isAnimatedOnClick: 1
   isAnimatedOnHover: 1
-  SpeedToSet: 5
+  SpeedToSet: 4
 --- !u!1 &9182974223005108632
 GameObject:
   m_ObjectHideFlags: 0

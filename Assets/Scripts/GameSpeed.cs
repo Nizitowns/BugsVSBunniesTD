@@ -10,7 +10,7 @@ namespace DefaultNamespace
             X0 = 0,
             X1 = 1,
             X2 = 2,
-            X5 = 5,
+            X4 = 4,
         }
         
         public static GameSpeed Instance;
@@ -24,6 +24,19 @@ namespace DefaultNamespace
         private void Start()
         {
             currentSpeed = GameSpeedX.X1;
+        }
+
+        private void Update()
+        {
+            if (InputGather.Instance.SpaceButton)
+            {
+                GameSpeedX[] speeds = (GameSpeedX[])Enum.GetValues(typeof(GameSpeedX));
+
+                int currentIndex = Array.IndexOf(speeds, currentSpeed);
+                currentIndex = (currentIndex + 1) % speeds.Length;
+
+                SetGameSpeed(speeds[currentIndex]);
+            }
         }
 
         public void PauseGame()

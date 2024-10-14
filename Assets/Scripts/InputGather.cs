@@ -21,6 +21,7 @@ namespace DefaultNamespace
         public float ScroolWheel { get; private set; }
         public bool MouseLeftClick { get; private set; }
         public bool XClick { get; private set; }
+        public bool SpaceButton { get; private set; }
         public bool CancelButton { get; private set; }
         
         private Vector2 _customAxis = Vector2.zero;
@@ -74,7 +75,8 @@ namespace DefaultNamespace
             ScroolWheel = Input.GetAxis("Mouse ScrollWheel");
 
             MouseLeftClick = Input.GetMouseButtonDown(0);
-            XClick = Input.GetKey(KeyCode.X);
+            XClick = Input.GetKeyDown(KeyCode.X);
+            SpaceButton = Input.GetKeyDown(KeyCode.Space);
             CancelButton = Input.GetKeyDown(KeyCode.Escape) || Input.GetMouseButtonDown(1);
             
             UpdateCustomInputs();
