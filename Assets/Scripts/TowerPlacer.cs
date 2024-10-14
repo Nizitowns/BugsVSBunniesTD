@@ -44,18 +44,18 @@ public class TowerPlacer : MonoBehaviour
 
     private void Update()
     {
-        _currentTowerPlacementGrid = FindClosest(InputGather.Instance.GetMousePosition());
-        
+        var hitClass = InputGather.Instance.GetHitClass<TowerPlacementGrid>();
+
         UpdatePreview();
 
         switch (_currentMode)
         {
             case eCurrentMode.None:
                 if(InputGather.Instance.MouseLeftClick && !InputGather.isMouseOverGameObject) // Selecting
-                    if (_currentTowerPlacementGrid != null && _currentTowerPlacementGrid.HasTowerOnIt)
+                    if (hitClass != null && hitClass.HasTowerOnIt)
                     {
                         SelectedTower = null;
-                        TowerPlacementGrid = _currentTowerPlacementGrid;
+                        TowerPlacementGrid = hitClass;
                         _currentMode = eCurrentMode.Selection;
                     }
 
@@ -71,15 +71,16 @@ public class TowerPlacer : MonoBehaviour
                 
                 if(InputGather.Instance.MouseLeftClick && !InputGather.isMouseOverGameObject) // Selecting
                 {
-                    if (_currentTowerPlacementGrid != null)
+                    hitClass = InputGather.Instance.GetHitClass<TowerPlacementGrid>();
+                    if (hitClass != null)
                     {
-                        if (_currentTowerPlacementGrid == TowerPlacementGrid)
+                        if (hitClass == TowerPlacementGrid)
                         {
                             TowerPlacementGrid = null;
                         }
-                        else if (_currentTowerPlacementGrid.HasTowerOnIt)
+                        else if (hitClass.HasTowerOnIt)
                         {
-                            TowerPlacementGrid = _currentTowerPlacementGrid;
+                            TowerPlacementGrid = hitClass;
                         }
                         else
                         {
@@ -97,6 +98,8 @@ public class TowerPlacer : MonoBehaviour
             case eCurrentMode.Painting:
                 if (SelectedTower == null) _currentMode = eCurrentMode.None;
                 
+                _currentTowerPlacementGrid = FindClosest(InputGather.Instance.GetMousePosition());
+
                 if (_currentTowerPlacementGrid != null && 
                     InputGather.Instance.MouseLeftClick &&
                     !EventSystem.current.IsPointerOverGameObject())
@@ -128,6 +131,7 @@ public class TowerPlacer : MonoBehaviour
     public void UpdatePreview()
     {
         // Color And Mesh Stuff
+
         if (SelectedTower == null || PlacementDisabled)
         {
             previewPlacerMeshFilter.mesh = null;
@@ -151,6 +155,7 @@ public class TowerPlacer : MonoBehaviour
             previewPlacerMeshFilter.GetComponent<MeshRenderer>().material = cannotPlace;
         
         // Placement
+        _currentTowerPlacementGrid = FindClosest(InputGather.Instance.GetMousePosition());
         if (_currentTowerPlacementGrid != null)
         {
             previewPlacerMeshFilter.transform.position = Vector3.Lerp(previewPlacerMeshFilter.transform.position, _currentTowerPlacementGrid.GetPlacementPosition.position, Time.unscaledDeltaTime * 10);
