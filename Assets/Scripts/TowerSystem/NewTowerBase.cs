@@ -55,7 +55,7 @@ namespace DefaultNamespace.TowerSystem
             
             _myCollider = GetComponent<SphereCollider>();
             _myCollider.radius = Config.attackRadius;
-            mAudioSource = ComponentCopier.CopyComponent(SoundFXPlayer.Instance.Source, BulletSource.gameObject);
+            mAudioSource = ComponentCopier.CopyComponent(SoundFXPlayer.Source, BulletSource.gameObject);
             
             _particleSystem = Instantiate(Config.particulOnShoot, BulletSource);
         }
@@ -159,7 +159,6 @@ namespace DefaultNamespace.TowerSystem
                 var randomClip = Config.firingSfx[Random.Range(0, Config.firingSfx.Count)];
                 // SoundFXPlayer.PlaySFX(mAudioSource, randomClip);
                 mAudioSource.PlayOneShot(randomClip, AudioManager.SFXVolume);
-
                 AudioTimer = Time.time;
             }
         }
