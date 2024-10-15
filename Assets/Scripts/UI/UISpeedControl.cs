@@ -22,7 +22,7 @@ namespace DefaultNamespace
                     GameSpeed.Instance.ResumeGame(true);
                     break;
                 case GameSpeed.GameSpeedX.X2:
-                case GameSpeed.GameSpeedX.X5:
+                case GameSpeed.GameSpeedX.X4:
                     GameSpeed.Instance.SetGameSpeed(SpeedToSet);
                     break;
             }
