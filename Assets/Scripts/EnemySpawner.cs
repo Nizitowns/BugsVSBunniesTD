@@ -117,7 +117,7 @@ public class EnemySpawner : MonoBehaviour
             }
 
             spawnedEnemies = new List<Enemy>();
-            SoundFXPlayer.PlaySFX(SoundFXPlayer.Instance.Source, waveIncomingSoundFx);
+            SoundFXPlayer.PlaySFX(SoundFXPlayer.Source, waveIncomingSoundFx);
             foreach (var enemyToSpawn in current.enemiesToSpawn)
             {
                 for (var i = 0; i < enemyToSpawn.SpawnAmount; i++)   //TODO: enemiesToSpawn[0]

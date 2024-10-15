@@ -73,9 +73,9 @@ public abstract class Enemy : MonoBehaviour, IEnemyUnit, IDebuffable
         if (givesMoney)
         {
             MoneyManager.instance.AddMoney(Config.moneyReward);
+            SoundFXPlayer.PlaySFX(SoundFXPlayer.Source, DeathSX);
         }
         IsDead = true;
-        SoundFXPlayer.PlaySFX(SoundFXPlayer.Instance.Source, DeathSX);
         Destroy(gameObject);
     }
 
