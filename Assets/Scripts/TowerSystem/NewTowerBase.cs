@@ -32,6 +32,7 @@ namespace DefaultNamespace.TowerSystem
         protected float AudioTimer = 0;
 
         protected bool isDisabled = false;
+        private NewBulletBehaviour raycastBullet;
 
         public bool IsDisabled
         {
@@ -46,6 +47,12 @@ namespace DefaultNamespace.TowerSystem
             this.Config = Config;
 
             PoolManager.Instance.CreatePool(Config.BulletConfig, 1);
+            if (Config.BulletConfig.useRaycast)
+            {
+                raycastBullet = PoolManager.Instance.GetBullet(Config.BulletConfig.ID);
+                raycastBullet.Initialize(Config.debuffs, TargetedEnemy, Config.BulletConfig, BulletSource.position);
+            } 
+            
             _myCollider = GetComponent<SphereCollider>();
             _myCollider.radius = Config.attackRadius;
             mAudioSource = ComponentCopier.CopyComponent(SoundFXPlayer.Instance.Source, BulletSource.gameObject);
@@ -77,22 +84,33 @@ namespace DefaultNamespace.TowerSystem
             {
                 RotateToTarget();
                 OnFire();
+                
+                BulletSource.transform.LookAt(TargetedEnemy.mTransform);
+                if(!_particleSystem.isPlaying)
+                    _particleSystem.Play();
+            }
+            else
+            {
+                _particleSystem.Stop();
             }
         }
 
         protected virtual void OnFire()
         {
             var spawnPos = BulletSource.position + new Vector3(0, 1, 0);
-            var bullet = PoolManager.Instance.GetBullet(Config.BulletConfig.ID);
-            if (bullet != null)
+            if (Config.BulletConfig.useRaycast)
             {
-                bullet.Initialize(Config.debuffs, TargetedEnemy, Config.BulletConfig, spawnPos);
+                raycastBullet.CustomTriggerCheck(TargetedEnemy, spawnPos);
+            }
+            else
+            {
+                var bullet = PoolManager.Instance.GetBullet(Config.BulletConfig.ID);
+                if (bullet != null)
+                {
+                    bullet.Initialize(Config.debuffs, TargetedEnemy, Config.BulletConfig, spawnPos);
+                }
             }
             
-            // var bullet = Instantiate(Config.BulletConfig.prefab, spawnPos, transform.rotation);
-            // bullet.GetComponent<NewBulletBehaviour>().Initialize(Config.debuffs, TargetedEnemy, Config.BulletConfig);
-            
-            _particleSystem.Play();
             PlaySoundFX();
         }
 
@@ -122,6 +140,7 @@ namespace DefaultNamespace.TowerSystem
                     }
                     break;
                 case TowerState.Cooldown:
+                    _particleSystem.Stop();
                     BurstTimer += Time.deltaTime;
                     if (BurstTimer >= Config.cooldown)
                     {

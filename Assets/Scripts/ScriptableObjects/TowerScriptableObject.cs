@@ -44,6 +44,8 @@ namespace DefaultNamespace.TowerSystem
         public GameObject prefab;
         public float damage;
         public float speed;
+        [Tooltip("Increses Perfermance")]
+        public bool useRaycast;
         public bool activateAOE;
         [Range(1,50)]
         public int hitAreaRadius;
