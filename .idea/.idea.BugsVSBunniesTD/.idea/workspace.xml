@@ -8,14 +8,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f09f1f5c-0885-4fd4-b329-770c8f92c57a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Environment Prefabs/Grass Tiles/GrassTheme/GrassPathCorner.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Environment Prefabs/Grass Tiles/GrassTheme/GrassPathCorner.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Environment Prefabs/Grass Tiles/GrassTheme/GrassPathCross.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Environment Prefabs/Grass Tiles/GrassTheme/GrassPathCross.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Environment Prefabs/Grass Tiles/GrassTheme/GrassPathStraight.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Environment Prefabs/Grass Tiles/GrassTheme/GrassPathStraight.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Environment Prefabs/Grass Tiles/GrassTheme/GrassPathT.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Environment Prefabs/Grass Tiles/GrassTheme/GrassPathT.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Environment Prefabs/Grass Tiles/GrassTheme/GrassTile.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Environment Prefabs/Grass Tiles/GrassTheme/GrassTile.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.BugsVSBunniesTD/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BugsVSBunniesTD/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level1.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level1/NavMesh-Navmesh 2.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level1/NavMesh-Navmesh 2.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level1/NavMesh-Navmesh 2.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level1/NavMesh-Navmesh 2.asset.meta" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
