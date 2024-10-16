@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
+using DefaultNamespace;
 using DefaultNamespace.TowerSystem;
+using Helper;
 using UnityEngine;
 
 public class BaseHealth : MonoBehaviour
@@ -18,6 +20,8 @@ public class BaseHealth : MonoBehaviour
     public MenuManager PauseMenuManager;
     public CanvasGroup DeathScreen;
 
+    private AudioSource mAudioSource;
+
     [SerializeField] private AudioClip _audioClip;
     
     void FadeDeathScreen()
@@ -30,14 +34,15 @@ public class BaseHealth : MonoBehaviour
        
         if(PauseMenuManager!=null&&DeathScreen!=null)
             BaseDefeated += FadeDeathScreen;
+        
+        mAudioSource = ComponentCopier.CopyComponent(SoundFXPlayer.Source, transform.gameObject);
     }
 
     public void DamageBase(int amount)
     {
         CurrentHealth -= amount;
 
-        // TODO Add ItsOwnComponent
-        // SoundFXPlayer.Instance.PlaySFX(_audioClip);
+        mAudioSource.PlayOneShot(_audioClip, AudioManager.SFXVolume * 10);
 
         for (int i=0;i<Carrots.Length;i++)
         {

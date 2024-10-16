@@ -24,12 +24,12 @@ MonoBehaviour:
       type: 3}
     damage: 0.5
     speed: 120
+    useRaycast: 1
     activateAOE: 1
     hitAreaRadius: 5
     deathEffect: 2
   fireRate: 0.01
   attackRadius: 30
-  burstDelay: 0
   attackTime: 1
   cooldown: 1
   myTargetingType: 1

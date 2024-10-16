@@ -1,4 +1,5 @@
-using System;
+using System.Collections.Generic;
+using System.Linq;
 using DefaultNamespace;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -17,6 +18,8 @@ public class TowerPlacer : MonoBehaviour
     public static TowerPlacementGrid TowerPlacementGrid;
     private eCurrentMode _currentMode = eCurrentMode.None;
     
+    private List<TowerPlacementGrid> _towerPlacementGrids;
+    private TowerPlacementGrid _currentTowerPlacementGrid;
     [SerializeField] private Material canPlace;
     [SerializeField] private Material cannotPlace;
     
@@ -26,27 +29,40 @@ public class TowerPlacer : MonoBehaviour
         PlacementDisabled = false;
         previewPlacer = Instantiate(PreviewPlacerPrefab).gameObject;
         previewPlacerMeshFilter = previewPlacer.GetComponentInChildren<MeshFilter>();
+        UpdateTowerPlacementList();
     }
-    
+
+    private void OnEnable()
+    {
+        WaveEndHook.OnWaveEnded += UpdateTowerPlacementList;
+    }
+
+    private void OnDisable()
+    {
+        WaveEndHook.OnWaveEnded -= UpdateTowerPlacementList;
+    }
+
     private void Update()
     {
+        var hitClass = InputGather.Instance.GetHitClass<TowerPlacementGrid>();
+
         UpdatePreview();
-        var hitClass1 = InputGather.Instance.GetHitClass<TowerPlacementGrid>();
 
         switch (_currentMode)
         {
             case eCurrentMode.None:
                 if(InputGather.Instance.MouseLeftClick && !InputGather.isMouseOverGameObject) // Selecting
-                    if (hitClass1 != null && hitClass1.HasTowerOnIt)
+                    if (hitClass != null && hitClass.HasTowerOnIt)
                     {
                         SelectedTower = null;
-                        TowerPlacementGrid = hitClass1;
+                        TowerPlacementGrid = hitClass;
                         _currentMode = eCurrentMode.Selection;
                     }
 
                 if (SelectedTower != null)
                 {
                     TowerPlacementGrid = null;
+                    previewPlacerMeshFilter.transform.position = InputGather.Instance.GetMousePosition();
                     _currentMode = eCurrentMode.Painting;
                 }
                 
@@ -56,15 +72,16 @@ public class TowerPlacer : MonoBehaviour
                 
                 if(InputGather.Instance.MouseLeftClick && !InputGather.isMouseOverGameObject) // Selecting
                 {
-                    if (hitClass1 != null)
+                    hitClass = InputGather.Instance.GetHitClass<TowerPlacementGrid>();
+                    if (hitClass != null)
                     {
-                        if (hitClass1 == TowerPlacementGrid)
+                        if (hitClass == TowerPlacementGrid)
                         {
                             TowerPlacementGrid = null;
                         }
-                        else if (hitClass1.HasTowerOnIt)
+                        else if (hitClass.HasTowerOnIt)
                         {
-                            TowerPlacementGrid = hitClass1;
+                            TowerPlacementGrid = hitClass;
                         }
                         else
                         {
@@ -82,21 +99,23 @@ public class TowerPlacer : MonoBehaviour
             case eCurrentMode.Painting:
                 if (SelectedTower == null) _currentMode = eCurrentMode.None;
                 
-                if (hitClass1 != null && 
+                _currentTowerPlacementGrid = FindClosest(InputGather.Instance.GetMousePosition());
+
+                if (_currentTowerPlacementGrid != null && 
                     InputGather.Instance.MouseLeftClick &&
                     !EventSystem.current.IsPointerOverGameObject())
                 {
-                    if(CanPlacable(out TowerPlacementGrid grid))
+                    if(_currentTowerPlacementGrid != null)
                     {
                         BuyTower(SelectedTower);
                     }
-                    else if (hitClass1 == TowerPlacementGrid)
+                    else if (_currentTowerPlacementGrid == TowerPlacementGrid)
                     {
                         TowerPlacementGrid = null;
                     }
-                    else if(hitClass1.HasTowerOnIt)
+                    else if(_currentTowerPlacementGrid.HasTowerOnIt)
                     {
-                        TowerPlacementGrid = hitClass1;
+                        TowerPlacementGrid = _currentTowerPlacementGrid;
                     }
                 }
                 break;
@@ -108,34 +127,6 @@ public class TowerPlacer : MonoBehaviour
             SelectedTower = null;
             _currentMode = eCurrentMode.None;
         }
-        
-        // Zombie Code ***
-        // var hitClass = InputGather.Instance.GetHitClass<TowerPlacementGrid>();
-        // if (SelectedTower != null) // Placing
-        // {
-        //     if (hitClass != null && 
-        //         InputGather.Instance.MouseLeftClick &&
-        //         !EventSystem.current.IsPointerOverGameObject() &&
-        //         CanPlacable(out DefaultNamespace.TowerPlacementGrid grid))
-        //     {
-        //         BuyTower(SelectedTower);
-        //     }
-        // }
-        // else if(InputGather.Instance.MouseLeftClick && !InputGather.isMouseOverGameObject) // Selecting
-        // {
-        //     if (hitClass != null)
-        //     {
-        //         if (hitClass == TowerPlacementGrid)
-        //             TowerPlacementGrid = null;
-        //         else if (hitClass.HasTowerOnIt)
-        //             TowerPlacementGrid = hitClass;
-        //         else
-        //             TowerPlacementGrid = null;
-        //     }
-        //     else
-        //         TowerPlacementGrid = null;
-        // }
-      
     }
     
     public void UpdatePreview()
@@ -158,39 +149,63 @@ public class TowerPlacer : MonoBehaviour
             }
         }
         
-        if (CanPlacable(out TowerPlacementGrid grid))
+        if (CanPlacable())
             previewPlacerMeshFilter.GetComponent<MeshRenderer>().material = canPlace;
         else
             previewPlacerMeshFilter.GetComponent<MeshRenderer>().material = cannotPlace;
         
         // Placement
-        var hitClass = InputGather.Instance.GetHitClass<TowerPlacementGrid>();
-
-        if (hitClass != null)
-            previewPlacerMeshFilter.transform.position = hitClass.GetPlacementPosition.position;
-        else
-            previewPlacerMeshFilter.transform.position = InputGather.Instance.GetMousePosition();
+        _currentTowerPlacementGrid = FindClosest(InputGather.Instance.GetMousePosition());
+        if (_currentTowerPlacementGrid != null)
+        {
+            previewPlacerMeshFilter.transform.position = Vector3.Lerp(previewPlacerMeshFilter.transform.position, _currentTowerPlacementGrid.GetPlacementPosition.position, Time.unscaledDeltaTime * 10);
+        }
     }
     
     public void BuyTower(PurchaseButton selectedTower)
     {
-        if (CanPlacable(out TowerPlacementGrid grid))
+        if (CanPlacable())
         {
             if (MoneyManager.instance.RemoveMoney(selectedTower.TowerScriptable.purchaseCost))
             {
                 source?.Play();
-                grid.AddTower(selectedTower.TowerScriptable);
+                _currentTowerPlacementGrid.AddTower(selectedTower.TowerScriptable);
             }
         }
     }
 
-    public bool CanPlacable(out TowerPlacementGrid placementGrid)
+    public bool CanPlacable()
     {
-        placementGrid = InputGather.Instance.GetHitClass<TowerPlacementGrid>();
+        return _currentTowerPlacementGrid != null && !_currentTowerPlacementGrid.HasTowerOnIt;
+    }
+    
+    private void UpdateTowerPlacementList()
+    {
+        _towerPlacementGrids = FindObjectsOfType<TowerPlacementGrid>().ToList();
+        
+        if (_towerPlacementGrids.Count > 0)
+            _currentTowerPlacementGrid = _towerPlacementGrids[0];
+        else
+            Debug.LogError("There is No Placement Grids Found");
+    }
+    
+    private TowerPlacementGrid FindClosest(Vector3 mousePosition)
+    {
+        TowerPlacementGrid closestTransform = null;
+        float closestDistanceSqr = Mathf.Infinity;
 
-        if (placementGrid == null) return false;
+        foreach (var grid in _towerPlacementGrids)
+        {
+            float distanceSqr = (grid.GetPlacementPosition.position - mousePosition).sqrMagnitude; // Squared distance is faster
 
-        return !placementGrid.HasTowerOnIt;
+            if (distanceSqr < closestDistanceSqr)
+            {
+                closestTransform = grid;
+                closestDistanceSqr = distanceSqr;
+            }
+        }
+
+        return closestTransform;
     }
 
     public enum eCurrentMode

@@ -9,7 +9,20 @@
   <component name="ChangeListManager">
     <list default="true" id="f09f1f5c-0885-4fd4-b329-770c8f92c57a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BugsVSBunniesTD/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BugsVSBunniesTD/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Towers/ParticleEffects/FX_Bubbles.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Towers/ParticleEffects/FX_Bubbles.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Towers/ParticleEffects/FX_ElectricRay.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Towers/ParticleEffects/FX_ElectricRay.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Towers/ParticleEffects/FX_ShrinkRay.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Towers/ParticleEffects/FX_ShrinkRay.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Towers/ParticleEffects/FX_Wind.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Towers/ParticleEffects/FX_Wind.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Weapons/Bubble.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Weapons/Bubble.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Weapons/ShrinkBullet.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Weapons/ShrinkBullet.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/_Towers/_DefaultTowers/Freeze Tower.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/_Towers/_DefaultTowers/Freeze Tower.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/_Towers/_DefaultTowers/Shrink Tower.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/_Towers/_DefaultTowers/Shrink Tower.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/_Towers/_DefaultTowers/Wind Tower.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/_Towers/_DefaultTowers/Wind Tower.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level1.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Debugger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Debugger.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NewBulletBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NewBulletBehaviour.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ScriptableObjects/TowerScriptableObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ScriptableObjects/TowerScriptableObject.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TowerSystem/NewTowerBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TowerSystem/NewTowerBase.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,6 +138,7 @@
       <workItem from="1727206126557" duration="1658000" />
       <workItem from="1727899854803" duration="3807000" />
       <workItem from="1728787734201" duration="2026000" />
+      <workItem from="1728956427708" duration="6401000" />
     </task>
     <servers />
   </component>

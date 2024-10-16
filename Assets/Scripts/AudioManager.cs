@@ -15,9 +15,9 @@ public class AudioManager : MonoBehaviour
         SFXVolume = PlayerPrefs.GetFloat("SFX_Vol", 0.5f);
         MusicVolume = PlayerPrefs.GetFloat("Music_Vol", 0.5f);
         if(SFXSlider!=null)
-        SFXSlider.value = SFXVolume;
+            SFXSlider.value = SFXVolume;
         if(MusicSlider!=null)
-        MusicSlider.value = MusicVolume;
+            MusicSlider.value = MusicVolume;
 
     }
     public void SetSFXVolume(Slider slider)
@@ -30,7 +30,6 @@ public class AudioManager : MonoBehaviour
     public void SetMusicVolume(Slider slider)
     {
         MusicVolume = slider.value / slider.maxValue;
-
 
         PlayerPrefs.SetFloat("Music_Vol",MusicVolume);
         MusicVolume = Mathf.Log10((MusicVolume) * 20);

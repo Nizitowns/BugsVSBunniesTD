@@ -36,11 +36,26 @@ namespace DefaultNamespace
             _bulletConfig = bulletConfig;
             transform.position = startPosition;
 
-            _lastDirection = _target.mTransform.position - transform.position;
+            if(_target != null)
+                _lastDirection = _target.mTransform.position - transform.position;
+            
+            if (bulletConfig.useRaycast)
+            {
+                // Deactivate Particles and visual
+                var particles = transform.GetComponentsInChildren<ParticleSystem>();
+                foreach (var particle in particles)
+                    particle.Stop();
+
+                var meshRenderers = transform.GetComponents<MeshRenderer>();
+                foreach (var mesh in meshRenderers)
+                    mesh.enabled = false;
+            }
         }
-       
+        
         private void Update()
         {
+            if (_bulletConfig.useRaycast) return;
+            
             durationTimer += Time.deltaTime;
             if (transform.position.y < -0.5f || durationTimer > 5) // Total Life Duration
                 Dispose();
@@ -56,7 +71,28 @@ namespace DefaultNamespace
                 _bulletConfig.speed * Time.deltaTime);
         }
 
+        public void CustomTriggerCheck(IEnemyUnit target, Vector3 startPosition)
+        {
+            var lastDir = target.mTransform.position - startPosition;
+
+            Ray ray = new Ray(startPosition, lastDir);
+            var hitCastAll = Physics.RaycastAll(ray, 1000);
+            for (int i = 0; i < hitCastAll.Length; i++)
+            {
+                if (hitCastAll[i].transform.TryGetComponent(out IEnemyUnit unit) && unit == target)
+                {
+                    CheckCollision(unit.mTransform);
+                    return;
+                }
+            }
+        }
+
         private void OnTriggerEnter(Collider other)
+        {
+            CheckCollision(other.transform);
+        }
+
+        private void CheckCollision(Transform transform)
         {
             if (_bulletConfig.activateAOE)
             {
@@ -80,11 +116,13 @@ namespace DefaultNamespace
             }
             else
             {
-                ApplyDamage(other.transform);
+                ApplyDamage(transform);
             }
             
-            Dispose();
+            if(!_bulletConfig.useRaycast)
+                Dispose();
         }
+        
 
         private void ApplyDamage(Transform target)
         {
@@ -195,6 +233,8 @@ namespace DefaultNamespace
                     throw new ArgumentOutOfRangeException();
             }
         }
+
+        public void CallApplyDamage(Transform target) => ApplyDamage(target);
 
         public PoolManager.PoolID ConnectedPool { get; set; }
 
