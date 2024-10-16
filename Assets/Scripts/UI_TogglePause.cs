@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace DefaultNamespace
 {
-    public class MainMenu : MonoBehaviour
+    public class UI_TogglePause : MonoBehaviour
     {
         private void OnEnable()
         {
