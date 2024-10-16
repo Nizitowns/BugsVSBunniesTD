@@ -6,17 +6,17 @@ namespace DefaultNamespace
     {
         private void OnEnable()
         {
-            GameSpeed.Instance.PauseGame();
+            GameSpeed.Instance.PauseGame(hardPause:true);
         }
 
         private void OnDisable()
         {
-            GameSpeed.Instance.ResumeGame();
+            GameSpeed.Instance.ResumeGame(breakHardPause:true);
         }
 
         private void OnDestroy()
         {
-            GameSpeed.Instance.ResumeGame();
+            GameSpeed.Instance.ResumeGame(breakHardPause:true);
         }
     }
 }

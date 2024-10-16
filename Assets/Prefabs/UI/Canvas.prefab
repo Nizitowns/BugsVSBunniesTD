@@ -2069,7 +2069,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2263987401521084273}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -5834,7 +5834,7 @@ GameObject:
   - component: {fileID: 1675759075733804657}
   - component: {fileID: 2804894980692956998}
   - component: {fileID: 543374116271157384}
-  - component: {fileID: 6006159571776556541}
+  - component: {fileID: 9023489345192704251}
   m_Layer: 5
   m_Name: Pause
   m_TagString: Untagged
@@ -5943,7 +5943,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &6006159571776556541
+--- !u!114 &9023489345192704251
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5952,13 +5952,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 7746642220470666650}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce1e523f6d614ea8861b4c9512f6f572, type: 3}
+  m_Script: {fileID: 11500000, guid: 4c8befcf2bf84927ba39004e422f4ac2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ButtonType: 1
   isAnimatedOnClick: 1
   isAnimatedOnHover: 1
   SpeedToSet: 0
+  pauseSprite: {fileID: 21300000, guid: 384dd24dfb3de9946aa6b4b20deb7774, type: 3}
+  resumeSprite: {fileID: 21300000, guid: 2090eb7e945c19240805bfda8505d82f, type: 3}
 --- !u!1 &7812335262569778379
 GameObject:
   m_ObjectHideFlags: 0
