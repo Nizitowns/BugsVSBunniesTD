@@ -28,6 +28,8 @@ namespace DefaultNamespace
 
         private void Update()
         {
+            if (currentSpeed == GameSpeedX.X0) return;
+            
             if (InputGather.Instance.SpaceButton)
             {
                 GameSpeedX[] speeds = (GameSpeedX[])Enum.GetValues(typeof(GameSpeedX));
@@ -41,6 +43,7 @@ namespace DefaultNamespace
 
         public void PauseGame()
         {
+            currentSpeed = GameSpeedX.X0;
             Time.timeScale = 0;
         }
 
@@ -51,7 +54,14 @@ namespace DefaultNamespace
                 currentSpeed = GameSpeedX.X1;
                 Time.timeScale = 1;
                 return;
-            } 
+            }
+
+            if (currentSpeed == GameSpeedX.X0)
+            {
+                currentSpeed = GameSpeedX.X1;
+                Time.timeScale = 1;
+                return;
+            }
             
             Time.timeScale = (int)currentSpeed;
         }
@@ -61,5 +71,7 @@ namespace DefaultNamespace
             Time.timeScale = (int)speed;
             currentSpeed = speed;
         }
+
+        public GameSpeedX GetCurrentSpeed => currentSpeed;
     }
 }

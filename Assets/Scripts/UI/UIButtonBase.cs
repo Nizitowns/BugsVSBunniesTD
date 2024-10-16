@@ -79,6 +79,8 @@ namespace DefaultNamespace
 
         private void Update()
         {
+            if(GameSpeed.Instance.GetCurrentSpeed == GameSpeed.GameSpeedX.X0) return;
+            
             if (InputGather.Instance.CancelButton)
             {
                 OnCancel();
@@ -92,6 +94,8 @@ namespace DefaultNamespace
 
         public void OnAction()
         {
+            if(GameSpeed.Instance.GetCurrentSpeed == GameSpeed.GameSpeedX.X0) return;
+
             switch (ButtonType)
             {
                 case eButtonType.Info:
