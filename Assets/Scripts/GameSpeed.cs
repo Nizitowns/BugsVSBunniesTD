@@ -14,7 +14,12 @@ namespace DefaultNamespace
         }
         
         public static GameSpeed Instance;
+        private GameSpeedX lastSpeed;
         private GameSpeedX currentSpeed;
+
+        private bool hardPause = false;
+
+        public static event Action<bool> OnGamePaused;
 
         private void Awake()
         {
@@ -41,35 +46,50 @@ namespace DefaultNamespace
             }
         }
 
-        public void PauseGame()
+        public void PauseGame(bool hardPause = false)
         {
             currentSpeed = GameSpeedX.X0;
             Time.timeScale = 0;
+            
+            if (hardPause)
+                this.hardPause = true;
+            
+            OnGamePaused?.Invoke(true);
         }
 
-        public void ResumeGame(bool setDefault = false)
+        public void ResumeGame(bool setDefault = false, bool breakHardPause = false)
         {
+            if (breakHardPause)
+            {
+                hardPause = false;
+            }
+            else if(hardPause)
+            {
+                return;
+            }
+
+            OnGamePaused?.Invoke(false);
+            
             if (setDefault)
             {
                 currentSpeed = GameSpeedX.X1;
                 Time.timeScale = 1;
                 return;
             }
-
-            if (currentSpeed == GameSpeedX.X0)
-            {
-                currentSpeed = GameSpeedX.X1;
-                Time.timeScale = 1;
-                return;
-            }
             
-            Time.timeScale = (int)currentSpeed;
+            Time.timeScale = (int)lastSpeed;
+            currentSpeed = lastSpeed;
         }
 
         public void SetGameSpeed(GameSpeedX speed)
         {
+            if (hardPause) return;
+            
+            OnGamePaused?.Invoke(false);
+            
             Time.timeScale = (int)speed;
             currentSpeed = speed;
+            lastSpeed = currentSpeed;
         }
 
         public GameSpeedX GetCurrentSpeed => currentSpeed;

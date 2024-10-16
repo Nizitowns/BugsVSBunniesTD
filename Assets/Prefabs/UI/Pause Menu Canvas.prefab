@@ -2509,6 +2509,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5150462060476865382}
   - component: {fileID: 115311466540236683}
+  - component: {fileID: 7824290350825489188}
   m_Layer: 5
   m_Name: Options Canvas
   m_TagString: Untagged
@@ -2554,6 +2555,18 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &7824290350825489188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2968411968876443039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ed60235f43d4aad8d7b2ab3d32af352, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2976610540310555129
 GameObject:
   m_ObjectHideFlags: 0
@@ -2564,6 +2577,7 @@ GameObject:
   m_Component:
   - component: {fileID: 159675017947965957}
   - component: {fileID: 7280302045566161498}
+  - component: {fileID: 1725695895971734904}
   m_Layer: 5
   m_Name: Tower Info
   m_TagString: Untagged
@@ -2603,6 +2617,18 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &1725695895971734904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2976610540310555129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ed60235f43d4aad8d7b2ab3d32af352, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3431445691778898173
 GameObject:
   m_ObjectHideFlags: 0
@@ -5040,6 +5066,7 @@ GameObject:
   - component: {fileID: 8280471250934483545}
   - component: {fileID: 3442995388080254134}
   - component: {fileID: 3303443804381701168}
+  - component: {fileID: 1634428979832122698}
   m_Layer: 5
   m_Name: LossMenu
   m_TagString: Untagged
@@ -5189,6 +5216,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FadeInOnStart: 0
   audioSourceType: 0
+--- !u!114 &1634428979832122698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6271975281939723232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ed60235f43d4aad8d7b2ab3d32af352, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6448695288864442676
 GameObject:
   m_ObjectHideFlags: 0
@@ -6448,6 +6487,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5411273068317444462}
   - component: {fileID: 5517157550343426752}
+  - component: {fileID: 1144898466579339084}
   m_Layer: 0
   m_Name: Main Menu
   m_TagString: Untagged
@@ -6491,6 +6531,18 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &1144898466579339084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7857466217847911784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ed60235f43d4aad8d7b2ab3d32af352, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7955429763664767261
 GameObject:
   m_ObjectHideFlags: 0
@@ -6646,6 +6698,7 @@ GameObject:
   - component: {fileID: 5549203012462064133}
   - component: {fileID: 5570436792259482284}
   - component: {fileID: 7250946679885537537}
+  - component: {fileID: 1177449187785514876}
   m_Layer: 5
   m_Name: WinMenu
   m_TagString: Untagged
@@ -6795,6 +6848,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FadeInOnStart: 0
   audioSourceType: 0
+--- !u!114 &1177449187785514876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8856851053255048797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ed60235f43d4aad8d7b2ab3d32af352, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8914521763649382881
 GameObject:
   m_ObjectHideFlags: 0
