@@ -18,6 +18,11 @@ namespace DefaultNamespace
         private GameSpeedX currentSpeed;
 
         private bool hardPause = false;
+        
+        public bool IsHardPaused
+        {
+            get { return hardPause; }
+        }
 
         public static event Action<bool> OnGamePaused;
 
@@ -33,9 +38,7 @@ namespace DefaultNamespace
 
         private void Update()
         {
-            if (currentSpeed == GameSpeedX.X0) return;
-            
-            if (InputGather.Instance.SpaceButton)
+            if (InputGather.Instance.SpaceButton && !hardPause)
             {
                 GameSpeedX[] speeds = (GameSpeedX[])Enum.GetValues(typeof(GameSpeedX));
 

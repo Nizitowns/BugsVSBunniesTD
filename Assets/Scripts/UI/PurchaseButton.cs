@@ -53,6 +53,8 @@ public class PurchaseButton : UIButtonBase
 
     public override void OnToggle(bool toggle)
     {
+        if (GameSpeed.Instance.IsHardPaused) return;
+        
         if(source!=null&& source.enabled) PlaySoundFX();
 
         if (toggle)
