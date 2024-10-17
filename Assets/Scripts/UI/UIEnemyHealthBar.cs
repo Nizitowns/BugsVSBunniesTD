@@ -22,7 +22,9 @@ namespace DefaultNamespace
 
         private void Update()
         {
-            transform.LookAt(camTransform);
+            // NOT MY Code!
+            transform.LookAt(transform.position + camTransform.transform.rotation * Vector3.forward, camTransform.transform.rotation * Vector3.up);
+            //
             transform.position = _targetTransform.position + Vector3.up * 10;
         }
 
