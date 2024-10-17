@@ -41,10 +41,8 @@ public class EnemySpawner : MonoBehaviour
     [Tooltip("On a scale from 0-1 returns how close the current wave is to completion.")]
     public float WavePercentage()
     {
-
-
         //What percent of enemies spawned this wave have we killed?
-        return  Mathf.Min(Mathf.Max(0, enemiesKilledThisWave / Mathf.Max(1, enemiesWantedToSpawnThisWave)),
+        return  1 - Mathf.Min(Mathf.Max(0, enemiesKilledThisWave / Mathf.Max(1, enemiesWantedToSpawnThisWave)),
             1);
 
         /*Legacy Code
@@ -61,7 +59,7 @@ public class EnemySpawner : MonoBehaviour
     [Tooltip("On a scale from 0-1 returns how close this entire enemy spawner is to 100% completion.")]
     public float TotalPercentage()
     {
-        return totalWavesCompleted / totalWavesToSpawn;
+        return 1 - totalWavesCompleted / totalWavesToSpawn;
     }
 
     public EnemyWave.DifficultyRating CurrentWaveDifficulty()
