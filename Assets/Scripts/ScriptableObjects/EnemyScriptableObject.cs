@@ -10,4 +10,5 @@ public class EnemyScriptableObject : ScriptableObject
     public float speed;
     [Tooltip("Helps to recenter Prefab")]
     public float offset;
+    public bool isBoss;
 }

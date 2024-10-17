@@ -24,6 +24,7 @@ public abstract class Enemy : MonoBehaviour, IEnemyUnit, IDebuffable
     public Transform mTransform { get; private set; }
     [SerializeField] protected float currentHealth;
     public NavMeshAgent agent;
+    private UIEnemyHealthBar _healthBar;
 
     [Header("Sound FX")]
     [SerializeField] private AudioClip DeathSX;
@@ -43,6 +44,13 @@ public abstract class Enemy : MonoBehaviour, IEnemyUnit, IDebuffable
         currentHealth = Config.maxHealth;
         gameObject.tag = "enemies";
         DebuffHandler = new EnemyDebuffHandler(this);
+
+        if (Config.isBoss)
+        {
+            _healthBar = Instantiate(CommonPrefabHolder.Instance.HealtBarPrefab, transform).GetComponent<UIEnemyHealthBar>();
+            _healthBar.Init(mTransform);
+            _healthBar.gameObject.SetActive(false);
+        }
     }
     
     private void Update()
@@ -64,6 +72,14 @@ public abstract class Enemy : MonoBehaviour, IEnemyUnit, IDebuffable
         }
 
         currentHealth -= amount;
+        if (Config.isBoss)
+        {
+            _healthBar.UpdateHeahtBar(currentHealth, Config.maxHealth);
+            
+            if(!_healthBar.gameObject.activeInHierarchy)
+                _healthBar.gameObject.SetActive(true);
+
+        }
         return false;
     }
 

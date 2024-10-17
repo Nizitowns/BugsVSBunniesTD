@@ -18,3 +18,4 @@ MonoBehaviour:
   carrotDamage: 4
   speed: 6
   offset: 0.5
+  isBoss: 1
