@@ -47,7 +47,7 @@ public abstract class Enemy : MonoBehaviour, IEnemyUnit, IDebuffable
 
         if (Config.isBoss)
         {
-            _healthBar = Instantiate(CommonPrefabHolder.Instance.HealtBarPrefab, transform).GetComponent<UIEnemyHealthBar>();
+            _healthBar = Instantiate(CommonPrefabHolder.Instance.HealtBarPrefab).GetComponent<UIEnemyHealthBar>();
             _healthBar.Init(mTransform);
             _healthBar.gameObject.SetActive(false);
         }
@@ -92,6 +92,8 @@ public abstract class Enemy : MonoBehaviour, IEnemyUnit, IDebuffable
             SoundFXPlayer.PlaySFX(SoundFXPlayer.Source, DeathSX);
         }
         IsDead = true;
+        if(_healthBar != null)
+            Destroy(_healthBar.gameObject);
         Destroy(gameObject);
     }
 

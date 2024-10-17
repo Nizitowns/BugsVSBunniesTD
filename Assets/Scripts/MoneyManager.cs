@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -42,6 +40,4 @@ public class MoneyManager : MonoBehaviour
         if(balanceUI != null)
             balanceUI.text = Balance+ "$";
     }
-
-
 }

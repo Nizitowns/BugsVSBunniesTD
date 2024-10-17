@@ -8,19 +8,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f09f1f5c-0885-4fd4-b329-770c8f92c57a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/UIEnemyHealthBar.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/UIEnemyHealthBar.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/ScoreManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/ScoreManager.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BugsVSBunniesTD/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BugsVSBunniesTD/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/_Enemies/Ant Empress.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/_Enemies/Ant Empress.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/_Enemies/Ant Knight.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/_Enemies/Ant Knight.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/_Enemies/Ant Queen.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/_Enemies/Ant Queen.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/_Enemies/Shrimp Boss.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/_Enemies/Shrimp Boss.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art Assets/Textures/UI/COST.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art Assets/Textures/UI/COST.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art Assets/Textures/UI/Growth bar 1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art Assets/Textures/UI/Growth bar 1.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art Assets/Textures/UI/Growth bar.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art Assets/Textures/UI/Growth bar.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art Assets/Textures/UI/Tower_Choosing_Panel.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art Assets/Textures/UI/Tower_Choosing_Panel.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/Canvas.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/Canvas.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level1.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DebugVisual.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CommonPrefabHolder.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DebugVisual.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CommonPrefabHolder.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NewBulletBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NewBulletBehaviour.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ScriptableObjects/EnemyScriptableObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ScriptableObjects/EnemyScriptableObject.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MoneyManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MoneyManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/UIEnemyHealthBar.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/UIEnemyHealthBar.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,10 +33,10 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ScriptableObjects/DebuffEffects/Debuff.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/TowerPlacer.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/StandartButton.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/82a2fd073ee449928e161903460426d72ae00/4d/4d3d45d2/Tween.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/82a2fd073ee449928e161903460426d72ae00/72/100868a0/TweenSettingsExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/cd3a94e80f824c43a87bf974a59a8abb175c00/0c/76fd814c/MonoBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/cd3a94e80f824c43a87bf974a59a8abb175c00/44/339f1f04/Transform.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/cd3a94e80f824c43a87bf974a59a8abb175c00/4c/6859fff8/Behaviour.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/cd3a94e80f824c43a87bf974a59a8abb175c00/9a/e5be6b47/Component.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/cd3a94e80f824c43a87bf974a59a8abb175c00/e6/9554ffad/Object.cs" root0="SKIP_HIGHLIGHTING" />
@@ -138,6 +138,7 @@
       <workItem from="1728787734201" duration="2026000" />
       <workItem from="1728956427708" duration="6401000" />
       <workItem from="1729106634208" duration="1118000" />
+      <workItem from="1729198277600" duration="2661000" />
     </task>
     <servers />
   </component>
