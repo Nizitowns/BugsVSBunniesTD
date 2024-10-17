@@ -3,11 +3,13 @@ using UnityEngine;
 
 namespace DefaultNamespace
 {
-    public class DebugVisual : MonoBehaviour
+    public class CommonPrefabHolder : MonoBehaviour
     {
-        public static DebugVisual Instance;
+        public static CommonPrefabHolder Instance;
         
         public GameObject BulletAreaVisualizer;
+
+        public GameObject HealtBarPrefab;
 
         private void Awake()
         {

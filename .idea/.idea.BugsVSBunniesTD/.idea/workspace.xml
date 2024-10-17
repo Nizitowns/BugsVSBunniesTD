@@ -8,9 +8,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f09f1f5c-0885-4fd4-b329-770c8f92c57a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/UIEnemyHealthBar.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/UIEnemyHealthBar.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BugsVSBunniesTD/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BugsVSBunniesTD/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameSpeed.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameSpeed.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/PurchaseButton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/PurchaseButton.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/_Enemies/Ant Empress.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/_Enemies/Ant Empress.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/_Enemies/Ant Knight.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/_Enemies/Ant Knight.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/_Enemies/Ant Queen.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/_Enemies/Ant Queen.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/_Enemies/Shrimp Boss.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/_Enemies/Shrimp Boss.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level1.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DebugVisual.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CommonPrefabHolder.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DebugVisual.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CommonPrefabHolder.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NewBulletBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NewBulletBehaviour.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ScriptableObjects/EnemyScriptableObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ScriptableObjects/EnemyScriptableObject.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

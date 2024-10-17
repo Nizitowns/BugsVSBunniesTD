@@ -107,7 +107,7 @@ namespace DefaultNamespace
                 // Debuging
                 if (Debugger.ShowAreaEffectVisualizer)
                 {
-                    var ball = Instantiate(DebugVisual.Instance.BulletAreaVisualizer);
+                    var ball = Instantiate(CommonPrefabHolder.Instance.BulletAreaVisualizer);
                     ball.transform.position = pos;
                     ball.transform.localScale = Vector3.one * _bulletConfig.hitAreaRadius * 2;
                 

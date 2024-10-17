@@ -22005,6 +22005,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyWaves:
+  - ReportedDifficultyRating: 2
+    enemiesToSpawn:
+    - EnemyConfig: {fileID: 11400000, guid: 9c7758d600e43ec4f9aeb4eaa95c5f8c, type: 2}
+      SpawnAmount: 1
+      spawnInterval: 1
+      snapSpawning: 1
+    - EnemyConfig: {fileID: 11400000, guid: 7d09aea050ded784fb9a03ba866de67a, type: 2}
+      SpawnAmount: 20
+      spawnInterval: 1
+      snapSpawning: 1
+    PostWaveDelay: 6
+    WaitUntilCompletion: 1
   - ReportedDifficultyRating: 1
     enemiesToSpawn:
     - EnemyConfig: {fileID: 11400000, guid: bb93ab8c7692a2441a4df4e28b3c9921, type: 2}
@@ -37794,6 +37806,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BulletAreaVisualizer: {fileID: 1888167358710403698, guid: 578ad4de2387f714b9814fe0324d4c91,
+    type: 3}
+  HealtBarPrefab: {fileID: 8865180063921725314, guid: 406569f1524f8d64991bfcada01a022c,
     type: 3}
 --- !u!1001 &1824706648
 PrefabInstance:
