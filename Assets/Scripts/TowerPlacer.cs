@@ -16,6 +16,7 @@ public class TowerPlacer : MonoBehaviour
     MeshFilter previewPlacerMeshFilter;
 
     public static TowerPlacementGrid TowerPlacementGrid;
+
     private eCurrentMode _currentMode = eCurrentMode.None;
     
     private List<TowerPlacementGrid> _towerPlacementGrids;

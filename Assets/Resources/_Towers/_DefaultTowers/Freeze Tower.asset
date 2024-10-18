@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Freeze Tower
   m_EditorClassIdentifier: 
   purchaseCost: 45
-  selectedTitle: <color=#001CDB>Freeze Ray
+  selectedTitle: Freeze Ray
   purchaseIcon: {fileID: 21300000, guid: 7f2059454de3ce74db2b44a9548bc9a6, type: 3}
   prefab: {fileID: 1795088072936312166, guid: 7792e3955edff05489aff37b1107d928, type: 3}
   previewMesh: {fileID: -8943654866815143141, guid: c381c9bb179d14b4498fdb26e538a71f,

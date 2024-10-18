@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Shrink Tower
   m_EditorClassIdentifier: 
   purchaseCost: 15
-  selectedTitle: <color=red>Shrink Ray
+  selectedTitle: Shrink Ray
   purchaseIcon: {fileID: 21300000, guid: 3fe24d4a145b9e740a4f73f8830da436, type: 3}
   prefab: {fileID: 7909643431233604432, guid: f5b0d4e62ab93be4ea9c06764a46fa2a, type: 3}
   previewMesh: {fileID: 2639007440851010173, guid: 1401ac3666f8c7c408a673ac0a37fc41,
