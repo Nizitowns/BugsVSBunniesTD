@@ -11,6 +11,8 @@ namespace DefaultNamespace.TowerSystem
         [Header("Purchase Settings")] 
         public int purchaseCost;
         public string selectedTitle;
+        [TextArea(3,3)]
+        public string description;
         public Sprite purchaseIcon;
         public GameObject prefab;
         public Mesh previewMesh;

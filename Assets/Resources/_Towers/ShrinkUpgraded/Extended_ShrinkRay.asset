@@ -13,12 +13,13 @@ MonoBehaviour:
   m_Name: Extended_ShrinkRay
   m_EditorClassIdentifier: 
   purchaseCost: 35
-  selectedTitle: <color=red>Extended Shrink Ray
-  purchaseIcon: {fileID: 21300000, guid: 3fe24d4a145b9e740a4f73f8830da436, type: 3}
+  selectedTitle: Extended Shrink Ray
+  description: Increases attack radius and Minor damage
+  purchaseIcon: {fileID: 21300000, guid: 50d02b1f4b42226439fe8d78078f7b81, type: 3}
   prefab: {fileID: 4083087000483744265, guid: bdbd97bbc554c4d44b5b0a57e5e4caf4, type: 3}
   previewMesh: {fileID: 2639007440851010173, guid: 1401ac3666f8c7c408a673ac0a37fc41,
     type: 3}
-  purchaseIconAdditionalTint: {r: 0.9607844, g: 1, b: 0.76470596, a: 1}
+  purchaseIconAdditionalTint: {r: 1, g: 1, b: 1, a: 1}
   BulletConfig:
     prefab: {fileID: 8319209496153684854, guid: 2cafa5a61d661284caeddbd998647ce9,
       type: 3}

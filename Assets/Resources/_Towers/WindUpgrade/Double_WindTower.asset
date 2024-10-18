@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Double_WindTower
   m_EditorClassIdentifier: 
   purchaseCost: 80
-  selectedTitle: <color=#005408>Fan Tower
-  purchaseIcon: {fileID: 21300000, guid: f62db4a94018e3446b4720ad650586cb, type: 3}
+  selectedTitle: Fan Tower
+  description: Major increased attack damage but longer cooldown
+  purchaseIcon: {fileID: 21300000, guid: a039c008c8bc4c44ca47922f9e801463, type: 3}
   prefab: {fileID: 7660733433171842739, guid: 7642c1bfd765845499416034bc8ee70f, type: 3}
   previewMesh: {fileID: -7990379704155441804, guid: 5a0c019d5cebe6a4eac421bce5649dee,
     type: 3}
