@@ -1523,7 +1523,7 @@ GameObject:
   - component: {fileID: 1794857029984022269}
   - component: {fileID: 777492862583916884}
   - component: {fileID: 9035459604962170740}
-  - component: {fileID: 6499781610766130301}
+  - component: {fileID: 1314795064029756253}
   m_Layer: 5
   m_Name: SellTowerButton
   m_TagString: Untagged
@@ -1645,7 +1645,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &6499781610766130301
+--- !u!114 &1314795064029756253
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1654,12 +1654,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1678159775415138501}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b725d5b3ea0846c3a32ea13b67904205, type: 3}
+  m_Script: {fileID: 11500000, guid: a946fb9b51644ac8aa85a0f5247ba888, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ButtonType: 1
   isAnimatedOnClick: 1
   isAnimatedOnHover: 1
+  _soundClip: {fileID: 8300000, guid: e942c3ca9fced484c9650191d7d01161, type: 3}
 --- !u!1 &1845418192269331058
 GameObject:
   m_ObjectHideFlags: 0
