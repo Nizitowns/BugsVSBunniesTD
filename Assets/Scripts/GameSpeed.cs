@@ -82,6 +82,22 @@ namespace DefaultNamespace
             lastSpeed = currentSpeed;
         }
 
+        public void CycleSpeed()
+        {
+            switch (currentSpeed)
+            {
+                case GameSpeedX.X1:
+                    SetGameSpeed(GameSpeedX.X2);
+                    break;
+                case GameSpeedX.X2:
+                    SetGameSpeed(GameSpeedX.X4);
+                    break;
+                case GameSpeedX.X4:
+                    SetGameSpeed(GameSpeedX.X1);
+                    break;
+            }
+        }
+
         public GameSpeedX GetCurrentSpeed => currentSpeed;
 
         public bool IsGamePaused => currentSpeed == GameSpeedX.X0;
