@@ -14,7 +14,7 @@ namespace DefaultNamespace
         }
         
         public static GameSpeed Instance;
-        private GameSpeedX lastSpeed;
+        private GameSpeedX lastSpeed = GameSpeedX.X1;
         private GameSpeedX currentSpeed;
 
         private bool hardPause = false;
@@ -33,7 +33,7 @@ namespace DefaultNamespace
 
         private void Start()
         {
-            currentSpeed = GameSpeedX.X1;
+            SetGameSpeed(GameSpeedX.X1);
         }
 
         private void Update()
