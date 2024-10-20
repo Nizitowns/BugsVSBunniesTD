@@ -21583,7 +21583,7 @@ MonoBehaviour:
       snapSpawning: 1
     PostWaveDelay: 6
     WaitUntilCompletion: 1
-  waveIncomingSoundFx: {fileID: 0}
+  waveIncomingSoundFx: {fileID: 8300000, guid: efa8899e844d9c34db0b685f8db83f45, type: 3}
 --- !u!4 &1049860678
 Transform:
   m_ObjectHideFlags: 0
