@@ -213,7 +213,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: -4400}
-  m_SizeDelta: {x: 355, y: 789}
+  m_SizeDelta: {x: 300, y: 789}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5613104424398740415
 CanvasRenderer:
@@ -243,24 +243,25 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Created by Team Kronos of the Colossus Forge Division  for the P1 july
-    game sprint.\r\n\r\nBugBunny was created by:\r\n\r\nCoding:\r\nEric Patrick\r\nMiranda
-    Henning\r\n\r\nArtists:\r\nDaisy Velasquez\r\nThu Nguyen\r\nEric Leafton\r\nMrinmoyee
-    Nandi\r\n\r\nMusic:\r\nJo\xE3o Santos\r\n\r\nSound Effects:\r\nPeiran Zhao\r\n\r\nDesign:\r\nBrick
-    a Brac Games\r\n\r\nLevel Design:\r\nNathan Barnett\r\n\r\nLeader:\r\nAntony
-    Nizamoglou\r\n\r\nSecond in Command:\r\nDaisy Velasquez\n\n\n\n\nThank you for
-    playing!"
-  m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e5046259be6dda24eb776b4141f34ff7, type: 2}
-  m_sharedMaterial: {fileID: 2759571985489830099, guid: e5046259be6dda24eb776b4141f34ff7,
+  m_text: "Created by Team Kronos of the [P1] Colossus Forge Legion\r\n\r\nBugs vs
+    Bunnies was created by:\r\n\r\nCoding:\r\nEric Patrick\r\nMiranda Henning\r\nKadir
+    Kul\n\r\nArtists:\r\nDaisy Velasquez\r\nThu Nguyen\r\nEric Leafton\r\nMrinmoyee
+    Nandi\r\nTingyue Wang\r\nAlanna Latourette\r\nCatherine Goering\nSheila Johnson\r\n\nMusic:\r\nJo\xE3o
+    Santos\nLeandro Polack\r\n\r\nSound Effects:\r\nPeiran Zhao\nLeandro Polack\r\n\r\nDesign:\r\nAlex
+    Esten\r\n\rAlex Smith\n\nLevel Design:\r\nNathan Barnett\nAziz Hamza\r\nMUGWANEZA
+    MANZI Audace\r\n\r\nProduction:\r\nAntony Nizamoglou\r\n\rElena Hall\n\n\nThank
+    you for playing!"
+  m_isRightToLeft: 1
+  m_fontAsset: {fileID: 11400000, guid: f1996a1e2f5fa5a42809ebf126c0e88f, type: 2}
+  m_sharedMaterial: {fileID: 6869366312779387892, guid: f1996a1e2f5fa5a42809ebf126c0e88f,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4279609586
-  m_fontColor: {r: 0.9490197, g: 0.65882355, b: 0.08235294, a: 1}
+    rgba: 4281162895
+  m_fontColor: {r: 0.56078434, g: 0.36078432, b: 0.1764706, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -277,8 +278,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40
-  m_fontSizeBase: 40
+  m_fontSize: 35
+  m_fontSizeBase: 35
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
