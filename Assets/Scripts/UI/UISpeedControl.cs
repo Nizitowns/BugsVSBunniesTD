@@ -11,12 +11,16 @@ namespace DefaultNamespace
             SetSpeed();
         }
 
-        public void SetSpeed()
+        public virtual void SetSpeed()
         {
             switch (SpeedToSet)
             {
                 case GameSpeed.GameSpeedX.X0:
-                    GameSpeed.Instance.PauseGame();
+                    if(GameSpeed.Instance.IsGamePaused)
+                        GameSpeed.Instance.ResumeGame();
+                    else
+                        GameSpeed.Instance.PauseGame();
+
                     break;
                 case GameSpeed.GameSpeedX.X1:
                     GameSpeed.Instance.ResumeGame(true);

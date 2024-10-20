@@ -36,19 +36,6 @@ namespace DefaultNamespace
             currentSpeed = GameSpeedX.X1;
         }
 
-        private void Update()
-        {
-            if (InputGather.Instance.SpaceButton && !hardPause)
-            {
-                GameSpeedX[] speeds = (GameSpeedX[])Enum.GetValues(typeof(GameSpeedX));
-
-                int currentIndex = Array.IndexOf(speeds, currentSpeed);
-                currentIndex = (currentIndex + 1) % speeds.Length;
-
-                SetGameSpeed(speeds[currentIndex]);
-            }
-        }
-
         public void PauseGame(bool hardPause = false)
         {
             currentSpeed = GameSpeedX.X0;
@@ -96,5 +83,7 @@ namespace DefaultNamespace
         }
 
         public GameSpeedX GetCurrentSpeed => currentSpeed;
+
+        public bool IsGamePaused => currentSpeed == GameSpeedX.X0;
     }
 }
