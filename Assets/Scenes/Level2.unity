@@ -9077,7 +9077,7 @@ PrefabInstance:
     - target: {fileID: 5925602540533622388, guid: 340f469b45fdf764eb886fa12888295f,
         type: 3}
       propertyPath: Balance
-      value: 2147483647
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 6712369484484658918, guid: 340f469b45fdf764eb886fa12888295f,
         type: 3}
