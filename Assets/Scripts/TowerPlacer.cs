@@ -159,7 +159,11 @@ public class TowerPlacer : MonoBehaviour
         _currentTowerPlacementGrid = FindClosest(InputGather.Instance.GetMousePosition());
         if (_currentTowerPlacementGrid != null)
         {
-            previewPlacerMeshFilter.transform.position = Vector3.Lerp(previewPlacerMeshFilter.transform.position, _currentTowerPlacementGrid.GetPlacementPosition.position, Time.unscaledDeltaTime * 10);
+            previewPlacerMeshFilter.transform.position = Vector3.Lerp(previewPlacerMeshFilter.transform.position, _currentTowerPlacementGrid.GetPlacementPosition.position, Time.unscaledDeltaTime * 25);
+        }
+        else
+        {
+            previewPlacerMeshFilter.transform.position = InputGather.Instance.GetMousePosition();
         }
     }
     
@@ -206,6 +210,11 @@ public class TowerPlacer : MonoBehaviour
             }
         }
 
+        if (closestDistanceSqr > 175)
+        {
+            return null;
+        }
+        
         return closestTransform;
     }
 
