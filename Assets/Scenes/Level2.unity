@@ -5100,7 +5100,7 @@ MonoBehaviour:
       snapSpawning: 1
     PostWaveDelay: 6
     WaitUntilCompletion: 1
-  - ReportedDifficultyRating: 0
+  - ReportedDifficultyRating: 2
     enemiesToSpawn:
     - EnemyConfig: {fileID: 11400000, guid: 24ae7144d649cc347b2c2d2d60777d55, type: 2}
       SpawnAmount: 2
@@ -5124,7 +5124,7 @@ MonoBehaviour:
       snapSpawning: 1
     PostWaveDelay: 6
     WaitUntilCompletion: 1
-  - ReportedDifficultyRating: 0
+  - ReportedDifficultyRating: 2
     enemiesToSpawn:
     - EnemyConfig: {fileID: 11400000, guid: 987223ab1290b4f44b5040f97800ca44, type: 2}
       SpawnAmount: 2
@@ -5180,7 +5180,7 @@ MonoBehaviour:
       snapSpawning: 1
     PostWaveDelay: 6
     WaitUntilCompletion: 1
-  - ReportedDifficultyRating: 0
+  - ReportedDifficultyRating: 2
     enemiesToSpawn:
     - EnemyConfig: {fileID: 11400000, guid: 987223ab1290b4f44b5040f97800ca44, type: 2}
       SpawnAmount: 2
@@ -5824,7 +5824,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyWaves:
-  - ReportedDifficultyRating: 0
+  - ReportedDifficultyRating: 1
     enemiesToSpawn:
     - EnemyConfig: {fileID: 11400000, guid: 24ae7144d649cc347b2c2d2d60777d55, type: 2}
       SpawnAmount: 15
@@ -5912,7 +5912,7 @@ MonoBehaviour:
       snapSpawning: 1
     PostWaveDelay: 6
     WaitUntilCompletion: 1
-  - ReportedDifficultyRating: 0
+  - ReportedDifficultyRating: 2
     enemiesToSpawn:
     - EnemyConfig: {fileID: 11400000, guid: 24ae7144d649cc347b2c2d2d60777d55, type: 2}
       SpawnAmount: 1
@@ -5932,7 +5932,7 @@ MonoBehaviour:
       snapSpawning: 1
     PostWaveDelay: 6
     WaitUntilCompletion: 1
-  - ReportedDifficultyRating: 0
+  - ReportedDifficultyRating: 2
     enemiesToSpawn:
     - EnemyConfig: {fileID: 11400000, guid: 987223ab1290b4f44b5040f97800ca44, type: 2}
       SpawnAmount: 1
