@@ -7755,23 +7755,25 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Team Kronos of the Colossus Forge Division:\r\n\r\n \r\n\r\nCoding:\r\nEric
-    Patrick\r\nMiranda Henning\r\nKadir Kul \r\n\r\nArtists:\r\nDaisy Velasquez\r\nThu
-    Nguyen\r\nEric Leafton\r\nMrinmoyee Nandi\r\n\rTingyue Wang\nAlanna Latourette\n\r\nAudio:\r\nJo\xE3o
-    Santos\r\nPeiran Zhao\r\nLeandro Polack\r\n\r\nGame Design:\r\nAlex Esten, (Brick
-    a Brac Games)\r\n\r\nLevel Design:\r\nNathan Barnett\r\nAziz Hamza\r\n\r\nProduction:\r\nElena
-    Hall\r\n\r\nLeader:\r\nAntony Nizamoglou"
+  m_text: "Created by Team Kronos of the [P1] Colossus Forge Legion\r\n\r\nBugs vs
+    Bunnies was created by:\r\n\r\nCoding:\r\nEric Patrick\r\nMiranda Henning\r\nKadir
+    Kul\n\r\nArtists:\r\nDaisy Velasquez\r\nThu Nguyen\r\nEric Leafton\r\nMrinmoyee
+    Nandi\r\nTingyue Wang\r\nAlanna Latourette\r\nCatherine Goering\nSheila Johnson\r\n\nMusic:\r\nJo\xE3o
+    Santos\nLeandro Polack\r\n\r\nSound Effects:\r\nPeiran Zhao\nLeandro Polack\r\n\r\nDesign:\r\nAlex
+    Esten\r\n\rAlex Smith\n\nLevel Design:\r\nNathan Barnett\nAziz Hamza\r\nMUGWANEZA
+    MANZI Audace\r\n\r\nProduction:\r\nAntony Nizamoglou\r\n\rElena Hall\n\n\nThank
+    you for playing!"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e5046259be6dda24eb776b4141f34ff7, type: 2}
-  m_sharedMaterial: {fileID: 2759571985489830099, guid: e5046259be6dda24eb776b4141f34ff7,
+  m_fontAsset: {fileID: 11400000, guid: 3cbc63cbeabeb0d44be0f4aa812c6b1d, type: 2}
+  m_sharedMaterial: {fileID: 1992119596052254777, guid: 3cbc63cbeabeb0d44be0f4aa812c6b1d,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4279609586
-  m_fontColor: {r: 0.9490197, g: 0.65882355, b: 0.08235294, a: 1}
+    rgba: 4288864767
+  m_fontColor: {r: 1, g: 0.882353, b: 0.63529414, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -7788,10 +7790,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40
-  m_fontSizeBase: 40
+  m_fontSize: 18
+  m_fontSizeBase: 35
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -7827,7 +7829,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &950638687
