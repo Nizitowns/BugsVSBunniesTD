@@ -40,7 +40,7 @@ namespace DefaultNamespace
         
         public override void OnHoverInfo(bool toggle)
         {
-            if (!Interactable) return;
+            if (_towerConfig == null) return;
             _upgradeHoverInfo.ToggleHoverInfo(toggle, _towerConfig.selectedTitle, _towerConfig.description);
         }
     }
