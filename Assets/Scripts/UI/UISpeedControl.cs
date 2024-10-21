@@ -14,20 +14,36 @@ namespace DefaultNamespace
 
         public override void OnStart()
         {
-            if (TogglePause)
-            {
-                _image.sprite = resumeSprite;
-            }
-            else
-            {
-                _image.sprite = OneX;
-            }
+            ChangePauseIcon(false);
+        }
 
+        private void OnEnable()
+        {
+            GameSpeed.OnGamePaused += ChangePauseIcon;
+        }
+
+        private void OnDisable()
+        {
+            GameSpeed.OnGamePaused -= ChangePauseIcon;
         }
 
         public override void OnClick()
         {
             SetSpeed();
+        }
+
+        private void ChangePauseIcon(bool isPaused)
+        {
+            if (!TogglePause) return;
+            
+            if (isPaused)
+            {
+                _image.sprite = pauseSprite;
+            }
+            else
+            {
+                _image.sprite = resumeSprite;
+            }
         }
 
         public void SetSpeed()
@@ -37,12 +53,10 @@ namespace DefaultNamespace
                 if (GameSpeed.Instance.IsGamePaused)
                 {
                     GameSpeed.Instance.ResumeGame();
-                    _image.sprite = resumeSprite;
                 }
                 else
                 {
                     GameSpeed.Instance.PauseGame();
-                    _image.sprite = pauseSprite;
                 }
             }
             else
