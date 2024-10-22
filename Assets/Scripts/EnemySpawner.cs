@@ -9,6 +9,8 @@ public class EnemySpawner : MonoBehaviour
     //The last EnemySpawner to start running, TODO: Replace with a more comprehensive system if multiple enemy spawners are used.
     public static EnemySpawner LatestLaunched;
 
+    [SerializeField] private ePhase _phase;
+
     public List<EnemyWave> enemyWaves = new();
 
     private float enemiesWantedToSpawnThisWave;
@@ -133,7 +135,7 @@ public class EnemySpawner : MonoBehaviour
                     var g = Instantiate(enemyToSpawn.EnemyConfig.prefab, spawnPos, transform.rotation, transform);   //TODO: enemiesToSpawn[0]
                     var enemy = g.GetComponent<Enemy>();
                     spawnedEnemies.Add(enemy);
-                    enemy.Initialize(enemyToSpawn.EnemyConfig);  //TODO: enemiesToSpawn[0]
+                    enemy.Initialize(enemyToSpawn.EnemyConfig, _phase);  //TODO: enemiesToSpawn[0]
 
                     if (initTarget != null)
                     {

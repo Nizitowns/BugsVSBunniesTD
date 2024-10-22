@@ -2440,6 +2440,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 383357676}
   m_PrefabAsset: {fileID: 0}
+--- !u!225 &385964621 stripped
+CanvasGroup:
+  m_CorrespondingSourceObject: {fileID: 7280302045566161498, guid: 20c0e2be6a3b59b47a7907c631221e3a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1305298489938862580}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &395534522
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5100,7 +5106,7 @@ MonoBehaviour:
       snapSpawning: 1
     PostWaveDelay: 6
     WaitUntilCompletion: 1
-  - ReportedDifficultyRating: 0
+  - ReportedDifficultyRating: 2
     enemiesToSpawn:
     - EnemyConfig: {fileID: 11400000, guid: 24ae7144d649cc347b2c2d2d60777d55, type: 2}
       SpawnAmount: 2
@@ -5124,7 +5130,7 @@ MonoBehaviour:
       snapSpawning: 1
     PostWaveDelay: 6
     WaitUntilCompletion: 1
-  - ReportedDifficultyRating: 0
+  - ReportedDifficultyRating: 2
     enemiesToSpawn:
     - EnemyConfig: {fileID: 11400000, guid: 987223ab1290b4f44b5040f97800ca44, type: 2}
       SpawnAmount: 2
@@ -5180,7 +5186,7 @@ MonoBehaviour:
       snapSpawning: 1
     PostWaveDelay: 6
     WaitUntilCompletion: 1
-  - ReportedDifficultyRating: 0
+  - ReportedDifficultyRating: 2
     enemiesToSpawn:
     - EnemyConfig: {fileID: 11400000, guid: 987223ab1290b4f44b5040f97800ca44, type: 2}
       SpawnAmount: 2
@@ -5824,7 +5830,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyWaves:
-  - ReportedDifficultyRating: 0
+  - ReportedDifficultyRating: 1
     enemiesToSpawn:
     - EnemyConfig: {fileID: 11400000, guid: 24ae7144d649cc347b2c2d2d60777d55, type: 2}
       SpawnAmount: 15
@@ -5912,7 +5918,7 @@ MonoBehaviour:
       snapSpawning: 1
     PostWaveDelay: 6
     WaitUntilCompletion: 1
-  - ReportedDifficultyRating: 0
+  - ReportedDifficultyRating: 2
     enemiesToSpawn:
     - EnemyConfig: {fileID: 11400000, guid: 24ae7144d649cc347b2c2d2d60777d55, type: 2}
       SpawnAmount: 1
@@ -5932,7 +5938,7 @@ MonoBehaviour:
       snapSpawning: 1
     PostWaveDelay: 6
     WaitUntilCompletion: 1
-  - ReportedDifficultyRating: 0
+  - ReportedDifficultyRating: 2
     enemiesToSpawn:
     - EnemyConfig: {fileID: 11400000, guid: 987223ab1290b4f44b5040f97800ca44, type: 2}
       SpawnAmount: 1
@@ -6227,6 +6233,12 @@ MonoBehaviour:
   nextNode: {fileID: 656754010}
   altNextNode: {fileID: 0}
   NodeRadius: 2
+--- !u!225 &1101299081 stripped
+CanvasGroup:
+  m_CorrespondingSourceObject: {fileID: 5517157550343426752, guid: 20c0e2be6a3b59b47a7907c631221e3a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1305298489938862580}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1102055505
 GameObject:
   m_ObjectHideFlags: 0
@@ -9198,6 +9210,21 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1853117405009789049, guid: 340f469b45fdf764eb886fa12888295f,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1305298489938862581}
+    - target: {fileID: 1853117405009789049, guid: 340f469b45fdf764eb886fa12888295f,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: TweenToggle
+      objectReference: {fileID: 0}
+    - target: {fileID: 1853117405009789049, guid: 340f469b45fdf764eb886fa12888295f,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 385964621}
     - target: {fileID: 2518518091769633346, guid: 340f469b45fdf764eb886fa12888295f,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -9328,6 +9355,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5904269972348048237, guid: 340f469b45fdf764eb886fa12888295f,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1305298489938862581}
+    - target: {fileID: 5904269972348048237, guid: 340f469b45fdf764eb886fa12888295f,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: TweenToggle
+      objectReference: {fileID: 0}
+    - target: {fileID: 5904269972348048237, guid: 340f469b45fdf764eb886fa12888295f,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 1101299081}
     - target: {fileID: 5913558179617787152, guid: 340f469b45fdf764eb886fa12888295f,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -9341,7 +9383,7 @@ PrefabInstance:
     - target: {fileID: 5925602540533622388, guid: 340f469b45fdf764eb886fa12888295f,
         type: 3}
       propertyPath: Balance
-      value: 2147483647
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 6712369484484658918, guid: 340f469b45fdf764eb886fa12888295f,
         type: 3}

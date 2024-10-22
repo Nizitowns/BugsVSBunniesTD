@@ -2669,8 +2669,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abf6da8976135a345b7f4494e08f421d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _phase: 1
   enemyWaves:
-  - ReportedDifficultyRating: 0
+  - ReportedDifficultyRating: 1
     enemiesToSpawn:
     - EnemyConfig: {fileID: 11400000, guid: bb93ab8c7692a2441a4df4e28b3c9921, type: 2}
       SpawnAmount: 20
@@ -2678,7 +2679,7 @@ MonoBehaviour:
       snapSpawning: 1
     PostWaveDelay: 6
     WaitUntilCompletion: 1
-  - ReportedDifficultyRating: 0
+  - ReportedDifficultyRating: 2
     enemiesToSpawn:
     - EnemyConfig: {fileID: 11400000, guid: bb93ab8c7692a2441a4df4e28b3c9921, type: 2}
       SpawnAmount: 3
@@ -2758,7 +2759,7 @@ MonoBehaviour:
       snapSpawning: 1
     PostWaveDelay: 6
     WaitUntilCompletion: 1
-  - ReportedDifficultyRating: 0
+  - ReportedDifficultyRating: 2
     enemiesToSpawn:
     - EnemyConfig: {fileID: 11400000, guid: 9c7758d600e43ec4f9aeb4eaa95c5f8c, type: 2}
       SpawnAmount: 2
@@ -2814,7 +2815,7 @@ MonoBehaviour:
       snapSpawning: 1
     PostWaveDelay: 6
     WaitUntilCompletion: 1
-  - ReportedDifficultyRating: 0
+  - ReportedDifficultyRating: 2
     enemiesToSpawn:
     - EnemyConfig: {fileID: 11400000, guid: 9c7758d600e43ec4f9aeb4eaa95c5f8c, type: 2}
       SpawnAmount: 2
@@ -21458,6 +21459,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abf6da8976135a345b7f4494e08f421d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _phase: 0
   enemyWaves:
   - ReportedDifficultyRating: 1
     enemiesToSpawn:
