@@ -100,7 +100,6 @@ public class WaveEndHook : MonoBehaviour
     public void ToggleActive()
     {
         OnWaveEnded?.Invoke();
-        GameSpeed.Instance.SetGameSpeed(GameSpeed.GameSpeedX.X1);
         ToggleOnComplete.SetActive(!ToggleOnComplete.gameObject.activeSelf);
     }
 }

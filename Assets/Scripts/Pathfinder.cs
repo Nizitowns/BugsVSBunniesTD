@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using System.Collections;
 using UnityEngine.AI;
@@ -8,6 +9,7 @@ public class Pathfinder : MonoBehaviour
     public enum PathType {DebugChargeBase,FollowPaths };
     public PathType MoveType;
 
+    private DefaultEnemy _owner;
 
     private Rigidbody body;
     private NavMeshAgent agent;
@@ -21,6 +23,7 @@ public class Pathfinder : MonoBehaviour
     
     void Start()
     {
+        _owner = GetComponent<DefaultEnemy>();
         body=GetComponent<Rigidbody>();
         agent=GetComponent<NavMeshAgent>();
         softlock = softlockChecker();
@@ -52,6 +55,8 @@ public class Pathfinder : MonoBehaviour
         {
             currentNode = PathManager.Instance.getEntryNode();
         }
+        
+        
 
         agent.SetDestination(currentNode.transform.position);
         if (Vector3.Distance(transform.position, currentNode.transform.position) < currentNode.NodeRadius)
@@ -80,9 +85,13 @@ public class Pathfinder : MonoBehaviour
                     PathNode nextNode = currentNode.getNext();
                     if (nextNode != null)
                     {
+                        _owner.CalculatePassedNodes(currentNode.transform.position, nextNode.transform.position);
                         currentNode = nextNode;
                     }
-
+                    else
+                    {
+                        _owner.CalculatePassedNodes(currentNode.transform.position, BaseCenter.Instance.transform.position);
+                    }
                 }
             }
         }

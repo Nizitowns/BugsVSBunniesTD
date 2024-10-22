@@ -2669,6 +2669,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abf6da8976135a345b7f4494e08f421d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _phase: 1
   enemyWaves:
   - ReportedDifficultyRating: 1
     enemiesToSpawn:
@@ -21458,6 +21459,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abf6da8976135a345b7f4494e08f421d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _phase: 0
   enemyWaves:
   - ReportedDifficultyRating: 1
     enemiesToSpawn:

@@ -1,14 +1,23 @@
 using DefaultNamespace;
 using DefaultNamespace.OnDeathEffects;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
+
+public enum ePhase
+{
+    FirstPhase,
+    SecondPhase,
+}
 public interface IEnemyUnit : IDamagable
 {
     // TODO Add Modifiable Struct Unit
     public EnemyScriptableObject Config { get; }
     public IDebuffHandler DebuffHandler { get; }
     public Transform mTransform { get; }
+    public int pathNodeCount { get; set; }
+    public ePhase ePhase { get; set; }
     public bool IsDead { get; }
     public float Speed { get; set; }
     public void Kill(bool givesMoney);
@@ -20,6 +29,8 @@ public abstract class Enemy : MonoBehaviour, IEnemyUnit, IDebuffable
     public EnemyScriptableObject Config { get; private set; }
 
     public IDebuffHandler DebuffHandler { get; private set; }
+    public int pathNodeCount { get; set; }
+    public ePhase ePhase { get; set; }
     public bool IsDead { get; private set; }
     public Transform mTransform { get; private set; }
     [SerializeField] protected float currentHealth;
@@ -35,7 +46,7 @@ public abstract class Enemy : MonoBehaviour, IEnemyUnit, IDebuffable
         set =>agent.speed = value;
     }
 
-    public virtual void Initialize(EnemyScriptableObject Config)
+    public virtual void Initialize(EnemyScriptableObject Config, ePhase phase)
     {
         this.Config = Config;
         mTransform = transform;
@@ -44,6 +55,7 @@ public abstract class Enemy : MonoBehaviour, IEnemyUnit, IDebuffable
         currentHealth = Config.maxHealth;
         gameObject.tag = "enemies";
         DebuffHandler = new EnemyDebuffHandler(this);
+        ePhase = phase;
 
         if (Config.isBoss)
         {
@@ -91,14 +103,24 @@ public abstract class Enemy : MonoBehaviour, IEnemyUnit, IDebuffable
             MoneyManager.instance.AddMoney(Config.moneyReward);
             SoundFXPlayer.PlaySFX(SoundFXPlayer.Source, DeathSX);
         }
+        
         IsDead = true;
         if(_healthBar != null)
             Destroy(_healthBar.gameObject);
+
+        ScoreManager.Instance.EnemyDied(this);
         Destroy(gameObject);
     }
 
     public void ApplyDebuff(Debuff newDebuff)
     {
         DebuffHandler.ApplyDebuff(newDebuff);
+    }
+
+    public void CalculatePassedNodes(Vector3 firstPos, Vector3  secondPos)
+    {
+        float distance = Vector3.Distance(firstPos, secondPos);;
+        var tilePassed = distance / 10;
+        pathNodeCount += Mathf.RoundToInt(tilePassed);
     }
 }

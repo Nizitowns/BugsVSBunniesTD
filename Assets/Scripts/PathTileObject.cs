@@ -9,7 +9,6 @@ namespace DefaultNamespace
         
         public DirectionData directionData = new DirectionData();
         
-        
         private void OnDrawGizmos()
         {
             if (!Debugger.ShowObstacleFacingDirection) return;

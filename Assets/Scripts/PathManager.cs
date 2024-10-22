@@ -1,5 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
+using DefaultNamespace;
 using UnityEngine;
 
 public class PathManager : MonoBehaviour
@@ -8,9 +8,26 @@ public class PathManager : MonoBehaviour
     [Tooltip("The start pathnodes that enemies can choose to spawn from.")]
     public List<PathNode> EntryNodes;
 
+    public int firstPhaseNodeCount { get; private set; }
+    public int secondPhaseNodeCount { get; private set; }
+
     void Start()
     {
-        Instance = this;
+        if (Instance == null)
+        {
+            var nodeCount = FindObjectsOfType<PathTileObject>();
+            firstPhaseNodeCount = nodeCount.Length;
+            Instance = this;
+        }
+        else if (Instance != this)
+        {
+            var nodeCount = FindObjectsOfType<PathTileObject>();
+            firstPhaseNodeCount = Instance.firstPhaseNodeCount;
+            secondPhaseNodeCount = nodeCount.Length - firstPhaseNodeCount;
+            Instance = this;
+        }
+        
+        // Debug.Log(firstPhaseNodeCount);
     }
     public PathNode getEntryNode()
     {
@@ -18,7 +35,6 @@ public class PathManager : MonoBehaviour
     }
     private void OnDrawGizmos()
     {
-
         PathNode node =transform.GetChild(0).GetComponent<PathNode>();
         List<PathNode> visited = new List<PathNode>();
         Queue<PathNode> queue = new Queue<PathNode>();
