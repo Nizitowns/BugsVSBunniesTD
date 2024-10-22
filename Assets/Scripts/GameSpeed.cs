@@ -77,7 +77,7 @@ namespace DefaultNamespace
             
             OnGamePaused?.Invoke(false);
             
-            Time.timeScale = (int)speed * 10;
+            Time.timeScale = (int)speed;
             currentSpeed = speed;
             lastSpeed = currentSpeed;
         }
