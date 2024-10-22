@@ -47,6 +47,7 @@ public class Pathfinder : MonoBehaviour
         {
             agent.SetDestination(BaseCenter.Instance.transform.position);
             
+            _owner.CalculatePassedNodes(currentNode.transform.position, BaseCenter.Instance.transform.position);
         }
     }
     bool goToNextNode()
@@ -87,10 +88,6 @@ public class Pathfinder : MonoBehaviour
                     {
                         _owner.CalculatePassedNodes(currentNode.transform.position, nextNode.transform.position);
                         currentNode = nextNode;
-                    }
-                    else
-                    {
-                        _owner.CalculatePassedNodes(currentNode.transform.position, BaseCenter.Instance.transform.position);
                     }
                 }
             }

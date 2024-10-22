@@ -5041,6 +5041,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abf6da8976135a345b7f4494e08f421d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _phase: 0
   enemyWaves:
   - ReportedDifficultyRating: 0
     enemiesToSpawn:
@@ -5829,6 +5830,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abf6da8976135a345b7f4494e08f421d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _phase: 0
   enemyWaves:
   - ReportedDifficultyRating: 1
     enemiesToSpawn:
@@ -11388,10 +11390,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6271975281939723232, guid: 20c0e2be6a3b59b47a7907c631221e3a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7118775993055764219, guid: 20c0e2be6a3b59b47a7907c631221e3a,
         type: 3}
       propertyPath: m_Name
       value: Pause Menu Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 8856851053255048797, guid: 20c0e2be6a3b59b47a7907c631221e3a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
