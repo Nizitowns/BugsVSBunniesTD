@@ -175,6 +175,8 @@ public class TowerPlacer : MonoBehaviour
             {
                 source?.Play();
                 _currentTowerPlacementGrid.AddTower(selectedTower.TowerScriptable);
+                SelectedTower = null;
+                _currentMode = eCurrentMode.None;
             }
         }
     }
