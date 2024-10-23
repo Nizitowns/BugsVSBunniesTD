@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using DefaultNamespace.TowerSystem;
 using DG.Tweening;
 using UnityEngine;
@@ -22,6 +24,7 @@ namespace DefaultNamespace
             PlacedTowerConfig = towerScriptableObject;
             PlacedTowerObject = Instantiate(PlacedTowerConfig.prefab, PlacementPosition.position, Quaternion.identity);
             PlacedTowerObject.GetComponent<NewTowerBase>().Initiliaze(PlacedTowerConfig);
+            StartCoroutine(CoDissolve(true));
             PlacedTowerObject.AnimatedPlacement();
         }
 
@@ -44,7 +47,37 @@ namespace DefaultNamespace
                 return;
             }
             
+            StartCoroutine(CoDissolve(false));
             PlacedTowerObject.AnimatedRemove();
+        }
+
+
+        private IEnumerator CoDissolve(bool dissolveIn)
+        {
+            float elapsedTime = 0;
+            var renderers = PlacedTowerObject.GetComponentsInChildren<Renderer>();
+            List<Material> materials = new List<Material>();
+            foreach (var render in renderers)
+            {
+                materials.Add(render.material);
+            }
+            
+            while (elapsedTime < 1)
+            {
+                elapsedTime += Time.deltaTime;
+                float dissolveAmount = 0;
+                
+                if (dissolveIn)
+                    dissolveAmount = Mathf.Lerp(1, 0, elapsedTime / 1);
+                else
+                    dissolveAmount = Mathf.Lerp(0, 1, elapsedTime / 1);
+
+                foreach (var material in materials)
+                {
+                    material.SetFloat("_DissolveStrenght", dissolveAmount);
+                }
+                yield return null;
+            }
         }
     }
 }
