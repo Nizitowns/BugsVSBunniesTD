@@ -267,11 +267,21 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -11123911785362075, guid: 8043e1b62f843f943a0494c22d407b7b,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 691ab27271412a5428e94027a1edc95b, type: 2}
     - target: {fileID: 919132149155446097, guid: 8043e1b62f843f943a0494c22d407b7b,
         type: 3}
       propertyPath: m_Name
       value: WindbladeUG2
       objectReference: {fileID: 0}
+    - target: {fileID: 5590506899595823058, guid: 8043e1b62f843f943a0494c22d407b7b,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 691ab27271412a5428e94027a1edc95b, type: 2}
     - target: {fileID: 7427077303551084136, guid: 8043e1b62f843f943a0494c22d407b7b,
         type: 3}
       propertyPath: m_LocalPosition.x

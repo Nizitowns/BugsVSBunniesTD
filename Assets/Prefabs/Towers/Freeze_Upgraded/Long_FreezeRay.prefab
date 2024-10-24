@@ -178,11 +178,21 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -6665858792321833427, guid: 86538312444058f4cb1a77d1cd92a541,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6122e12b0716afe47996327b77e2abbe, type: 2}
     - target: {fileID: 919132149155446097, guid: 86538312444058f4cb1a77d1cd92a541,
         type: 3}
       propertyPath: m_Name
       value: FreezerayUG1
       objectReference: {fileID: 0}
+    - target: {fileID: 3077216002611476764, guid: 86538312444058f4cb1a77d1cd92a541,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6122e12b0716afe47996327b77e2abbe, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:

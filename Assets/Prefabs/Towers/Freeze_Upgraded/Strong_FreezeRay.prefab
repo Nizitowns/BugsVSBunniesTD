@@ -188,6 +188,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: FreezerayUG2
       objectReference: {fileID: 0}
+    - target: {fileID: 5586055201824258296, guid: d83e7a62b03e3b943840ddfede908fc8,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6122e12b0716afe47996327b77e2abbe, type: 2}
+    - target: {fileID: 8758613328923600652, guid: d83e7a62b03e3b943840ddfede908fc8,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6122e12b0716afe47996327b77e2abbe, type: 2}
     - target: {fileID: 8863925792487902272, guid: d83e7a62b03e3b943840ddfede908fc8,
         type: 3}
       propertyPath: m_Name
